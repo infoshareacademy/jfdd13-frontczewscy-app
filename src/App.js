@@ -1,11 +1,39 @@
 import React from 'react';
 import './App.css';
 
-function App() {
+function NavBar() {
+  return (
+    <nav>
+    
+    </nav>
+  )
+};
+
+function SideBar() {
   return (
     <div>
-      <h1>Frontczewscy App</h1>
+      
     </div>
+  )
+};
+
+function Content() {
+  return (
+    <div>
+    
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <NavBar />
+    <SideBar />
+    <Content>
+      <div>
+        <h1>Frontczewscy App</h1>
+      </div>
+    </Content>   
   );
 }
 
