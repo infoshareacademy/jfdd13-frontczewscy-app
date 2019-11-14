@@ -7,8 +7,6 @@ function Content(props) {
   return <div>{props.children}</div>;
 }
 
-<Navbar />;
-
 function App() {
   return (
     <Fragment>
