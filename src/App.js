@@ -1,39 +1,21 @@
-import React from 'react';
-import './App.css';
+import React, { Fragment } from "react";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
 
-function NavBar() {
-  return (
-    <nav>
-    
-    </nav>
-  )
-};
-
-function SideBar() {
-  return (
-    <div>
-      
-    </div>
-  )
-};
-
-function Content() {
-  return (
-    <div>
-    
-    </div>
-  )
+function Content(props) {
+  return <div>{props.children}</div>;
 }
 
 function App() {
   return (
-    <NavBar />
-    <SideBar />
-    <Content>
-      <div>
+    <Fragment>
+      <Navbar />
+      <Sidebar />
+      <Content>
         <h1>Frontczewscy App</h1>
-      </div>
-    </Content>   
+      </Content>
+    </Fragment>
   );
 }
 
