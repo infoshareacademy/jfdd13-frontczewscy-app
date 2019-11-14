@@ -7,10 +7,11 @@ function Content(props) {
   return <div>{props.children}</div>;
 }
 
+<Navbar />;
+
 function App() {
   return (
     <Fragment>
-      <Navbar />
       <Sidebar />
       <Content>
         <h1>Frontczewscy App</h1>
