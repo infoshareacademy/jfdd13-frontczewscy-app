@@ -1,7 +1,7 @@
 import React from "react";
 
 function AddForm() {
-  return null;
+  return <h1>Dodaj wydarzenie</h1>;
 }
 
 export default AddForm;
