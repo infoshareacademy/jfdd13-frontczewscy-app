@@ -1,3 +1,17 @@
 .sidebar {
+    
     height: 100vh;
+}
+.btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0 !important;
+    transform: translateX(0px);
+    color: rgb(232, 219, 255) !important;
+    background: rgb(69, 112, 255) !important;
+    z-index: 20 !important;
+    backface-visibility: visible !important;
+    overflow: shown !important;
+    border-radius: 0 !important;
 }
