@@ -1,21 +1,30 @@
-import React, { Fragment } from "react";
-import "./App.css";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
+import Search from "./components/Search";
+import Charts from "./components/Charts";
+import AddForm from "./components/AddForm";
+import Profile from "./components/Profile";
 
-function Content(props) {
-  return <div>{props.children}</div>;
-}
-
-function App() {
+const App = () => {
   return (
-    <Fragment>
-      <Sidebar />
-      <Content>
-        <h1>Frontczewscy App</h1>
-      </Content>
-    </Fragment>
+    <Router>
+      <div>
+        <Navbar />
+        <Switch>
+          <Route exact strict sensitive path="/" component={Charts} />
+          <Route exact path="/dodaj-wydarzenie" component={AddForm} />
+          <Route exact path="/wyszukaj" component={Search} />
+          <Route exact path="/profil" component={Profile} />
+          <Route component={() => <h1>404 - Przykro nam nie ma takiej strony</h1>} />
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
