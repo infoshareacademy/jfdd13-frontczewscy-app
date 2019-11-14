@@ -16,3 +16,9 @@ code {
   margin: 0 !important;
   transition: 0.5s;
 }
+
+#root > div > div > div > div.pusher > button > i {
+  height: auto;
+  margin: 0;
+  transform: translateX(-20px);
+}

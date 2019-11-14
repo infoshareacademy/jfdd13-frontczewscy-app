@@ -1,11 +1,14 @@
 import React, { Fragment } from "react";
 import Sidebar from "./Sidebar";
+import styles from "./Search.module.css";
 
 function Search() {
   return (
     <Fragment>
       <Sidebar>
-        <h1>Content of the search component</h1>
+        <div className={styles.content}>
+          <h1>Content of the search component</h1>
+        </div>
       </Sidebar>
     </Fragment>
   );
