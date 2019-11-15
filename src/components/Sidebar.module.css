@@ -1,6 +1,7 @@
-.sidebar {  
-    min-height: 100vh;
+.sidebar {
+    min-height: 80vh;
 }
+
 .btn {
     position: absolute;
     right: -20px;

@@ -12,8 +12,7 @@ const VerticalSidebar = ({ animation, direction, visible }) => (
     inverted
     vertical
     visible={visible}
-    width="thin"
-  >
+    width="thin">
     <Menu.Item as="a">Wyszukaj po nazwie</Menu.Item>
     <Menu.Item as="a">Kategorie</Menu.Item>
     <Menu.Item as="a">średnia cena</Menu.Item>
@@ -26,7 +25,7 @@ VerticalSidebar.propTypes = {
   visible: PropTypes.bool
 };
 
-export default class SidebarExampleTransitions extends Component {
+export default class SidebarSearch extends Component {
   state = {
     animation: "overlay",
     direction: "right",
@@ -42,16 +41,19 @@ export default class SidebarExampleTransitions extends Component {
     this.setState({ direction, visible: false });
 
   handleIconChange = () => {
-    this.state.iconName ? this.setState({iconName: false}) : this.setState({iconName: true})
-  }   
+    this.state.iconName
+      ? this.setState({ iconName: false })
+      : this.setState({ iconName: true });
+  };
 
   render() {
     const { animation, dimmed, direction, visible } = this.state;
     const vertical = direction === "bottom" || direction === "top";
-    const iconUse = this.state.iconName ? 'arrow alternate circle left' : "arrow alternate circle right outline"
+    const iconUse = this.state.iconName
+      ? "arrow alternate circle left"
+      : "arrow alternate circle right outline";
     return (
       <div>
-        
         <Sidebar.Pushable as={Segment} className={styles.sidebar}>
           {vertical ? null : (
             <VerticalSidebar
@@ -63,13 +65,15 @@ export default class SidebarExampleTransitions extends Component {
 
           <Sidebar.Pusher dimmed={dimmed && visible}>
             <Button
-          className={styles.btn}
-          disabled={vertical}
-          onClick={this.handleAnimationChange('slide along')}
-        >
-          <Icon name={iconUse} onClick={this.handleIconChange} size='large' />
-          
-        </Button>
+              className={styles.btn}
+              disabled={vertical}
+              onClick={this.handleAnimationChange("slide along")}>
+              <Icon
+                name={iconUse}
+                onClick={this.handleIconChange}
+                size="large"
+              />
+            </Button>
             <Segment basic>{this.props.children}</Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
