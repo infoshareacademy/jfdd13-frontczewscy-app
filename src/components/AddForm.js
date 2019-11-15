@@ -1,7 +1,7 @@
 import React from "react";
 import * as Yup from "yup";
 import { Formik } from "formik";
-import { Input, TextArea, Form } from "semantic-ui-react";
+import { Input, TextArea, Form, Button } from "semantic-ui-react";
 import styles from "./AddForm.module.css";
 
 function AddForm() {
@@ -20,6 +20,7 @@ function AddForm() {
       <Input focus type="text" placeholder="PHONE NUMBER" id="name" />
       <label>LONG DESCRIPTION</label>
       <Form><TextArea f rows={2} placeholder='Tell us more' /></Form>
+      <Button fluid>SUBMIT</Button>
 
     </div>)
 }
