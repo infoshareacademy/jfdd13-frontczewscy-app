@@ -22,3 +22,8 @@ code {
   margin: 0;
   transform: translateX(-20px);
 }
+
+#root > div > div > div > div.pusher > div {
+  margin: 0;
+  padding: 0;
+}
