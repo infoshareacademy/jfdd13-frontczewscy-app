@@ -28,3 +28,7 @@
 .btn i, .close  i{
     margin: 0 !important;
 }
+
+.slider {
+    margin: 30px 0;
+}

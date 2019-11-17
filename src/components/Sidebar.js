@@ -2,6 +2,26 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { Form, Dropdown, Button, Icon, Menu, Segment, Sidebar, Input } from "semantic-ui-react";
 import styles from "./Sidebar.module.css";
+import InputRange from 'react-input-range';
+import "react-input-range/lib/css/index.css"
+ 
+class SearchSlider extends React.Component {
+  state = {
+      value: 50,
+  }
+ 
+  render() {
+    return (
+      <InputRange
+          maxValue={500}
+          minValue={0}
+          value={this.state.value}
+          onChange={value => this.setState({ value })}
+          onChangeComplete={value => console.log(value)} />
+    );
+  }
+}
+
 
 const options = [
   { key: 1, text: 'Imprezy', value: 1 },
@@ -59,7 +79,11 @@ export default class SidebarSearch extends Component {
           <Menu.Item as="a">Kategorie
           <CategoryDropdown />
           </Menu.Item>
-          <Menu.Item as="a">średnia cena</Menu.Item>
+          <Menu.Item as="a">Średnia cena [zł]
+          <div className={styles.slider}>
+            <SearchSlider />
+          </div>
+          </Menu.Item>
           <Button>Szukaj</Button>
         </Form>
       </Sidebar>

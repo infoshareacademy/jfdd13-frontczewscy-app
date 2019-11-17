@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 import styles from "./Search.module.css";
 import { posts } from "./data"
 
+
 const extra = (
   <a>
     <Icon name="user" />
