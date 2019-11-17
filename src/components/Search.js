@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Card, Icon } from "semantic-ui-react";
 import Sidebar from "./Sidebar";
 import styles from "./Search.module.css";
+import { posts } from "./data"
 
 const extra = (
   <a>
@@ -10,13 +11,15 @@ const extra = (
   </a>
 );
 
-const Item = () => {
+const Item = props => {
+  const { description, img, title } = props;
+
   return (
     <Card
-      image="/images/avatar/large/elliot.jpg"
-      header="Elliot Baker"
+      image={img}
+      header={title}
       meta="Friend"
-      description="Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat."
+      description={`${description.replace(/^(.{35}[^\s]*).*/, "$1")}...`}
       extra={extra}
     />
   );
@@ -28,9 +31,11 @@ function Search() {
       <Sidebar>
         <div className={styles.content}>
           <div className={styles.row}>
-            <Item />
-            <Item />
-            <Item />
+            {posts.map(post => (
+              <div className={styles.item}>
+                <Item key={post.id} description={post.description} img={post.img} title={post.title} />
+              </div>
+            ))}
           </div>
         </div>
       </Sidebar>
