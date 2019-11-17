@@ -4,27 +4,26 @@
 
 .btn {
     position: absolute;
-    right: -20px;
-    top: 0;
-    padding: 10px !important;
+    right: 0px;
+    top: 0px;
+    color: rgb(0, 0, 0) !important;
+}
+
+.close {
+    color: rgb(255, 255, 255) !important;
+}
+
+.btn, .close {    
+    padding: 20px  30px !important;
     margin: 0 !important;
-    transform: translateX(0px);
-    color: rgb(232, 219, 255) !important;
-    background: rgb(69, 112, 255) !important;
+    transform: translateX(0px);    
+    background: transparent !important;
     z-index: 20 !important;
     backface-visibility: visible !important;
     overflow: shown !important;
     border-radius: 0 !important;
 }
 
-.btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -20px;
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(69, 112, 255);
-    z-index: -1;
+.btn i, .close  i{
+    margin: 0 !important;
 }
