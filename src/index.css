@@ -45,8 +45,15 @@ code {
   width: 200px;
 }
 
+.ui.selection.dropdown {
+  min-width: 165px;
+}
+
 @media (max-width: 700px) {
   .ui.thin.left.sidebar, .ui.thin.right.sidebar {
     width: 150px;
+  }
+  .ui.selection.dropdown {
+    min-width: 120px;
   }
 }

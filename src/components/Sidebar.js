@@ -1,7 +1,18 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { Button, Icon, Menu, Segment, Sidebar } from "semantic-ui-react";
+import { Form, Dropdown, Button, Icon, Menu, Segment, Sidebar, Input } from "semantic-ui-react";
 import styles from "./Sidebar.module.css";
+
+const options = [
+  { key: 1, text: 'Imprezy', value: 1 },
+  { key: 2, text: 'Puby', value: 2 },
+  { key: 3, text: 'Wydarzenia', value: 3 },
+]
+
+const CategoryDropdown = () => (
+  <Dropdown clearable options={options} selection />
+)
+
 
 export default class SidebarSearch extends Component {
   state = {
@@ -41,9 +52,16 @@ export default class SidebarSearch extends Component {
         >
           <Icon name="x" size="large" />
         </Button>
-        <Menu.Item as="a">Wyszukaj po nazwie</Menu.Item>
-        <Menu.Item as="a">Kategorie</Menu.Item>
-        <Menu.Item as="a">średnia cena</Menu.Item>
+        <Form>
+          <Menu.Item as="a">Wyszukaj po nazwie
+          <Input />
+          </Menu.Item>
+          <Menu.Item as="a">Kategorie
+          <CategoryDropdown />
+          </Menu.Item>
+          <Menu.Item as="a">średnia cena</Menu.Item>
+          <Button>Szukaj</Button>
+        </Form>
       </Sidebar>
     );
 
