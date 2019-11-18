@@ -19,3 +19,5 @@ class SearchSlider extends React.Component {
     );
   }
 }
+
+export default SearchSlider;

@@ -14,14 +14,55 @@ import styles from "./Sidebar.module.css";
 import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 
-class VerticalSidebar extends Component {
+const VerticalSidebar = props => {
+  const { animation, closeSidebar, direction, visible } = props;
+  return (
+    <Sidebar
+      as={Menu}
+      animation={animation}
+      direction={direction}
+      icon="labeled"
+      inverted
+      vertical
+      visible={visible}
+      width="thin">
+      <Button className={styles.close} onClick={closeSidebar("scale down")}>
+        <Icon name="x" size="large" />
+      </Button>
+      <Form>
+        <Menu.Item as="a">
+          Wyszukaj po nazwie
+          <Input />
+        </Menu.Item>
+        <Menu.Item as="a">
+          Kategorie
+          <CategoryDropdown />
+        </Menu.Item>
+        <Menu.Item as="a">
+          Maksymalna cena [zł]
+          <div className={styles.slider}>
+            <SearchSlider />
+          </div>
+        </Menu.Item>
+        <Button>Szukaj</Button>
+      </Form>
+    </Sidebar>
+  );
+};
+
+VerticalSidebar.propTypes = {
+  animation: PropTypes.string,
+  direction: PropTypes.string,
+  visible: PropTypes.bool
+};
+
+class SearchSlider extends React.Component {
   state = {
     value: 50
   };
 
   render() {
-    const { animation, closeSidebar, direction, visible } = this.props;
-    const SearchSlider = () => (
+    return (
       <InputRange
         maxValue={500}
         minValue={0}
@@ -29,38 +70,6 @@ class VerticalSidebar extends Component {
         onChange={value => this.setState({ value })}
         onChangeComplete={value => console.log(value)}
       />
-    );
-    return (
-      <Sidebar
-        as={Menu}
-        animation={animation}
-        direction={direction}
-        icon="labeled"
-        inverted
-        vertical
-        visible={visible}
-        width="thin">
-        <Button className={styles.close} onClick={closeSidebar("scale down")}>
-          <Icon name="x" size="large" />
-        </Button>
-        <Form>
-          <Menu.Item as="a">
-            Wyszukaj po nazwie
-            <Input />
-          </Menu.Item>
-          <Menu.Item as="a">
-            Kategorie
-            <CategoryDropdown />
-          </Menu.Item>
-          <Menu.Item as="a">
-            Maksymalna cena [zł]
-            <div className={styles.slider}>
-              <SearchSlider />
-            </div>
-          </Menu.Item>
-          <Button>Szukaj</Button>
-        </Form>
-      </Sidebar>
     );
   }
 }
