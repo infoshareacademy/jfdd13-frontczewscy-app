@@ -25,16 +25,20 @@
 }
 
 .right>li {
-    padding: 15px;
-    cursor: pointer;
     list-style-type: none;
+}
+.right>li>a {
+    padding: 7px;
+    margin: 0px 10px 0px;
+    cursor: pointer;
+
 }
 
 a {
     color: #fff;
 }
 
-.right>li :hover{
+.right>li :hover {
     color: white;
     text-shadow: 2px 2px 5px black;
 }

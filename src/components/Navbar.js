@@ -14,7 +14,7 @@ import Logo from '../logoconcerte2.png'
   <nav className={styles.navbar}>
       <div className={styles.left}><NavLink to="/" exact><img className={styles.logo} src = { Logo } /></NavLink></div>
       <ul className={styles.right}>
-          <li><NavLink to="/wyszukaj"exact><Search />Wyszukiwanie imprez</NavLink></li>
+          <li><NavLink activeClassName={"active-link"} to="/wyszukaj"exact><Search />Wyszukiwanie imprez</NavLink></li>
           <li><NavLink to="/"exact><Chart />Wykresy</NavLink></li>
           <li><NavLink to="/dodaj-wydarzenie"exact><AddEvent />Dodaj wydarzenie</NavLink></li>
           <li><NavLink to="/profil"exact><Profile />Profil</NavLink></li>
