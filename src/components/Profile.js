@@ -1,7 +1,12 @@
 import React from 'react';
 
 function Profile() {
-    return <h1>User Profile</h1>
+    return <div>
+        <div>
+            <div>Zdjęcie</div>
+            <div>informcje</div>
+        </div>
+    </div>
 }
 
 export default Profile;
