@@ -1,0 +1,13 @@
+.content {
+    height: calc(100vh - 38px);
+    overflow-y: scroll;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.item {
+    margin: 20px;
+}
