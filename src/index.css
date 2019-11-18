@@ -1,13 +1,65 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.ui.button:not(.icon)>.right.icon:not(.button):not(.dropdown) {
+  margin: 0 !important;
+  transition: 0.5s;
+}
+
+#root>div>div>div {
+  border: none;
+}
+
+#root>div>div>div>div.pusher>button>i {
+  height: auto;
+  margin: 0;
+  transform: translateX(-20px);
+}
+
+#root>div>div>div>div.pusher>div {
+  margin: 0;
+  padding: 0;
+}
+
+#root>div>div>div>div.ui.inverted.vertical.labeled {
+  transition: 0.5s;
+  visibility: visible;
+}
+
+.ui.visible.scale.down.sidebar~.pusher {
+  transform: scale(0.82) !important;
+}
+
+.ui.scale.down.right.sidebar~.pusher>div>div>div {
+  margin: 0 40px !important;
+}
+
+.ui.thin.left.sidebar, .ui.thin.right.sidebar {
+  width: 200px;
+}
+
+.ui.selection.dropdown {
+  min-width: 165px;
+}
+
+@media (max-width: 700px) {
+  .ui.thin.left.sidebar, .ui.thin.right.sidebar {
+    width: 150px;
+  }
+  .ui.selection.dropdown {
+    min-width: 120px;
+  }
+}
+
+.active-link {
+  background-color: #9C27B0;
+  border-radius: 5px;
 }
