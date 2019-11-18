@@ -57,3 +57,7 @@ code {
     min-width: 120px;
   }
 }
+.active-link {
+  background-color: #9C27B0;
+  border-radius: 5px;
+}
