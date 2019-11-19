@@ -25,9 +25,7 @@ const accountFormSchema = Yup.object().shape({
     .min(5, 'Za krótki opis')
     .max(69, 'Za długi opis')
     .required("Pole wymagane!"),
-    image: Yup.string().required("Pole wymagane!").matches(imageRegEx, 'Błędny format url'),
-  // date: Yup.string(),
-  // partyType: Yup.string(),
+  image: Yup.string().required("Pole wymagane!").matches(imageRegEx, 'Błędny format url'),
   price: Yup.string()
     .matches(priceRegEx, 'Błędny format ceny! Poprawny format xx.xx'),
   address: Yup.string(),
@@ -104,135 +102,133 @@ const AddForm = () => (
         console.log(values)
         return (
           <div className={styles.addForm}>
-          <form onSubmit={handleSubmit}>
-            <label>TYTUŁ</label>
-            <TextInput
-              type="text"
-              name="title"
-              placeholder="nazwa imprezy"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.title}
-              touched={touched}
-              errors={errors}
-              label={{ icon: 'asterisk' }}
-              labelPosition='right corner'
-            />
-            <label>OPIS</label>
-            <TextInput
-              type="text"
-              name="description"
-              placeholder="krótki opis"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.Description}
-              touched={touched}
-              errors={errors}
-              label={{ icon: 'asterisk' }}
-              labelPosition='right corner'
-            />
-            <label>ZDJĘCIE</label>
-            <TextInput
-              type="text"
-              name="image"
-              placeholder="url zdjęcia"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.image}
-              touched={touched}
-              errors={errors}
-              label={{ icon: 'asterisk' }}
-              labelPosition='right corner'
-              
-            />
-            <label>DATA DODANIA</label>
-            <TextInput
-              type="text"
-              name="date"
-              placeholder="data wydarzenia"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.date}
-              touched={touched}
-              errors={errors}
-            />
-            <label>CENA ZA OSOBĘ</label>
-            <TextInput
+            <form onSubmit={handleSubmit}>
+              <label>TYTUŁ</label>
+              <TextInput
+                type="text"
+                name="title"
+                placeholder="nazwa imprezy"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.title}
+                touched={touched}
+                errors={errors}
+                label={{ icon: 'asterisk' }}
+                labelPosition='right corner'
+              />
+              <label>OPIS</label>
+              <TextInput
+                type="text"
+                name="description"
+                placeholder="krótki opis"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.Description}
+                touched={touched}
+                errors={errors}
+                label={{ icon: 'asterisk' }}
+                labelPosition='right corner'
+              />
+              <label>ZDJĘCIE</label>
+              <TextInput
+                type="text"
+                name="image"
+                placeholder="url zdjęcia"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.image}
+                touched={touched}
+                errors={errors}
+                label={{ icon: 'asterisk' }}
+                labelPosition='right corner'
 
-              type="text"
-              name="price"
-              placeholder="cena za osobę"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.price}
-              touched={touched}
-              errors={errors}
-              label='ZŁ'
-              
-              
-            />
-            <label>ADRES</label>
-            <TextInput
-              type="text"
-              name="address"
-              placeholder="adres wydarzenia"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.address}
-              touched={touched}
-              errors={errors}
-            />
-            <label>NR KONTAKTOWY</label>
-            <TextInput
-              type="text"
-              name="phoneNumber"
-              placeholder="numer kontaktowy"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.phoneNumber}
-              touched={touched}
-              errors={errors}
-            />
-            <label>EMAIL</label>
-            <TextInput
-              type="email"
-              name="email"
-              placeholder="e-mail"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
-              touched={touched}
-              errors={errors}
-              label={{ icon: 'asterisk' }}
-              labelPosition='right corner'
-            />
-            <label>STRONA</label>
-            <TextInput
+              />
+              <label>DATA DODANIA</label>
+              <TextInput
+                type="text"
+                name="date"
+                placeholder="data wydarzenia"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.date}
+                touched={touched}
+                errors={errors}
+              />
+              <label>CENA ZA OSOBĘ</label>
+              <TextInput
 
-              type="text"
-              name="website"
-              placeholder="Strona internetowa"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.website}
-              touched={touched}
-              errors={errors}
-            />
-            <label>RODZAJ IMPREZY</label>
-            <SelectInput
-              name="partyType"
-              placeholder="Rodzaj imprezy"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.partyType}
-              touched={touched}
-              errors={errors} 
-             />
+                type="text"
+                name="price"
+                placeholder="cena za osobę"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.price}
+                touched={touched}
+                errors={errors}
+                label='ZŁ'
 
 
+              />
+              <label>ADRES</label>
+              <TextInput
+                type="text"
+                name="address"
+                placeholder="adres wydarzenia"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.address}
+                touched={touched}
+                errors={errors}
+              />
+              <label>NR KONTAKTOWY</label>
+              <TextInput
+                type="text"
+                name="phoneNumber"
+                placeholder="numer kontaktowy"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.phoneNumber}
+                touched={touched}
+                errors={errors}
+              />
+              <label>EMAIL</label>
+              <TextInput
+                type="email"
+                name="email"
+                placeholder="e-mail"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+                touched={touched}
+                errors={errors}
+                label={{ icon: 'asterisk' }}
+                labelPosition='right corner'
+              />
+              <label>STRONA</label>
+              <TextInput
 
-            <Button className={styles.formBtn} content='DODAJ WYDARZENIE' type="submit" />
-          </form>
+                type="text"
+                name="website"
+                placeholder="Strona internetowa"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.website}
+                touched={touched}
+                errors={errors}
+              />
+              <label>RODZAJ IMPREZY</label>
+              <SelectInput
+                name="partyType"
+                placeholder="Rodzaj imprezy"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.partyType}
+                touched={touched}
+                errors={errors}
+              />
+
+              <Button className={styles.formBtn} content='DODAJ WYDARZENIE' type="submit" />
+            </form>
           </div>
         )
       }}
