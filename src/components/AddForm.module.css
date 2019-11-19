@@ -15,7 +15,17 @@ form {
 }
 form div {
     width: 500px;
+    justify-content: center;
 }
 select {
     width: 500px; 
+}
+
+.ui.button {
+    margin-top: 10px;
+    width: 50%;
+}
+
+.error {
+    color: brown;
 }

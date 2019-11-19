@@ -1,7 +1,6 @@
 import React from "react";
 import { Formik, Field } from "formik";
 import { Input, TextArea, Form, Button, Select } from "semantic-ui-react";
-import { DropdownField } from "./DropdownField";
 import * as Yup from "yup";
 import moment from 'moment'
 import styles from "./AddForm.module.css";
@@ -29,11 +28,13 @@ const partyOptions = [
 const accountFormSchema = Yup.object().shape({
   title: Yup.string()
     .min(5, 'Za krótki tytuł')
-    .max(69, 'Za długi tytuł'),
+    .max(69, 'Za długi tytuł')
+    .required("Pole wymagane!"),
   description: Yup.string()
     .min(5, 'Za krótki opis')
-    .max(69, 'Za długi opis'),
-  // image: Yup.string(),
+    .max(69, 'Za długi opis')
+    .required("Pole wymagane!"),
+    image: Yup.string().required("Pole wymagane!"),
   // date: Yup.string(),
   // partyType: Yup.string(),
   price: Yup.string()
@@ -53,7 +54,7 @@ const TextInput = props => {
   return (
     <div >
       <Input {...props} error={errors[name] && touched[name]} />
-      <div>{errors[name] && touched[name] && errors[name]}</div>
+      <div className={styles.error}>{errors[name] && touched[name] && errors[name]}</div>
     </div>
   );
 };
@@ -126,6 +127,8 @@ const AddForm = () => (
               value={values.title}
               touched={touched}
               errors={errors}
+              label={{ icon: 'asterisk' }}
+              labelPosition='right corner'
             />
             <label>OPIS</label>
             <TextInput
@@ -137,17 +140,22 @@ const AddForm = () => (
               value={values.Description}
               touched={touched}
               errors={errors}
+              label={{ icon: 'asterisk' }}
+              labelPosition='right corner'
             />
             <label>ZDJĘCIE</label>
             <TextInput
-              type="file"
+              type="text"
               name="image"
-              placeholder="zdjęcie"
+              placeholder="url zdjęcia"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.image}
               touched={touched}
               errors={errors}
+              label={{ icon: 'asterisk' }}
+              labelPosition='right corner'
+              
             />
             <label>DATA</label>
             <TextInput
@@ -203,6 +211,8 @@ const AddForm = () => (
               value={values.email}
               touched={touched}
               errors={errors}
+              label={{ icon: 'asterisk' }}
+              labelPosition='right corner'
             />
             <label>STRONA</label>
             <TextInput
@@ -224,11 +234,12 @@ const AddForm = () => (
               onBlur={handleBlur}
               value={values.partyType}
               touched={touched}
-              errors={errors} />
+              errors={errors} 
+             />
 
 
 
-            <button type="submit">Submit</button>
+            <Button className={styles.formBtn} content='Click Here' type="submit" />
           </form>
           </div>
         )
