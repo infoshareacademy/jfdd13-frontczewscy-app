@@ -2,14 +2,13 @@ import React, { Fragment } from "react";
 import { Card, Icon } from "semantic-ui-react";
 import Sidebar from "./Sidebar";
 import styles from "./Search.module.css";
-import { posts } from "./data"
-
+import { posts } from "./data";
 
 const extra = (
-  <a>
+  <div>
     <Icon name="user" />
     16 Friends
-  </a>
+  </div>
 );
 
 const Item = props => {
@@ -33,8 +32,12 @@ function Search() {
         <div className={styles.content}>
           <div className={styles.row}>
             {posts.map(post => (
-              <div className={styles.item}>
-                <Item key={post.id} description={post.description} img={post.img} title={post.title} />
+              <div key={post.id} className={styles.item}>
+                <Item
+                  description={post.description}
+                  img={post.img}
+                  title={post.title}
+                />
               </div>
             ))}
           </div>

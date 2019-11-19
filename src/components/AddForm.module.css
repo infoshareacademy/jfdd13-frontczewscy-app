@@ -1,0 +1,31 @@
+.addForm {
+    display:flex;
+    flex-direction: column;
+    width: 50vw;
+    justify-content: center;
+    text-align: center;
+    margin: 10vh auto;
+
+}
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+form div {
+    width: 500px;
+    justify-content: center;
+}
+select {
+    width: 500px; 
+}
+
+.ui.button {
+    margin-top: 10px;
+    width: 50%;
+}
+
+.error {
+    color: brown;
+}

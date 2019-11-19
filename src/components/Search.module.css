@@ -1,5 +1,5 @@
 .content {
-    height: calc(100vh - 38px);
+    height: calc(100vh - 40px);
     overflow-y: scroll;
 }
 
@@ -8,6 +8,7 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .item {
     margin: 20px;
 }
