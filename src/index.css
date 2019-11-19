@@ -63,3 +63,8 @@ code {
   background-color: #9C27B0;
   border-radius: 5px;
 }
+
+
+#root > div > div > div > form > div:nth-child(10) > div.ui.labeled.input > div {
+  width: 50px;
+}

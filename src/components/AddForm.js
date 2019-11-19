@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik, Field } from "formik";
-import { Input, TextArea, Form, Button, Select } from "semantic-ui-react";
+import { Input, TextArea, Form, Button, Select, Label } from "semantic-ui-react";
 import * as Yup from "yup";
 import moment from 'moment'
 import styles from "./AddForm.module.css";
@@ -158,6 +158,7 @@ const AddForm = () => (
             />
             <label>CENA ZA OSOBĘ</label>
             <TextInput
+
               type="text"
               name="price"
               placeholder="cena za osobę"
@@ -166,6 +167,9 @@ const AddForm = () => (
               value={values.price}
               touched={touched}
               errors={errors}
+              label='ZŁ'
+              
+              
             />
             <label>ADRES</label>
             <TextInput
