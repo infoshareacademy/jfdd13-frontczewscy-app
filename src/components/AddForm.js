@@ -165,7 +165,7 @@ const AddForm = () => (
                 value={values.price}
                 touched={touched}
                 errors={errors}
-                label='ZŁ'
+                label={<span style={{width: '50px', backgroundColor: '#e8e8e8'}}>ZŁ</span>}
 
 
               />
