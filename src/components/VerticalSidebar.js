@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Button, Icon, Menu, Sidebar, Input } from "semantic-ui-react";
 import { Formik } from "formik";
-import styles from "./Sidebar.module.css";
+import styles from "./Search.module.css";
 import "react-input-range/lib/css/index.css";
 
 const TextInput = props => {

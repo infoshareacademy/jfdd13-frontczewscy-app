@@ -35,7 +35,7 @@ code {
 }
 
 .ui.visible.scale.down.sidebar~.pusher {
-  transform: scale(0.82) !important;
+  transform: scale(0.77) !important;
 }
 
 .ui.scale.down.right.sidebar~.pusher>div>div>div {
@@ -43,24 +43,32 @@ code {
 }
 
 .ui.thin.left.sidebar, .ui.thin.right.sidebar {
-  width: 200px;
+  width: 250px;
   overflow-x: hidden;
 }
 
 .ui.selection.dropdown {
-  min-width: 165px;
+  min-width: 235px;
 }
 
-#root>div>div>div>div.ui.inverted.vertical.labeled.icon.ui.scale.down.right.thin.visible.sidebar.menu>form>div:nth-child(2)>div {
+/* #root>div>div>div>div.ui.inverted.vertical.labeled.icon.ui.scale.down.right.thin.visible.sidebar.menu>form>div:nth-child(2)>div {
   width: auto;
+  background-color: 
+} */
+
+.ui.input>input {
+  width: 235px;
 }
 
 @media (max-width: 700px) {
   .ui.thin.left.sidebar, .ui.thin.right.sidebar {
-    width: 150px;
+    width: 200px;
   }
   .ui.selection.dropdown {
-    min-width: 120px;
+    min-width: 190px;
+  }
+  .ui.input>input {
+    width: 190px;
   }
 }
 
@@ -71,4 +79,8 @@ code {
 
 .dropdown {
   width: 180px;
+}
+
+.AddForm_addForm__2SgDg form .dropdown {
+  width: 100%;
 }
