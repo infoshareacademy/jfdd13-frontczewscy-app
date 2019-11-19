@@ -1,0 +1,8 @@
+.addForm {
+    display:flex;
+    flex-direction: column;
+    width: 50vw;
+    justify-content: center;
+    text-align: center;
+    margin: 10vh auto;
+}
