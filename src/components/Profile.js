@@ -31,25 +31,6 @@ const CardExampleImageCard = () => (
     </div>
   )
 
-//   const RandomProfile = () => (
-//     <div class="ui card">
-//     <div class="image">
-//       <img src="https://react.semantic-ui.com/images/avatar/large/daniel.jpg" />
-//     </div>
-//     <div class="content">
-//       <div class="header">Daniel</div>
-//       <div class="meta">Joined in 2016</div>
-//       <div class="description">Daniel is a comedian living in Nashville.</div>
-//     </div>
-//     <div class="extra content">
-//       <a>
-//         <i aria-hidden="true" class="user icon"></i>
-//         10 Friends
-//       </a>
-//     </div>
-//   </div>
-//   )
-  
 
 
 
