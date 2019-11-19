@@ -1,7 +1,37 @@
 import React from 'react';
+import { Card, Icon, Image } from 'semantic-ui-react'
+import styles from "./Profile.module.css";
 
-function Profile() {
-    return <h1>User Profile</h1>
-}
 
-export default Profile;
+
+const CardExampleImageCard = () => (
+    <div className={styles.container}>
+    <Card className={styles.card}>
+      <Image src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' wrapped ui={false} />
+      <Card.Content>
+        <Card.Header>Kajetan Kowalski</Card.Header>
+        <Card.Meta>Joined in 2019</Card.Meta>
+        <Card.Description>
+            Nie będę się reklamował. 
+            Nie lubię pisać o sobie, trzeba mnie poznać.
+            Jestem miłym i normalnym facetem mającym swoje pasje.
+            W polu „wymarzona partnerka” pustka.
+            Nie ma ideałów...
+            Jak znajdę to będę wiedział...
+            Szukam kobiety, która mnie zrozumie.
+        </Card.Description>
+      </Card.Content>
+      <Card.Content extra>
+        <a>
+          <Icon name='comment' />
+          10 Comments
+        </a>
+      </Card.Content>
+    </Card>
+    </div>
+  )
+
+
+
+
+  export default CardExampleImageCard
