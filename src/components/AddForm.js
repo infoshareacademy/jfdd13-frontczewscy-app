@@ -6,24 +6,15 @@ import moment from 'moment'
 import styles from "./AddForm.module.css";
 
 
-
+//example of image url
+const sampleURL = 'https://farm4.staticflickr.com/3894/15008518202.c265dfa55f.h.png';
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 const urlRegExp = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
 const priceRegEx = /^\d+(,\d{1,2})/;
+const imageRegEx = /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
 
-const partyOptions = [
-  { key: '1', value: '1', text: 'IMPREZA TANECZNA' },
-  { key: '2', value: '2', text: 'KONCERT' },
-  { key: '3', value: '3', text: 'IMPREZA NIETANECZNA' }]
 
-  const FILE_SIZE = 160 * 1024;
-  const SUPPORTED_FORMATS = [
-    "image/jpg",
-    "image/jpeg",
-    "image/gif",
-    "image/png"
-  ];
 
 const accountFormSchema = Yup.object().shape({
   title: Yup.string()
@@ -34,7 +25,7 @@ const accountFormSchema = Yup.object().shape({
     .min(5, 'Za krótki opis')
     .max(69, 'Za długi opis')
     .required("Pole wymagane!"),
-    image: Yup.string().required("Pole wymagane!"),
+    image: Yup.string().required("Pole wymagane!").matches(imageRegEx, 'Błędny format url'),
   // date: Yup.string(),
   // partyType: Yup.string(),
   price: Yup.string()
@@ -63,14 +54,11 @@ const SelectInput = props => {
   const { name, errors, touched } = props;
   return (
     <div >
-      <select className="ui selection dropdown" options={partyOptions} {...props} error={errors[name] && touched[name]}>
+      <select className="ui selection dropdown" {...props} error={errors[name] && touched[name]}>
         <option value="IMPREZA TANECZNA">IMPREZA TANECZNA</option>
         <option value="KONCERT">KONCERT</option>
         <option value="IMPREZA NIETANECZNA">IMPREZA NIETANECZNA</option>
       </select>
-
-
-
     </div>
   );
 };
@@ -157,7 +145,7 @@ const AddForm = () => (
               labelPosition='right corner'
               
             />
-            <label>DATA</label>
+            <label>DATA DODANIA</label>
             <TextInput
               type="text"
               name="date"
@@ -239,7 +227,7 @@ const AddForm = () => (
 
 
 
-            <Button className={styles.formBtn} content='Click Here' type="submit" />
+            <Button className={styles.formBtn} content='DODAJ WYDARZENIE' type="submit" />
           </form>
           </div>
         )
