@@ -27,7 +27,8 @@ class SidebarSearch extends Component {
     iconName: true,
     filter: {
       title: "",
-      sliderValue: null
+      sliderValue: null,
+      partyType: "all",
     }
   };
 
@@ -38,6 +39,7 @@ class SidebarSearch extends Component {
     this.setState({ direction, visible: false });
 
   handleOnSearch = values => {
+    console.log(values)
     this.setState({
       filter: values
     });
@@ -46,7 +48,7 @@ class SidebarSearch extends Component {
   render() {
     const { animation, dimmed, direction, visible, filter } = this.state;
     const vertical = direction === "bottom" || direction === "top";
-
+    
     return (
       <div>
         <Sidebar.Pushable as={Segment} className={styles.sidebar}>
@@ -69,7 +71,8 @@ class SidebarSearch extends Component {
               <div className={styles.content}>
                 <div className={styles.row}>
                   {posts
-                    .filter(post => post.title.includes(filter.title))
+                    .filter(post => 
+                      (post.title.includes(filter.title)) && (filter.partyType === "all" ? true : post.categories.includes(filter.partyType)))
                     .map(post => (
                       <div key={post.id} className={styles.item}>
                         <Item

@@ -17,9 +17,10 @@ const SelectInput = props => {
   return (
     <div>
       <select className="ui selection dropdown dropdown" {...props}>
+        <option value="all">Wszystkie</option>
         <option value="IMPREZA TANECZNA">IMPREZA TANECZNA</option>
         <option value="KONCERT">KONCERT</option>
-        <option value="IMPREZA NIETANECZNA">IMPREZA NIETANECZNA</option>
+        <option value="IMPREZA NIETANECZNA">IMPREZA NIETANECZNA</option>        
       </select>
     </div>
   );
@@ -36,7 +37,8 @@ const VerticalSidebar = props => {
       inverted
       vertical
       visible={visible}
-      width="thin">
+      width="thin"
+    >
       <Button className={styles.close} onClick={closeSidebar("scale down")}>
         <Icon name="x" size="large" />
       </Button>
@@ -44,14 +46,14 @@ const VerticalSidebar = props => {
       <Formik
         initialValues={{
           title: "",
-          description: "",
           partyType: "",
           sliderValue: 10
         }}
         onSubmit={(values, { setSubmitting }) => {
           setSubmitting(true);
           onSearch(values);
-        }}>
+        }}
+      >
         {({ values, handleChange, handleBlur, handleSubmit }) => {
           return (
             <form onSubmit={handleSubmit}>
@@ -72,19 +74,20 @@ const VerticalSidebar = props => {
                 onBlur={handleBlur}
                 value={values.partyType}
               />
-              <div className={styles.slider}>
-                <div className={styles.sliderLabel}>Maksymalna cena [zł]</div>
+              <div className={styles.sliderContainer}>
+                <div className={styles.sliderLabel}>Maksymalna cena </div>
                 <input
+                  className={styles.slider}
                   type="range"
                   name="sliderValue"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   min="0"
-                  max="100"
+                  max="500"
                   value={values.sliderValue}
-                  step="5"
+                  step="1"
                 />
-                <div className={styles.value}>{values.sliderValue}</div>
+                <div className={styles.value}>{values.sliderValue} zł</div>
               </div>
 
               <button type="submit">Submit</button>

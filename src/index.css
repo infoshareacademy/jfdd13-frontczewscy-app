@@ -9,11 +9,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-.ui.button:not(.icon)>.right.icon:not(.button):not(.dropdown) {
-  margin: 0 !important;
-  transition: 0.5s;
-}
-
 #root>div>div>div {
   border: none;
 }
@@ -50,11 +45,6 @@ code {
 .ui.selection.dropdown {
   min-width: 235px;
 }
-
-/* #root>div>div>div>div.ui.inverted.vertical.labeled.icon.ui.scale.down.right.thin.visible.sidebar.menu>form>div:nth-child(2)>div {
-  width: auto;
-  background-color: 
-} */
 
 .ui.input>input {
   width: 235px;
