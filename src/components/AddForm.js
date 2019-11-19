@@ -1,7 +1,6 @@
 import React from "react";
 import { Formik, Field } from "formik";
 import { Input, TextArea, Form, Button, Select } from "semantic-ui-react";
-import { DropdownField } from "./DropdownField";
 import * as Yup from "yup";
 import moment from 'moment'
 import styles from "./AddForm.module.css";
@@ -18,15 +17,24 @@ const partyOptions = [
   { key: '2', value: '2', text: 'KONCERT' },
   { key: '3', value: '3', text: 'IMPREZA NIETANECZNA' }]
 
+  const FILE_SIZE = 160 * 1024;
+  const SUPPORTED_FORMATS = [
+    "image/jpg",
+    "image/jpeg",
+    "image/gif",
+    "image/png"
+  ];
 
 const accountFormSchema = Yup.object().shape({
   title: Yup.string()
     .min(5, 'Za krótki tytuł')
-    .max(69, 'Za długi tytuł'),
+    .max(69, 'Za długi tytuł')
+    .required("Pole wymagane!"),
   description: Yup.string()
     .min(5, 'Za krótki opis')
-    .max(69, 'Za długi opis'),
-  // image: Yup.string(),
+    .max(69, 'Za długi opis')
+    .required("Pole wymagane!"),
+    image: Yup.string().required("Pole wymagane!"),
   // date: Yup.string(),
   // partyType: Yup.string(),
   price: Yup.string()
@@ -39,13 +47,14 @@ const accountFormSchema = Yup.object().shape({
     .email("Zły format email")
     .required("Pole wymagane!"),
 
+
 });
 const TextInput = props => {
   const { name, errors, touched } = props;
   return (
     <div >
       <Input {...props} error={errors[name] && touched[name]} />
-      <div>{errors[name] && touched[name] && errors[name]}</div>
+      <div className={styles.error}>{errors[name] && touched[name] && errors[name]}</div>
     </div>
   );
 };
@@ -81,9 +90,7 @@ const AddForm = () => (
         address: "",
         phoneNumber: "",
         email: "",
-        website: "",
-        selectParty: "",
-        pet: ""
+        website: ""
 
       }}
       validationSchema={accountFormSchema}
@@ -108,6 +115,7 @@ const AddForm = () => (
       }) => {
         console.log(values)
         return (
+          <div className={styles.addForm}>
           <form onSubmit={handleSubmit}>
             <label>TYTUŁ</label>
             <TextInput
@@ -119,6 +127,8 @@ const AddForm = () => (
               value={values.title}
               touched={touched}
               errors={errors}
+              label={{ icon: 'asterisk' }}
+              labelPosition='right corner'
             />
             <label>OPIS</label>
             <TextInput
@@ -130,17 +140,22 @@ const AddForm = () => (
               value={values.Description}
               touched={touched}
               errors={errors}
+              label={{ icon: 'asterisk' }}
+              labelPosition='right corner'
             />
             <label>ZDJĘCIE</label>
             <TextInput
-              type="file"
+              type="text"
               name="image"
-              placeholder="zdjęcie"
+              placeholder="url zdjęcia"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.image}
               touched={touched}
               errors={errors}
+              label={{ icon: 'asterisk' }}
+              labelPosition='right corner'
+              
             />
             <label>DATA</label>
             <TextInput
@@ -150,17 +165,6 @@ const AddForm = () => (
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.date}
-              touched={touched}
-              errors={errors}
-            />
-            <label>RODZAJ IMPREZY</label>
-            <TextInput
-              type=""
-              name="partyType"
-              placeholder="rodzaj imprezy"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.partyType}
               touched={touched}
               errors={errors}
             />
@@ -207,6 +211,8 @@ const AddForm = () => (
               value={values.email}
               touched={touched}
               errors={errors}
+              label={{ icon: 'asterisk' }}
+              labelPosition='right corner'
             />
             <label>STRONA</label>
             <TextInput
@@ -220,20 +226,22 @@ const AddForm = () => (
               touched={touched}
               errors={errors}
             />
+            <label>RODZAJ IMPREZY</label>
             <SelectInput
-
               name="partyType"
               placeholder="Rodzaj imprezy"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.partyType}
               touched={touched}
-              errors={errors} />
+              errors={errors} 
+             />
 
 
 
-            <button type="submit">Submit</button>
+            <Button className={styles.formBtn} content='Click Here' type="submit" />
           </form>
+          </div>
         )
       }}
     </Formik>
