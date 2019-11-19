@@ -18,6 +18,13 @@ const partyOptions = [
   { key: '2', value: '2', text: 'KONCERT' },
   { key: '3', value: '3', text: 'IMPREZA NIETANECZNA' }]
 
+  const FILE_SIZE = 160 * 1024;
+  const SUPPORTED_FORMATS = [
+    "image/jpg",
+    "image/jpeg",
+    "image/gif",
+    "image/png"
+  ];
 
 const accountFormSchema = Yup.object().shape({
   title: Yup.string()
@@ -38,6 +45,7 @@ const accountFormSchema = Yup.object().shape({
     .max(100, "Za długi email")
     .email("Zły format email")
     .required("Pole wymagane!"),
+
 
 });
 const TextInput = props => {
@@ -81,9 +89,7 @@ const AddForm = () => (
         address: "",
         phoneNumber: "",
         email: "",
-        website: "",
-        selectParty: "",
-        pet: ""
+        website: ""
 
       }}
       validationSchema={accountFormSchema}
@@ -108,6 +114,7 @@ const AddForm = () => (
       }) => {
         console.log(values)
         return (
+          <div className={styles.addForm}>
           <form onSubmit={handleSubmit}>
             <label>TYTUŁ</label>
             <TextInput
@@ -150,17 +157,6 @@ const AddForm = () => (
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.date}
-              touched={touched}
-              errors={errors}
-            />
-            <label>RODZAJ IMPREZY</label>
-            <TextInput
-              type=""
-              name="partyType"
-              placeholder="rodzaj imprezy"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.partyType}
               touched={touched}
               errors={errors}
             />
@@ -220,8 +216,8 @@ const AddForm = () => (
               touched={touched}
               errors={errors}
             />
+            <label>RODZAJ IMPREZY</label>
             <SelectInput
-
               name="partyType"
               placeholder="Rodzaj imprezy"
               onChange={handleChange}
@@ -234,6 +230,7 @@ const AddForm = () => (
 
             <button type="submit">Submit</button>
           </form>
+          </div>
         )
       }}
     </Formik>

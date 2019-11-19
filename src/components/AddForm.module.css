@@ -5,4 +5,17 @@
     justify-content: center;
     text-align: center;
     margin: 10vh auto;
+
+}
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+form div {
+    width: 500px;
+}
+select {
+    width: 500px; 
 }
