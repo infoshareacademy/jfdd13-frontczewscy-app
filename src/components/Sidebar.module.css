@@ -2,6 +2,21 @@
     margin: 0 -2px -3px -2px !important;
 }
 
+.content {
+    height: calc(100vh - 40px);
+    overflow-y: scroll;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.item {
+    margin: 20px;
+}
+
 .btn {
     position: absolute;
     right: 0px;
@@ -32,6 +47,10 @@
     margin: 30px 0;
 }
 
-.label {
+.sliderLabel {
+    color: white;
+}
+
+.value, .label {
     color: white;
 }

@@ -44,10 +44,15 @@ code {
 
 .ui.thin.left.sidebar, .ui.thin.right.sidebar {
   width: 200px;
+  overflow-x: hidden;
 }
 
 .ui.selection.dropdown {
   min-width: 165px;
+}
+
+#root>div>div>div>div.ui.inverted.vertical.labeled.icon.ui.scale.down.right.thin.visible.sidebar.menu>form>div:nth-child(2)>div {
+  width: auto;
 }
 
 @media (max-width: 700px) {
@@ -62,4 +67,8 @@ code {
 .active-link {
   background-color: #9C27B0;
   border-radius: 5px;
+}
+
+.dropdown {
+  width: 180px;
 }
