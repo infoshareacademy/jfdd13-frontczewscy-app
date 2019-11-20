@@ -50,6 +50,16 @@ code {
   width: 235px;
 }
 
+div.Search_content__I_ASS>div>div>div>div.content>div.description {
+  word-wrap: break-word;
+}
+
+div.Search_content__I_ASS>div>div>div>div.image>img {
+  height: 300px !important;
+  object-fit: cover;
+  object-position: center;
+}
+
 @media (max-width: 700px) {
   .ui.thin.left.sidebar, .ui.thin.right.sidebar {
     width: 200px;

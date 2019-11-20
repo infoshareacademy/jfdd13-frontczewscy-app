@@ -1,19 +1,38 @@
 import React, { Component } from "react";
-import { Button, Icon, Segment, Sidebar, Card, Image } from "semantic-ui-react";
-
+import {
+  Button,
+  Icon,
+  Segment,
+  Sidebar,
+  Card,
+  Image,
+  Dimmer,
+  Loader
+} from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import styles from "./Search.module.css";
 import "react-input-range/lib/css/index.css";
 // import { posts } from "./data";
 import VerticalSidebar from "./VerticalSidebar";
 
 const Item = props => {
-  const { description, img, title, date } = props;
+  const { description, img, title, date, id } = props;
 
   return (
     <Card>
-      <Image src={img} wrapped ui={false} />
+      <Image
+        src={
+          img ||
+          "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        }
+        wrapped
+        ui={false}
+      />
+
       <Card.Content>
-        <Card.Header>{title}</Card.Header>
+        <Link className={styles.link} to={`/party/${id}`}>
+          <Card.Header>{title}</Card.Header>
+        </Link>
         <Card.Meta>
           <span className="date">{date}</span>
         </Card.Meta>
@@ -21,12 +40,6 @@ const Item = props => {
           {`${description.replace(/^(.{35}[^\s]*).*/, "$1")}...`}
         </Card.Description>
       </Card.Content>
-      {/* <Card.Content extra>
-        <a>
-          <Icon name="user" />
-          22 Friends
-        </a>
-      </Card.Content> */}
     </Card>
   );
 };
@@ -43,7 +56,8 @@ class SidebarSearch extends Component {
       partyType: "all"
     },
     parties: [],
-    err: ""
+    err: "",
+    loading: true
   };
 
   componentDidMount = () => {
@@ -56,7 +70,9 @@ class SidebarSearch extends Component {
         })
       )
       .then(result => this.setState({ parties: result }))
+      .then(data => this.setState({ loading: false }))
       .catch(err => this.setState({ err: err.message }));
+    // .finally();
   };
 
   handleAnimationChange = animation => () =>
@@ -68,6 +84,7 @@ class SidebarSearch extends Component {
   handleOnSearch = values => {
     // console.log(values)
     console.log(this.state.parties, this.state.err);
+    console.log(this.state.loading);
     this.setState({
       filter: values
     });
@@ -104,6 +121,9 @@ class SidebarSearch extends Component {
 
           <Sidebar.Pusher dimmed={dimmed && visible}>
             <Segment basic>
+              <Dimmer active={this.state.loading} inverted>
+                <Loader>Pobieranie danych</Loader>
+              </Dimmer>
               <div className={styles.content}>
                 <div className={styles.row}>
                   {this.state.parties
@@ -115,6 +135,7 @@ class SidebarSearch extends Component {
                           img={post.image}
                           title={post.title}
                           date={post.date}
+                          id={post.id}
                         />
                       </div>
                     ))}
