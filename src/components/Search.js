@@ -82,9 +82,6 @@ class SidebarSearch extends Component {
     this.setState({ direction, visible: false });
 
   handleOnSearch = values => {
-    // console.log(values)
-    console.log(this.state.parties, this.state.err);
-    console.log(this.state.loading);
     this.setState({
       filter: values
     });
@@ -101,7 +98,7 @@ class SidebarSearch extends Component {
   render() {
     const { animation, dimmed, direction, visible, filter } = this.state;
     const vertical = direction === "bottom" || direction === "top";
-
+    console.log(filter.partyType !== "all" ? filter.partyType : true);
     return (
       <div>
         <Sidebar.Pushable as={Segment} className={styles.sidebar}>
@@ -127,7 +124,13 @@ class SidebarSearch extends Component {
               <div className={styles.content}>
                 <div className={styles.row}>
                   {this.state.parties
-                    .filter(post => post.title.includes(filter.title))
+                    .filter(
+                      post =>
+                        post.title.includes(filter.title) &&
+                        (filter.partyType !== "all"
+                          ? post.partyType.includes(filter.partyType)
+                          : true)
+                    )
                     .map(post => (
                       <div key={post.id} className={styles.item}>
                         <Item
