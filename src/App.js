@@ -18,7 +18,7 @@ const App = () => {
           <Route exact path="/dodaj-wydarzenie" component={AddForm} />
           <Route exact path="/wyszukaj" component={Search} />
           <Route exact path="/profil" component={Profile} />
-          <Route exact path="/:id" component={PartyDetails} />
+          <Route exact path="/party/:id" component={PartyDetails} />
           <Route
             component={() => <h1>404 - Przykro nam nie ma takiej strony</h1>}
           />
