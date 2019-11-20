@@ -99,7 +99,6 @@ const AddForm = () => (
         isSubmitting
         /* and other goodies */
       }) => {
-        console.log(values)
         return (
           <div className={styles.addForm}>
             <form onSubmit={handleSubmit}>
@@ -227,7 +226,7 @@ const AddForm = () => (
                 errors={errors}
               />
 
-              <Button className={styles.formBtn} content='DODAJ WYDARZENIE' type="submit" />
+              <Button className={styles.formBtn} content='DODAJ WYDARZENIE' type="submit" disabled={isSubmitting}/>
             </form>
           </div>
         )
