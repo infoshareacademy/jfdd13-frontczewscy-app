@@ -6,7 +6,8 @@ import {
   Sidebar,
   Card,
   Dimmer,
-  Loader
+  Loader,
+  Pagination
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import styles from "./Search.module.css";
@@ -24,23 +25,23 @@ const Item = props => {
           img ||
           "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
         }
-        style={{
+        style={ {
           height: "300px",
           objectFit: "cover",
           objectPosition: "center"
-        }}
-        alt={title}
+        } }
+        alt={ title }
       />
 
       <Card.Content>
-        <Link className={styles.link} to={`/party/${id}`}>
-          <Card.Header>{title}</Card.Header>
+        <Link className={ styles.link } to={ `/party/${id}` }>
+          <Card.Header>{ title }</Card.Header>
         </Link>
         <Card.Meta>
-          <span className="date">{date}</span>
+          <span className="date">{ date }</span>
         </Card.Meta>
-        <Card.Description>
-          {`${description.replace(/^(.{35}[^\s]*).*/, "$1")}...`}
+        <Card.Description style={{ wordWrap: "break-word", height: "60px" }}>
+          { `${description.replace(/^(.{35}[^\s]*).*/, "$1")}...` }
         </Card.Description>
       </Card.Content>
     </Card>
@@ -62,8 +63,24 @@ class SidebarSearch extends Component {
     page: 1,
     parties: [],
     err: "",
-    loading: true
+    loading: true,
+    activePage: 1,
+    boundaryRange: 1,
+    siblingRange: 1,
+    showEllipsis: true,
+    showFirstAndLastNav: true,
+    showPreviousAndNextNav: true,
+    totalPages: 3,
+    postPerPage: 12
   };
+
+  handleTotalPages = () => {
+    const newTotalPages = Math.ceil(this.state.parties.length / this.state.postPerPage)
+    this.setState({ totalPages: newTotalPages }, () => {
+      console.log(newTotalPages)
+    })
+    
+  }
 
   componentDidMount = () => {
     fetch(`https://frontczewscy-database.firebaseio.com/parties.json`)
@@ -75,8 +92,12 @@ class SidebarSearch extends Component {
         })
       )
       .then(result => this.setState({ parties: result }))
-      .then(data => this.setState({ loading: false }))
-      .catch(err => this.setState({ err: err.message }));
+      .then(data => {
+        
+        this.setState({ loading: false })
+        this.handleTotalPages()
+      })
+      .catch(err => this.setState({ err: err.message }))
   };
 
   handleAnimationChange = animation => () =>
@@ -89,39 +110,57 @@ class SidebarSearch extends Component {
     this.setState({
       filter: values
     });
-    console.log(this.state.parties);
+    this.handleTotalPages();
   };
 
+  handleCheckboxChange = (e, { checked, name }) =>
+    this.setState({ [name]: checked })
+
+  handleInputChange = (e, { name, value }) => this.setState({ [name]: value })
+
+  handlePaginationChange = (e, { activePage }) => this.setState({ activePage })
+
   render() {
-    const { animation, dimmed, direction, visible, filter } = this.state;
-    const postPerPage = 106;
-    const vertical = direction === "bottom" || direction === "top";
-    console.log(filter.partyType !== "all" ? filter.partyType : true);
+    const { 
+      animation, 
+      dimmed, 
+      direction, 
+      visible, 
+      filter, 
+      activePage,
+      boundaryRange,
+      siblingRange,
+      showEllipsis,
+      showFirstAndLastNav,
+      showPreviousAndNextNav,
+      totalPages, 
+      postPerPage 
+    } = this.state;    
+
     return (
       <div>
-        <Sidebar.Pushable as={Segment} style={{ margin: `0 -2px -3px -2px` }}>
+        <Sidebar.Pushable as={ Segment } style={ { margin: `0 -2px -3px -2px`, border: "none" } }>
           <VerticalSidebar
-            onSearch={this.handleOnSearch}
-            animation={animation}
-            direction={direction}
-            visible={visible}
-            closeSidebar={this.handleAnimationChange}
+            onSearch={ this.handleOnSearch }
+            animation={ animation }
+            direction={ direction }
+            visible={ visible }
+            closeSidebar={ this.handleAnimationChange }
           />
           <Button
-            className={styles.btn}
-            disabled={vertical}
-            onClick={this.handleAnimationChange("scale down")}>
+            className={ styles.btn }
+            onClick={ this.handleAnimationChange("scale down") }>
             <Icon name="bars" size="large" />
           </Button>
 
-          <Sidebar.Pusher dimmed={dimmed && visible}>
+          <Sidebar.Pusher dimmed={ dimmed && visible }>
             <Segment basic>
-              <Dimmer active={this.state.loading} inverted>
+              <Dimmer active={ this.state.loading } inverted>
                 <Loader>Pobieranie danych...</Loader>
               </Dimmer>
-              <div className={styles.content}>
-                <div className={styles.row}>
-                  {this.state.parties
+              <div className={ styles.content }>
+                <div className={ styles.row }>
+                  { this.state.parties
                     .filter(
                       post =>
                         post.title.includes(filter.title) &&
@@ -130,25 +169,43 @@ class SidebarSearch extends Component {
                           : true)
                     )
                     .slice(
-                      this.state.page * postPerPage - postPerPage,
-                      this.state.page * postPerPage
+                      this.state.activePage * postPerPage - postPerPage,
+                      this.state.activePage * postPerPage
                     )
                     .map(post => (
-                      <div key={post.id} className={styles.item}>
+                      <div key={ post.id } className={ styles.item }>
                         <Item
-                          description={post.description}
-                          img={post.image}
-                          title={post.title}
-                          date={post.date}
-                          id={post.id}
+                          description={ post.description }
+                          img={ post.image }
+                          title={ post.title }
+                          date={ post.date }
+                          id={ post.id }
                         />
                       </div>
-                    ))}
-                  {this.state.err && (
-                    <p style={{ color: "red" }}>{this.state.err}</p>
-                  )}
+                    )) }
+                  { this.state.err && (
+                    <p style={ { color: "red" } }>{ this.state.err }</p>
+                  ) }
                 </div>
+                <div>
+                  <Pagination
+                    style={{ marginBottom: "40px"}}
+                    activePage={activePage}
+                    boundaryRange={boundaryRange}
+                    onPageChange={this.handlePaginationChange}
+                    size='mini'
+                    siblingRange={siblingRange}
+                    totalPages={totalPages}
+                    // Heads up! All items are powered by shorthands, if you want to hide one of them, just pass `null` as value
+                    ellipsisItem={showEllipsis ? undefined : null}
+                    firstItem={showFirstAndLastNav ? undefined : null}
+                    lastItem={showFirstAndLastNav ? undefined : null}
+                    prevItem={showPreviousAndNextNav ? undefined : null}
+                    nextItem={showPreviousAndNextNav ? undefined : null}
+                  />
               </div>
+              </div>
+              
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
@@ -156,17 +213,5 @@ class SidebarSearch extends Component {
     );
   }
 }
-
-// address: "kielnieńska 128"
-// date: "Nov 20th 19"
-// description: "Fork from https://javascript.info/array"
-// email: "mateusz.rostkowsky995@gmail.com"
-// id: "-Lu7-qLy7YfNxr_WH-bx"
-// image: "url.pl/jpg.jpg"
-// partyType: "KONCERT"
-// phoneNumber: "698888968"
-// price: ""
-// title: "Tytuł"
-// website: "url.pl"
 
 export default SidebarSearch;

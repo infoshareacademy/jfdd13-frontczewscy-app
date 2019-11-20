@@ -298,6 +298,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <SelectInput
+                  
                     labelForm="RODZAJ IMPREZY"
                     tooltiptext=""
                     name="partyType"
@@ -310,6 +311,7 @@ class AddForm extends React.Component {
                   />
 
                   <Button
+                  style={{ marginTop: "10px" }}
                     className={styles.formBtn}
                     content="DODAJ WYDARZENIE"
                     type="submit"
