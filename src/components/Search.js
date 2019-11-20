@@ -16,7 +16,7 @@ import "react-input-range/lib/css/index.css";
 import VerticalSidebar from "./VerticalSidebar";
 
 const Item = props => {
-  const { description, img, title, date, id } = props;
+  const { description, img, title, date, id, price } = props;
 
   return (
     <Card>
@@ -35,7 +35,7 @@ const Item = props => {
 
       <Card.Content>
         <Link className={ styles.link } to={ `/party/${id}` }>
-          <Card.Header>{ title }</Card.Header>
+      <Card.Header>{ title }  {price ? ` || ${price} zł` : null}</Card.Header>
         </Link>
         <Card.Meta>
           <span className="date">{ date }</span>
@@ -180,6 +180,7 @@ class SidebarSearch extends Component {
                           title={ post.title }
                           date={ post.date }
                           id={ post.id }
+                          price= { post.price }
                         />
                       </div>
                     )) }
