@@ -19,6 +19,11 @@
     justify-content: center;
 }
 
+.partyDropdown {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
 select {
     width: 500px;
 }

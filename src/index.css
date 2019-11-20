@@ -9,32 +9,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-#root>div>div>div {
-  border: none;
-}
-
-#root>div>div>div>div.pusher>button>i {
-  height: auto;
-  margin: 0;
-  transform: translateX(-20px);
-}
-
 #root>div>div>div>div.pusher>div {
   margin: 0;
   padding: 0;
 }
 
-#root>div>div>div>div.ui.inverted.vertical.labeled {
-  transition: 0.5s;
-  visibility: visible;
-}
-
 .ui.visible.scale.down.sidebar~.pusher {
   transform: scale(0.77) !important;
-}
-
-.ui.scale.down.right.sidebar~.pusher>div>div>div {
-  margin: 0 40px !important;
 }
 
 .ui.thin.left.sidebar, .ui.thin.right.sidebar {
@@ -48,16 +29,6 @@ code {
 
 .ui.input>input {
   width: 235px;
-}
-
-div.Search_content__I_ASS>div>div>div>div.content>div.description {
-  word-wrap: break-word;
-}
-
-div.Search_content__I_ASS>div>div>div>div.image>img {
-  height: 300px !important;
-  object-fit: cover;
-  object-position: center;
 }
 
 @media (max-width: 700px) {
@@ -81,9 +52,9 @@ div.Search_content__I_ASS>div>div>div>div.image>img {
   width: 180px;
 }
 
-.AddForm_addForm__2SgDg form .dropdown {
+/* .AddForm_addForm__2SgDg form .dropdown {
   width: 100%;
-}
+} */
 
 
 #root > div > div > div > div > div:nth-child(6) > div > a {
