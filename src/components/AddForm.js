@@ -19,7 +19,7 @@ const sampleURL =
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 const urlRegExp = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
-const priceRegEx = /^\d+(,\d{1,2})/;
+const priceRegEx = /^\d+(\,\d{1,2})?$/;
 const imageRegEx = /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/; // make new regex
 
 const accountFormSchema = Yup.object().shape({
@@ -34,8 +34,8 @@ const accountFormSchema = Yup.object().shape({
   image: Yup.string().matches(imageRegEx, "Błędny format url"),
   price: Yup.string().matches(
     priceRegEx,
-    "Błędny format ceny! Poprawny format xx.xx"
-  ),
+    "Błędny format ceny! Poprawny format xx,xx"
+  ).required(),
   address: Yup.string(),
   phoneNumber: Yup.string().matches(phoneRegExp, "Błędny format numeru"),
   website: Yup.string().matches(urlRegExp, "Błędny format url"),
@@ -119,7 +119,7 @@ class AddForm extends React.Component {
             date: moment().format("MMM Do YY"),
             hour: "",
             partyType: "",
-            price: "",
+            price: "0",
             street: "",
             town: "",
             phoneNumber: "",
