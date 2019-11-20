@@ -15,7 +15,7 @@ class Party extends React.Component {
       website
     } = this.props.parties;
     const DescriptionContainer = () => (
-      <Container style={{marginTop: '20px', width: '60%'}}>
+      <Container content textAlign='justified' style={{marginTop: '30px', width: '60%'} }>
         <p>
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
           ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
@@ -46,9 +46,9 @@ class Party extends React.Component {
         </p>
       </Container>)
     const GridContainer = () => (
-      <Grid style={{width: '60%'}}>
+      <Grid >
         <Grid.Column width={4}>
-          <Image src='https://react.semantic-ui.com/images/wireframe/image.png'  />
+          <Image src='https://react.semantic-ui.com/images/wireframe/image.png' style={{margin: '20px 0'}} />
         </Grid.Column>
         <Grid.Column width={9}>
         <List>
