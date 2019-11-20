@@ -49,7 +49,6 @@ const accountFormSchema = Yup.object().shape({
 
 const TextInput = props => {
   const { name, errors, touched, labelForm, tooltiptext } = props;
-  console.log(labelForm);
   return (
     <div>
       <label>
@@ -135,11 +134,7 @@ class AddForm extends React.Component {
               resetForm();
               this.setState({ btnLoading: false, btnDisabled: false });
             }, 3000);
-
-            console.log(values);
-
             postData(values);
-            console.log(values);
           }}>
           {({
             values,

@@ -76,9 +76,7 @@ class SidebarSearch extends Component {
 
   handleTotalPages = () => {
     const newTotalPages = Math.ceil(this.state.parties.length / this.state.postPerPage)
-    this.setState({ totalPages: newTotalPages }, () => {
-      console.log(newTotalPages)
-    })
+    this.setState({ totalPages: newTotalPages })
     
   }
 
