@@ -1,5 +1,34 @@
 import React from "react";
 
+class Party extends React.Component {
+  render() {
+    const {
+      title,
+      adress,
+      description,
+      image,
+      partyType,
+      phoneNumber,
+      price,
+      website
+    } = this.props.parties;
+
+    return (
+      <div>
+        <h1>Post title: {title}</h1>
+        <h2>Post adress: {adress}</h2>
+        <h2>Post description: {description}</h2>
+        <h2>Post image: {image}</h2>
+        <h2>Post partyType: {partyType}</h2>
+        <h2>Post phoneNumber: {phoneNumber}</h2>
+        <h2>Post price: {price}</h2>
+        <h2>Post website: {website}</h2>
+        <button onClick={console.log(this.props)}>X</button>
+      </div>
+    );
+  }
+}
+
 class PartyDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -23,17 +52,7 @@ class PartyDetails extends React.Component {
     return (
       <div>
         {this.state.parties ? (
-          <div>
-            <h1>Post title: {this.state.parties.title}</h1>
-            <h2>Post adress: {this.state.parties.adress}</h2>
-            <h2>Post description: {this.state.parties.description}</h2>
-            <h2>Post image: {this.state.parties.image}</h2>
-            <h2>Post partyType: {this.state.parties.partyType}</h2>
-            <h2>Post phoneNumber: {this.state.parties.phoneNumber}</h2>
-            <h2>Post price: {this.state.parties.price}</h2>
-            <h2>Post website: {this.state.parties.website}</h2>
-            <button onClick={console.log(this.state)}>X</button>
-          </div>
+          <Party parties={this.state.parties} />
         ) : (
           <div>Przykro nam nie ma takiego czegoś</div>
         )}
