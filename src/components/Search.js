@@ -46,6 +46,7 @@ const Item = props => {
     </Card>
   );
 };
+
 class SidebarSearch extends Component {
   state = {
     animation: "scale down",
@@ -58,6 +59,7 @@ class SidebarSearch extends Component {
       sliderValue: null,
       partyType: "all"
     },
+    page: 1,
     parties: [],
     err: "",
     loading: true
@@ -75,7 +77,6 @@ class SidebarSearch extends Component {
       .then(result => this.setState({ parties: result }))
       .then(data => this.setState({ loading: false }))
       .catch(err => this.setState({ err: err.message }));
-    // .finally();
   };
 
   handleAnimationChange = animation => () =>
@@ -88,18 +89,12 @@ class SidebarSearch extends Component {
     this.setState({
       filter: values
     });
+    console.log(this.state.parties);
   };
-
-  // .filter(
-  //   post =>
-  //     post.title.includes(filter.title) &&
-  //     (filter.partyType === "all"
-  //       ? true
-  //       : post.categories.includes(filter.partyType))
-  // )
 
   render() {
     const { animation, dimmed, direction, visible, filter } = this.state;
+    const postPerPage = 106;
     const vertical = direction === "bottom" || direction === "top";
     console.log(filter.partyType !== "all" ? filter.partyType : true);
     return (
@@ -122,7 +117,7 @@ class SidebarSearch extends Component {
           <Sidebar.Pusher dimmed={dimmed && visible}>
             <Segment basic>
               <Dimmer active={this.state.loading} inverted>
-                <Loader>Pobieranie danych</Loader>
+                <Loader>Pobieranie danych...</Loader>
               </Dimmer>
               <div className={styles.content}>
                 <div className={styles.row}>
@@ -133,6 +128,10 @@ class SidebarSearch extends Component {
                         (filter.partyType !== "all"
                           ? post.partyType.includes(filter.partyType)
                           : true)
+                    )
+                    .slice(
+                      this.state.page * postPerPage - postPerPage,
+                      this.state.page * postPerPage
                     )
                     .map(post => (
                       <div key={post.id} className={styles.item}>

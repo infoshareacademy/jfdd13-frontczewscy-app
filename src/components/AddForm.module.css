@@ -33,6 +33,7 @@ select {
 }
 
 .tooltip {
+    margin-top: 10px;
     position: relative;
     display: inline-block;
 }

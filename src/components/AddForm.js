@@ -28,7 +28,7 @@ const accountFormSchema = Yup.object().shape({
     .max(69, "Za długi tytuł")
     .required("Pole wymagane!"),
   description: Yup.string()
-    .min(40, "Za krótki opis")
+    .min(5, "Za krótki opis")
     .max(69, "Za długi opis")
     .required("Pole wymagane!"),
   image: Yup.string().matches(imageRegEx, "Błędny format url"),
@@ -83,6 +83,7 @@ const SelectInput = props => {
           )}
         </div>
         <select
+          style={{ width: "100%" }}
           className="ui selection dropdown"
           {...props}
           error={errors[name] && touched[name]}>
@@ -112,8 +113,8 @@ class AddForm extends React.Component {
       <div>
         <Formik
           initialValues={{
-            title: "",
-            description: "",
+            title: "Title",
+            description: "lorem ipsum dolor sip mate what cosaoa",
             image: "",
             date: moment().format("MMM Do YY"),
             hour: "",
@@ -122,7 +123,7 @@ class AddForm extends React.Component {
             street: "",
             town: "",
             phoneNumber: "",
-            email: "",
+            email: "mateusz.rostkowsky995@gmail.com",
             website: ""
           }}
           validationSchema={accountFormSchema}
