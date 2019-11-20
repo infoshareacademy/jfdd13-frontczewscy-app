@@ -20,7 +20,7 @@ const SelectInput = props => {
         <option value="all">Wszystkie</option>
         <option value="IMPREZA TANECZNA">IMPREZA TANECZNA</option>
         <option value="KONCERT">KONCERT</option>
-        <option value="IMPREZA NIETANECZNA">IMPREZA NIETANECZNA</option>        
+        <option value="IMPREZA NIETANECZNA">IMPREZA NIETANECZNA</option>
       </select>
     </div>
   );
@@ -37,8 +37,7 @@ const VerticalSidebar = props => {
       inverted
       vertical
       visible={visible}
-      width="thin"
-    >
+      width="thin">
       <Button className={styles.close} onClick={closeSidebar("scale down")}>
         <Icon name="x" size="large" />
       </Button>
@@ -46,14 +45,13 @@ const VerticalSidebar = props => {
       <Formik
         initialValues={{
           title: "",
-          partyType: "",
+          partyType: "all",
           sliderValue: 10
         }}
         onSubmit={(values, { setSubmitting }) => {
           setSubmitting(true);
           onSearch(values);
-        }}
-      >
+        }}>
         {({ values, handleChange, handleBlur, handleSubmit }) => {
           return (
             <form onSubmit={handleSubmit}>
