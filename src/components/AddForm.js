@@ -1,12 +1,8 @@
 import React from "react";
-import { Formik, Field } from "formik";
+import { Formik } from "formik";
 import {
   Input,
-  TextArea,
-  Form,
   Button,
-  Select,
-  Label,
   Segment
 } from "semantic-ui-react";
 import * as Yup from "yup";
@@ -48,12 +44,12 @@ const accountFormSchema = Yup.object().shape({
 // .matches(imageRegEx, 'Błędny format url'),
 
 const TextInput = props => {
-  const { name, errors, touched, labelForm, tooltiptext } = props;
+  const { name, errors, touched, labelform, tooltiptext } = props;
   return (
     <div>
       <label>
         <div className={styles.tooltip}>
-          {labelForm}
+          {labelform}
           {tooltiptext && (
             <span className={styles.tooltiptext}>{tooltiptext}</span>
           )}
@@ -71,12 +67,12 @@ const InfoSegment = () => (
 );
 
 const SelectInput = props => {
-  const { name, errors, touched, labelForm, tooltiptext } = props;
+  const { name, errors, touched, labelform, tooltiptext } = props;
   return (
     <div>
       <label>
         <div className={styles.tooltip}>
-          {labelForm}
+          {labelform}
           {tooltiptext && (
             <span className={styles.tooltiptext}>{tooltiptext}</span>
           )}
@@ -149,7 +145,7 @@ class AddForm extends React.Component {
                 <InfoSegment></InfoSegment>
                 <form onSubmit={handleSubmit}>
                   <TextInput
-                    labelForm="TYTUŁ"
+                    labelform="TYTUŁ"
                     tooltiptext="Tutaj wpisz swój tytuł"
                     type="text"
                     name="title"
@@ -163,7 +159,7 @@ class AddForm extends React.Component {
                     labelPosition="right corner"
                   />
                   <TextInput
-                    labelForm="OPIS"
+                    labelform="OPIS"
                     tooltiptext=""
                     type="text"
                     name="description"
@@ -177,7 +173,7 @@ class AddForm extends React.Component {
                     labelPosition="right corner"
                   />
                   <TextInput
-                    labelForm="ZDJĘCIE"
+                    labelform="ZDJĘCIE"
                     tooltiptext="Wklej link URL zdjęcia. Preferowany kształt zdjęcia to kwadrat"
                     type="text"
                     name="image"
@@ -189,7 +185,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                    labelForm="DATA WYDARZENIA"
+                    labelform="DATA WYDARZENIA"
                     tooltiptext="Poinformuj użytkownika kiedy będzie Twoje wydarzenie."
                     type="text"
                     name="date"
@@ -201,7 +197,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                    labelForm="GODZINA WYDARZENIA"
+                    labelform="GODZINA WYDARZENIA"
                     tooltiptext="Poinformuj użytkownika o której godzinie odbędzie się Twoje wydarzenie."
                     type="text"
                     name="hour"
@@ -213,7 +209,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                    labelForm="CENA ZA OSOBĘ"
+                    labelform="CENA ZA OSOBĘ"
                     tooltiptext=""
                     type="text"
                     name="price"
@@ -231,7 +227,7 @@ class AddForm extends React.Component {
                     }
                   />
                   <TextInput
-                    labelForm="ULICA / Numer"
+                    labelform="ULICA / Numer"
                     tooltiptext=""
                     type="text"
                     name="street"
@@ -243,7 +239,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                    labelForm="MIASTO"
+                    labelform="MIASTO"
                     tooltiptext=""
                     type="text"
                     name="town"
@@ -255,7 +251,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                    labelForm="NUMER KONTAKTOWY"
+                    labelform="NUMER KONTAKTOWY"
                     tooltiptext=""
                     type="text"
                     name="phoneNumber"
@@ -267,7 +263,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                    labelForm="EMAIL"
+                    labelform="EMAIL"
                     tooltiptext=""
                     type="email"
                     name="email"
@@ -281,7 +277,7 @@ class AddForm extends React.Component {
                     labelPosition="right corner"
                   />
                   <TextInput
-                    labelForm="STRONA"
+                    labelform="STRONA"
                     tooltiptext=""
                     type="text"
                     name="website"
@@ -294,7 +290,7 @@ class AddForm extends React.Component {
                   />
                   <SelectInput
                   
-                    labelForm="RODZAJ IMPREZY"
+                    labelform="RODZAJ IMPREZY"
                     tooltiptext=""
                     name="partyType"
                     placeholder="Rodzaj imprezy"
@@ -322,8 +318,5 @@ class AddForm extends React.Component {
     );
   }
 }
-// const AddForm = () => (
-
-// );
 
 export default AddForm;
