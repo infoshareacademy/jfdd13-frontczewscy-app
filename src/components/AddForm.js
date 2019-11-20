@@ -6,11 +6,13 @@ import {
   Form,
   Button,
   Select,
-  Label
+  Label,
+  Segment
 } from "semantic-ui-react";
 import * as Yup from "yup";
 import moment from "moment";
 import styles from "./AddForm.module.css";
+
 
 //example of image url
 const sampleURL =
@@ -27,11 +29,10 @@ const accountFormSchema = Yup.object().shape({
     .max(69, "Za długi tytuł")
     .required("Pole wymagane!"),
   description: Yup.string()
-    .min(5, "Za krótki opis")
+    .min(40, "Za krótki opis")
     .max(69, "Za długi opis")
     .required("Pole wymagane!"),
   image: Yup.string()
-    .required("Pole wymagane!")
     .matches(imageRegEx, "Błędny format url"),
   price: Yup.string().matches(
     priceRegEx,
@@ -59,6 +60,9 @@ const TextInput = props => {
     </div>
   );
 };
+const InfoSegment = () => (
+  <Segment>Wypełnij poniższy formularz. Pola z gwiazdką są wymagane.</Segment>
+)
 
 const SelectInput = props => {
   const { name, errors, touched } = props;
@@ -76,15 +80,23 @@ const SelectInput = props => {
   );
 };
 
+
 const postData = values => {
   fetch("https://frontczewscy-database.firebaseio.com/parties.json", {
     method: "POST",
     body: JSON.stringify(values)
-  });
+  })
+  
 };
 
-const AddForm = () => (
-  <div>
+class AddForm extends React.Component {
+  state={
+    btnLoading: false,
+   btnDisabled: false
+  }
+  render() {
+   return <div>
+     
     <Formik
       initialValues={{
         title: "",
@@ -99,11 +111,21 @@ const AddForm = () => (
         website: ""
       }}
       validationSchema={accountFormSchema}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, { setSubmitting, resetForm }) => {
         setSubmitting(true);
+        this.setState({btnLoading:true, btnDisabled: true});
+        
+        setTimeout(() => {
+          resetForm();
+          this.setState({btnLoading:false, btnDisabled: false});
+        }, 3000)
+
+      
         console.log(values);
 
         postData(values);
+        console.log(values)
+         
         // setTimeout(() => {
         //   alert(JSON.stringify(values, null, 2));
         //   setSubmitting(false);
@@ -116,12 +138,14 @@ const AddForm = () => (
         handleChange,
         handleBlur,
         handleSubmit,
+      
         isSubmitting
         /* and other goodies */
       }) => {
-        console.log(values);
+        
         return (
           <div className={styles.addForm}>
+            <InfoSegment></InfoSegment>
             <form onSubmit={handleSubmit}>
               <label>TYTUŁ</label>
               <TextInput
@@ -143,7 +167,7 @@ const AddForm = () => (
                 placeholder="krótki opis"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.Description}
+                value={values.description}
                 touched={touched}
                 errors={errors}
                 label={{ icon: "asterisk" }}
@@ -159,8 +183,7 @@ const AddForm = () => (
                 value={values.image}
                 touched={touched}
                 errors={errors}
-                label={{ icon: "asterisk" }}
-                labelPosition="right corner"
+              
               />
               <label>DATA DODANIA</label>
               <TextInput
@@ -250,6 +273,12 @@ const AddForm = () => (
                 className={styles.formBtn}
                 content="DODAJ WYDARZENIE"
                 type="submit"
+                loading={this.state.btnLoading}
+                disabled={this.state.btnDisabled}
+                
+               
+              
+              
               />
             </form>
           </div>
@@ -257,6 +286,10 @@ const AddForm = () => (
       }}
     </Formik>
   </div>
-);
+  }
+}
+// const AddForm = () => (
+ 
+// );
 
 export default AddForm;
