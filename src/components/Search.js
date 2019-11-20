@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Icon, Segment, Sidebar, Card } from "semantic-ui-react";
+import { Button, Icon, Segment, Sidebar, Card, Image } from "semantic-ui-react";
 
 import styles from "./Search.module.css";
 import "react-input-range/lib/css/index.css";
@@ -7,15 +7,27 @@ import "react-input-range/lib/css/index.css";
 import VerticalSidebar from "./VerticalSidebar";
 
 const Item = props => {
-  const { description, img, title } = props;
+  const { description, img, title, date } = props;
 
   return (
-    <Card
-      image={img}
-      header={title}
-      description={description}
-      // description={`${description.replace(/^(.{35}[^\s]*).*/, "$1")}...`}
-    />
+    <Card>
+      <Image src={img} wrapped ui={false} />
+      <Card.Content>
+        <Card.Header>{title}</Card.Header>
+        <Card.Meta>
+          <span className="date">{date}</span>
+        </Card.Meta>
+        <Card.Description>
+          {`${description.replace(/^(.{35}[^\s]*).*/, "$1")}...`}
+        </Card.Description>
+      </Card.Content>
+      {/* <Card.Content extra>
+        <a>
+          <Icon name="user" />
+          22 Friends
+        </a>
+      </Card.Content> */}
+    </Card>
   );
 };
 class SidebarSearch extends Component {
@@ -102,6 +114,7 @@ class SidebarSearch extends Component {
                           description={post.description}
                           img={post.image}
                           title={post.title}
+                          date={post.date}
                         />
                       </div>
                     ))}
