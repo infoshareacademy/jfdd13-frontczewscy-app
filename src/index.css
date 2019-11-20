@@ -84,3 +84,9 @@ div.Search_content__I_ASS>div>div>div>div.image>img {
 .AddForm_addForm__2SgDg form .dropdown {
   width: 100%;
 }
+
+
+#root > div > div > div > div > div:nth-child(6) > div > a {
+  color: blue;
+  background: white;
+}
