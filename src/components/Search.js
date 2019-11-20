@@ -57,7 +57,7 @@ class SidebarSearch extends Component {
     iconName: true,
     filter: {
       title: "",
-      sliderValue: null,
+      sliderValue: 500,
       partyType: "all"
     },
     page: 1,
@@ -166,7 +166,9 @@ class SidebarSearch extends Component {
                         post.title.includes(filter.title) &&
                         (filter.partyType !== "all"
                           ? post.partyType.includes(filter.partyType)
-                          : true)
+                          : true
+                        ) &&
+                        (parseFloat(post.price.replace(/,/g, '.')) < filter.sliderValue)
                     )
                     .slice(
                       this.state.activePage * postPerPage - postPerPage,

@@ -46,7 +46,7 @@ const VerticalSidebar = props => {
         initialValues={{
           title: "",
           partyType: "all",
-          sliderValue: 10
+          sliderValue: 500
         }}
         onSubmit={(values, { setSubmitting }) => {
           setSubmitting(true);
