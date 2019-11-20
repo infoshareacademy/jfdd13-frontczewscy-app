@@ -4,7 +4,7 @@
     width: 50vw;
     justify-content: center;
     text-align: center;
-    margin: 10vh auto;
+    margin: 40px auto;
 }
 
 .addForm {
@@ -35,7 +35,6 @@ select {
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
 }
 
 .tooltip .tooltiptext {
