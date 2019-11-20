@@ -53,7 +53,8 @@ const TextInput = props => {
   const { name, errors, touched } = props;
   return (
     <div>
-      <Input {...props} error={errors[name] && touched[name]} />
+      <Input {...props} error={errors[name] && touched[name]} /> 
+      <Tooltip />
       <div className={styles.error}>
         {errors[name] && touched[name] && errors[name]}
       </div>
@@ -63,6 +64,14 @@ const TextInput = props => {
 const InfoSegment = () => (
   <Segment>Wypełnij poniższy formularz. Pola z gwiazdką są wymagane.</Segment>
 )
+
+const Tooltip = () => {
+return(
+<div className={styles.tooltip}>Hover over me
+  <span className={styles.tooltiptext}>Tooltip text</span>
+</div>)
+
+}
 
 const SelectInput = props => {
   const { name, errors, touched } = props;
@@ -173,7 +182,7 @@ class AddForm extends React.Component {
                 label={{ icon: "asterisk" }}
                 labelPosition="right corner"
               />
-              <label>ZDJĘCIE</label>
+              <label className={styles.tooltip}>ZDJĘCIE</label>
               <TextInput
                 type="text"
                 name="image"
@@ -185,6 +194,7 @@ class AddForm extends React.Component {
                 errors={errors}
               
               />
+              
               <label>DATA DODANIA</label>
               <TextInput
                 type="text"
