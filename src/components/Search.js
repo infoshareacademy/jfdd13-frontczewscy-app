@@ -5,7 +5,6 @@ import {
   Segment,
   Sidebar,
   Card,
-  Image,
   Dimmer,
   Loader
 } from "semantic-ui-react";
@@ -20,13 +19,17 @@ const Item = props => {
 
   return (
     <Card>
-      <Image
+      <img
         src={
           img ||
           "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
         }
-        wrapped
-        ui={false}
+        style={{
+          height: "300px",
+          objectFit: "cover",
+          objectPosition: "center"
+        }}
+        alt={title}
       />
 
       <Card.Content>
@@ -101,7 +104,7 @@ class SidebarSearch extends Component {
     console.log(filter.partyType !== "all" ? filter.partyType : true);
     return (
       <div>
-        <Sidebar.Pushable as={Segment} className={styles.sidebar}>
+        <Sidebar.Pushable as={Segment} style={{ margin: `0 -2px -3px -2px` }}>
           <VerticalSidebar
             onSearch={this.handleOnSearch}
             animation={animation}
