@@ -61,17 +61,3 @@ class PartyDetails extends React.Component {
   }
 }
 export default PartyDetails;
-
-{
-  /* <div>
-        <h1>Post title: {this.state.parties.title}</h1>
-        <h2>Post adress: {this.state.parties.adress}</h2>
-        <h2>Post description: {this.state.parties.description}</h2>
-        <h2>Post image: {this.state.parties.image}</h2>
-        <h2>Post partyType: {this.state.parties.partyType}</h2>
-        <h2>Post phoneNumber: {this.state.parties.phoneNumber}</h2>
-        <h2>Post price: {this.state.parties.price}</h2>
-        <h2>Post website: {this.state.parties.website}</h2>
-        <button onClick={console.log(this.state)}>X</button>
-      </div> */
-}
