@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
 import Charts from "./components/Charts";
 import AddForm from "./components/AddForm";
 import Profile from "./components/Profile";
-import testComponent from "./components/componentForTesting";
+import PartyDetails from "./components/PartyDetails";
 
 const App = () => {
   return (
@@ -17,7 +18,7 @@ const App = () => {
           <Route exact path="/dodaj-wydarzenie" component={AddForm} />
           <Route exact path="/wyszukaj" component={Search} />
           <Route exact path="/profil" component={Profile} />
-          <Route exact path="/testComponent" component={testComponent} />
+          <Route exact path="/party/:id" component={PartyDetails} />
           <Route
             component={() => <h1>404 - Przykro nam nie ma takiej strony</h1>}
           />

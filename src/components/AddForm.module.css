@@ -1,0 +1,77 @@
+.addForm {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    justify-content: center;
+    text-align: center;
+    margin: 10vh auto;
+}
+
+.addForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.addForm div {
+    width: 500px;
+    justify-content: center;
+}
+
+select {
+    width: 500px;
+}
+
+.ui.button {
+    margin-top: 10px;
+    width: 50%;
+}
+
+.error {
+    color: brown;
+}
+
+#root>div>div>div>form>div:nth-child(10)>div.ui.labeled.input>div #root>div>div>div>form>div:nth-child(10)>div.ui.labeled.input>div {
+    width: 50px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+  }
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+@media (max-width: 600px) {
+    .addForm div {
+        width: 300px;
+    }
+}
