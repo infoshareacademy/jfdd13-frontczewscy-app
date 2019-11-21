@@ -34,7 +34,8 @@ class Party extends React.Component {
     const GridContainer = () => (
       <Grid >
         <Grid.Column width={4}>
-          <Image src='https://react.semantic-ui.com/images/wireframe/image.png' style={{margin: '20px 0'}} />
+          <Image src="https://images.pexels.com/photos/413883/pexels-photo-413883.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" style={{margin: '20px 0'}} />
+         
         </Grid.Column>
         <Grid.Column width={9}>
         <List>
