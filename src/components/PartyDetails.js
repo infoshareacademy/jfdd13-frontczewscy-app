@@ -21,7 +21,10 @@ class Party extends React.Component {
     const GridContainer = () => (
       <Grid >
         <Grid.Column width={4}>
-          <Image src="https://images.pexels.com/photos/413883/pexels-photo-413883.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" style={{margin: '20px 0'}} />
+          <Image src={
+          image ||
+          "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        } style={{margin: '20px 0px'}} />
          
         </Grid.Column>
         <Grid.Column width={9}>
