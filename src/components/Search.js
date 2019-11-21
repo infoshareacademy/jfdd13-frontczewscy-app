@@ -152,8 +152,7 @@ class SidebarSearch extends Component {
   handleOnSearch = values => {
     this.setState({
       filter: values
-    });
-    this.handleTotalPages();
+    });    
   };
 
   handleCheckboxChange = (e, { checked, name }) =>
@@ -216,7 +215,8 @@ class SidebarSearch extends Component {
                           ? post.partyType.includes(filter.partyType)
                           : true) &&
                         parseFloat(post.price.replace(/,/g, ".")) <
-                          filter.sliderValue
+                          filter.sliderValue &&
+                        (filter.isFavorites ? favorites.includes(post.id) : true )
                     )
                     .slice(
                       this.state.activePage * postPerPage - postPerPage,

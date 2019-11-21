@@ -47,7 +47,7 @@ const VerticalSidebar = props => {
           title: "",
           partyType: "all",
           sliderValue: 500,
-          onlyFavorites: "off"
+          isFavorites: false
         }}
         onSubmit={(values, { setSubmitting }) => {
           setSubmitting(true);
@@ -61,9 +61,7 @@ const VerticalSidebar = props => {
         }) => {
           const handleChange = event => {
             formikHandleChange(event);
-            setTimeout(() => {
-              onSearch(values);
-            });
+            // setTimeout(() => onSearch(values)) // searching when user types is temporary turned off
           };
           return (
             <form onSubmit={handleSubmit}>
@@ -103,10 +101,11 @@ const VerticalSidebar = props => {
                 <p>Pokaż tylko ulubione</p>
                 <input
                   type="checkbox"
-                  name="onlyFavorites"
+                  name="isFavorites"
+                  checked={values.isFavorites}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.onlyFavorites}
+                  value={values.isFavorites}
                 />
               </div>
 
