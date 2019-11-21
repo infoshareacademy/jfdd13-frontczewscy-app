@@ -96,3 +96,12 @@
 .link {
     color: black;
 }
+
+.favoriteIcon {
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.favoriteIcon:hover {
+    transform: scale(1.5);
+}
