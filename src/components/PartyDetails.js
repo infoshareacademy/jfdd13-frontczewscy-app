@@ -15,19 +15,19 @@ class Party extends React.Component {
       website
     } = this.props.parties;
     const DescriptionContainer = () => (
-      <Container textAlign='justified' style={{marginTop: '30px', width: '68%'} }>
+      <Container textAlign='justified'>
         <p>{description}</p>
       </Container>)
     const GridContainer = () => (
       <Grid centered>
-        <Grid.Column width={4}>
+        <Grid.Column width={6}>
           <Image src={
           image ||
           "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
         } style={{margin: '20px 0px'}} />
          
         </Grid.Column>
-        <Grid.Column width={9}>
+        <Grid.Column width={10}>
         <List>
             <Header  size='huge'>{title}</Header>
             
@@ -76,40 +76,12 @@ class Party extends React.Component {
     
       </Grid>
     )
-    
-    const MainList = () => (
-      <List>
-        <List.Item icon='users' content={title} >
-      
-        </List.Item>
-        <List.Item icon='file text' content={description} />
-        <List.Item icon='money' content={price} />
-        <List.Item icon='marker' content={address} />
-        <List.Item
-          icon='mail'
-          content="mail@brakujetugo.pl"
-        />
-        <List.Item
-          icon='linkify'
-          content={<a href={website}>{website}</a>}
-        />
-      </List>)
+  
     return (
       <div className={styles.mainGrid}>
         <GridContainer className={styles.gridContainer}/>
         <DescriptionContainer className={styles.descriptionContainer}/>
       </div>
-      // <div>
-      //   <h1>Post title: {title}</h1>
-      //   <h2>Post adress: {adress}</h2>
-      //   <h2>Post description: {description}</h2>
-      //   <h2>Post image: {image}</h2>
-      //   <h2>Post partyType: {partyType}</h2>
-      //   <h2>Post phoneNumber: {phoneNumber}</h2>
-      //   <h2>Post price: {price}</h2>
-      //   <h2>Post website: {website}</h2>
-      //   <button onClick={console.log(this.props)}>X</button>
-      // </div>
     );
   }
 }
@@ -147,3 +119,17 @@ class PartyDetails extends React.Component {
   }
 }
 export default PartyDetails;
+
+
+
+      // <div>
+      //   <h1>Post title: {title}</h1>
+      //   <h2>Post adress: {adress}</h2>
+      //   <h2>Post description: {description}</h2>
+      //   <h2>Post image: {image}</h2>
+      //   <h2>Post partyType: {partyType}</h2>
+      //   <h2>Post phoneNumber: {phoneNumber}</h2>
+      //   <h2>Post price: {price}</h2>
+      //   <h2>Post website: {website}</h2>
+      //   <button onClick={console.log(this.props)}>X</button>
+      // </div>
