@@ -26,7 +26,7 @@ class Party extends React.Component {
         </Grid.Column>
         <Grid.Column width={9}>
         <List>
-            <Header style={{textAlign:"center"}} size='huge'>{title}</Header>
+            <Header  size='huge'>{title}</Header>
             
             <List.Item>
              <List.Icon name='users'   size="large" color='violet'/>
