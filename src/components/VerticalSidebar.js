@@ -51,8 +51,22 @@ const VerticalSidebar = props => {
         onSubmit={(values, { setSubmitting }) => {
           setSubmitting(true);
           onSearch(values);
+        }}
+        onChange={() => {
+          console.log("change");
         }}>
-        {({ values, handleChange, handleBlur, handleSubmit }) => {
+        {({
+          values,
+          handleChange: formikHandleChange,
+          handleBlur,
+          handleSubmit
+        }) => {
+          const handleChange = event => {
+            formikHandleChange(event);
+            setTimeout(() => {
+              onSearch(values);
+            });
+          };
           return (
             <form onSubmit={handleSubmit}>
               <label className={styles.label}>Wyszukaj po nazwie</label>

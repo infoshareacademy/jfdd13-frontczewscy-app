@@ -12,7 +12,6 @@ import {
 import { Link } from "react-router-dom";
 import styles from "./Search.module.css";
 import "react-input-range/lib/css/index.css";
-// import { posts } from "./data";
 import VerticalSidebar from "./VerticalSidebar";
 import _ from "lodash";
 
