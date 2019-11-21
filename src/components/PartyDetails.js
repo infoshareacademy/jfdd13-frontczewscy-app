@@ -41,12 +41,12 @@ class Party extends React.Component {
             <Header style={{textAlign:"center"}} size='huge'>{title}</Header>
             
             <List.Item>
-             <List.Icon name='users'  size="large" color='violet'/>
+             <List.Icon name='users' fitted  size="large" color='violet'/>
              <List.Content>{title}</List.Content>
             </List.Item>
 
             <List.Item>
-              <List.Icon name='file text'  size="large" color='violet'/>
+              <List.Icon name='file text' fitted  size="large" color='violet'/>
               <List.Content>{description}</List.Content>
             </List.Item>
 
@@ -58,18 +58,14 @@ class Party extends React.Component {
             <List.Item>
               <List.Icon name='marker'  size="large" color='violet'/>
               <List.Content>{address || "brak adresu"}</List.Content>
-
-
             </List.Item>
 
-            <List.Item
-              icon='mail'
-              content="mail@brakujetugo.pl"
-            ></List.Item>
-            <List.Item
-              icon='linkify'
-              content={<a href={website}>{website}</a>}
-            ></List.Item>
+            <List.Item >
+            <List.Icon name='mail'  size="large" color='violet'/>
+              <List.Content>{ "nie podano adresu email"}</List.Content>
+
+            </List.Item>
+            <List.Item icon='linkify' content={<a href={website}>{website}</a>}></List.Item>
           </List>
           <Rating icon='heart' defaultRating={3} maxRating={10} />
         </Grid.Column>
