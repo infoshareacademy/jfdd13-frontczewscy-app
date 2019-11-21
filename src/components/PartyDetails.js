@@ -19,7 +19,7 @@ class Party extends React.Component {
         <p>{description}</p>
       </Container>)
     const GridContainer = () => (
-      <Grid >
+      <Grid centered>
         <Grid.Column width={4}>
           <Image src={
           image ||
@@ -136,7 +136,7 @@ class PartyDetails extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         {this.state.parties ? (
           <Party parties={this.state.parties} />
         ) : (

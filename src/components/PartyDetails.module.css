@@ -1,31 +1,20 @@
 .mainGrid {
-    width: 100vw;
+    margin: 0 auto;
+    width: 1100px;
     height: 100vh ;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 40px 0;
+
     flex-direction: column;
 }
 
-/* .mainGrid > div {
+.mainGrid > div {
     
-    max-width: 1100px;
+    
+}
+
+.container {
     width: 100%;
-    
-} */
-
-.gridContainer {
-   
-    width: 1000px;
-    margin:0;
-    padding: 0;
-   
 }
 
-.descriptionContainer{
-
-    width: 1000px;
-    margin:0;
-    padding: 0;
-}
