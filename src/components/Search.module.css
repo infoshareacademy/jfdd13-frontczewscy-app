@@ -97,6 +97,15 @@
     color: black;
 }
 
+.favorites {
+    margin: 10px;
+}
+
+.favorites p {
+    margin: 0;
+    color: white;
+}
+
 .favoriteIcon {
     cursor: pointer;
     transition: 0.5s;
