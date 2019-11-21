@@ -96,3 +96,21 @@
 .link {
     color: black;
 }
+
+.favorites {
+    margin: 10px;
+}
+
+.favorites p {
+    margin: 0;
+    color: white;
+}
+
+.favoriteIcon {
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.favoriteIcon:hover {
+    transform: scale(1.5);
+}
