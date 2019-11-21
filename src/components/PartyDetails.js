@@ -1,5 +1,5 @@
 import React from "react";
-import {List, Grid, Image, Header, Container} from "semantic-ui-react";
+import {List, Grid, Image, Header, Container, Rating} from "semantic-ui-react";
 import styles from "./PartyDetails.module.css";
 
 class Party extends React.Component {
@@ -15,93 +15,69 @@ class Party extends React.Component {
       website
     } = this.props.parties;
     const DescriptionContainer = () => (
-      <Container content textAlign='justified' style={{marginTop: '30px', width: '60%'} }>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-          ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-          magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-          ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-          quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-          arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-          Nullam dictum felis eu pede link mollis pretium. Integer tincidunt. Cras
-          dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-          Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
-          Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
-          viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
-          Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-          ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-          magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-          ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-          quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-          arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-          Nullam dictum felis eu pede link mollis pretium. Integer tincidunt. Cras
-          dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-          Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
-          Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
-          viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
-          Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
-        </p>
+      <Container textAlign='justified'>
+        <p>{description}</p>
       </Container>)
     const GridContainer = () => (
-      <Grid >
-        <Grid.Column width={4}>
-          <Image src='https://react.semantic-ui.com/images/wireframe/image.png' style={{margin: '20px 0'}} />
+      <Grid centered>
+        <Grid.Column width={6}>
+          <Image src={
+          image ||
+          "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        } style={{margin: '20px 0px'}} />
+         
         </Grid.Column>
-        <Grid.Column width={9}>
+        <Grid.Column width={10}>
         <List>
-            <Header style={{textAlign:"center"}} size='huge'>{title}</Header>
-            <List.Item icon='users' content={title} />
-            <List.Item icon='file text' content={description} />
-            <List.Item icon='money' content={price} />
-            <List.Item icon='marker' content={address} />
-            <List.Item
-              icon='mail'
-              content="mail@brakujetugo.pl"
-            />
-            <List.Item
-              icon='linkify'
-              content={<a href={website}>{website}</a>}
-            />
+            <Header  size='huge'>{title}</Header>
+            
+            <List.Item>
+             <List.Icon name='users'   size="large" color='violet'/>
+             <List.Content>{title}</List.Content>
+            </List.Item>
+
+
+            <List.Item>
+              <List.Icon name='phone square'   size="large" color='violet'/>
+              <List.Content>{phoneNumber || 'XXX-XXX-XXX'}</List.Content>
+            </List.Item>
+
+            <List.Item>
+              <List.Icon name='check'   size="large" color='violet'/>
+              <List.Content>{partyType || "nie wybrano typu imprezy"}</List.Content>
+            </List.Item>
+
+            <List.Item>
+              <List.Icon name='money'  size="large" color='violet'/>
+              <List.Content>{price || "nie podano ceny"}</List.Content>
+            </List.Item>
+
+            <List.Item>
+              <List.Icon name='marker'  size="large" color='violet'/>
+              <List.Content>{address || "brak adresu"}</List.Content>
+            </List.Item>
+
+            <List.Item >
+            <List.Icon name='mail'  size="large" color='violet'/>
+              <List.Content>{ "nie podano adresu email"}</List.Content>
+
+            </List.Item>
+            <List.Item >
+            <List.Icon name='linkify'  size="large" color='violet'/>
+              <List.Content>{ 0 || "nie podano adresu strony" }</List.Content>
+            </List.Item>
           </List>
+          <Rating icon='heart' defaultRating={8} maxRating={10} />
         </Grid.Column>
     
       </Grid>
     )
-    
-    const MainList = () => (
-      <List>
-        <List.Item icon='users' content={title} />
-        <List.Item icon='file text' content={description} />
-        <List.Item icon='money' content={price} />
-        <List.Item icon='marker' content={address} />
-        <List.Item
-          icon='mail'
-          content="mail@brakujetugo.pl"
-        />
-        <List.Item
-          icon='linkify'
-          content={<a href={website}>{website}</a>}
-        />
-      </List>)
+  
     return (
       <div className={styles.mainGrid}>
         <GridContainer className={styles.gridContainer}/>
         <DescriptionContainer className={styles.descriptionContainer}/>
       </div>
-      // <div>
-      //   <h1>Post title: {title}</h1>
-      //   <h2>Post adress: {adress}</h2>
-      //   <h2>Post description: {description}</h2>
-      //   <h2>Post image: {image}</h2>
-      //   <h2>Post partyType: {partyType}</h2>
-      //   <h2>Post phoneNumber: {phoneNumber}</h2>
-      //   <h2>Post price: {price}</h2>
-      //   <h2>Post website: {website}</h2>
-      //   <button onClick={console.log(this.props)}>X</button>
-      // </div>
     );
   }
 }
@@ -128,7 +104,7 @@ class PartyDetails extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         {this.state.parties ? (
           <Party parties={this.state.parties} />
         ) : (
@@ -139,3 +115,17 @@ class PartyDetails extends React.Component {
   }
 }
 export default PartyDetails;
+
+
+
+      // <div>
+      //   <h1>Post title: {title}</h1>
+      //   <h2>Post adress: {adress}</h2>
+      //   <h2>Post description: {description}</h2>
+      //   <h2>Post image: {image}</h2>
+      //   <h2>Post partyType: {partyType}</h2>
+      //   <h2>Post phoneNumber: {phoneNumber}</h2>
+      //   <h2>Post price: {price}</h2>
+      //   <h2>Post website: {website}</h2>
+      //   <button onClick={console.log(this.props)}>X</button>
+      // </div>
