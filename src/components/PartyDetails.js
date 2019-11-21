@@ -36,10 +36,6 @@ class Party extends React.Component {
              <List.Content>{title}</List.Content>
             </List.Item>
 
-            <List.Item>
-              <List.Icon name='file text'   size="large" color='violet'/>
-              <List.Content>{description}</List.Content>
-            </List.Item>
 
             <List.Item>
               <List.Icon name='phone square'   size="large" color='violet'/>
@@ -48,12 +44,12 @@ class Party extends React.Component {
 
             <List.Item>
               <List.Icon name='check'   size="large" color='violet'/>
-              <List.Content>{partyType}</List.Content>
+              <List.Content>{partyType || "nie wybrano typu imprezy"}</List.Content>
             </List.Item>
 
             <List.Item>
               <List.Icon name='money'  size="large" color='violet'/>
-              <List.Content>{price}</List.Content>
+              <List.Content>{price || "nie podano ceny"}</List.Content>
             </List.Item>
 
             <List.Item>
@@ -71,7 +67,7 @@ class Party extends React.Component {
               <List.Content>{ 0 || "nie podano adresu strony" }</List.Content>
             </List.Item>
           </List>
-          <Rating icon='heart' defaultRating={5} maxRating={10} />
+          <Rating icon='heart' defaultRating={8} maxRating={10} />
         </Grid.Column>
     
       </Grid>
