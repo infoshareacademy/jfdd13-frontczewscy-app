@@ -39,9 +39,9 @@ class Party extends React.Component {
         <Grid.Column width={9}>
         <List>
             <Header style={{textAlign:"center"}} size='huge'>{title}</Header>
-            <List.Item color="violet" content={title} >
-            <List.Icon name='users' color='violet'/>
-      <List.Content>Semantic UI</List.Content>
+          <List.Item  color="violet" content={title} >
+            <List.Icon name='users'  size="large" color='violet'/>
+          <List.Content>Semantic UI</List.Content>
             </List.Item>
             <List.Item icon='file text' content={description} />
             <List.Item icon='money' content={price} />
