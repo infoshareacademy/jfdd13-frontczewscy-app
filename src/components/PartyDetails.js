@@ -39,7 +39,10 @@ class Party extends React.Component {
         <Grid.Column width={9}>
         <List>
             <Header style={{textAlign:"center"}} size='huge'>{title}</Header>
-            <List.Item icon='users' content={title} />
+            <List.Item color="violet" content={title} >
+            <List.Icon name='users' color='violet'/>
+      <List.Content>Semantic UI</List.Content>
+            </List.Item>
             <List.Item icon='file text' content={description} />
             <List.Item icon='money' content={price} />
             <List.Item icon='marker' content={address} />
@@ -60,7 +63,9 @@ class Party extends React.Component {
     
     const MainList = () => (
       <List>
-        <List.Item icon='users' content={title} />
+        <List.Item icon='users' content={title} >
+      
+        </List.Item>
         <List.Item icon='file text' content={description} />
         <List.Item icon='money' content={price} />
         <List.Item icon='marker' content={address} />
