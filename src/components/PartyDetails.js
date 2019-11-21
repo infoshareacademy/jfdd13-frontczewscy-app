@@ -44,6 +44,11 @@ class Party extends React.Component {
             </List.Item>
 
             <List.Item>
+              <List.Icon name='check'   size="large" color='violet'/>
+              <List.Content>{partyType}</List.Content>
+            </List.Item>
+
+            <List.Item>
               <List.Icon name='money'  size="large" color='violet'/>
               <List.Content>{price}</List.Content>
             </List.Item>
