@@ -1,5 +1,5 @@
 import React from "react";
-import {List, Grid, Image, Header, Container} from "semantic-ui-react";
+import {List, Grid, Image, Header, Container, Rating} from "semantic-ui-react";
 import styles from "./PartyDetails.module.css";
 
 class Party extends React.Component {
@@ -52,6 +52,7 @@ class Party extends React.Component {
               content={<a href={website}>{website}</a>}
             />
           </List>
+          <Rating icon='heart' defaultRating={3} maxRating={10} />
         </Grid.Column>
     
       </Grid>
