@@ -39,21 +39,35 @@ class Party extends React.Component {
         <Grid.Column width={9}>
         <List>
             <Header style={{textAlign:"center"}} size='huge'>{title}</Header>
-          <List.Item  color="violet" content={title} >
-            <List.Icon name='users'  size="large" color='violet'/>
-          <List.Content>Semantic UI</List.Content>
+            
+            <List.Item>
+             <List.Icon name='users'  size="large" color='violet'/>
+             <List.Content>{title}</List.Content>
             </List.Item>
-            <List.Item icon='file text' content={description} />
-            <List.Item icon='money' content={price} />
-            <List.Item icon='marker' content={address} />
+
+            <List.Item>
+              <List.Icon name='file text'  size="large" color='violet'/>
+              <List.Content>{description}</List.Content>
+            </List.Item>
+
+            <List.Item icon='money' content={price}>
+
+
+            </List.Item>
+
+            <List.Item icon='marker' content={address}>
+
+
+            </List.Item>
+
             <List.Item
               icon='mail'
               content="mail@brakujetugo.pl"
-            />
+            ></List.Item>
             <List.Item
               icon='linkify'
               content={<a href={website}>{website}</a>}
-            />
+            ></List.Item>
           </List>
           <Rating icon='heart' defaultRating={3} maxRating={10} />
         </Grid.Column>
