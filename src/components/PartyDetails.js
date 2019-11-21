@@ -50,8 +50,9 @@ class Party extends React.Component {
               <List.Content>{description}</List.Content>
             </List.Item>
 
-            <List.Item icon='money' content={price}>
-
+            <List.Item>
+            <List.Icon name='money'  size="large" color='violet'/>
+              <List.Content>{price}</List.Content>
 
             </List.Item>
 
