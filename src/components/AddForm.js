@@ -85,11 +85,28 @@ const SelectInput = props => {
           <option value="IMPREZA TANECZNA">IMPREZA TANECZNA</option>
           <option value="KONCERT">KONCERT</option>
           <option value="IMPREZA NIETANECZNA">IMPREZA NIETANECZNA</option>
+          <option value="IMPREZA NIETANECZNA">IMPREZA NIETANECZNA</option>
+          <option value="IMPREZA NIETANECZNA">IMPREZA NIETANECZNA</option>
+          <option value="IMPREZA NIETANECZNA">IMPREZA NIETANECZNA</option>
+          <option value="IMPREZA NIETANECZNA">IMPREZA NIETANECZNA</option>
+          <option value="IMPREZA NIETANECZNA">IMPREZA NIETANECZNA</option>
         </select>
       </label>
     </div>
   );
 };
+
+
+// Koncerty (247)
+// Spektakle (310)
+// Imprezy taneczne (157)
+// Imprezy okolicznościowe (171)
+// Wystawy, spotkania (243)
+// Sport, rekreacja (149)
+// Targi, konferencje (169)
+// Film, kino (70)
+
+
 
 const postData = values => {
   fetch("https://frontczewscy-database.firebaseio.com/parties.json", {
