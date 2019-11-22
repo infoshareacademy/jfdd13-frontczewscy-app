@@ -18,9 +18,15 @@ const SelectInput = props => {
     <div>
       <select className="ui selection dropdown dropdown" {...props}>
         <option value="all">Wszystkie</option>
-        <option value="IMPREZA TANECZNA">IMPREZA TANECZNA</option>
-        <option value="KONCERT">KONCERT</option>
-        <option value="IMPREZA NIETANECZNA">IMPREZA NIETANECZNA</option>
+        <option value="KONCERTY">KONCERTY</option>
+          <option value="SPEKTAKLE">SPEKTAKLE</option>
+          <option value="IMPREZY NIETANECZNA">IMPREZY TANECZNE</option>
+          <option value="IMPREZY OKOLICZNOŚCIOWE">IMPREZY OKOLICZNOŚCIOWE</option>
+          <option value="WYSTAWY, SPOTKANIA">WYSTAWY, SPOTKANIA</option>
+          <option value="SPORT, REKREACJA">SPORT, REKREACJA</option>
+          <option value="TARGI, KONFERENCJE">TARGI, KONFERENCJE</option>
+          <option value="FILM, KINO">FILM, KINO</option>
+          <option value="INNE">INNE</option>
       </select>
     </div>
   );
