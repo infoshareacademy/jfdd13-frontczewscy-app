@@ -90,21 +90,13 @@ const SelectInput = props => {
           <option value="SPORT, REKREACJA">SPORT, REKREACJA</option>
           <option value="TARGI, KONFERENCJE">TARGI, KONFERENCJE</option>
           <option value="FILM, KINO">FILM, KINO</option>
+          <option value="INNE">INNE</option>
         </select>
       </label>
     </div>
   );
 };
 
-
-// Koncerty (247)
-// Spektakle (310)
-// Imprezy taneczne (157)
-// Imprezy okolicznościowe (171)
-// Wystawy, spotkania (243)
-// Sport, rekreacja (149)
-// Targi, konferencje (169)
-// Film, kino (70)
 
 
 
