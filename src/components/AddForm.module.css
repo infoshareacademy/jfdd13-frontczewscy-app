@@ -4,7 +4,7 @@
     width: 50vw;
     justify-content: center;
     text-align: center;
-    margin: 10vh auto;
+    margin: 40px auto;
 }
 
 .addForm {
@@ -19,6 +19,11 @@
     justify-content: center;
 }
 
+.partyDropdown {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
 select {
     width: 500px;
 }
@@ -32,17 +37,13 @@ select {
     color: brown;
 }
 
-#root>div>div>div>form>div:nth-child(10)>div.ui.labeled.input>div #root>div>div>div>form>div:nth-child(10)>div.ui.labeled.input>div {
-    width: 50px;
-}
-
 .tooltip {
+    margin-top: 10px;
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
-  }
-  
-  .tooltip .tooltiptext {
+}
+
+.tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
     background-color: black;
@@ -54,9 +55,9 @@ select {
     z-index: 1;
     top: -5px;
     left: 110%;
-  }
-  
-  .tooltip .tooltiptext::after {
+}
+
+.tooltip .tooltiptext::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -65,10 +66,11 @@ select {
     border-width: 5px;
     border-style: solid;
     border-color: transparent black transparent transparent;
-  }
-  .tooltip:hover .tooltiptext {
+}
+
+.tooltip:hover .tooltiptext, input:hover .tooltiptext {
     visibility: visible;
-  }
+}
 
 @media (max-width: 600px) {
     .addForm div {

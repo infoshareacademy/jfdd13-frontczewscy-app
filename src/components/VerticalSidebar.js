@@ -46,13 +46,23 @@ const VerticalSidebar = props => {
         initialValues={{
           title: "",
           partyType: "all",
-          sliderValue: 10
+          sliderValue: 500,
+          isFavorites: false
         }}
         onSubmit={(values, { setSubmitting }) => {
           setSubmitting(true);
           onSearch(values);
         }}>
-        {({ values, handleChange, handleBlur, handleSubmit }) => {
+        {({
+          values,
+          handleChange: formikHandleChange,
+          handleBlur,
+          handleSubmit
+        }) => {
+          const handleChange = event => {
+            formikHandleChange(event);
+            // setTimeout(() => onSearch(values)) // searching when user types is temporary turned off
+          };
           return (
             <form onSubmit={handleSubmit}>
               <label className={styles.label}>Wyszukaj po nazwie</label>
@@ -86,6 +96,17 @@ const VerticalSidebar = props => {
                   step="1"
                 />
                 <div className={styles.value}>{values.sliderValue} zł</div>
+              </div>
+              <div className={styles.favorites}>
+                <p>Pokaż tylko ulubione</p>
+                <input
+                  type="checkbox"
+                  name="isFavorites"
+                  checked={values.isFavorites}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.isFavorites}
+                />
               </div>
 
               <button type="submit">Submit</button>

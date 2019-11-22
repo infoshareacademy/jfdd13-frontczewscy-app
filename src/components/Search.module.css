@@ -43,6 +43,10 @@
 .content {
     height: calc(100vh - 40px);
     overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .row {
@@ -91,4 +95,22 @@
 
 .link {
     color: black;
+}
+
+.favorites {
+    margin: 10px;
+}
+
+.favorites p {
+    margin: 0;
+    color: white;
+}
+
+.favoriteIcon {
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.favoriteIcon:hover {
+    transform: scale(1.5);
 }

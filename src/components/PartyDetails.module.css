@@ -1,0 +1,20 @@
+.mainGrid {
+    margin: 0 auto;
+    width: 1100px;
+    height: 100vh ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.mainGrid > div {
+    
+    
+}
+
+.container {
+    width: 100%;
+}
+
