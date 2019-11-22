@@ -5,3 +5,11 @@
 
     justify-content: space-evenly;
 }
+ 
+@media (max-width: 800px) {
+    .chartt{
+        flex-direction: column;
+
+    }
+    
+}
