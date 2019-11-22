@@ -31,6 +31,18 @@
     cursor: pointer;
 }
 
+.left, .navLogo {
+    display: flex;
+    align-items: center;
+}
+
+.navLogo > span {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-left: 10px;
+    color: white;
+}
+
 a {
     color: #fff;
 }

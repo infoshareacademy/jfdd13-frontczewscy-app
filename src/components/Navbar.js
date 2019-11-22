@@ -12,7 +12,12 @@ import Logo from '../logoconcerte2.png'
 
  const Navbar = () => (
   <nav className={styles.navbar}>
-      <div className={styles.left}><NavLink to="/" exact><img className={styles.logo} src = { Logo } alt="Concerte Logo" /></NavLink></div>
+      <div className={styles.left}>
+        <NavLink to="/" exact className={styles.navLogo}>
+          <img className={styles.logo} src = { Logo } alt="Concerte Logo" />
+          <span>Concerte</span>
+        </NavLink>
+      </div>
       <ul className={styles.right}>
           <li><NavLink activeClassName={"active-link"} to="/wyszukaj"exact><Search />Wyszukiwanie imprez</NavLink></li>
           <li><NavLink activeClassName={"active-link"} to="/"exact><Chart />Wykresy</NavLink></li>
