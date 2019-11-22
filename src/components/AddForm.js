@@ -58,7 +58,10 @@ const TextInput = props => {
   );
 };
 const InfoSegment = () => (
-  <Segment>Wypełnij poniższy formularz. Pola z gwiazdką są wymagane.</Segment>
+  <Segment>
+    Wypełnij poniższy formularz. Pola z gwiazdką są wymagane. Pamiętaj aby podać
+    jak najdokładniejsze dane!
+  </Segment>
 );
 
 const SelectInput = props => {
