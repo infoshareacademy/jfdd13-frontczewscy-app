@@ -8,6 +8,7 @@ import AddForm from "./components/AddForm";
 import Profile from "./components/Profile";
 import PartyDetails from "./components/PartyDetails";
 
+
 const App = () => {
   return (
     <Router>
