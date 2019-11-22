@@ -46,7 +46,7 @@ const Item = props => {
       <Card.Content>
         <Link className={styles.link} to={`/party/${id}`}>
           <Card.Header>
-            {title} {price ? ` || ${price} zł` : null}
+            {title} {price ? ` || ${parseInt(price, 10)} zł` : null}
           </Card.Header>
         </Link>
         <Card.Meta>

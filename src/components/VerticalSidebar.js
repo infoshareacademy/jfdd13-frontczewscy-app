@@ -49,6 +49,7 @@ const VerticalSidebar = props => {
           sliderValue: 500,
           isFavorites: false
         }}
+        validate={onSearch}
         onSubmit={(values, { setSubmitting }) => {
           setSubmitting(true);
           onSearch(values);
@@ -61,7 +62,7 @@ const VerticalSidebar = props => {
         }) => {
           const handleChange = event => {
             formikHandleChange(event);
-            // setTimeout(() => onSearch(values)) // searching when user types is temporary turned off
+            // setTimeout(() => onSearch(values), 100); // searching when user types is temporary turned off
           };
           return (
             <form onSubmit={handleSubmit}>

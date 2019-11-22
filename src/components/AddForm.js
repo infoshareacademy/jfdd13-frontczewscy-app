@@ -1,10 +1,6 @@
 import React from "react";
 import { Formik } from "formik";
-import {
-  Input,
-  Button,
-  Segment
-} from "semantic-ui-react";
+import { Input, Button, Segment } from "semantic-ui-react";
 import * as Yup from "yup";
 import moment from "moment";
 import styles from "./AddForm.module.css";
@@ -28,10 +24,9 @@ const accountFormSchema = Yup.object().shape({
     .max(69, "Za długi opis")
     .required("Pole wymagane!"),
   image: Yup.string().matches(imageRegEx, "Błędny format url"),
-  price: Yup.string().matches(
-    priceRegEx,
-    "Błędny format ceny! Poprawny format xx,xx"
-  ).required(),
+  price: Yup.string()
+    .matches(priceRegEx, "Błędny format ceny! Poprawny format xx,xx")
+    .required("Cena jest wymagana, podaj 0 jeżeli jeżeli ipreza jest darmowa."),
   address: Yup.string(),
   phoneNumber: Yup.string().matches(phoneRegExp, "Błędny format numeru"),
   website: Yup.string().matches(urlRegExp, "Błędny format url"),
@@ -63,7 +58,10 @@ const TextInput = props => {
   );
 };
 const InfoSegment = () => (
-  <Segment>Wypełnij poniższy formularz. Pola z gwiazdką są wymagane.</Segment>
+  <Segment>
+    Wypełnij poniższy formularz. Pola z gwiazdką są wymagane. Pamiętaj aby podać
+    jak najdokładniejsze dane!
+  </Segment>
 );
 
 const SelectInput = props => {
@@ -160,7 +158,7 @@ class AddForm extends React.Component {
                   />
                   <TextInput
                     labelform="OPIS"
-                    tooltiptext=""
+                    tooltiptext="Tutaj wpisz opis wydarzenia, które chcesz dodać"
                     type="text"
                     name="description"
                     placeholder="krótki opis"
@@ -210,7 +208,7 @@ class AddForm extends React.Component {
                   />
                   <TextInput
                     labelform="CENA ZA OSOBĘ"
-                    tooltiptext=""
+                    tooltiptext="Tutaj podaj cenę za bilet. Pamiętaj o tym, że kwota jest w złotówkach."
                     type="text"
                     name="price"
                     placeholder="cena za osobę"
@@ -228,7 +226,7 @@ class AddForm extends React.Component {
                   />
                   <TextInput
                     labelform="ULICA / Numer"
-                    tooltiptext=""
+                    tooltiptext="Tutaj wpisz lokalizację wydarzenia."
                     type="text"
                     name="street"
                     placeholder="Ulica oraz numer wydarzenia"
@@ -240,7 +238,7 @@ class AddForm extends React.Component {
                   />
                   <TextInput
                     labelform="MIASTO"
-                    tooltiptext=""
+                    tooltiptext="Tutaj wpisz miasto wydarzenia."
                     type="text"
                     name="town"
                     placeholder="miasto wydarzenia"
@@ -252,7 +250,7 @@ class AddForm extends React.Component {
                   />
                   <TextInput
                     labelform="NUMER KONTAKTOWY"
-                    tooltiptext=""
+                    tooltiptext="Tutaj wpisz numer. Błędny format nie przejdzie walidacji."
                     type="text"
                     name="phoneNumber"
                     placeholder="numer kontaktowy"
@@ -264,7 +262,7 @@ class AddForm extends React.Component {
                   />
                   <TextInput
                     labelform="EMAIL"
-                    tooltiptext=""
+                    tooltiptext="Tutaj wpisz cały adres e-mail."
                     type="email"
                     name="email"
                     placeholder="e-mail"
@@ -278,7 +276,7 @@ class AddForm extends React.Component {
                   />
                   <TextInput
                     labelform="STRONA"
-                    tooltiptext=""
+                    tooltiptext="Podaj adres strony. Nie wymagamy www i http(s)."
                     type="text"
                     name="website"
                     placeholder="Strona internetowa"
@@ -289,9 +287,8 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <SelectInput
-                  
                     labelform="RODZAJ IMPREZY"
-                    tooltiptext=""
+                    tooltiptext="Wybierz rodzaj imprezy."
                     name="partyType"
                     placeholder="Rodzaj imprezy"
                     onChange={handleChange}
@@ -302,7 +299,7 @@ class AddForm extends React.Component {
                   />
 
                   <Button
-                  style={{ marginTop: "10px" }}
+                    style={{ marginTop: "10px" }}
                     className={styles.formBtn}
                     content="DODAJ WYDARZENIE"
                     type="submit"

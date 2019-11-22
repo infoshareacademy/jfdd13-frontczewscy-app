@@ -6,12 +6,9 @@
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: nowrap;
-    
 }
 
-.left {
-}
-.logo{
+.logo {
     height: 38px;
     width: 38px;
     padding: 2px;
@@ -27,11 +24,11 @@
 .right>li {
     list-style-type: none;
 }
+
 .right>li>a {
     padding: 7px;
     margin: 0px 10px 0px;
     cursor: pointer;
-
 }
 
 a {
@@ -41,4 +38,22 @@ a {
 .right>li :hover {
     color: white;
     text-shadow: 2px 2px 5px black;
+}
+
+@media (max-width: 500px) {
+    .navbar {
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: auto;
+    }
+    .right {
+        flex-direction: column;
+    }
+    .left {
+        align-self: center;
+        margin: 5px;
+    }
+    .right>li {
+        margin-bottom: 10px;
+    }
 }
