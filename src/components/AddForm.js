@@ -82,14 +82,14 @@ const SelectInput = props => {
           className="ui selection dropdown"
           {...props}
           error={errors[name] && touched[name]}>
-          <option value="IMPREZA TANECZNA">KONCERTY</option>
-          <option value="KONCERT">SPEKTAKLE</option>
-          <option value="IMPREZA NIETANECZNA">IMPREZY TANECZNE</option>
-          <option value="IMPREZA NIETANECZNA">IMPREZY OKOLICZNOŚCIOWE</option>
-          <option value="IMPREZA NIETANECZNA">WYSTAWY, SPOTKANIA</option>
-          <option value="IMPREZA NIETANECZNA">SPORT, REKREACJA</option>
-          <option value="IMPREZA NIETANECZNA">TARGI, KONFERENCJE</option>
-          <option value="IMPREZA NIETANECZNA">FILM, KINO</option>
+          <option value="KONCERTY">KONCERTY</option>
+          <option value="SPEKTAKLE">SPEKTAKLE</option>
+          <option value="IMPREZY NIETANECZNA">IMPREZY TANECZNE</option>
+          <option value="IMPREZY OKOLICZNOŚCIOWE">IMPREZY OKOLICZNOŚCIOWE</option>
+          <option value="WYSTAWY, SPOTKANIA">WYSTAWY, SPOTKANIA</option>
+          <option value="SPORT, REKREACJA">SPORT, REKREACJA</option>
+          <option value="TARGI, KONFERENCJE">TARGI, KONFERENCJE</option>
+          <option value="FILM, KINO">FILM, KINO</option>
         </select>
       </label>
     </div>
