@@ -24,7 +24,9 @@ const Item = props => {
     id,
     price,
     favorites,
-    handleFavorites
+    handleFavorites,
+    partyType,
+    hour
   } = props;
   return (
     <Card>
@@ -48,18 +50,23 @@ const Item = props => {
           </Card.Header>
         </Link>
         <Card.Meta>
-          <span className="date">{date}</span>
+          <span className="date">
+            {date || ""} {hour ? ` at ${hour}` : null}
+          </span>
         </Card.Meta>
         <Card.Description style={{ wordWrap: "break-word", height: "60px" }}>
           {`${description.replace(/^(.{35}[^\s]*).*/, "$1")}...`}
         </Card.Description>
-        <Card.Content extra>
+        <Card.Content
+          extra
+          style={{ display: "flex", justifyContent: "space-between" }}>
           <Icon
             onClick={() => handleFavorites(id)}
             name={favorites.includes(id) ? "heart" : "heart outline"}
             size="large"
             className={styles.favoriteIcon}
           />
+          <span>{partyType}</span>
         </Card.Content>
       </Card.Content>
     </Card>
@@ -235,6 +242,8 @@ class SidebarSearch extends Component {
                           price={post.price}
                           favorites={favorites}
                           handleFavorites={this.handleFavorites}
+                          partyType={post.partyType}
+                          hour={post.hour}
                         />
                       </div>
                     ))}
