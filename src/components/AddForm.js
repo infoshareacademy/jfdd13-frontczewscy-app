@@ -1,10 +1,6 @@
 import React from "react";
 import { Formik } from "formik";
-import {
-  Input,
-  Button,
-  Segment
-} from "semantic-ui-react";
+import { Input, Button, Segment } from "semantic-ui-react";
 import * as Yup from "yup";
 import moment from "moment";
 import styles from "./AddForm.module.css";
@@ -28,10 +24,9 @@ const accountFormSchema = Yup.object().shape({
     .max(69, "Za długi opis")
     .required("Pole wymagane!"),
   image: Yup.string().matches(imageRegEx, "Błędny format url"),
-  price: Yup.string().matches(
-    priceRegEx,
-    "Błędny format ceny! Poprawny format xx,xx"
-  ).required(),
+  price: Yup.string()
+    .matches(priceRegEx, "Błędny format ceny! Poprawny format xx,xx")
+    .required("Cena jest wymagana, podaj 0 jeżeli jeżeli ipreza jest darmowa."),
   address: Yup.string(),
   phoneNumber: Yup.string().matches(phoneRegExp, "Błędny format numeru"),
   website: Yup.string().matches(urlRegExp, "Błędny format url"),
@@ -289,7 +284,6 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <SelectInput
-                  
                     labelform="RODZAJ IMPREZY"
                     tooltiptext=""
                     name="partyType"
@@ -302,7 +296,7 @@ class AddForm extends React.Component {
                   />
 
                   <Button
-                  style={{ marginTop: "10px" }}
+                    style={{ marginTop: "10px" }}
                     className={styles.formBtn}
                     content="DODAJ WYDARZENIE"
                     type="submit"
