@@ -19,7 +19,6 @@ class Party extends React.Component {
       partyType,
       phoneNumber,
       price,
-      website,
       email
     } = this.props.parties;
     const DescriptionContainer = () => (

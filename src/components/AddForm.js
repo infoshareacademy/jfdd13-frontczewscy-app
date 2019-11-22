@@ -6,13 +6,13 @@ import moment from "moment";
 import styles from "./AddForm.module.css";
 
 //example of image url
-const sampleURL =
-  "https://farm4.staticflickr.com/3894/15008518202.c265dfa55f.h.png";
+// const sampleURL =
+//   "https://farm4.staticflickr.com/3894/15008518202.c265dfa55f.h.png";
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 const urlRegExp = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
 const priceRegEx = /^\d+(\,\d{1,2})?$/;
-const imageRegEx = /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/; // make new regex
+const imageRegEx = /^(http)?s?:?((\/)?(\/)?[^"'><;",()]*\.(?:png|jpg|jpeg|gif|png|svg))/;
 
 const accountFormSchema = Yup.object().shape({
   title: Yup.string()
