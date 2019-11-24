@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
-import { Input, Button, Segment } from "semantic-ui-react";
+import { Input, Button, Segment, Message } from "semantic-ui-react";
+import { Link } from "react-router-dom"
 import * as Yup from "yup";
 import moment from "moment";
 import styles from "./AddForm.module.css";
@@ -99,8 +100,21 @@ const postData = values => {
 class AddForm extends React.Component {
   state = {
     btnLoading: false,
-    btnDisabled: false
+    btnDisabled: false,
+    isMessageShown: false
   };
+
+  showMessage = () => {
+    this.setState({
+      isMessageShown: true
+    })
+    setTimeout(() => {
+      this.setState({
+        isMessageShown: false
+      })
+    }, 7000);
+  }
+
   render() {
     return (
       <div>
@@ -127,7 +141,8 @@ class AddForm extends React.Component {
             setTimeout(() => {
               resetForm();
               this.setState({ btnLoading: false, btnDisabled: false });
-            }, 3000);
+              this.showMessage();
+            }, 2000);
             postData(values);
           }}>
           {({
@@ -306,6 +321,14 @@ class AddForm extends React.Component {
                     loading={this.state.btnLoading}
                     disabled={this.state.btnDisabled}
                   />
+                  <Link to="/wyszukaj" >
+                    <Message
+                      success
+                      hidden={!this.state.isMessageShown}
+                      header='Dodawanie nowego wydarzenia powiodło się'
+                      content='Kliknij tutaj aby swoje wydarzenie na liście wszystkich wydarzeń'
+                    />
+                  </Link>
                 </form>
               </div>
             );
