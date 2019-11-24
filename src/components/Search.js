@@ -29,7 +29,7 @@ const Item = props => {
     hour
   } = props;
   return (
-    <Card>
+    <Card className={styles.inside}>
       <img
         src={
           img ||
