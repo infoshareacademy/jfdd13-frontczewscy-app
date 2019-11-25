@@ -227,6 +227,7 @@ class SidebarSearch extends Component {
                           ? favorites.includes(post.id)
                           : true)
                     )
+                    .reverse()
                     .slice(
                       this.state.activePage * postPerPage - postPerPage,
                       this.state.activePage * postPerPage
