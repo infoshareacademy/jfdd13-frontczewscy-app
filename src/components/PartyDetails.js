@@ -77,7 +77,7 @@ class Party extends React.Component {
               <List.Content>{0 || "nie podano adresu strony"}</List.Content>
             </List.Item>
           </List>
-          <Rating icon="heart" defaultRating={8} maxRating={10} />
+          <Rating icon="heart" defaultRating={10} maxRating={10} />
         </Grid.Column>
       </Grid>
     );
