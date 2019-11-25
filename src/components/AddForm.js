@@ -168,7 +168,7 @@ class AddForm extends React.Component {
             street: "",
             town: "",
             phoneNumber: "",
-            email: "mateusz.rostkowsky995@gmail.com",
+            email: "",
             website: ""
           }}
           validationSchema={accountFormSchema}
