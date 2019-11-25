@@ -30,18 +30,21 @@ const Item = props => {
   } = props;
   return (
     <Card className={styles.inside}>
-      <img
-        src={
-          img ||
-          "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        }
-        style={{
-          height: "300px",
-          objectFit: "cover",
-          objectPosition: "center"
-        }}
-        alt={title}
-      />
+      <Link to={`/party/${id}`}>
+        <img
+          src={
+            img ||
+            "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          }
+          style={{
+            height: "300px",
+            objectFit: "cover",
+            objectPosition: "center",
+            width: "100%"
+          }}
+          alt={title}
+        />
+      </Link>
 
       <Card.Content>
         <Link className={styles.link} to={`/party/${id}`}>
