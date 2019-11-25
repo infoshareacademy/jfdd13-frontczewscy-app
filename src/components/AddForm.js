@@ -257,7 +257,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                    labelform="CENA ZA OSOBĘ"
+                    labelform="CENA ZA OSOBĘ *"
                     tooltiptext="Tutaj podaj cenę za bilet. Pamiętaj o tym, że kwota jest w złotówkach."
                     type="text"
                     name="price"
@@ -311,7 +311,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                    labelform="EMAIL"
+                    labelform="EMAIL *"
                     tooltiptext="Tutaj wpisz cały adres e-mail."
                     type="email"
                     name="email"
@@ -321,8 +321,6 @@ class AddForm extends React.Component {
                     value={values.email}
                     touched={touched}
                     errors={errors}
-                    label={{ icon: "asterisk" }}
-                    labelPosition="right corner"
                   />
                   <TextInput
                     labelform="STRONA"
