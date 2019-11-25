@@ -88,11 +88,11 @@ export default class Example extends PureComponent {
       <div className={styles.chartt}>
         <div>
           <h2>Ilość imprez według kategorii</h2>
-          <PieChart width={400} height={400}>
+          <PieChart width={400} height={300}>
             <Pie
               data={data}
               cx={200}
-              cy={200}
+              cy={130}
               labelLine={false}
               labelString="adkwg"
               label={renderCustomizedLabel}
