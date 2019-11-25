@@ -31,6 +31,16 @@ code {
   width: 235px;
 }
 
+.pageNotFound {
+  font-size: 40px;
+  margin: 0;
+  height: calc(100vh - 40px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 @media (max-width: 700px) {
   .ui.thin.left.sidebar, .ui.thin.right.sidebar {
     width: 200px;
@@ -51,10 +61,6 @@ code {
 .dropdown {
   width: 180px;
 }
-
-/* .AddForm_addForm__2SgDg form .dropdown {
-  width: 100%;
-} */
 
 
 #root > div > div > div > div > div:nth-child(6) > div > a {

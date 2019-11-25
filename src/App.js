@@ -21,7 +21,7 @@ const App = () => {
           <Route exact path="/profil" component={Profile} />
           <Route exact path="/party/:id" component={PartyDetails} />
           <Route
-            component={() => <h1>404 - Przykro nam nie ma takiej strony</h1>}
+            component={() => <h1 className="pageNotFound">Przykro nam nie ma takiej strony</h1>}
           />
         </Switch>
       </div>

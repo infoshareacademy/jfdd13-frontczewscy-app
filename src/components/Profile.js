@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Image } from 'semantic-ui-react'
 import styles from "./Profile.module.css";
 
 
@@ -22,10 +22,7 @@ const CardExampleImageCard = () => (
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <a>
-          <Icon name='comment' />
-          10 Comments
-        </a>
+        
       </Card.Content>
     </Card>
     </div>
