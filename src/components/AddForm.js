@@ -1,9 +1,10 @@
 import React from "react";
 import { Formik } from "formik";
 import { Input, Button, Segment, Message } from "semantic-ui-react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import moment from "moment";
+import "moment/locale/pl";
 import styles from "./AddForm.module.css";
 
 //example of image url
@@ -21,8 +22,8 @@ const accountFormSchema = Yup.object().shape({
     .max(69, "Za długi tytuł")
     .required("Pole wymagane!"),
   description: Yup.string()
-    .min(5, "Za krótki opis")
-    .max(69, "Za długi opis")
+    .min(35, "Za krótki opis")
+    .max(400, "Za długi opis")
     .required("Pole wymagane!"),
   image: Yup.string().matches(imageRegEx, "Błędny format url"),
   price: Yup.string()
@@ -81,10 +82,12 @@ const SelectInput = props => {
           className="ui selection dropdown"
           {...props}
           error={errors[name] && touched[name]}>
-      <option value="KONCERTY">KONCERTY</option>
+          <option value="KONCERTY">KONCERTY</option>
           <option value="SPEKTAKLE">SPEKTAKLE</option>
           <option value="IMPREZY TANECZNE">IMPREZY TANECZNE</option>
-          <option value="IMPREZY OKOLICZNOŚCIOWE">IMPREZY OKOLICZNOŚCIOWE</option>
+          <option value="IMPREZY OKOLICZNOŚCIOWE">
+            IMPREZY OKOLICZNOŚCIOWE
+          </option>
           <option value="WYSTAWY, SPOTKANIA">WYSTAWY, SPOTKANIA</option>
           <option value="SPORT, REKREACJA">SPORT, REKREACJA</option>
           <option value="TARGI, KONFERENCJE">TARGI, KONFERENCJE</option>
@@ -92,6 +95,35 @@ const SelectInput = props => {
         </select>
       </label>
     </div>
+  );
+};
+
+const Textarea = props => {
+  const { name, errors, touched, labelform, tooltiptext } = props;
+  return (
+    <label>
+      <div className={styles.tooltip}>
+        {labelform}
+        {tooltiptext && (
+          <span className={styles.tooltiptext}>{tooltiptext}</span>
+        )}
+      </div>
+      <div className="ui focus input">
+        <textarea
+          style={{
+            minHeight: 200,
+            minWidth: "100%",
+            maxWidth: "100%",
+            resize: "none"
+          }}
+          {...props}
+          error={errors[name] && touched[name]}
+        />
+      </div>
+      <div className={styles.error}>
+        {errors[name] && touched[name] && errors[name]}
+      </div>
+    </label>
   );
 };
 
@@ -112,25 +144,26 @@ class AddForm extends React.Component {
   showMessage = () => {
     this.setState({
       isMessageShown: true
-    })
+    });
     setTimeout(() => {
       this.setState({
         isMessageShown: false
-      })
+      });
     }, 7000);
-  }
+  };
 
   render() {
     return (
       <div>
         <Formik
           initialValues={{
-            title: "Title",
-            description: "lorem ipsum dolor sip mate what cosaoa",
+            title: "",
+            description: "",
+            description2: "dhsahdashdhashdas",
             image: "",
-            date: moment().format("MMM Do YY"),
+            date: moment().format("L"),
             hour: "",
-            partyType: "",
+            partyType: "KONCERTY",
             price: "0",
             street: "",
             town: "",
@@ -148,6 +181,7 @@ class AddForm extends React.Component {
               this.setState({ btnLoading: false, btnDisabled: false });
               this.showMessage();
             }, 2000);
+
             postData(values);
           }}>
           {({
@@ -163,7 +197,7 @@ class AddForm extends React.Component {
                 <InfoSegment></InfoSegment>
                 <form onSubmit={handleSubmit}>
                   <TextInput
-                    labelform="TYTUŁ"
+                    labelform="TYTUŁ *"
                     tooltiptext="Tutaj wpisz swój tytuł"
                     type="text"
                     name="title"
@@ -173,22 +207,18 @@ class AddForm extends React.Component {
                     value={values.title}
                     touched={touched}
                     errors={errors}
-                    label={{ icon: "asterisk" }}
-                    labelPosition="right corner"
                   />
-                  <TextInput
-                    labelform="OPIS"
-                    tooltiptext="Tutaj wpisz opis wydarzenia, które chcesz dodać"
-                    type="text"
+
+                  <Textarea
+                    labelform="OPIS *"
                     name="description"
-                    placeholder="krótki opis"
+                    tooltiptext="Tutaj wpisz opis wydarzenia, które chcesz dodać"
+                    placeholder="Tutaj wpisz opis wydarzenia, które chcesz dodać"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.description}
                     touched={touched}
                     errors={errors}
-                    label={{ icon: "asterisk" }}
-                    labelPosition="right corner"
                   />
                   <TextInput
                     labelform="ZDJĘCIE"
@@ -326,12 +356,12 @@ class AddForm extends React.Component {
                     loading={this.state.btnLoading}
                     disabled={this.state.btnDisabled}
                   />
-                  <Link to="/wyszukaj" >
+                  <Link to="/wyszukaj">
                     <Message
                       success
                       hidden={!this.state.isMessageShown}
-                      header='Dodawanie nowego wydarzenia powiodło się'
-                      content='Kliknij tutaj aby swoje wydarzenie na liście wszystkich wydarzeń'
+                      header="Dodawanie nowego wydarzenia powiodło się"
+                      content="Kliknij tutaj aby swoje wydarzenie na liście wszystkich wydarzeń"
                     />
                   </Link>
                 </form>

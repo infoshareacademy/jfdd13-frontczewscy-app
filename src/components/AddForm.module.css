@@ -1,7 +1,7 @@
 .addForm {
     display: flex;
     flex-direction: column;
-    width: 50vw;
+    width: 600px;
     justify-content: center;
     text-align: center;
     margin: 40px auto;
@@ -15,7 +15,7 @@
 }
 
 .addForm div {
-    width: 500px;
+    width: 600px;
     justify-content: center;
 }
 
@@ -73,7 +73,7 @@ select {
 }
 
 @media (max-width: 600px) {
-    .addForm div {
+    .addForm div, .addForm {
         width: 300px;
     }
 }
