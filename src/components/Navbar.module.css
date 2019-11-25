@@ -29,6 +29,7 @@
     padding: 7px;
     margin: 0px 10px 0px;
     cursor: pointer;
+    color: #fff;
 }
 
 .left, .navLogo {
@@ -36,15 +37,11 @@
     align-items: center;
 }
 
-.navLogo > span {
+.navLogo>span {
     font-size: 20px;
     text-transform: uppercase;
     margin-left: 10px;
     color: white;
-}
-
-a {
-    color: #fff;
 }
 
 .right>li :hover {

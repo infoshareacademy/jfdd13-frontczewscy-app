@@ -53,6 +53,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: 30px;
+    width: calc(100% - 60px);
 }
 
 .btn {
@@ -118,21 +119,21 @@
     justify-content: center;
 }
 
-.item > .inside {
+.item>.inside {
     width: 100%;
 }
-
 
 @media (max-width: 1200px) {
     .item {
         width: calc(50% - 40px);
     }
 }
+
 @media (max-width: 700px) {
     .item {
         width: calc(100% - 40px);
     }
-    .item > .inside {
+    .item>.inside {
         width: 80%;
     }
 }
