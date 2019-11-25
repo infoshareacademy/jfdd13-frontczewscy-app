@@ -99,7 +99,7 @@ class SidebarSearch extends Component {
     showFirstAndLastNav: true,
     showPreviousAndNextNav: true,
     totalPages: 3,
-    postPerPage: 12,
+    postPerPage: 4,
     favorites: []
   };
 
