@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik } from "formik";
-import { Input, Button, Segment, Message } from "semantic-ui-react";
+import { Input, Button, Segment, Header, Modal } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import moment from "moment";
@@ -38,7 +38,34 @@ const accountFormSchema = Yup.object().shape({
     .required("Pole wymagane!")
 });
 
-// .matches(imageRegEx, 'Błędny format url'),
+
+const ModalBox = props => {
+  const { open, dimmer, close } = props
+  return (
+   
+    <Modal dimmer={dimmer} open={open} onClose={close} style={{ textAlign: "center" }}>
+          <Modal.Header>Dziękujemy za dodanie imprezy</Modal.Header>
+          <Modal.Content>            
+            <Modal.Description>
+              <Header>Kliknij przejdź do Imprez aby zobaczyć swoje wydarzenie na liście</Header>
+            </Modal.Description>
+          </Modal.Content>
+          <Modal.Actions>
+            <Button color='black' onClick={close}>
+              Chce dodać kolejne!
+            </Button>
+            <Link to="/wyszukaj">
+              <Button
+                positive
+                icon='checkmark'
+                labelPosition='right'
+                content="Lista wydarzeń"
+              />
+            </Link>
+          </Modal.Actions>
+        </Modal>
+  )
+}
 
 const TextInput = props => {
   const { name, errors, touched, labelform, tooltiptext } = props;
@@ -59,6 +86,7 @@ const TextInput = props => {
     </div>
   );
 };
+
 const InfoSegment = () => (
   <Segment>
     Wypełnij poniższy formularz. Pola z gwiazdką są wymagane. Pamiętaj aby podać
@@ -117,7 +145,6 @@ const Textarea = props => {
             resize: "none"
           }}
           {...props}
-          error={errors[name] && touched[name]}
         />
       </div>
       <div className={styles.error}>
@@ -138,19 +165,11 @@ class AddForm extends React.Component {
   state = {
     btnLoading: false,
     btnDisabled: false,
-    isMessageShown: false
+    isMessageShown: false,
+    open: false,
   };
 
-  showMessage = () => {
-    this.setState({
-      isMessageShown: true
-    });
-    setTimeout(() => {
-      this.setState({
-        isMessageShown: false
-      });
-    }, 7000);
-  };
+  close = () => this.setState({ open: false })
 
   render() {
     return (
@@ -159,7 +178,6 @@ class AddForm extends React.Component {
           initialValues={{
             title: "",
             description: "",
-            description2: "dhsahdashdhashdas",
             image: "",
             date: moment().format("L"),
             hour: "",
@@ -175,11 +193,10 @@ class AddForm extends React.Component {
           onSubmit={(values, { setSubmitting, resetForm }) => {
             setSubmitting(true);
             this.setState({ btnLoading: true, btnDisabled: true });
-
+            
             setTimeout(() => {
               resetForm();
-              this.setState({ btnLoading: false, btnDisabled: false });
-              this.showMessage();
+              this.setState({ btnLoading: false, btnDisabled: false, dimmer: "blurring", open: true});
             }, 2000);
 
             postData(values);
@@ -354,14 +371,8 @@ class AddForm extends React.Component {
                     loading={this.state.btnLoading}
                     disabled={this.state.btnDisabled}
                   />
-                  <Link to="/wyszukaj">
-                    <Message
-                      success
-                      hidden={!this.state.isMessageShown}
-                      header="Dodawanie nowego wydarzenia powiodło się"
-                      content="Kliknij tutaj aby swoje wydarzenie na liście wszystkich wydarzeń"
-                    />
-                  </Link>
+                  
+                  <ModalBox open={this.state.open} dimmer={this.state.dimmer} close={this.close} />
                 </form>
               </div>
             );
