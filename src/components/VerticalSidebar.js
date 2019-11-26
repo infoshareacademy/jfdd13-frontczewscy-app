@@ -114,8 +114,6 @@ const VerticalSidebar = props => {
                   value={values.isFavorites}
                 />
               </div>
-
-              <button type="submit">Submit</button>
             </form>
           );
         }}
