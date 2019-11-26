@@ -16,12 +16,6 @@ import VerticalSidebar from "../components/VerticalSidebar";
 import { watchParties } from "../services/PartiesService";
 import _ from "lodash";
 
-console.log(
-  watchParties(parties => {
-    console.log(parties);
-  })
-);
-
 const Item = props => {
   const {
     description,
@@ -69,7 +63,8 @@ const Item = props => {
         </Card.Description>
         <Card.Content
           extra
-          style={{ display: "flex", justifyContent: "space-between" }}>
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
           <Icon
             onClick={() => handleFavorites(id)}
             name={favorites.includes(id) ? "heart" : "heart outline"}
@@ -105,33 +100,18 @@ class SidebarSearch extends Component {
     showEllipsis: true,
     showFirstAndLastNav: true,
     showPreviousAndNextNav: true,
-    totalPages: 3,
+    totalPages: 1,
     postPerPage: 4,
     favorites: []
   };
 
-  handleTotalPages = () => {
-    const newTotalPages = Math.ceil(
-      this.state.parties.length / this.state.postPerPage
-    );
-    this.setState({ totalPages: newTotalPages });
-  };
-
   componentDidMount = () => {
-    fetch(`https://frontczewscy-database.firebaseio.com/parties.json`)
-      .then(resp => resp.json())
-      .then(obj =>
-        Object.keys(obj).map(key => {
-          obj[key].id = key;
-          return obj[key];
-        })
-      )
-      .then(result => this.setState({ parties: result }))
-      .then(data => {
-        this.setState({ loading: false });
+    watchParties(parties => {
+      this.setState({ parties }, () => {
         this.handleTotalPages();
-      })
-      .catch(err => this.setState({ err: err.message }));
+      });
+      this.setState({ loading: false });
+    });
 
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     this.setState({
@@ -141,6 +121,31 @@ class SidebarSearch extends Component {
 
   componentDidUpdate() {
     localStorage.setItem("favorites", JSON.stringify(this.state.favorites));
+  }
+
+  get partiesAfterFilters() {
+    const { favorites, filter } = this.state;
+
+    return this.state.parties.filter(post => {
+      return (
+        post.title.toLowerCase().includes(filter.title.toLowerCase()) &&
+        (filter.partyType !== "all"
+          ? post.partyType.includes(filter.partyType)
+          : true) &&
+        parseFloat(post.price.replace(/,/g, ".")) <= filter.sliderValue &&
+        (filter.isFavorites ? favorites.includes(post.id) : true)
+      );
+    });
+  }
+
+  get partiesToShow() {
+    const { postPerPage } = this.state;
+    return this.partiesAfterFilters
+      .reverse()
+      .slice(
+        this.state.activePage * postPerPage - postPerPage,
+        this.state.activePage * postPerPage
+      );
   }
 
   handleFavorites = id => {
@@ -167,8 +172,11 @@ class SidebarSearch extends Component {
     this.setState({ direction, visible: false });
 
   handleOnSearch = values => {
+    
     this.setState({
       filter: values
+    }, () => {
+      this.handleTotalPages();
     });
   };
 
@@ -179,13 +187,17 @@ class SidebarSearch extends Component {
 
   handlePaginationChange = (e, { activePage }) => this.setState({ activePage });
 
+  handleTotalPages = () => {
+    const totalPages = Math.ceil(this.partiesAfterFilters.length / this.state.postPerPage);
+    this.setState({ totalPages, activePage: 1 });
+  };
+
   render() {
     const {
       animation,
       dimmed,
       direction,
       visible,
-      filter,
       activePage,
       boundaryRange,
       siblingRange,
@@ -201,7 +213,8 @@ class SidebarSearch extends Component {
       <div>
         <Sidebar.Pushable
           as={Segment}
-          style={{ margin: `0 -2px -3px -2px`, border: "none" }}>
+          style={{ margin: `0 -2px -3px -2px`, border: "none" }}
+        >
           <VerticalSidebar
             onSearch={this.handleOnSearch}
             animation={animation}
@@ -211,7 +224,8 @@ class SidebarSearch extends Component {
           />
           <Button
             className={styles.btn}
-            onClick={this.handleAnimationChange("scale down")}>
+            onClick={this.handleAnimationChange("scale down")}
+          >
             <Icon name="bars" size="large" />
           </Button>
 
@@ -222,21 +236,7 @@ class SidebarSearch extends Component {
               </Dimmer>
               <div className={styles.content}>
                 <div className={styles.row}>
-                  {this.state.parties
-                    .filter(
-                      post =>
-                        post.title
-                          .toLowerCase()
-                          .includes(filter.title.toLowerCase()) &&
-                        (filter.partyType !== "all"
-                          ? post.partyType.includes(filter.partyType)
-                          : true) &&
-                        parseFloat(post.price.replace(/,/g, ".")) <=
-                          filter.sliderValue &&
-                        (filter.isFavorites
-                          ? favorites.includes(post.id)
-                          : true)
-                    )
+                  {this.partiesAfterFilters
                     .reverse()
                     .slice(
                       this.state.activePage * postPerPage - postPerPage,
@@ -267,7 +267,8 @@ class SidebarSearch extends Component {
                       display: "flex",
                       justifyContent: "center",
                       width: "100%"
-                    }}>
+                    }}
+                  >
                     <Pagination
                       activePage={activePage}
                       boundaryRange={boundaryRange}
