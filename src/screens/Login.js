@@ -4,11 +4,11 @@ import styles from "./Login.module.css";
 
 const Login = () => {
   return   <Form className={styles.loginForm}>
-  <Form.Field>
+  <Form.Field className={styles.loginFormLogin}>
     <label>Login</label>
     <input placeholder='First Name' />
   </Form.Field>
-  <Form.Field>
+  <Form.Field className = {styles.loginFormPassword}>
     <label>Hasło</label>
     <input type="password" placeholder='Last Name' />
   </Form.Field>

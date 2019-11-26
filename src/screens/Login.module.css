@@ -7,3 +7,7 @@
 
 
 }
+
+.loginFormLogin , .loginFormPassword{
+    width: 700px;
+}
