@@ -258,6 +258,7 @@ class SidebarSearch extends Component {
                         />
                       </div>
                     ))}
+                  {this.partiesAfterFilters.length <= 0 ? <p className={styles.noSearch}>Przykro nam, nie mamy imprezy dla Twoich wyszukiwań.</p> : null}
                   {this.state.err && (
                     <p style={{ color: "red" }}>{this.state.err}</p>
                   )}
