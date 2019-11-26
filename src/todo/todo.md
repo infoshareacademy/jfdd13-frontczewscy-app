@@ -22,7 +22,7 @@
 - [ ] Dashboard (można rozpisać na mniejsze taski)
 - [x] Poprawić komunikat o zapisaniu imprezy w bazie danych (najlepiej okno modalne)
 - [ ] Końcowy wygląd imprezy ( poprawić wyrównanie, tu ogólnie chyba trzeba troche to przerobić)
-- Przerobić z semantica na zwykłego flexa,
+    - Przerobić z semantica na zwykłego flexa,
 - [ ] Zmienić dodawanie imprez na funkcje firebase:
     - [Może sie przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/da6c0d8429ea824ff54f1c87430979146eaef131)
 - [ ] I wiele więcej
