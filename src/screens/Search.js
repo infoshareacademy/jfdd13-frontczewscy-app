@@ -12,7 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import styles from "./Search.module.css";
 import "react-input-range/lib/css/index.css";
-import VerticalSidebar from "./VerticalSidebar";
+import VerticalSidebar from "../components/VerticalSidebar";
 import _ from "lodash";
 
 const Item = props => {

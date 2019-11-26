@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import Search from "./components/Search";
-import Charts from "./components/Charts";
-import AddForm from "./components/AddForm";
-import Profile from "./components/Profile";
-import PartyDetails from "./components/PartyDetails";
+import Search from "./screens/Search";
+import Charts from "./screens/Charts";
+import AddForm from "./screens/AddForm";
+import Profile from "./screens/Profile";
+import PartyDetails from "./screens/PartyDetails";
 import Login from "./screens/Login";
 import Register from "./screens/Register";
 
