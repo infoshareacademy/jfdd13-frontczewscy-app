@@ -1,8 +1,14 @@
-.chartt {
+.chartt{
     width: 100%;
     display: flex;
     align-items: center;
-    flex-direction: column;
     justify-content: space-evenly;
-    text-align: center;
+    margin-top: 50px;
+}
+ 
+@media (max-width: 1000px) {
+    .chartt{
+        flex-direction: column;
+    }
+    
 }
