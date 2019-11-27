@@ -219,7 +219,7 @@ class AddForm extends React.Component {
                     value={values.description}
                     touched={touched}
                     errors={errors}
-                  />
+                  />  
                   <TextInput
                     labelform="ZDJĘCIE"
                     tooltiptext="Wklej link URL zdjęcia. Preferowany kształt zdjęcia to kwadrat"

@@ -5,10 +5,12 @@ import styles from "./Register.module.css"
 const Register = () => {
   return  <Form className={styles.registerForm}>
     <Message size="small" className={styles.registerFormMessage}
+
     icon='registered outline'
     header='Witaj w formularzu rejestracji.'
     content='Wypełnij wszystkie pola, kliknij zatwierdź aby zakończyć rejestrację.'
   />
+  
   <Form.Field className={styles.registerFormEmail}>
     <label>E-mail</label>
     <input placeholder='E-mail' />
@@ -27,7 +29,7 @@ const Register = () => {
   </Form.Field>
   <Form.Field className={styles.registerFormBio}>
     <label>Bio</label>
-    <textarea placeholder="Bio" rows="3"></textarea>
+    <textarea placeholder="Bio"  style={{minHeight:"200px"}} rows="3"></textarea>
   </Form.Field>
   <Button type='submit'>Submit</Button>
 </Form>
