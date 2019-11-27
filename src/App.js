@@ -33,7 +33,6 @@ const App = () => {
     return (
       <Router>
         <div>
-          <Button onClick={() => firebase.auth().signOut()}>logout</Button>
           <Switch>
             <Route exact path="/zaloguj" component={Login} />
             <Route exact path="/zarejestruj" component={Register} />
@@ -48,7 +47,6 @@ const App = () => {
     <Router>
       <div>
         <Navbar />
-        <Button onClick={() => firebase.auth().signOut()}>logout</Button>
         <Switch>
           <Route exact strict sensitive path="/" component={Charts} />
           <Route exact path="/dodaj-wydarzenie" component={AddForm} />
