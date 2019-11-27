@@ -9,6 +9,7 @@ import { watchUsers, stopUsers } from "../services/UserService";
 
 const CardExampleImageCard = () => {
   const userId = firebase.auth().currentUser.uid;
+  
 
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({})
@@ -20,11 +21,6 @@ const CardExampleImageCard = () => {
         userId === user.id
       )))
     });
-
-    
-    setUser(users.find(user => (
-      userId === user.id
-    )))
 
     return () => {
       stopUsers();
@@ -54,9 +50,8 @@ const CardExampleImageCard = () => {
           {user && <div>
             <p>Display name: {user.name}</p>
             <p>Display bio: {user.bio}</p>
-            <p>Display join date: {user.join}</p>
+            <p>Display join date: {user.joined}</p>
             <p>Display email: {user.email}</p>
-            <p>Display gender: {user.gender}</p>
           </div>}
           
         </div>
