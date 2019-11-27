@@ -13,7 +13,7 @@ export const login = (email, password) => {
     });
 };
 
-export const register = (email, password, name, gender, bio) => {
+export const register = (email, password, name, bio, joined) => {
   return firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
@@ -32,8 +32,8 @@ export const register = (email, password, name, gender, bio) => {
               id: user.uid,
               name,
               email,
-              gender,
-              bio
+              bio,
+              joined
             });
         });
     });
