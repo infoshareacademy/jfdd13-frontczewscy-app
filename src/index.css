@@ -69,7 +69,7 @@ code {
 }
 
 /* Selector for Message Component from Register.js */
-.ui.form .message:first-child {
+#root > div > div > div > div{
   width: 700px;
   margin-bottom: 50px;
 }
