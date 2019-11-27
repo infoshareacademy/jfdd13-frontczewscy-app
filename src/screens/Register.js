@@ -6,7 +6,7 @@ import styles from "./Register.module.css"
 
 const FormInfoHeader = () => {
   return <div className="ui icon message">
- <i aria-hidden="true" className="add user loading icon"></i>
+ <i aria-hidden="true" className="smile loading icon"></i>
   <div className="content">
     <div className="header">Witaj w formularzu rejestracji.</div>
     <p>Wypełnij wszystkie pola, kliknij zarejestruj aby zakończyć rejestrację. Pola z  <i className={styles.star}> * </i>  są wymagane.</p>
@@ -41,7 +41,7 @@ const Register = () => {
   </Form.Field>
   <Form.Field className={styles.registerFormImage}>
     <label>Zdjęcie profilowe</label>
-    <input placeholder='Zdjęcie profilowe' />
+    <input type="file"  placeholder='Zdjęcie profilowe' />
   </Form.Field>
   <Form.Field className={styles.registerFormSelect}>
     <label>Płeć</label>
@@ -53,7 +53,7 @@ const Register = () => {
   </Form.Field>
   <Form.Field  className={styles.registerFormBio}>
     <label>Bio</label>
-    <textarea placeholder="Bio"  style={{minHeight:"150px"}} rows="3"></textarea>
+    <textarea placeholder="Bio"  style={{minHeight:"150px", maxHeight:"150px"}} rows="3"></textarea>
   </Form.Field>
   <Button type='submit'>Zarejestruj</Button>
 </Form>
