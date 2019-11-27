@@ -1,14 +1,27 @@
 import React from "react";
-import { Button, Form, Message } from "semantic-ui-react";
+import { Button, Form, Icon } from "semantic-ui-react";
 import styles from "./Register.module.css"
+
+
+
+const FormInfoHeader = () => {
+  return <div className="ui icon message">
+ <i aria-hidden="true" className="add user loading icon"></i>
+  <div className="content">
+    <div className="header">Witaj w formularzu rejestracji.</div>
+    <p>Wypełnij wszystkie pola, kliknij zarejestruj aby zakończyć rejestrację. Pola z  <i className={styles.star}> * </i>  są wymagane.</p>
+  </div>
+</div>
+}
+
+
+
+
 
 const Register = () => {
   return  <Form className={styles.registerForm}>
-    <Message size="small" className={styles.registerFormMessage}
-    icon='add user'
-    header='Witaj w formularzu rejestracji.'
-    content='Wypełnij wszystkie pola, kliknij zatwierdź aby zakończyć rejestrację.'
-  />
+
+  <FormInfoHeader />
   
   <Form.Field required className={styles.registerFormEmail}>
     <label>E-mail</label>
@@ -40,7 +53,7 @@ const Register = () => {
   </Form.Field>
   <Form.Field  className={styles.registerFormBio}>
     <label>Bio</label>
-    <textarea placeholder="Bio"  style={{minHeight:"200px"}} rows="3"></textarea>
+    <textarea placeholder="Bio"  style={{minHeight:"150px"}} rows="3"></textarea>
   </Form.Field>
   <Button type='submit'>Zarejestruj</Button>
 </Form>

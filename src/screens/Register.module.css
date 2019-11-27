@@ -11,5 +11,10 @@
 
 .registerFormEmail, .registerFormName, .registerFormPass, .registerFormPassRep, .registerFormBio, .registerFormImage, .registerFormSelect {
  width: 700px;   
- font-size: 1.1em;
+ font-size: 1em;
+}
+
+.star {
+    color: red;
+    font-weight: bold;
 }
