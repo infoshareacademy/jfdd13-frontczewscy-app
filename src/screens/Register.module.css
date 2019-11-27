@@ -1,0 +1,20 @@
+.registerForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - 40px);
+  
+ 
+}
+
+
+.registerFormEmail, .registerFormName, .registerFormPass, .registerFormPassRep, .registerFormBio {
+ width: 700px;   
+}
+
+
+.ui.form .message:first-child {
+    width: 700px;
+    margin-bottom: 50px;
+}

@@ -1,7 +1,20 @@
 import React from "react";
+import { Button, Checkbox, Form } from "semantic-ui-react";
+import styles from "./Login.module.css";
 
 const Login = () => {
-  return <h1>Login</h1>;
+  return   <Form className={styles.loginForm}>
+  <Form.Field className={styles.loginFormLogin}>
+    <label>Login</label>
+    <input placeholder='First Name' />
+  </Form.Field>
+  <Form.Field className = {styles.loginFormPassword}>
+    <label>Hasło</label>
+    <input type="password" placeholder='Last Name' />
+  </Form.Field>
+  <Button type='submit'>Submit</Button>
+</Form>
+
 };
 
 export default Login;
