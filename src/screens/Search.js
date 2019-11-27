@@ -79,9 +79,6 @@ const Item = props => {
 
 class SidebarSearch extends Component {
   state = {
-    animation: "scale down",
-    direction: "right",
-    dimmed: false,
     visible: true,
     iconName: true,
     filter: {
@@ -93,16 +90,20 @@ class SidebarSearch extends Component {
     parties: [],
     err: "",
     loading: true,
-    activePage: 1,
+    activePage: 1,    
+    totalPages: 1,
+    
+    favorites: [],
+    // not changing
+    postPerPage: 8,
+    animation: "scale down",
+    direction: "right",
+    dimmed: false,
     boundaryRange: 1,
     siblingRange: 1,
     showEllipsis: true,
     showFirstAndLastNav: true,
-    showPreviousAndNextNav: true,
-    totalPages: 1,
-    postPerPage: 8,
-    favorites: []
-    //
+    showPreviousAndNextNav: true
   };
 
   componentDidMount = () => {
