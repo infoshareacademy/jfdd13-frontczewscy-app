@@ -12,3 +12,9 @@
 .registerFormEmail, .registerFormName, .registerFormPass, .registerFormPassRep, .registerFormBio {
  width: 700px;   
 }
+
+
+.ui.form .message:first-child {
+    width: 700px;
+    margin-bottom: 50px;
+}

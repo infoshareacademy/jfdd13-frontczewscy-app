@@ -1,9 +1,14 @@
 import React from "react";
-import { Button, Form, TextArea } from "semantic-ui-react";
+import { Button, Form, TextArea, Message } from "semantic-ui-react";
 import styles from "./Register.module.css"
 
 const Register = () => {
   return  <Form className={styles.registerForm}>
+    <Message size="small" className={styles.registerFormMessage}
+    icon='registered outline'
+    header='Witaj w formularzu rejestracji.'
+    content='Wypełnij wszystkie pola, kliknij zatwierdź aby zakończyć rejestrację.'
+  />
   <Form.Field className={styles.registerFormEmail}>
     <label>E-mail</label>
     <input placeholder='E-mail' />
