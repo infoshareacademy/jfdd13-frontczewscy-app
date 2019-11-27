@@ -1,7 +1,9 @@
 import React from "react";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
-import { Input, Button, Segment, Message, Form } from "semantic-ui-react";
+import { Input, Button, Segment, Message, Form, Divider } from "semantic-ui-react";
+import * as moment from 'moment';
+import { register } from "../services/AuthService"
 
 import * as Yup from "yup";
 
@@ -114,6 +116,7 @@ class Register extends React.Component {
   render() {
     return (
       <div>
+        <Segment>
         <div className={styles.linkContainer}>
           <p>
             Jeżeli masz już konto
@@ -129,13 +132,17 @@ class Register extends React.Component {
             password: "",
             passwordRep: "",
             image: "",
-            bio: ""
+            bio: "",
+            joined: moment().format('L')
           }}
           validationSchema={accountFormSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
             setSubmitting(true);
-            console.log(values);
+            
             this.setState({ btnLoading: true, btnDisabled: true });
+
+            const {email, password, name, bio, joined} = values
+            register(email, password, name, bio, joined)
 
             setTimeout(() => {
               resetForm();
@@ -250,7 +257,9 @@ class Register extends React.Component {
             );
           }}
         </Formik>
+        </Segment>
       </div>
+      
     );
   }
 }
