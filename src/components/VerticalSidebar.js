@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Button, Icon, Menu, Sidebar, Input } from "semantic-ui-react";
 import { Formik } from "formik";
-import styles from "./Search.module.css";
+import styles from "../screens/Search.module.css";
 import "react-input-range/lib/css/index.css";
 
 const TextInput = props => {
@@ -19,13 +19,13 @@ const SelectInput = props => {
       <select className="ui selection dropdown dropdown" {...props}>
         <option value="all">Wszystkie</option>
         <option value="KONCERTY">KONCERTY</option>
-          <option value="SPEKTAKLE">SPEKTAKLE</option>
-          <option value="IMPREZY TANECZNE">IMPREZY TANECZNE</option>
-          <option value="IMPREZY OKOLICZNOŚCIOWE">IMPREZY OKOLICZNOŚCIOWE</option>
-          <option value="WYSTAWY, SPOTKANIA">WYSTAWY, SPOTKANIA</option>
-          <option value="SPORT, REKREACJA">SPORT, REKREACJA</option>
-          <option value="TARGI, KONFERENCJE">TARGI, KONFERENCJE</option>
-          <option value="FILM, KINO">FILM, KINO</option>
+        <option value="SPEKTAKLE">SPEKTAKLE</option>
+        <option value="IMPREZY TANECZNE">IMPREZY TANECZNE</option>
+        <option value="IMPREZY OKOLICZNOŚCIOWE">IMPREZY OKOLICZNOŚCIOWE</option>
+        <option value="WYSTAWY, SPOTKANIA">WYSTAWY, SPOTKANIA</option>
+        <option value="SPORT, REKREACJA">SPORT, REKREACJA</option>
+        <option value="TARGI, KONFERENCJE">TARGI, KONFERENCJE</option>
+        <option value="FILM, KINO">FILM, KINO</option>
       </select>
     </div>
   );
@@ -114,8 +114,6 @@ const VerticalSidebar = props => {
                   value={values.isFavorites}
                 />
               </div>
-
-              <button type="submit">Submit</button>
             </form>
           );
         }}

@@ -123,6 +123,14 @@
     width: 100%;
 }
 
+.noSearch {
+    width: 100%;
+    text-align: center;
+    padding: 40px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
 @media (max-width: 1200px) {
     .item {
         width: calc(50% - 40px);
