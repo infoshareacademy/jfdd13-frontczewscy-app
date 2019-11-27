@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Checkbox, Form } from "semantic-ui-react";
+import { Button, Form, TextArea } from "semantic-ui-react";
 import styles from "./Register.module.css"
 
 const Register = () => {
@@ -22,7 +22,7 @@ const Register = () => {
   </Form.Field>
   <Form.Field className={styles.registerFormBio}>
     <label>Bio</label>
-    <input type="text" placeholder='Bio' />
+    <textarea placeholder="Bio" rows="3"></textarea>
   </Form.Field>
   <Button type='submit'>Submit</Button>
 </Form>
