@@ -1,11 +1,10 @@
 import React from "react";
-import { Button, Form, TextArea, Message } from "semantic-ui-react";
+import { Button, Form, Message } from "semantic-ui-react";
 import styles from "./Register.module.css"
 
 const Register = () => {
   return  <Form className={styles.registerForm}>
     <Message size="small" className={styles.registerFormMessage}
-
     icon='registered outline'
     header='Witaj w formularzu rejestracji.'
     content='Wypełnij wszystkie pola, kliknij zatwierdź aby zakończyć rejestrację.'
@@ -31,7 +30,7 @@ const Register = () => {
     <label>Bio</label>
     <textarea placeholder="Bio"  style={{minHeight:"200px"}} rows="3"></textarea>
   </Form.Field>
-  <Button type='submit'>Submit</Button>
+  <Button type='submit'>Zarejestruj</Button>
 </Form>
 };
 
