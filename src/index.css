@@ -68,7 +68,7 @@ code {
   background: white;
 }
 
-
+/* Selector for Message Component from Register.js */
 .ui.form .message:first-child {
   width: 700px;
   margin-bottom: 50px;
