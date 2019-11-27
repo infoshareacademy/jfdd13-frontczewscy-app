@@ -3,24 +3,24 @@ import { Button, Checkbox, Form } from "semantic-ui-react";
 import styles from "./Register.module.css"
 
 const Register = () => {
-  return  <Form >
-  <Form.Field >
+  return  <Form className={styles.registerForm}>
+  <Form.Field className={styles.registerFormEmail}>
     <label>E-mail</label>
     <input placeholder='E-mail' />
   </Form.Field>
-  <Form.Field >
+  <Form.Field className={styles.registerFormName}>
     <label>Name</label>
     <input placeholder='Name' />
   </Form.Field>
-  <Form.Field >
+  <Form.Field className={styles.registerFormPass}>
     <label>Hasło</label>
     <input type="password" placeholder='Hasło' />
   </Form.Field>
-  <Form.Field>
+  <Form.Field className={styles.registerFormPassRep}>
     <label>Powtórz hasło</label>
     <input type="password" placeholder='Powtórz hasło' />
   </Form.Field>
-  <Form.Field>
+  <Form.Field className={styles.registerFormBio}>
     <label>Bio</label>
     <input type="text" placeholder='Bio' />
   </Form.Field>
