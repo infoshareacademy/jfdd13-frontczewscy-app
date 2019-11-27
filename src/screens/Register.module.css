@@ -9,12 +9,7 @@
 }
 
 
-.registerFormEmail, .registerFormName, .registerFormPass, .registerFormPassRep, .registerFormBio {
+.registerFormEmail, .registerFormName, .registerFormPass, .registerFormPassRep, .registerFormBio, .registerFormImage, .registerFormSelect {
  width: 700px;   
-}
-
-
-.ui.form .message:first-child {
-    width: 700px;
-    margin-bottom: 50px;
+ font-size: 1.1em;
 }
