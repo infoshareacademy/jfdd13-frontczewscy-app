@@ -218,7 +218,7 @@ class Register extends React.Component {
                     touched={touched}
                     errors={errors}
                   />
-                  <Textarea 
+                  <Textarea className={"ui input"}
                     labelform="Bio"
                     tooltiptext="Napisz coś o sobie."
                     type="textarea"
