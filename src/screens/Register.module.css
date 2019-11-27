@@ -93,6 +93,19 @@ select {
     visibility: visible;
 }
 
+.linkContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.linkContainer p {
+    font-weight: bold;
+}
+
+
 @media (max-width: 600px) {
     .addForm div, .addForm {
         width: 300px;

@@ -1,11 +1,11 @@
 import React from "react";
 import { Formik } from "formik";
+import { Link } from "react-router-dom";
 import { Input, Button, Segment, Message, Form } from "semantic-ui-react";
 
 import * as Yup from "yup";
 
 import styles from "./Register.module.css";
-// import styles from "./Register.module.css"
 
 const FormInfoHeader = () => {
   return (
@@ -114,6 +114,14 @@ class Register extends React.Component {
   render() {
     return (
       <div>
+        <div className={styles.linkContainer}>
+          <p>
+            Jeżeli masz już konto
+          </p>
+          <Link to="/zaloguj">
+            <Button content="Zaloguj się" icon="sign-in" size="big" />
+          </Link>
+        </div>
         <Formik
           initialValues={{
             email: "",
@@ -134,7 +142,8 @@ class Register extends React.Component {
               this.setState({ btnLoading: false, btnDisabled: false });
               this.showMessage();
             }, 2000);
-          }}>
+          }}
+        >
           {({
             values,
             errors,
