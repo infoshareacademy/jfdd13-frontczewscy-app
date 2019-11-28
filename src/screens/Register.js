@@ -158,7 +158,7 @@ class Register extends React.Component {
                 <FormInfoHeader />
                 <form onSubmit={handleSubmit}>
                   <TextInput
-                    labelform="Email"
+                    labelform="Email*"
                     tooltiptext="Tutaj wpisz swój mail"
                     type="text"
                     name="email"
@@ -183,7 +183,7 @@ class Register extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                    labelform="Hasło"
+                    labelform="Hasło*"
                     tooltiptext="Podaj hasło."
                     type="password"
                     name="password"
@@ -195,7 +195,7 @@ class Register extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                    labelform="Powtórz hasło"
+                    labelform="Powtórz hasło*"
                     tooltiptext="Powtórz hasło."
                     type="password"
                     name="passwordRep"
@@ -253,7 +253,7 @@ class Register extends React.Component {
         </Formik>
         <div className={styles.linkContainer}>
           <p>
-            Jeżeli masz już konto
+           Masz już konto?
           </p>
           <Link to="/zaloguj">
             <Button content="Zaloguj się" icon="sign-in" size="big" />
