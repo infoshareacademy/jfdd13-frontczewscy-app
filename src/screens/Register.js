@@ -115,7 +115,9 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.registerBody}>
+        <div className={styles.leftsideRegister}></div>
+      <div className={styles.rightsideRegister}>
         <Segment>
         <div className={styles.linkContainer}>
           <p>
@@ -258,6 +260,7 @@ class Register extends React.Component {
           }}
         </Formik>
         </Segment>
+      </div>
       </div>
       
     );

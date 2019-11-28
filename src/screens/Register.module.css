@@ -105,6 +105,28 @@ select {
     font-weight: bold;
 }
 
+.registerBody {
+
+display: flex;
+flex-direction: row;
+height: 100vh;
+
+}
+
+.leftsideRegister {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/c/cd/Selena_Gomez_2016.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50%;
+    
+}
+
+.rightsideRegister {
+
+    width: 50%;
+
+}
+
 
 @media (max-width: 600px) {
     .addForm div, .addForm {
