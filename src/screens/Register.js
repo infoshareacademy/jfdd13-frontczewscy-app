@@ -118,14 +118,7 @@ class Register extends React.Component {
         <div className={styles.leftsideRegister}></div>
       <div className={styles.rightsideRegister}>
         <Segment>
-        <div className={styles.linkContainer}>
-          <p>
-            Jeżeli masz już konto
-          </p>
-          <Link to="/zaloguj">
-            <Button content="Zaloguj się" icon="sign-in" size="big" />
-          </Link>
-        </div>
+    
         <Formik
           initialValues={{
             email: "",
@@ -258,6 +251,14 @@ class Register extends React.Component {
             );
           }}
         </Formik>
+        <div className={styles.linkContainer}>
+          <p>
+            Jeżeli masz już konto
+          </p>
+          <Link to="/zaloguj">
+            <Button content="Zaloguj się" icon="sign-in" size="big" />
+          </Link>
+        </div>
         </Segment>
       </div>
       </div>
