@@ -211,7 +211,7 @@ class Register extends React.Component {
                   <TextInput
                     labelform="Zdjęcie profilowe"
                     tooltiptext="Podaj adres url swojego zdjecia profilowefgo."
-                    type="text"
+                    type="file"
                     name="image"
                     placeholder="Zdjęcie profilowe"
                     onChange={handleChange}
@@ -220,6 +220,8 @@ class Register extends React.Component {
                     touched={touched}
                     errors={errors}
                   />
+               
+                  
                   <Textarea
                     className={"ui input"}
                     labelform="Bio"
