@@ -46,15 +46,14 @@ const accountFormSchema = Yup.object().shape({
 });
 
 const TextInput = props => {
-  const { name, errors, touched, labelform, tooltiptext } = props;
+  const { name, errors, touched, labelform, tooltiptext, labelRequire } = props;
   return (
     <div>
       <label>
         <div className={styles.tooltip}>
           {labelform}
-          {tooltiptext && (
-            <span className={styles.tooltiptext}>{tooltiptext}</span>
-          )}
+          <span className={styles.star}>{labelRequire}</span>
+    
         </div>
         <Input {...props} error={errors[name] && touched[name]} />{" "}
       </label>
@@ -71,9 +70,7 @@ const Textarea = props => {
     <label>
       <div className={styles.tooltip}>
         {labelform}
-        {tooltiptext && (
-          <span className={styles.tooltiptext}>{tooltiptext}</span>
-        )}
+      
       </div>
       <div className="ui focus input">
         <textarea
@@ -115,9 +112,11 @@ class Register extends React.Component {
   render() {
     return (
       <div className={styles.registerBody}>
-        <div className={styles.leftsideRegister}></div>
+        <div className={styles.leftsideRegister}>
+          <div className={styles.fixedPicture}></div>
+        </div>
       <div className={styles.rightsideRegister}>
-        <Segment>
+        <Segment style={{height:"auto"}}>
     
         <Formik
           initialValues={{
@@ -158,7 +157,8 @@ class Register extends React.Component {
                 <FormInfoHeader />
                 <form onSubmit={handleSubmit}>
                   <TextInput
-                    labelform="Email*"
+                    labelform="Email"
+                    labelRequire="*"
                     tooltiptext="Tutaj wpisz swój mail"
                     type="text"
                     name="email"
@@ -172,6 +172,7 @@ class Register extends React.Component {
 
                   <TextInput
                     labelform="Name"
+                    labelRequire="*"
                     tooltiptext="Podaj swoje imię"
                     type="text"
                     name="name"
@@ -183,7 +184,8 @@ class Register extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                    labelform="Hasło*"
+                    labelform="Hasło"
+                    labelRequire="*"
                     tooltiptext="Podaj hasło."
                     type="password"
                     name="password"
@@ -195,7 +197,8 @@ class Register extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                    labelform="Powtórz hasło*"
+                    labelform="Powtórz hasło"
+                    labelRequire="*"
                     tooltiptext="Powtórz hasło."
                     type="password"
                     name="passwordRep"

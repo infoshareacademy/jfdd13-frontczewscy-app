@@ -63,6 +63,7 @@ select {
     margin-top: 10px;
     position: relative;
     display: inline-block;
+    text-align: left;
 }
 
 .tooltip .tooltiptext {
@@ -122,10 +123,7 @@ height: 100vh;
 }
 
 .leftsideRegister {
-    background: url('https://upload.wikimedia.org/wikipedia/commons/c/cd/Selena_Gomez_2016.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    
     width: 50%;
 
     
@@ -138,7 +136,16 @@ height: 100vh;
 
 }
 
+.fixedPicture {
 
+    background: url('https://upload.wikimedia.org/wikipedia/commons/c/cd/Selena_Gomez_2016.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50%;
+    height: 100%;
+    position: fixed;
+}
 @media (max-width: 600px) {
     .addForm div, .addForm {
         width: 300px;
@@ -157,7 +164,7 @@ height: 100vh;
 
 @media (min-width: 601px) and (max-width: 1200px) {
     .addForm div, .addForm {
-        width: 500px;
+        width: 400px;
     }
     .leftsideRegister {
         display: none;
