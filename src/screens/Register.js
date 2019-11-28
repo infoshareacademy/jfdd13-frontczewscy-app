@@ -12,7 +12,6 @@ import styles from "./Register.module.css";
 const FormInfoHeader = () => {
   return (
     <div className="ui icon message">
-      <i aria-hidden="true" className="smile loading icon"></i>
       <div className="content">
         <div className="header">Witaj w formularzu rejestracji.</div>
         <p>
