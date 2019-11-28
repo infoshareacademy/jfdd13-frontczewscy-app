@@ -9,14 +9,14 @@ const Login = props => {
   const [password, setPassword] = useState("");
 
   return (
-    <Segment placeholder>
-      <Grid columns={2} relaxed="very" stackable>
-        <Grid.Column>
+    <Segment placeholder style={{height:"100vh"}}>
+     <div className={styles.loginBody}>
+        <div className={styles.loginLeft}>
           <Form className={styles.loginForm}>
             <Form.Field className={styles.loginFormLogin}>
               <label>Email</label>
               <input
-                placeholder="First Name"
+                placeholder="Imię"
                 value={email}
                 onChange={event => setEmail(event.target.value)}
               />
@@ -25,7 +25,7 @@ const Login = props => {
               <label>Hasło</label>
               <input
                 type="password"
-                placeholder="Last Name"
+                placeholder="Hasło"
                 value={password}
                 onChange={event => setPassword(event.target.value)}
               />
@@ -33,16 +33,24 @@ const Login = props => {
             <Button type="submit" onClick={() => login(email, password)}>
               Zaloguj się
             </Button>
-          </Form>
-        </Grid.Column>
-
-        <Grid.Column verticalAlign="middle">
-          <p style={{textAlign: "center", fontWeight: "bold"}}>Jeżeli nie masz jeszcze konta</p>
+            <div className={styles.registerButtonSection}>
+            <p style={{textAlign: "center", fontWeight: "bold", paddingRight: "30px", paddingTop:"10px"}}>Nie masz jeszcze konta?</p>
           <Link to="/zarejestruj"><Button content="Zarejestruj się" icon="signup" size="big" /></Link>
-        </Grid.Column>
-      </Grid>
+            </div>
+         
+          </Form>
+     
+       </div>
 
-      <Divider vertical>Lub</Divider>
+        <div className={styles.loginRight}>
+         <div className={styles.rightsideLogin}>
+           <div className={styles.rightsideLoginPic}></div>
+         </div>
+        </div>
+        </div>
+
+
+      
     </Segment>
   );
 };
