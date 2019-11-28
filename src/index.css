@@ -67,3 +67,20 @@ code {
   color: blue;
   background: white;
 }
+
+/* Selector for Message Component from Register.js */
+/* #root > div > div > div > div{
+  width: 700px;
+  margin-bottom: 50px;
+} */
+
+#root > div > div > div.Register_rightsideRegister__1hnUh > div {
+  height: 100vh;
+}
+
+#root > div > div > div > div.Login_loginLeft__70KBu > form > div.ui.icon.message {
+  width: 70%;
+  margin-bottom: 30px;
+  top: 0;
+  text-align: center;
+}

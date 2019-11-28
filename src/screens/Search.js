@@ -63,8 +63,7 @@ const Item = props => {
         </Card.Description>
         <Card.Content
           extra
-          style={{ display: "flex", justifyContent: "space-between" }}
-        >
+          style={{ display: "flex", justifyContent: "space-between" }}>
           <Icon
             onClick={() => handleFavorites(id)}
             name={favorites.includes(id) ? "heart" : "heart outline"}
@@ -80,9 +79,6 @@ const Item = props => {
 
 class SidebarSearch extends Component {
   state = {
-    animation: "scale down",
-    direction: "right",
-    dimmed: false,
     visible: true,
     iconName: true,
     filter: {
@@ -94,25 +90,33 @@ class SidebarSearch extends Component {
     parties: [],
     err: "",
     loading: true,
-    activePage: 1,
+    activePage: 1,    
+    totalPages: 1,
+    
+    favorites: [],
+    // not changing
+    postPerPage: 8,
+    animation: "scale down",
+    direction: "right",
+    dimmed: false,
     boundaryRange: 1,
     siblingRange: 1,
     showEllipsis: true,
     showFirstAndLastNav: true,
-    showPreviousAndNextNav: true,
-    totalPages: 1,
-    postPerPage: 4,
-    favorites: []
+    showPreviousAndNextNav: true
   };
 
   componentDidMount = () => {
     watchParties(parties => {
-      this.setState({ 
-        parties, 
-        loading: false 
-      }, () => {
-        this.handleTotalPages();
-      });
+      this.setState(
+        {
+          parties,
+          loading: false
+        },
+        () => {
+          this.handleTotalPages();
+        }
+      );
     });
 
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -131,7 +135,7 @@ class SidebarSearch extends Component {
 
   get partiesAfterFilters() {
     const { favorites, filter } = this.state;
-
+    console.log(this.state.parties);
     return this.state.parties.filter(post => {
       return (
         post.title.toLowerCase().includes(filter.title.toLowerCase()) &&
@@ -178,12 +182,14 @@ class SidebarSearch extends Component {
     this.setState({ direction, visible: false });
 
   handleOnSearch = values => {
-    
-    this.setState({
-      filter: values
-    }, () => {
-      this.handleTotalPages();
-    });
+    this.setState(
+      {
+        filter: values
+      },
+      () => {
+        this.handleTotalPages();
+      }
+    );
   };
 
   handleCheckboxChange = (e, { checked, name }) =>
@@ -194,7 +200,9 @@ class SidebarSearch extends Component {
   handlePaginationChange = (e, { activePage }) => this.setState({ activePage });
 
   handleTotalPages = () => {
-    const totalPages = Math.ceil(this.partiesAfterFilters.length / this.state.postPerPage);
+    const totalPages = Math.ceil(
+      this.partiesAfterFilters.length / this.state.postPerPage
+    );
     this.setState({ totalPages, activePage: 1 });
   };
 
@@ -219,8 +227,7 @@ class SidebarSearch extends Component {
       <div>
         <Sidebar.Pushable
           as={Segment}
-          style={{ margin: `0 -2px -3px -2px`, border: "none" }}
-        >
+          style={{ margin: `0 -2px -3px -2px`, border: "none" }}>
           <VerticalSidebar
             onSearch={this.handleOnSearch}
             animation={animation}
@@ -230,8 +237,7 @@ class SidebarSearch extends Component {
           />
           <Button
             className={styles.btn}
-            onClick={this.handleAnimationChange("scale down")}
-          >
+            onClick={this.handleAnimationChange("scale down")}>
             <Icon name="bars" size="large" />
           </Button>
 
@@ -264,7 +270,11 @@ class SidebarSearch extends Component {
                         />
                       </div>
                     ))}
-                  {this.partiesAfterFilters.length <= 0 ? <p className={styles.noSearch}>Przykro nam, nie mamy imprezy dla Twoich wyszukiwań.</p> : null}
+                  {this.partiesAfterFilters.length <= 0 ? (
+                    <p className={styles.noSearch}>
+                      Przykro nam, nie mamy imprezy dla Twoich wyszukiwań.
+                    </p>
+                  ) : null}
                   {this.state.err && (
                     <p style={{ color: "red" }}>{this.state.err}</p>
                   )}
@@ -274,8 +284,7 @@ class SidebarSearch extends Component {
                       display: "flex",
                       justifyContent: "center",
                       width: "100%"
-                    }}
-                  >
+                    }}>
                     <Pagination
                       activePage={activePage}
                       boundaryRange={boundaryRange}

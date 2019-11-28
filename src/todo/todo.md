@@ -10,9 +10,11 @@
     - [I to też](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/b41ff1d9a7e6f1a8a1eeab1a3866ebb0fdbd7a95)
 - [ ] Responsywność
 - [ ] Po rejestracji dodawany jest nowy użytkownik
+- [ ] Dodać zgode na przetwarzanie danych
 - [ ] Po rejestracji dane użytkownika idą do bazy danych (dwie osobne rzeczy)
 - [ ] Po rejestracji przerzuca do okna logowania
 - [ ] Po zalogowaniu nie można się ponownie zalogować oraz zarejestrować (można się tylko wylogować)
+- [ ] Dodać "nie wylogowywuj mnie"
 - [ ] Dodać oraz zaimplementować przypomnienie hasła dla użytkownika
 - [ ] Dodać wyraźną informacje o nie powodzeniu wpisania hasła
     - Pobrać odpowiedź z serwera i wyświetlić ją w odpowiednim momencie użytkownikowi
