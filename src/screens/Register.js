@@ -11,12 +11,11 @@ import styles from "./Register.module.css";
 
 const FormInfoHeader = () => {
   return (
-    <div className="ui icon message">
+    <div style={{width:"80%"}} className="ui icon message">
       <div className="content">
         <div className="header">Witaj w formularzu rejestracji.</div>
         <p>
-          Wypełnij wszystkie pola, kliknij zarejestruj aby zakończyć
-          rejestrację. Pola z <i className={styles.star}> * </i> są wymagane.
+           Pola z <i className={styles.star}> * </i> są wymagane.
         </p>
       </div>
     </div>
@@ -49,13 +48,13 @@ const TextInput = props => {
   const { name, errors, touched, labelform, tooltiptext, labelRequire } = props;
   return (
     <div>
-      <label>
-        <div className={styles.tooltip}>
+      <label >
+        <div style={{width:"80%"}} className={styles.tooltip}>
           {labelform}
           <span className={styles.star}>{labelRequire}</span>
     
         </div>
-        <Input {...props} error={errors[name] && touched[name]} />{" "}
+        <Input style={{width:"80%"}} {...props} error={errors[name] && touched[name]} />{" "}
       </label>
       <div className={styles.error}>
         {errors[name] && touched[name] && errors[name]}
@@ -68,7 +67,7 @@ const Textarea = props => {
   const { name, errors, touched, labelform, tooltiptext } = props;
   return (
     <label>
-      <div className={styles.tooltip}>
+      <div style={{width:"80%"}} className={styles.tooltip}>
         {labelform}
       
       </div>
@@ -76,9 +75,9 @@ const Textarea = props => {
         <textarea
           style={{
             minHeight: 200,
-            minWidth: "100%",
-            maxWidth: "100%",
-            resize: "none"
+          
+            resize: "none",
+            width:"80%"
           }}
           {...props}
           error={errors[name] && touched[name]}

@@ -27,14 +27,9 @@
     justify-content: center;
     text-align: center;
     margin: 40px auto;
+     align-items: center;
 }
 
-.addForm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
 
 .addForm div {
     width: 600px;
@@ -64,6 +59,7 @@ select {
     position: relative;
     display: inline-block;
     text-align: left;
+    width: 80%;
 }
 
 .tooltip .tooltiptext {
@@ -104,6 +100,7 @@ select {
     background: rgba(155, 13, 80, 0.4);
     border-radius: 10px;
     padding: 30px;
+   
     
 }
 
@@ -136,7 +133,7 @@ height: 100vh;
 
 }
 
-.fixedPicture {
+.fixedPicture{
 
     background: url('https://upload.wikimedia.org/wikipedia/commons/c/cd/Selena_Gomez_2016.png');
     background-position: center center;
@@ -148,22 +145,6 @@ height: 100vh;
 }
 @media (max-width: 600px) {
     .addForm div, .addForm {
-        width: 300px;
-    }
-    .leftsideRegister {
-        display: none;
-    }
-    .rightsideRegister {
-
-        width: 100%;
-     
-    
-    }
-    
-}
-
-@media (min-width: 601px) and (max-width: 1200px) {
-    .addForm div, .addForm {
         width: 400px;
     }
     .leftsideRegister {
@@ -174,7 +155,29 @@ height: 100vh;
         width: 100%;
      
     
+        
     }
+
+ 
+    
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+    .addForm div, .addForm {
+        width: 600px;
+    }
+    .leftsideRegister {
+        display: none;
+    }
+    .rightsideRegister {
+
+        width: 100%;
+     
+    
+    }
+ 
+
+
  
     
 }
