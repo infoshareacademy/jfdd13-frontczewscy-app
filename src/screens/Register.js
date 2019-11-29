@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
-import { Input, Button, Segment, Message, Form, Divider } from "semantic-ui-react";
+import { Input, Button, Segment, Message, Form, Divider, Checkbox } from "semantic-ui-react";
 import * as moment from 'moment';
 import { register } from "../services/AuthService"
 
@@ -235,7 +235,12 @@ class Register extends React.Component {
                     touched={touched}
                     errors={errors}
                   />
-
+                    
+                    <div className={styles.checkboxInput}>
+              <div class="ui checkbox" style={{display:"flex", justifyContent:"center"}}>
+                <input type="checkbox" id="regCheckbox" />
+                <label htmlFor="regCheckbox" style={{width:"250px", cursor:"pointer"}}>Zgoda na przetwarzanie danych</label>
+              </div></div>
                   <Button
                     style={{ marginTop: "10px" }}
                     className={styles.formBtn}
@@ -244,6 +249,7 @@ class Register extends React.Component {
                     loading={this.state.btnLoading}
                     disabled={this.state.btnDisabled}
                   />
+        
 
                   <Message
                     success

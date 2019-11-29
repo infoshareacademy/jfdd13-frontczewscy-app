@@ -10,6 +10,14 @@
 
 
 
+.checkboxInput {
+
+margin-top: 20px;
+margin-bottom: 10px;
+ 
+ }
+ 
+ 
 .registerFormEmail, .registerFormName, .registerFormPass, .registerFormPassRep, .registerFormBio, .registerFormImage, .registerFormSelect {
  width: 600px;   
  font-size: 1em;

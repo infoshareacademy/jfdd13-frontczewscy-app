@@ -7,7 +7,7 @@ import { login } from "../services/AuthService";
 
 const FormInfoHeader = () => {
   return (
-    <div style={{width:"80%"}} className="ui icon message">
+    <div style={{ width: "80%" }} className="ui icon message">
       <div className="content">
         <div className="header">Zaloguj się:</div>
         {/* <p>
@@ -54,10 +54,10 @@ const Login = props => {
               Zaloguj się
             </Button>
             <div className={styles.checkboxInput}>
-            <div class="ui checkbox">
-  <input type="checkbox"  />
-  <label>Nie wylogowuj mnie.</label>
-</div></div>
+              <div class="ui checkbox">
+                <input type="checkbox" id="checkbox" />
+                <label htmlFor="checkbox">Nie wylogowuj mnie.</label>
+              </div></div>
             <div className={styles.registerButtonSection}>
               <p style={{ textAlign: "center", fontWeight: "bold", paddingRight: "30px", paddingTop: "10px" }}>Nie masz jeszcze konta?</p>
               <Link to="/zarejestruj"><Button content="Zarejestruj się" icon="signup" size="big" /></Link>
