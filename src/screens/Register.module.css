@@ -16,7 +16,10 @@ margin-top: 20px;
 margin-bottom: 10px;
  
  }
- 
+ .inputDiv {
+     display: flex;
+     flex-direction: row;
+ }
  
 .registerFormEmail, .registerFormName, .registerFormPass, .registerFormPassRep, .registerFormBio, .registerFormImage, .registerFormSelect {
  width: 600px;   
