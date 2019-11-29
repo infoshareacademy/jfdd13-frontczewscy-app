@@ -1,9 +1,17 @@
 import React from "react";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
-import { Input, Button, Segment, Message, Form, Divider, Checkbox } from "semantic-ui-react";
-import * as moment from 'moment';
-import { register } from "../services/AuthService"
+import {
+  Input,
+  Button,
+  Segment,
+  Message,
+  Form,
+  Divider,
+  Checkbox
+} from "semantic-ui-react";
+import * as moment from "moment";
+import { register, passwordReset } from "../services/AuthService";
 
 import * as Yup from "yup";
 
@@ -11,11 +19,11 @@ import styles from "./Register.module.css";
 
 const FormInfoHeader = () => {
   return (
-    <div style={{width:"80%"}} className="ui icon message">
+    <div style={{ width: "80%" }} className="ui icon message">
       <div className="content">
         <div className="header">Witaj w formularzu rejestracji.</div>
         <p>
-           Pola z <i className={styles.star}> * </i> są wymagane.
+          Pola z <i className={styles.star}> * </i> są wymagane.
         </p>
       </div>
     </div>
@@ -23,16 +31,19 @@ const FormInfoHeader = () => {
 };
 
 const TextInput = props => {
-  const { name, errors, touched, labelform, tooltiptext, labelRequire } = props;
+  const { name, errors, touched, labelform, tooltiptext } = props;
   return (
     <div>
-      <label >
-        <div style={{width:"80%"}} className={styles.tooltip}>
+      <label>
+        <div style={{ width: "80%" }} className={styles.tooltip}>
           {labelform}
-          <span className={styles.star}>{labelRequire}</span>
-    
+          <span className={styles.star}>{props.labelRequire}</span>
         </div>
-        <Input style={{width:"80%"}} {...props} error={errors[name] && touched[name]} />{" "}
+        <Input
+          style={{ width: "80%" }}
+          {...props}
+          error={errors[name] && touched[name]}
+        />{" "}
       </label>
       <div className={styles.error}>
         {errors[name] && touched[name] && errors[name]}
@@ -45,17 +56,16 @@ const Textarea = props => {
   const { name, errors, touched, labelform, tooltiptext } = props;
   return (
     <label>
-      <div style={{width:"80%"}} className={styles.tooltip}>
+      <div style={{ width: "80%" }} className={styles.tooltip}>
         {labelform}
-      
       </div>
       <div className="ui focus input">
         <textarea
           style={{
             minHeight: 200,
-          
+
             resize: "none",
-            width:"80%"
+            width: "80%"
           }}
           {...props}
           error={errors[name] && touched[name]}
@@ -72,18 +82,15 @@ class Register extends React.Component {
   state = {
     btnLoading: false,
     btnDisabled: false,
-    isMessageShown: false
+    isMessageShown: false,
+    message: ""
   };
 
-  showMessage = () => {
+  showMessage = message => {
     this.setState({
-      isMessageShown: true
+      isMessageShown: true,
+      message
     });
-    setTimeout(() => {
-      this.setState({
-        isMessageShown: false
-      });
-    }, 7000);
   };
 
   render() {
@@ -92,85 +99,86 @@ class Register extends React.Component {
         <div className={styles.leftsideRegister}>
           <div className={styles.fixedPicture}></div>
         </div>
-      <div className={styles.rightsideRegister}>
-        <Segment style={{height:"auto"}}>
-    
-        <Formik
-          initialValues={{
-            email: ""
-        
-          }}
-      
-          onSubmit={(values, { setSubmitting, resetForm }) => {
-            setSubmitting(true);
-            
-            this.setState({ btnLoading: true, btnDisabled: true });
+        <div className={styles.rightsideRegister}>
+          <Segment style={{ height: "auto" }}>
+            <Formik
+              initialValues={{
+                email: ""
+              }}
+              onSubmit={(values, { setSubmitting, resetForm }) => {
+                setSubmitting(true);
 
-            const {email, password, name, bio, joined} = values
-            register(email, password, name, bio, joined)
+                this.setState({ btnLoading: true, btnDisabled: true });
 
-            setTimeout(() => {
-              resetForm();
-              this.setState({ btnLoading: false, btnDisabled: false });
-              this.showMessage();
-            }, 2000);
-          }}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            handleSubmit
-          }) => {
-            return (
-              <div className={styles.addForm}>
-                <FormInfoHeader />
-                <form onSubmit={handleSubmit}>
-                  <TextInput
-                    labelform="Email"
-                    labelRequire="*"
-                    tooltiptext="Tutaj wpisz swój mail"
-                    type="text"
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.email}
-                    touched={touched}
-                    errors={errors}
-                  />
+                const { email, password, name, bio, joined } = values;
+                passwordReset(email)
+                  .then(() => {
+                    this.showMessage(
+                      "Email z linkiem został wysłany na podany email"
+                    );
+                    this.setState({ btnLoading: false, btnDisabled: false });
+                  })
+                  .catch(err => {
+                    console.log(err);
+                    this.showMessage(
+                      "Przykro nam nie mamy takiego adresu email"
+                    );
+                    this.setState({ btnLoading: false, btnDisabled: false });
+                  });
+              }}>
+              {({
+                values,
+                errors,
+                touched,
+                handleChange,
+                handleBlur,
+                handleSubmit
+              }) => {
+                return (
+                  <div className={styles.addForm}>
+                    <FormInfoHeader />
+                    <form onSubmit={handleSubmit}>
+                      <TextInput
+                        labelform="Email"
+                        labelRequire="*"
+                        tooltiptext="Tutaj wpisz swój mail"
+                        type="text"
+                        name="email"
+                        placeholder="Email"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.email}
+                        touched={touched}
+                        errors={errors}
+                      />
 
-                  <Button
-                    style={{ marginTop: "10px" }}
-                    className={styles.formBtn}
-                    content="Zresetuj"
-                    type="submit"
-                    loading={this.state.btnLoading}
-                    disabled={this.state.btnDisabled}
-                  />
-        
+                      <Button
+                        style={{ marginTop: "10px" }}
+                        className={styles.formBtn}
+                        content="Zresetuj"
+                        type="submit"
+                        loading={this.state.btnLoading}
+                        disabled={this.state.btnDisabled}
+                      />
 
-                  <Message
-                    success
-                    hidden={!this.state.isMessageShown}
-                    header="REJESTRACJA SIĘ POWIODŁA"
-                  />
-                </form>
-              </div>
-            );
-          }}
-        </Formik>
-        <div className={styles.linkContainer}>
-          <Link to="/zaloguj">
-            <Button content="Zaloguj się" icon="sign-in" size="big" />
-          </Link>
+                      <Message
+                        success
+                        hidden={!this.state.isMessageShown}
+                        header={this.state.message}
+                      />
+                    </form>
+                  </div>
+                );
+              }}
+            </Formik>
+            <div className={styles.linkContainer}>
+              <Link to="/zaloguj">
+                <Button content="Zaloguj się" icon="sign-in" size="big" />
+              </Link>
+            </div>
+          </Segment>
         </div>
-        </Segment>
       </div>
-      </div>
-      
     );
   }
 }

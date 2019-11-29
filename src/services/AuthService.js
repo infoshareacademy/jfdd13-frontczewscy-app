@@ -38,3 +38,14 @@ export const register = (email, password, name, bio, joined) => {
         });
     });
 };
+
+export const passwordReset = email => {
+  return firebase.auth().sendPasswordResetEmail(email);
+};
+
+// .then(function() {
+//   // Password reset email sent.
+// })
+// .catch(function(error) {
+//   // Error occurred. Inspect error.code.
+// });
