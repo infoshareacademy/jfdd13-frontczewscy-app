@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"
-import { Button, Form, Divider, Grid, Segment, Input } from "semantic-ui-react";
+import { Button, Form, Divider, Grid, Segment, Input, Checkbox } from "semantic-ui-react";
 import styles from "./Login.module.css";
 import { login } from "../services/AuthService";
 
@@ -53,6 +53,11 @@ const Login = props => {
             <Button style={{ marginTop: "20px" }} type="submit" onClick={() => login(email, password)}>
               Zaloguj się
             </Button>
+            <div className={styles.checkboxInput}>
+            <div class="ui checkbox">
+  <input type="checkbox"  />
+  <label>Nie wylogowuj mnie.</label>
+</div></div>
             <div className={styles.registerButtonSection}>
               <p style={{ textAlign: "center", fontWeight: "bold", paddingRight: "30px", paddingTop: "10px" }}>Nie masz jeszcze konta?</p>
               <Link to="/zarejestruj"><Button content="Zarejestruj się" icon="signup" size="big" /></Link>
