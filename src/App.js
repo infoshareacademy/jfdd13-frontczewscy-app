@@ -16,6 +16,7 @@ import AddForm from "./screens/AddForm";
 import Profile from "./screens/Profile";
 import PartyDetails from "./screens/PartyDetails";
 import Login from "./screens/Login";
+import Reset from "./screens/Reset";
 import Register from "./screens/Register";
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
           <Switch>
             <Route exact path="/zaloguj" component={Login} />
             <Route exact path="/zarejestruj" component={Register} />
+            <Route exact path="/zresetuj" component={Reset} />
             <Redirect to="/zaloguj" />
           </Switch>
         </div>
