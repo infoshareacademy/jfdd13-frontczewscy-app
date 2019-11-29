@@ -75,9 +75,10 @@ const CheckboxInput = props => {
           <span className={styles.star}>{labelRequire}</span>
     
         </div>
-        <div className={styles.inputDiv}>
+        <div className={styles.inputDiv} style={{cursor:"pointer"}}>
+        <label style={{cursor:"pointer"}}>
         <Checkbox  style={{width:"20px", marginRight:"10px"}} {...props} error={errors[name] && touched[name]} />{" "}
-        <label>{labelform}</label></div>
+        {labelform}</label></div>
       </label>
       <div className={styles.error}>
         {errors[name] && touched[name] && errors[name]}
