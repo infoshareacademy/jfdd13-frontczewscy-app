@@ -8,7 +8,9 @@
     - [Może się przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/cd1f6c2d04a2f3236003f0642366073b872afb0b)
     - [To również](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/b6bd196f8e7823acceff9936eda94ec5bbab3200)
     - [I to też](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/b41ff1d9a7e6f1a8a1eeab1a3866ebb0fdbd7a95)
-- [ ] Responsywność
+- [ ] Responsywność: 
+    - [x] Wszystko działa poza PartyDetails.
+    - [ ] PartyDetails
 - [ ] Po rejestracji dodawany jest nowy użytkownik
 - [ ] Po rejestracji dane użytkownika idą do bazy danych (dwie osobne rzeczy)
 - [ ] Po rejestracji przerzuca do okna logowania

@@ -9,6 +9,42 @@ import {
 } from "semantic-ui-react";
 import styles from "./PartyDetails.module.css";
 
+
+// const PartyDetails = () => (
+//   <div className={styles.container}>
+//           <div className={styles.content}>
+//           <div className={styles.image_container}>
+//               <Image src={"https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+//                   }/>    
+//           </div>
+//           <div className={styles.text_container}>
+//             <h1>Nazwa wydarzenia</h1>
+//             <div>
+//                 <ul>
+//                   <li>Organizator</li>
+//                   <li>Telefon: XXX-XXX-XXX</li>
+//                   <li>Kategoria wydarzenia</li>
+//                   <li>Cena: </li>
+//                   <li>Adres: </li>
+//                   <li>E-mail: </li>
+//                   <li>Link do strony wydarzenia</li>
+//                   <li>Polubienia: </li>
+//                 </ul>
+//             </div>
+//             <div>     
+//               <p>Przykłądowy tekst opis wydarzenia super świetne wydarzenie 
+//                 trele morele bab la bab koty są piękne a w ogóle to nie 
+//                 wychodźcie z domu świat jest złym miejscem dobranoc.
+//                 Przykłądowy tekst opis wydarzenia super świetne wydarzenie 
+//                 trele morele bab la bab koty są piękne a w ogóle to nie 
+//                 wychodźcie z domu świat jest złym miejscem dobranoc.</p>
+//             </div> 
+//           </div>
+//     </div>
+    
+//   </div>
+//   )
+
 class Party extends React.Component {
   render() {
     const {
@@ -48,7 +84,7 @@ class Party extends React.Component {
 
             <List.Item>
               <List.Icon name="phone square" size="large" color="violet" />
-              <List.Content>{phoneNumber || "XXX-XXX-XXX"}</List.Content>
+              <List.Content>{phoneNumber || "-"}</List.Content>
             </List.Item>
 
             <List.Item>
