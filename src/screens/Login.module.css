@@ -73,9 +73,12 @@
     width: 100%;
 }
 
-.checkboxInput {
-
-   padding: 30px;
+.lol {
+    flex-direction: column;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 

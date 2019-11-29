@@ -54,9 +54,10 @@ const Login = props => {
               Zaloguj się
             </Button>
             <div className={styles.checkboxInput}>
-              <div class="ui checkbox">
-                <input type="checkbox" id="checkbox" />
+              <div className={`ui checkbox ${styles.lol}`} style={{display: "flex"}} >
+                <input type="checkbox" name="checkbox" />
                 <label htmlFor="checkbox">Nie wylogowuj mnie.</label>
+               <Link to="/zresetuj"><p style={{padding:"10px", textAlign:"center"}}>Zapomniałes hasła? Kliknij tutaj</p> </Link>
               </div></div>
             <div className={styles.registerButtonSection}>
               <p style={{ textAlign: "center", fontWeight: "bold", paddingRight: "30px", paddingTop: "10px" }}>Nie masz jeszcze konta?</p>
