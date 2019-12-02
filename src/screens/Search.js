@@ -285,7 +285,7 @@ class SidebarSearch extends Component {
                         />
                       </div>
                     ))}
-                  {this.partiesAfterFilters.length <= 0 ? (
+                  {this.partiesAfterFilters.length <= 0 && !this.state.loading ? (
                     <div className={styles.noSearch}>
                       <p>
                         Przykro nam, nie mamy imprezy dla Twoich wyszukiwań.
