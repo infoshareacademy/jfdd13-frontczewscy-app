@@ -253,7 +253,10 @@ class SidebarSearch extends Component {
             <Icon name="bars" size="large" />
           </Button>
 
-          <Sidebar.Pusher dimmed={dimmed && visible}>
+          <Sidebar.Pusher
+            dimmed={dimmed && visible}
+            style={{ transition: "0.5s", transform: "none" }}
+            className={styles.pusher}>
             <Segment basic>
               <Dimmer active={this.state.loading} inverted>
                 <Loader>Pobieranie danych...</Loader>
