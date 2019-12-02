@@ -119,7 +119,6 @@ class Register extends React.Component {
                     this.setState({ btnLoading: false, btnDisabled: false });
                   })
                   .catch(err => {
-                    console.log(err);
                     this.showMessage(
                       "Przykro nam nie mamy takiego adresu email"
                     );

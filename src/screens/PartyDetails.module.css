@@ -18,3 +18,13 @@
     width: 100%;
 }
 
+.favoriteIcon {
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.favoriteIcon:hover {
+    transform: scale(1.5);
+}
+
+

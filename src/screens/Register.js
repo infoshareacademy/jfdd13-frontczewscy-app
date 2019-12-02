@@ -155,7 +155,6 @@ class Register extends React.Component {
           validationSchema={accountFormSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
             setSubmitting(true);
-            console.log(values)
             
             this.setState({ btnLoading: true, btnDisabled: true });
 

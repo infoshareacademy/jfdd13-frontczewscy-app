@@ -76,10 +76,7 @@ const Item = props => {
             size="large"
             className={styles.favoriteIcon}
           />
-          <span
-            onClick={() => {
-              console.log(id);
-            }}>
+          <span>
             {partyType}
           </span>
         </Card.Content>

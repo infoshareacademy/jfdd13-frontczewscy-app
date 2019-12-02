@@ -7,13 +7,84 @@ import {
   Container,
   Rating,
   Dimmer,
-  Loader
+  Loader,
+  Icon
 } from "semantic-ui-react";
 import styles from "./PartyDetails.module.css";
+import _ from "lodash";
+import {
+  handleFavoritesFirebase,
+  getUserFavorites
+} from "../services/UserService";
+import firebase from "../firebase";
+
+class FavoriteIcon extends React.Component {
+  state = {
+    isLoading: true,
+    isFavorites: false,
+    favorites: []
+  };
+
+  componentDidMount = () => {
+
+    getUserFavorites().then(favorites => {
+      const id = this.props.partyId;
+      const isFavorites = favorites.includes(id)
+      this.setState({
+        favorites,
+        isFavorites
+      });
+    });
+  };
+
+  handleFavorites = async () => {
+    // this if statement change the state of favorites it creates more
+    const id = this.props.partyId;
+  
+    if (this.state.favorites.includes(id)) {
+      const favorites = this.state.favorites.filter(party => party !== id)     
+
+      const isFavorites = favorites.includes(id)
+
+      this.setState({
+        isFavorites,
+        favorites
+      });
+    } else {
+      const favorites = [...this.state.favorites, id];
+      const isFavorites = favorites.includes(id)
+
+      this.setState({
+        isFavorites,
+        favorites
+      });
+    }
+
+    await handleFavoritesFirebase(id, firebase.auth().currentUser.uid);
+    getUserFavorites().then(favorites => {
+      this.setState({
+        favorites
+      });
+    });
+  };
+
+  render() {
+    return (
+      <Icon
+        onClick={() => this.handleFavorites()}
+        onDoubleClick={() => console.log('xd')}
+        name={this.state.isFavorites ? "heart" : "heart outline"}
+        size="large"
+        className={styles.favoriteIcon}
+      />
+    );
+  }
+}
 
 class Party extends React.Component {
   render() {
     const {
+      id,
       title,
       address,
       description,
@@ -79,7 +150,7 @@ class Party extends React.Component {
               <List.Content>{0 || "nie podano adresu strony"}</List.Content>
             </List.Item>
           </List>
-          <Rating icon="heart" defaultRating={10} maxRating={10} />
+          <FavoriteIcon partyId={this.props.id}/>
         </Grid.Column>
       </Grid>
     );
@@ -105,8 +176,7 @@ class PartyDetails extends React.Component {
 
     this.state = {
       parties: null,
-      err: "",
-      isLoading: true
+      err: ""
     };
   }
 
@@ -123,7 +193,10 @@ class PartyDetails extends React.Component {
     return (
       <div className={styles.container}>
         {this.state.parties ? (
-          <Party parties={this.state.parties} />
+          <Party
+            parties={this.state.parties}
+            id={this.props.match.params.id}
+          />
         ) : (
           <div>Przykro nam nie ma takiego czegoś</div>
         )}
