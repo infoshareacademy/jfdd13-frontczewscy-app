@@ -6,13 +6,16 @@ import * as Yup from "yup";
 import moment from "moment";
 import "moment/locale/pl";
 import styles from "./AddForm.module.css";
-import DatePicker from "react-datepicker";
+
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-import { registerLocale, setDefaultLocale } from  "react-datepicker";
-import pl from 'date-fns/locale/pl';
 
-setDefaultLocale('pl');
+import DatePicker, { registerLocale } from "react-datepicker";
+import pl from "date-fns/locale/pl"; // the locale you want
+registerLocale('pl', pl)
+
+
+
 
 
 //example of image url
@@ -94,10 +97,12 @@ const TextInput = props => {
     </div>
   );
 };
-const DatePickerField = ({ name, value, onChange, className, labelform }) => {
+const DatePickerField = ({ name, value, onChange, className, labelform, locale }) => {
+
   return (
     <label> {labelform}
       <DatePicker
+      locale={locale}
       className={className}
           selected={(value && new Date(value)) || null}
           onChange={val => {
@@ -268,8 +273,10 @@ class AddForm extends React.Component {
                         name="datePicker"
                         value={values.datePicker}
                         onChange={setFieldValue}
-                        locale='pl'
-                        labelform="DATA" />
+                        locale="pl"
+
+                        labelform="DATA"
+                        dateFormat="dd/MM/yyyy" />
                         
                     
                    
