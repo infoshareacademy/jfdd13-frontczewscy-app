@@ -15,6 +15,11 @@ import "react-input-range/lib/css/index.css";
 import VerticalSidebar from "../components/VerticalSidebar";
 import { watchParties, stopParties } from "../services/PartiesService";
 import _ from "lodash";
+import {
+  handleFavoritesFirebase,
+  getUserFavorites
+} from "../services/UserService";
+import firebase from "../firebase";
 
 const Item = props => {
   const {
@@ -29,6 +34,7 @@ const Item = props => {
     partyType,
     hour
   } = props;
+  console.log(favorites);
   return (
     <Card className={styles.inside}>
       <Link to={`/party/${id}`}>
@@ -70,7 +76,12 @@ const Item = props => {
             size="large"
             className={styles.favoriteIcon}
           />
-          <span>{partyType}</span>
+          <span
+            onClick={() => {
+              console.log(id);
+            }}>
+            {partyType}
+          </span>
         </Card.Content>
       </Card.Content>
     </Card>
@@ -90,9 +101,9 @@ class SidebarSearch extends Component {
     parties: [],
     err: "",
     loading: true,
-    activePage: 1,    
+    activePage: 1,
     totalPages: 1,
-    
+
     favorites: [],
     // not changing
     postPerPage: 8,
@@ -119,15 +130,13 @@ class SidebarSearch extends Component {
       );
     });
 
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    this.setState({
-      favorites
+    // const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    getUserFavorites().then(favorites => {
+      this.setState({
+        favorites
+      });
     });
   };
-
-  componentDidUpdate() {
-    localStorage.setItem("favorites", JSON.stringify(this.state.favorites));
-  }
 
   componentWillUnmount() {
     stopParties();
@@ -135,7 +144,6 @@ class SidebarSearch extends Component {
 
   get partiesAfterFilters() {
     const { favorites, filter } = this.state;
-    console.log(this.state.parties);
     return this.state.parties.filter(post => {
       return (
         post.title.toLowerCase().includes(filter.title.toLowerCase()) &&
@@ -158,7 +166,8 @@ class SidebarSearch extends Component {
       );
   }
 
-  handleFavorites = id => {
+  handleFavorites = async id => {
+    // this if statement change the state of favorites it creates more
     if (this.state.favorites.includes(id)) {
       const favorites = [...this.state.favorites];
       _.pull(favorites, id);
@@ -173,6 +182,13 @@ class SidebarSearch extends Component {
         favorites
       });
     }
+
+    await handleFavoritesFirebase(id, firebase.auth().currentUser.uid);
+    getUserFavorites().then(favorites => {
+      this.setState({
+        favorites
+      });
+    });
   };
 
   handleAnimationChange = animation => () =>

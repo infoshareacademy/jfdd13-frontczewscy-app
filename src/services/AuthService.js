@@ -27,9 +27,8 @@ export const register = (email, password, name, bio, joined) => {
           console.log("Registered user with email, password and name");
           firebase
             .database()
-            .ref("/users")
-            .push({
-              id: user.uid,
+            .ref(`/users/${user.uid}`)
+            .set({
               name,
               email,
               bio,
