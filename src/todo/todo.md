@@ -33,4 +33,12 @@
 - [ ] brakuje ulubionych w sekcji partydetails
 - [ ] nie wysrodkowany wizualnie kontent
 - [ ] podczas ladowania w party details pojawia sie cos i znika - usunac to albo zmienic jakos
-- [ ] 
+- [ ] skalowanie  w wyszukiwarce
+- [ ] malo czytelny tekst w sekcji imprez
+- [ ] brak legendy w lewym wykresie
+- [ ] zapełnić przestrzen w dashboardzie
+- [ ] na czym polega aplikacja - naglowek w dashboardzie
+- [ ] date picker dodac do dady w dodawaniu wydarzenia
+- [ ] ustawic date i godzine obok siebie
+- [ ] wrzucic rodzaj imprezy w addform na gore albo prawie na gore
+- [ ] nieklikalny na telefonie pasek w wyszukiwarce naprawic 
