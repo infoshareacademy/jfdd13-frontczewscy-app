@@ -5,7 +5,9 @@ import {
   Image,
   Header,
   Container,
-  Rating
+  Rating,
+  Dimmer,
+  Loader
 } from "semantic-ui-react";
 import styles from "./PartyDetails.module.css";
 
@@ -91,13 +93,20 @@ class Party extends React.Component {
   }
 }
 
+const SideLoader = props => (
+  <Dimmer active={props.isLoading} inverted>
+    <Loader>Pobieranie danych...</Loader>
+  </Dimmer>
+);
+
 class PartyDetails extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      parties: {},
-      err: ""
+      parties: null,
+      err: "",
+      isLoading: true
     };
   }
 
@@ -106,7 +115,7 @@ class PartyDetails extends React.Component {
       `https://frontczewscy-database.firebaseio.com/parties/${this.props.match.params.id}.json`
     )
       .then(resp => resp.json())
-      .then(result => this.setState({ parties: result }))
+      .then(result => this.setState({ parties: result, isLoading: false }))
       .catch(err => this.setState({ err: err.message }));
   };
 
@@ -118,6 +127,7 @@ class PartyDetails extends React.Component {
         ) : (
           <div>Przykro nam nie ma takiego czegoś</div>
         )}
+        <SideLoader isLoading={this.state.isLoading} />
       </div>
     );
   }

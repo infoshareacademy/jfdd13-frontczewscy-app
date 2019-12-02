@@ -20,19 +20,22 @@
     - [Może się przydać](https://create-react-app.dev/docs/adding-custom-environment-variables/#docsNav)
 - [ ] Dashboard (można rozpisać na mniejsze taski)
 - [x] Poprawić komunikat o zapisaniu imprezy w bazie danych (najlepiej okno modalne)
-- [ ] Końcowy wygląd imprezy ( poprawić wyrównanie, tu ogólnie chyba trzeba troche to przerobić)
-    - Przerobić z semantica na zwykłego flexa,
 - [ ] Responsywność
-- [ ] Zmienić dodawanie imprez na funkcje firebase:
-    - [Może sie przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/da6c0d8429ea824ff54f1c87430979146eaef131)
-- [ ] I wiele więcej
+- [ ] Zmienić funkcje na firebase
+    - [ ] Zmienić dodawanie imprez na funkcje firebase:
+        - [Może sie przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/da6c0d8429ea824ff54f1c87430979146eaef131)
+    - [ ] Zmienić pobieranie danych o imprezie na funkcje firebase
 - [ ] W paginacji blokowanie nieaktywnych przycisków
 - [x] Paginacja się nie wyświetla kiedy nie ma wyników
-- [ ] Bardzo duzo pustej przestrzeni w szczegolach imprezy( wrzycic do madala moze?)
-- [ ] brakuje ulubionych w sekcji partydetails
-- [ ] nie wysrodkowany wizualnie kontent
-- [ ] podczas ladowania w party details pojawia sie cos i znika - usunac to albo zmienic jakos
+- [ ] Szczegóły imprezy
+    - [ ] Bardzo duzo pustej przestrzeni w szczegolach imprezy( wrzycic do madala moze?)
+    - [ ] Końcowy wygląd imprezy ( poprawić wyrównanie, tu ogólnie chyba trzeba troche to przerobić)
+        - Przerobić z semantica na zwykłego flexa,
+    - [ ] brakuje ulubionych w sekcji partydetails
+    - [ ] nie wysrodkowany wizualnie kontent
+    - [X] podczas ladowania w party details pojawia sie cos i znika - usunac to albo zmienic jakos
 - [ ] 
+- [ ] I wiele więcej
 
 // opcjonalnie
 - [ ] Jeżeli użytkownik ma swoje posty może je usuwać (trzeba znaleźć odpowiednie miejsce na to)
