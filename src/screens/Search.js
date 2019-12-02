@@ -286,9 +286,11 @@ class SidebarSearch extends Component {
                       </div>
                     ))}
                   {this.partiesAfterFilters.length <= 0 ? (
-                    <p className={styles.noSearch}>
-                      Przykro nam, nie mamy imprezy dla Twoich wyszukiwań.
-                    </p>
+                    <div className={styles.noSearch}>
+                      <p>
+                        Przykro nam, nie mamy imprezy dla Twoich wyszukiwań.
+                      </p>
+                    </div>
                   ) : null}
                   {this.state.err && (
                     <p style={{ color: "red" }}>{this.state.err}</p>
@@ -300,7 +302,8 @@ class SidebarSearch extends Component {
                       justifyContent: "center",
                       width: "100%"
                     }}>
-                    <Pagination
+                      {this.partiesAfterFilters.length === 0 ? null : 
+                      <Pagination
                       activePage={activePage}
                       boundaryRange={boundaryRange}
                       onPageChange={this.handlePaginationChange}
@@ -313,6 +316,8 @@ class SidebarSearch extends Component {
                       prevItem={showPreviousAndNextNav ? undefined : null}
                       nextItem={showPreviousAndNextNav ? undefined : null}
                     />
+                      }
+                    
                   </div>
                 </div>
               </div>

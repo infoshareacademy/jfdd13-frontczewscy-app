@@ -9,13 +9,13 @@
     - [To również](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/b6bd196f8e7823acceff9936eda94ec5bbab3200)
     - [I to też](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/b41ff1d9a7e6f1a8a1eeab1a3866ebb0fdbd7a95)
 - [ ] Responsywność
-- [ ] Po rejestracji dodawany jest nowy użytkownik
+- [x] Po rejestracji dodawany jest nowy użytkownik
 - [x] Dodać zgode na przetwarzanie danych
-- [ ] Po rejestracji dane użytkownika idą do bazy danych (dwie osobne rzeczy)
-- [ ] Po rejestracji przerzuca do okna logowania
-- [ ] Po zalogowaniu nie można się ponownie zalogować oraz zarejestrować (można się tylko wylogować)
+- [x] Po rejestracji dane użytkownika idą do bazy danych (dwie osobne rzeczy)
+- [x] Po rejestracji przerzuca do okna logowania / zaimplementowano : logowanie użytkownika po rejestracji
+- [x] Po zalogowaniu nie można się ponownie zalogować oraz zarejestrować (można się tylko wylogować)
 - [x] Dodać "nie wylogowywuj mnie"
-- [ ] Dodać oraz zaimplementować przypomnienie hasła dla użytkownika
+- [x] Dodać oraz zaimplementować przypomnienie hasła dla użytkownika
 - [ ] Dodać wyraźną informacje o nie powodzeniu wpisania hasła
     - Pobrać odpowiedź z serwera i wyświetlić ją w odpowiednim momencie użytkownikowi
 - [ ] Autentykacja dodawanych danych (chodzi o zabezpieczenie bazy danych)
