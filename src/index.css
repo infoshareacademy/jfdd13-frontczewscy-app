@@ -91,3 +91,25 @@ code {
   margin:0;
   padding: 0;
 }
+
+
+
+
+
+
+
+#root > div > div > div > form > div.react-datepicker-wrapper > div{
+  width: 220px;
+}
+#root > div > div > div > form > div.react-datepicker-wrapper {
+
+  width: 220px;
+}
+
+#root > div > div > div > form > div.react-datepicker-popper {
+  width: 220px;
+}
+
+#root > div > div > div > form > div.react-datepicker-popper > div {
+  width:220px;
+}
