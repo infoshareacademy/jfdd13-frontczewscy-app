@@ -15,15 +15,15 @@ import { register, passwordReset } from "../services/AuthService";
 
 import * as Yup from "yup";
 
-import styles from "./Register.module.css";
+import styles from "./Reset.module.css";
 
 const FormInfoHeader = () => {
   return (
     <div style={{ width: "80%" }} className="ui icon message">
       <div className="content">
-        <div className="header">Witaj w formularzu rejestracji.</div>
+        <div className="header">Zresetuj swoje hasło</div>
         <p>
-          Pola z <i className={styles.star}> * </i> są wymagane.
+        Wprowadź adres e-mail aby zresetować swoje hasło.
         </p>
       </div>
     </div>
@@ -100,7 +100,7 @@ class Register extends React.Component {
           <div className={styles.fixedPicture}></div>
         </div>
         <div className={styles.rightsideRegister}>
-          <Segment style={{ height: "auto" }}>
+          <Segment style={{ height: "100vh", display: "flex", justifyContent:"center", alignItems:"center", flexDirection:"column"  }} >
             <Formik
               initialValues={{
                 email: ""
@@ -140,7 +140,7 @@ class Register extends React.Component {
                     <form onSubmit={handleSubmit}>
                       <TextInput
                         labelform="Email"
-                        labelRequire="*"
+                        labelRequire=""
                         tooltiptext="Tutaj wpisz swój mail"
                         type="text"
                         name="email"
@@ -153,7 +153,7 @@ class Register extends React.Component {
                       />
 
                       <Button
-                        style={{ marginTop: "10px" }}
+                        style={{ marginTop: "10px"}}
                         className={styles.formBtn}
                         content="Zresetuj"
                         type="submit"
