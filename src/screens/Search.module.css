@@ -131,6 +131,10 @@
     font-weight: bold;
 }
 
+.pusher {
+    width: 80%;
+}
+
 @media (max-width: 1200px) {
     .item {
         width: calc(50% - 40px);

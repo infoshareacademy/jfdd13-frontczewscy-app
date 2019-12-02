@@ -34,7 +34,7 @@ const Item = props => {
     partyType,
     hour
   } = props;
-  console.log(favorites);
+
   return (
     <Card className={styles.inside}>
       <Link to={`/party/${id}`}>
@@ -255,7 +255,7 @@ class SidebarSearch extends Component {
 
           <Sidebar.Pusher
             dimmed={dimmed && visible}
-            style={{ transition: "0.5s", transform: "none" }}
+            style={{ transition: "0.5s", transform: "none !" }}
             className={styles.pusher}>
             <Segment basic>
               <Dimmer active={this.state.loading} inverted>

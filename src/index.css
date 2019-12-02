@@ -20,7 +20,12 @@ code {
 }
 
 .ui.visible.scale.down.sidebar~.pusher {
-  transform: scale(0.77) !important;
+  transform: none;
+  width: calc(100% - 250px) !important;
+}
+
+.ui.scale.down.right.sidebar~.pusher {
+  width: 100%;
 }
 
 .ui.thin.left.sidebar, .ui.thin.right.sidebar {
@@ -54,6 +59,10 @@ code {
   }
   .ui.input>input {
     width: 190px;
+  }
+  .ui.visible.scale.down.sidebar~.pusher {
+    transform: none;
+    width: calc(80%) !important;
   }
 }
 
