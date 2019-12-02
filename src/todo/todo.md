@@ -38,7 +38,7 @@
 - [ ] brak legendy w lewym wykresie
 - [ ] zapełnić przestrzen w dashboardzie
 - [ ] na czym polega aplikacja - naglowek w dashboardzie
-- [ ] date picker dodac do dady w dodawaniu wydarzenia
+- [x] date picker dodac do dady w dodawaniu wydarzenia
 - [ ] ustawic date i godzine obok siebie
 - [ ] wrzucic rodzaj imprezy w addform na gore albo prawie na gore
 - [ ] nieklikalny na telefonie pasek w wyszukiwarce naprawic 

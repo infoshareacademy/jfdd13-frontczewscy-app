@@ -103,6 +103,7 @@ const DatePickerField = ({ name, value, onChange, className, labelform, locale }
     <label> {labelform}
       <DatePicker
       locale={locale}
+ 
       className={className}
           selected={(value && new Date(value)) || null}
           onChange={val => {
@@ -111,6 +112,8 @@ const DatePickerField = ({ name, value, onChange, className, labelform, locale }
       /></label>
   );
 };
+
+
 
 
 const InfoSegment = () => (
@@ -275,10 +278,12 @@ class AddForm extends React.Component {
                         onChange={setFieldValue}
                         locale="pl"
 
-                        labelform="DATA"
+                        labelform="DATA WYDARZENIA"
+
                         dateFormat="dd/MM/yyyy" />
-                        
-                    
+
+
+            
                    
                   <TextInput
                   className={styles.FormFields}
