@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import styles from "./Search.module.css";
 import "react-input-range/lib/css/index.css";
 import VerticalSidebar from "../components/VerticalSidebar";
-import { watchParties, stopParties } from "../services/PartiesService";
+import { watchParties } from "../services/PartiesService";
 import _ from "lodash";
 import {
   handleFavoritesFirebase,
@@ -137,10 +137,6 @@ class SidebarSearch extends Component {
       });
     });
   };
-
-  componentWillUnmount() {
-    stopParties();
-  }
 
   get partiesAfterFilters() {
     const { favorites, filter } = this.state;
