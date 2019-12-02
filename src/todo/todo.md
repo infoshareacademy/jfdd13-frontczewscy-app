@@ -28,3 +28,9 @@
 - [ ] Zmienić dodawanie imprez na funkcje firebase:
     - [Może sie przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/da6c0d8429ea824ff54f1c87430979146eaef131)
 - [ ] I wiele więcej
+- [ ] W paginacji blokowanie nieaktywnych przycisków
+- [ ] Bardzo duzo pustej przestrzeni w szczegolach imprezy( wrzycic do madala moze?)
+- [ ] brakuje ulubionych w sekcji partydetails
+- [ ] nie wysrodkowany wizualnie kontent
+- [ ] podczas ladowania w party details pojawia sie cos i znika - usunac to albo zmienic jakos
+- [ ] 
