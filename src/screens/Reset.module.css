@@ -111,6 +111,7 @@ select {
     background: rgba(155, 13, 80, 0.4);
     border-radius: 10px;
     padding: 30px;
+    width: 95%;
    
     
 }
@@ -156,7 +157,7 @@ height: 100vh;
 }
 @media (max-width: 600px) {
     .addForm div, .addForm {
-        width: 400px;
+        width: 450px;
     }
     .leftsideRegister {
         display: none;

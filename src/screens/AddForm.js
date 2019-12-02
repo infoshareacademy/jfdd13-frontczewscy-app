@@ -7,6 +7,17 @@ import moment from "moment";
 import "moment/locale/pl";
 import styles from "./AddForm.module.css";
 
+import "react-datepicker/dist/react-datepicker.css";
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+
+import DatePicker, { registerLocale } from "react-datepicker";
+import pl from "date-fns/locale/pl"; // the locale you want
+registerLocale('pl', pl)
+
+
+
+
+
 //example of image url
 // const sampleURL =
 //   "https://farm4.staticflickr.com/3894/15008518202.c265dfa55f.h.png";
@@ -86,6 +97,24 @@ const TextInput = props => {
     </div>
   );
 };
+const DatePickerField = ({ name, value, onChange, className, labelform, locale }) => {
+
+  return (
+    <label> {labelform}
+      <DatePicker
+      locale={locale}
+ 
+      className={className}
+          selected={(value && new Date(value)) || null}
+          onChange={val => {
+              onChange(name, val);
+          }}
+      /></label>
+  );
+};
+
+
+
 
 const InfoSegment = () => (
   <Segment>
@@ -187,7 +216,8 @@ class AddForm extends React.Component {
             town: "",
             phoneNumber: "",
             email: "",
-            website: ""
+            website: "", 
+            datePicker:""
           }}
           validationSchema={accountFormSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -207,13 +237,15 @@ class AddForm extends React.Component {
             touched,
             handleChange,
             handleBlur,
-            handleSubmit
+            handleSubmit,
+            setFieldValue
           }) => {
             return (
               <div className={styles.addForm}>
                 <InfoSegment></InfoSegment>
                 <form onSubmit={handleSubmit}>
                   <TextInput
+                  className={styles.FormFields}
                     labelform="TYTUŁ *"
                     tooltiptext="Tutaj wpisz swój tytuł"
                     type="text"
@@ -227,6 +259,7 @@ class AddForm extends React.Component {
                   />
 
                   <Textarea
+                  className={styles.FormFields}
                     labelform="OPIS *"
                     name="description"
                     tooltiptext="Tutaj wpisz opis wydarzenia, które chcesz dodać"
@@ -237,7 +270,23 @@ class AddForm extends React.Component {
                     touched={touched}
                     errors={errors}
                   />  
+                      
+                       <DatePickerField
+                       className={styles.DataPickerField}
+                        name="datePicker"
+                        value={values.datePicker}
+                        onChange={setFieldValue}
+                        locale="pl"
+
+                        labelform="DATA WYDARZENIA"
+
+                        dateFormat="dd/MM/yyyy" />
+
+
+            
+                   
                   <TextInput
+                  className={styles.FormFields}
                     labelform="ZDJĘCIE"
                     tooltiptext="Wklej link URL zdjęcia. Preferowany kształt zdjęcia to kwadrat"
                     type="text"
@@ -250,6 +299,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
+                  className={styles.FormFields}
                     labelform="DATA WYDARZENIA"
                     tooltiptext="Poinformuj użytkownika kiedy będzie Twoje wydarzenie."
                     type="text"
@@ -262,6 +312,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
+                  className={styles.FormFields}
                     labelform="GODZINA WYDARZENIA"
                     tooltiptext="Poinformuj użytkownika o której godzinie odbędzie się Twoje wydarzenie."
                     type="text"
@@ -274,6 +325,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
+                  className={styles.FormFields}
                     labelform="CENA ZA OSOBĘ *"
                     tooltiptext="Tutaj podaj cenę za bilet. Pamiętaj o tym, że kwota jest w złotówkach."
                     type="text"
@@ -292,6 +344,7 @@ class AddForm extends React.Component {
                     }
                   />
                   <TextInput
+                   className={styles.FormFields}
                     labelform="ULICA / Numer"
                     tooltiptext="Tutaj wpisz lokalizację wydarzenia."
                     type="text"
@@ -304,6 +357,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
+                   className={styles.FormFields}
                     labelform="MIASTO"
                     tooltiptext="Tutaj wpisz miasto wydarzenia."
                     type="text"
@@ -316,6 +370,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
+                   className={styles.FormFields}
                     labelform="NUMER KONTAKTOWY"
                     tooltiptext="Tutaj wpisz numer. Błędny format nie przejdzie walidacji."
                     type="text"
@@ -328,6 +383,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
+                   className={styles.FormFields}
                     labelform="EMAIL *"
                     tooltiptext="Tutaj wpisz cały adres e-mail."
                     type="email"
@@ -340,6 +396,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
+                   className={styles.FormFields}
                     labelform="STRONA"
                     tooltiptext="Podaj adres strony. Nie wymagamy www i http(s)."
                     type="text"
@@ -352,6 +409,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <SelectInput
+                   className={styles.FormFields}
                     labelform="RODZAJ IMPREZY"
                     tooltiptext="Wybierz rodzaj imprezy."
                     name="partyType"

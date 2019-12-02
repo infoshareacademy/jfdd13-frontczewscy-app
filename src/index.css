@@ -84,3 +84,32 @@ code {
   top: 0;
   text-align: center;
 }
+
+
+#root > div > div > div.Register_rightsideRegister__1hnUh > div > div.Register_addForm__1vB33 > form > div:nth-child(7) > label > div.Register_inputDiv__3FjpM > div {
+
+  margin:0;
+  padding: 0;
+}
+
+
+
+
+
+
+
+#root > div > div > div > form > div.react-datepicker-wrapper > div{
+  width: 220px;
+}
+#root > div > div > div > form > div.react-datepicker-wrapper {
+
+  width: 220px;
+}
+
+#root > div > div > div > form > div.react-datepicker-popper {
+  width: 220px;
+}
+
+#root > div > div > div > form > div.react-datepicker-popper > div {
+  width:220px;
+}

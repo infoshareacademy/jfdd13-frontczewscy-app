@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
-import { Input, Button, Segment, Message, Form, Divider } from "semantic-ui-react";
+import { Input, Button, Segment, Message, Form, Divider, Checkbox } from "semantic-ui-react";
 import * as moment from 'moment';
 import { register } from "../services/AuthService"
 
@@ -38,6 +38,8 @@ const accountFormSchema = Yup.object().shape({
     .min(3, "Min 3 znaki!")
     .max(15, "Max 15 znaków")
     .required("Pole wymagane"),
+  registerCheckbox: 
+    Yup.boolean().oneOf([true], 'Musisz zaakceptować warunki korzystania z naszej strony.'),
   email: Yup.string()
     .max(100, "Za długi email")
     .email("Zły format email")
@@ -55,6 +57,28 @@ const TextInput = props => {
     
         </div>
         <Input style={{width:"80%"}} {...props} error={errors[name] && touched[name]} />{" "}
+      </label>
+      <div className={styles.error}>
+        {errors[name] && touched[name] && errors[name]}
+      </div>
+    </div>
+  );
+};
+
+const CheckboxInput = props => {
+  const { name, errors, touched, labelform, tooltiptext, labelRequire } = props;
+  return (
+    <div>
+      <label >
+        <div style={{width:"80%"}} className={styles.tooltip}>
+        
+          <span className={styles.star}>{labelRequire}</span>
+    
+        </div>
+        <div className={styles.inputDiv} style={{cursor:"pointer"}}>
+        <label style={{cursor:"pointer"}}>
+        <Checkbox  style={{width:"20px", marginRight:"10px"}} {...props} error={errors[name] && touched[name]} />{" "}
+  {labelform} {<a href='https://www.youtube.com/watch?v=R38q_C4NApE'>Regulamin</a>}</label></div>
       </label>
       <div className={styles.error}>
         {errors[name] && touched[name] && errors[name]}
@@ -125,11 +149,13 @@ class Register extends React.Component {
             passwordRep: "",
             image: "",
             bio: "",
-            joined: moment().format('L')
+            joined: moment().format('L'),
+            registerCheckbox: "false"
           }}
           validationSchema={accountFormSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
             setSubmitting(true);
+            console.log(values)
             
             this.setState({ btnLoading: true, btnDisabled: true });
 
@@ -235,7 +261,23 @@ class Register extends React.Component {
                     touched={touched}
                     errors={errors}
                   />
-
+                        <CheckboxInput
+                        id="checkbox"
+                    type="checkbox"
+                    name="registerCheckbox"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.registerCheckbox}
+                    touched={touched}
+                    errors={errors}
+                    labelform="Akceptuję warunki korzystania ze strony."
+                  />
+               
+                    {/* <div className={styles.checkboxInput}>
+              <div class="ui checkbox" style={{display:"flex", justifyContent:"center"}}>
+                <input type="checkbox" id="regCheckbox" />
+                <label htmlFor="regCheckbox" style={{width:"250px", cursor:"pointer"}}>Zgoda na przetwarzanie danych</label>
+              </div></div> */}
                   <Button
                     style={{ marginTop: "10px" }}
                     className={styles.formBtn}
@@ -244,6 +286,7 @@ class Register extends React.Component {
                     loading={this.state.btnLoading}
                     disabled={this.state.btnDisabled}
                   />
+        
 
                   <Message
                     success

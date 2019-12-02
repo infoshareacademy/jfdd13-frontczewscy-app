@@ -2,19 +2,19 @@
 
 - [x] Sprawdzić czy jest live update ( dwa okna otwarte z jednego dodajemy na drugie powinno wskoczyć)
 - [ ] Sortowanie wyszukiwań (opcjonalnie)
-- [ ] Ekran logowania: 
+- [x] Ekran logowania: 
     - [Może się przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/ce2d231d66eb8b3138c534080137fae978a1fbc0)
-- [ ] Ekran rejestracji: 
+- [x] Ekran rejestracji: 
     - [Może się przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/cd1f6c2d04a2f3236003f0642366073b872afb0b)
     - [To również](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/b6bd196f8e7823acceff9936eda94ec5bbab3200)
     - [I to też](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/b41ff1d9a7e6f1a8a1eeab1a3866ebb0fdbd7a95)
 - [ ] Responsywność
 - [ ] Po rejestracji dodawany jest nowy użytkownik
-- [ ] Dodać zgode na przetwarzanie danych
+- [x] Dodać zgode na przetwarzanie danych
 - [ ] Po rejestracji dane użytkownika idą do bazy danych (dwie osobne rzeczy)
 - [ ] Po rejestracji przerzuca do okna logowania
 - [ ] Po zalogowaniu nie można się ponownie zalogować oraz zarejestrować (można się tylko wylogować)
-- [ ] Dodać "nie wylogowywuj mnie"
+- [x] Dodać "nie wylogowywuj mnie"
 - [ ] Dodać oraz zaimplementować przypomnienie hasła dla użytkownika
 - [ ] Dodać wyraźną informacje o nie powodzeniu wpisania hasła
     - Pobrać odpowiedź z serwera i wyświetlić ją w odpowiednim momencie użytkownikowi
@@ -28,3 +28,17 @@
 - [ ] Zmienić dodawanie imprez na funkcje firebase:
     - [Może sie przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/da6c0d8429ea824ff54f1c87430979146eaef131)
 - [ ] I wiele więcej
+- [ ] W paginacji blokowanie nieaktywnych przycisków
+- [ ] Bardzo duzo pustej przestrzeni w szczegolach imprezy( wrzycic do madala moze?)
+- [ ] brakuje ulubionych w sekcji partydetails
+- [ ] nie wysrodkowany wizualnie kontent
+- [ ] podczas ladowania w party details pojawia sie cos i znika - usunac to albo zmienic jakos
+- [ ] skalowanie  w wyszukiwarce
+- [ ] malo czytelny tekst w sekcji imprez
+- [ ] brak legendy w lewym wykresie
+- [ ] zapełnić przestrzen w dashboardzie
+- [ ] na czym polega aplikacja - naglowek w dashboardzie
+- [x] date picker dodac do dady w dodawaniu wydarzenia
+- [ ] ustawic date i godzine obok siebie
+- [ ] wrzucic rodzaj imprezy w addform na gore albo prawie na gore
+- [ ] nieklikalny na telefonie pasek w wyszukiwarce naprawic 
