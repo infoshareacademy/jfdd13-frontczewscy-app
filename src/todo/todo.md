@@ -14,11 +14,10 @@
 - [x] Po zalogowaniu nie można się ponownie zalogować oraz zarejestrować (można się tylko wylogować)
 - [x] Dodać "nie wylogowywuj mnie"
 - [x] Dodać oraz zaimplementować przypomnienie hasła dla użytkownika
-- [ ] Dodać wyraźną informacje o nie powodzeniu wpisania hasła
+- [x] Dodać wyraźną informacje o nie powodzeniu wpisania hasła
   - Pobrać odpowiedź z serwera i wyświetlić ją w odpowiednim momencie użytkownikowi
 - [ ] Autentykacja dodawanych danych (chodzi o zabezpieczenie bazy danych)
   - [Może się przydać](https://create-react-app.dev/docs/adding-custom-environment-variables/#docsNav)
-- [ ] Dashboard (można rozpisać na mniejsze taski)
 - [x] Poprawić komunikat o zapisaniu imprezy w bazie danych (najlepiej okno modalne)
 - [ ] Responsywność
 - [ ] Zmienić funkcje na firebase
@@ -27,26 +26,23 @@
   - [ ] Zmienić pobieranie danych o imprezie na funkcje firebase
 - [ ] W paginacji blokowanie nieaktywnych przycisków
 - [x] Paginacja się nie wyświetla kiedy nie ma wyników
+- [ ] Błędy w konsoli
 - [ ] Szczegóły imprezy
   - [ ] Bardzo duzo pustej przestrzeni w szczegolach imprezy( wrzycic do madala moze?)
   - [ ] Końcowy wygląd imprezy ( poprawić wyrównanie, tu ogólnie chyba trzeba troche to przerobić)
     - Przerobić z semantica na zwykłego flexa,
-  - [ ] brakuje ulubionych w sekcji partydetails
+  - [x] brakuje ulubionych w sekcji partydetails
   - [ ] nie wysrodkowany wizualnie kontent
   - [x] podczas ladowania w party details pojawia sie cos i znika - usunac to albo zmienic jakos
-- [ ]
-- [ ] brakuje ulubionych w sekcji partydetails
-- [ ] nie wysrodkowany wizualnie kontent
-- [ ] podczas ladowania w party details pojawia sie cos i znika - usunac to albo zmienic jakos
-- [ ] skalowanie w wyszukiwarce
-- [ ] malo czytelny tekst w sekcji imprez
-- [ ] brak legendy w lewym wykresie
-- [ ] zapełnić przestrzen w dashboardzie
-- [ ] na czym polega aplikacja - naglowek w dashboardzie
+- [x] skalowanie w wyszukiwarce
+- [ ] dashboard
+  - [ ] malo czytelny tekst w sekcji imprez
+  - [ ] brak legendy w lewym wykresie
+  - [ ] zapełnić przestrzen w dashboardzie
+  - [ ] na czym polega aplikacja - naglowek w dashboardzie
 - [x] date picker dodac do dady w dodawaniu wydarzenia
 - [x] ustawic date i godzine obok siebie
 - [x] wrzucic rodzaj imprezy w addform na gore albo prawie na gore
-- [ ] nieklikalny na telefonie pasek w wyszukiwarce naprawic
 - [ ] I wiele więcej
 
 // opcjonalnie
@@ -54,3 +50,4 @@
 - [ ] Jeżeli użytkownik ma swoje posty może je usuwać (trzeba znaleźć odpowiednie miejsce na to)
 - [ ] Sortowanie wyszukiwań (opcjonalnie)
 - [ ] Bardzo duzo pustej przestrzeni w szczegolach imprezy( wrzycic do madala moze?)
+- [ ] nieklikalny na telefonie pasek w wyszukiwarce naprawic

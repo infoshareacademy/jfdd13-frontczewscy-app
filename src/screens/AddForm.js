@@ -8,15 +8,11 @@ import "moment/locale/pl";
 import styles from "./AddForm.module.css";
 
 import "react-datepicker/dist/react-datepicker.css";
-import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
 import DatePicker, { registerLocale } from "react-datepicker";
 import pl from "date-fns/locale/pl"; // the locale you want
-registerLocale('pl', pl)
-
-
-
-
+registerLocale("pl", pl);
 
 //example of image url
 // const sampleURL =
@@ -49,34 +45,38 @@ const accountFormSchema = Yup.object().shape({
     .required("Pole wymagane!")
 });
 
-
 const ModalBox = props => {
-  const { open, dimmer, close } = props
+  const { open, dimmer, close } = props;
   return (
-
-    <Modal dimmer={dimmer} open={open} onClose={close} style={{ textAlign: "center" }}>
+    <Modal
+      dimmer={dimmer}
+      open={open}
+      onClose={close}
+      style={{ textAlign: "center" }}>
       <Modal.Header>Dziękujemy za dodanie imprezy</Modal.Header>
       <Modal.Content>
         <Modal.Description>
-          <Header>Kliknij przejdź do Imprez aby zobaczyć swoje wydarzenie na liście</Header>
+          <Header>
+            Kliknij przejdź do Imprez aby zobaczyć swoje wydarzenie na liście
+          </Header>
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
-        <Button color='black' onClick={close}>
+        <Button color="black" onClick={close}>
           Chce dodać kolejne!
-            </Button>
+        </Button>
         <Link to="/wyszukaj">
           <Button
             positive
-            icon='checkmark'
-            labelPosition='right'
+            icon="checkmark"
+            labelPosition="right"
             content="Lista wydarzeń"
           />
         </Link>
       </Modal.Actions>
     </Modal>
-  )
-}
+  );
+};
 
 const TextInput = props => {
   const { name, errors, touched, labelform, tooltiptext } = props;
@@ -97,36 +97,33 @@ const TextInput = props => {
     </div>
   );
 };
-const DatePickerField = ({ name, value, onChange, className, labelform, locale }) => {
-  const [startDate, setStartDate] = useState(new Date());
+const DatePickerField = props => {
+  const { name, value, onChange, className, labelform, locale } = props;
   return (
     <div>
-  <label><div className={styles.Datelabel}>{labelform}</div>
-      <DatePicker
-        selected={startDate}
-        onChange={date => setStartDate(date)}
-        locale={locale}
-        labelform={labelform}
-        timeCaption="czas"
-        timeFormat="p"
-        dateFormat="Pp"
-        showWeekNumbers
-        showTimeSelect
-        fixedHeight
-        className={className}
-        selected={(value && new Date(value)) || null}
-        onChange={val => {
-          onChange(name, val);
-         
-        }}
-      >  <div style={{ color: "green" }}>
-       Nie zapomnij o podaniu godziny!
-  </div></DatePicker></label></div>
+      <label>
+        <div className={styles.Datelabel}>{labelform}</div>
+        <DatePicker
+          locale={locale}
+          labelform={labelform}
+          timeCaption="czas"
+          timeFormat="p"
+          dateFormat="Pp"
+          showWeekNumbers
+          showTimeSelect
+          fixedHeight
+          minDate={moment().toDate()}
+          className={className}
+          selected={(value && new Date(value)) || null}
+          onChange={val => {
+            onChange(name, val);
+          }}>
+          <div style={{ color: "green" }}>Nie zapomnij o podaniu godziny!</div>
+        </DatePicker>
+      </label>
+    </div>
   );
 };
-
-
-
 
 const InfoSegment = () => (
   <Segment>
@@ -180,10 +177,10 @@ const Textarea = props => {
       <div className="ui focus input">
         <textarea
           style={{
-            minHeight: 200,
+            minHeight: 100,
             minWidth: "100%",
             maxWidth: "100%",
-            resize: "none"
+            resize: "vertical"
           }}
           {...props}
         />
@@ -207,12 +204,14 @@ class AddForm extends React.Component {
     btnLoading: false,
     btnDisabled: false,
     isMessageShown: false,
-    open: false,
+    open: false
   };
 
-  close = () => this.setState({ open: false })
+  close = () => this.setState({ open: false });
 
   render() {
+    const date = new Date();
+    date.setMinutes(30);
     return (
       <div>
         <Formik
@@ -220,7 +219,7 @@ class AddForm extends React.Component {
             title: "",
             description: "",
             image: "",
-            date: moment().format("L"),
+            date: date,
             hour: "",
             partyType: "KONCERTY",
             price: "0",
@@ -237,9 +236,14 @@ class AddForm extends React.Component {
 
             setTimeout(() => {
               resetForm();
-              this.setState({ btnLoading: false, btnDisabled: false, dimmer: "blurring", open: true });
+              this.setState({
+                btnLoading: false,
+                btnDisabled: false,
+                dimmer: "blurring",
+                open: true
+              });
             }, 2000);
-console.log(values);
+            console.log(values);
             // postData(values);
           }}>
           {({
@@ -268,7 +272,7 @@ console.log(values);
                     touched={touched}
                     errors={errors}
                   />
-                   <SelectInput
+                  <SelectInput
                     className={styles.FormFields}
                     labelform="RODZAJ IMPREZY"
                     tooltiptext="Wybierz rodzaj imprezy."
@@ -302,11 +306,8 @@ console.log(values);
                     locale="pl"
                     showTimeSelect
                     labelform="DATA I CZAS  WYDARZENIA"
-                  
-                    dateFormat="dd/MM/yyyy" />
-
-
-
+                    dateFormat="dd/MM/yyyy"
+                  />
 
                   <TextInput
                     className={styles.FormFields}
@@ -321,8 +322,7 @@ console.log(values);
                     touched={touched}
                     errors={errors}
                   />
-     
-         
+
                   <TextInput
                     className={styles.FormFields}
                     labelform="CENA ZA OSOBĘ *"
@@ -407,7 +407,6 @@ console.log(values);
                     touched={touched}
                     errors={errors}
                   />
-                 
 
                   <Button
                     style={{ marginTop: "10px" }}
@@ -418,7 +417,11 @@ console.log(values);
                     disabled={this.state.btnDisabled}
                   />
 
-                  <ModalBox open={this.state.open} dimmer={this.state.dimmer} close={this.close} />
+                  <ModalBox
+                    open={this.state.open}
+                    dimmer={this.state.dimmer}
+                    close={this.close}
+                  />
                 </form>
               </div>
             );
