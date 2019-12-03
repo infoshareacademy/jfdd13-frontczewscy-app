@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik } from "formik";
 import { Input, Button, Segment, Header, Modal } from "semantic-ui-react";
 import { Link } from "react-router-dom";
@@ -53,28 +53,28 @@ const accountFormSchema = Yup.object().shape({
 const ModalBox = props => {
   const { open, dimmer, close } = props
   return (
-   
+
     <Modal dimmer={dimmer} open={open} onClose={close} style={{ textAlign: "center" }}>
-          <Modal.Header>Dziękujemy za dodanie imprezy</Modal.Header>
-          <Modal.Content>            
-            <Modal.Description>
-              <Header>Kliknij przejdź do Imprez aby zobaczyć swoje wydarzenie na liście</Header>
-            </Modal.Description>
-          </Modal.Content>
-          <Modal.Actions>
-            <Button color='black' onClick={close}>
-              Chce dodać kolejne!
+      <Modal.Header>Dziękujemy za dodanie imprezy</Modal.Header>
+      <Modal.Content>
+        <Modal.Description>
+          <Header>Kliknij przejdź do Imprez aby zobaczyć swoje wydarzenie na liście</Header>
+        </Modal.Description>
+      </Modal.Content>
+      <Modal.Actions>
+        <Button color='black' onClick={close}>
+          Chce dodać kolejne!
             </Button>
-            <Link to="/wyszukaj">
-              <Button
-                positive
-                icon='checkmark'
-                labelPosition='right'
-                content="Lista wydarzeń"
-              />
-            </Link>
-          </Modal.Actions>
-        </Modal>
+        <Link to="/wyszukaj">
+          <Button
+            positive
+            icon='checkmark'
+            labelPosition='right'
+            content="Lista wydarzeń"
+          />
+        </Link>
+      </Modal.Actions>
+    </Modal>
   )
 }
 
@@ -98,17 +98,23 @@ const TextInput = props => {
   );
 };
 const DatePickerField = ({ name, value, onChange, className, labelform, locale }) => {
-
+  const [startDate, setStartDate] = useState(new Date());
   return (
     <label> {labelform}
       <DatePicker
-      locale={locale}
- 
-      className={className}
-          selected={(value && new Date(value)) || null}
-          onChange={val => {
-              onChange(name, val);
-          }}
+        selected={startDate}
+        onChange={date => setStartDate(date)}
+        locale={locale}
+        labelform={labelform}
+        timeCaption="czas"
+        timeFormat="p"
+        dateFormat="Pp"
+        showTimeSelect
+        className={className}
+        selected={(value && new Date(value)) || null}
+        onChange={val => {
+          onChange(name, val);
+        }}
       /></label>
   );
 };
@@ -216,17 +222,17 @@ class AddForm extends React.Component {
             town: "",
             phoneNumber: "",
             email: "",
-            website: "", 
-            datePicker:""
+            website: "",
+            datePicker: ""
           }}
           validationSchema={accountFormSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
             setSubmitting(true);
             this.setState({ btnLoading: true, btnDisabled: true });
-            
+
             setTimeout(() => {
               resetForm();
-              this.setState({ btnLoading: false, btnDisabled: false, dimmer: "blurring", open: true});
+              this.setState({ btnLoading: false, btnDisabled: false, dimmer: "blurring", open: true });
             }, 2000);
 
             postData(values);
@@ -245,7 +251,7 @@ class AddForm extends React.Component {
                 <InfoSegment></InfoSegment>
                 <form onSubmit={handleSubmit}>
                   <TextInput
-                  className={styles.FormFields}
+                    className={styles.FormFields}
                     labelform="TYTUŁ *"
                     tooltiptext="Tutaj wpisz swój tytuł"
                     type="text"
@@ -259,7 +265,7 @@ class AddForm extends React.Component {
                   />
 
                   <Textarea
-                  className={styles.FormFields}
+                    className={styles.FormFields}
                     labelform="OPIS *"
                     name="description"
                     tooltiptext="Tutaj wpisz opis wydarzenia, które chcesz dodać"
@@ -269,24 +275,24 @@ class AddForm extends React.Component {
                     value={values.description}
                     touched={touched}
                     errors={errors}
-                  />  
-                      
-                       <DatePickerField
-                       className={styles.DataPickerField}
-                        name="datePicker"
-                        value={values.datePicker}
-                        onChange={setFieldValue}
-                        locale="pl"
+                  />
 
-                        labelform="DATA WYDARZENIA"
+                  <DatePickerField
+                    className={styles.DataPickerField}
+                    name="datePicker"
+                    value={values.datePicker}
+                    onChange={setFieldValue}
+                    locale="pl"
+                    showTimeSelect
+                    labelform="DATA I CZAS  WYDARZENIA"
 
-                        dateFormat="dd/MM/yyyy" />
+                    dateFormat="dd/MM/yyyy" />
 
 
-            
-                   
+
+
                   <TextInput
-                  className={styles.FormFields}
+                    className={styles.FormFields}
                     labelform="ZDJĘCIE"
                     tooltiptext="Wklej link URL zdjęcia. Preferowany kształt zdjęcia to kwadrat"
                     type="text"
@@ -298,34 +304,10 @@ class AddForm extends React.Component {
                     touched={touched}
                     errors={errors}
                   />
+     
+         
                   <TextInput
-                  className={styles.FormFields}
-                    labelform="DATA WYDARZENIA"
-                    tooltiptext="Poinformuj użytkownika kiedy będzie Twoje wydarzenie."
-                    type="text"
-                    name="date"
-                    placeholder="data wydarzenia"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.date}
-                    touched={touched}
-                    errors={errors}
-                  />
-                  <TextInput
-                  className={styles.FormFields}
-                    labelform="GODZINA WYDARZENIA"
-                    tooltiptext="Poinformuj użytkownika o której godzinie odbędzie się Twoje wydarzenie."
-                    type="text"
-                    name="hour"
-                    placeholder="godzina wydarzenia"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.hour}
-                    touched={touched}
-                    errors={errors}
-                  />
-                  <TextInput
-                  className={styles.FormFields}
+                    className={styles.FormFields}
                     labelform="CENA ZA OSOBĘ *"
                     tooltiptext="Tutaj podaj cenę za bilet. Pamiętaj o tym, że kwota jest w złotówkach."
                     type="text"
@@ -344,7 +326,7 @@ class AddForm extends React.Component {
                     }
                   />
                   <TextInput
-                   className={styles.FormFields}
+                    className={styles.FormFields}
                     labelform="ULICA / Numer"
                     tooltiptext="Tutaj wpisz lokalizację wydarzenia."
                     type="text"
@@ -357,7 +339,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                   className={styles.FormFields}
+                    className={styles.FormFields}
                     labelform="MIASTO"
                     tooltiptext="Tutaj wpisz miasto wydarzenia."
                     type="text"
@@ -370,7 +352,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                   className={styles.FormFields}
+                    className={styles.FormFields}
                     labelform="NUMER KONTAKTOWY"
                     tooltiptext="Tutaj wpisz numer. Błędny format nie przejdzie walidacji."
                     type="text"
@@ -383,7 +365,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                   className={styles.FormFields}
+                    className={styles.FormFields}
                     labelform="EMAIL *"
                     tooltiptext="Tutaj wpisz cały adres e-mail."
                     type="email"
@@ -396,7 +378,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <TextInput
-                   className={styles.FormFields}
+                    className={styles.FormFields}
                     labelform="STRONA"
                     tooltiptext="Podaj adres strony. Nie wymagamy www i http(s)."
                     type="text"
@@ -409,7 +391,7 @@ class AddForm extends React.Component {
                     errors={errors}
                   />
                   <SelectInput
-                   className={styles.FormFields}
+                    className={styles.FormFields}
                     labelform="RODZAJ IMPREZY"
                     tooltiptext="Wybierz rodzaj imprezy."
                     name="partyType"
@@ -429,7 +411,7 @@ class AddForm extends React.Component {
                     loading={this.state.btnLoading}
                     disabled={this.state.btnDisabled}
                   />
-                  
+
                   <ModalBox open={this.state.open} dimmer={this.state.dimmer} close={this.close} />
                 </form>
               </div>
