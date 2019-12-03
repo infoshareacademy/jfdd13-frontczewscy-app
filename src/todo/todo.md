@@ -43,6 +43,7 @@
 - [x] date picker dodac do dady w dodawaniu wydarzenia
 - [x] ustawic date i godzine obok siebie
 - [x] wrzucic rodzaj imprezy w addform na gore albo prawie na gore
+- [ ] Profil użytkownika
 - [ ] I wiele więcej
 
 // opcjonalnie

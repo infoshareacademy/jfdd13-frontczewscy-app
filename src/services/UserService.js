@@ -6,10 +6,27 @@ export const watchUsers = onSuccess => {
   return firebase
     .database()
     .ref("/users")
-    .on("value", dataSnapshot => {
+    .once("value", dataSnapshot => {
       const users = dataSnapshot.val();
       onSuccess(prepareUsers(users));
     });
+};
+
+export const watchUser = async () => {
+  const userId = firebase.auth().currentUser.uid;
+  // return firebase
+  //   .database()
+  //   .ref(`/users/${userId}`)
+  //   .once("val")
+  //   .val();
+
+  const dataSnapshot = await firebase
+    .database()
+    .ref(`/users/${userId}`)
+    .once("value");
+
+  const user = dataSnapshot.val();
+  return user;
 };
 
 export const stopUsers = () => {
