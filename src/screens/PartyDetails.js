@@ -16,6 +16,8 @@ import {
   handleFavoritesFirebase,
   getUserFavorites
 } from "../services/UserService";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee, faPhone, faGlassCheers, faMoneyBillWave, faMapMarkerAlt, faAt, faLaptop } from '@fortawesome/free-solid-svg-icons';
 import firebase from "../firebase";
 
 class FavoriteIcon extends React.Component {
@@ -40,9 +42,9 @@ class FavoriteIcon extends React.Component {
   handleFavorites = async () => {
     // this if statement change the state of favorites it creates more
     const id = this.props.partyId;
-  
+
     if (this.state.favorites.includes(id)) {
-      const favorites = this.state.favorites.filter(party => party !== id)     
+      const favorites = this.state.favorites.filter(party => party !== id)
 
       const isFavorites = favorites.includes(id)
 
@@ -101,76 +103,74 @@ class Party extends React.Component {
     );
     const GridContainer = () => (
       <div className={styles.mainContainer}>
-      <div className={styles.leftContainer}>
-        
-        <div className={styles.imageContainer}>
-          <Image className={styles.imageParty}
-                   src={image || "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
-                   style={{ margin:" 0 auto", zIndex:"10",  border:"3px solid #f1f1f1" }}/>
-            </div>
+        <div className={styles.leftContainer}>
 
-            <div >
-              <Image className={styles.imageParty}
-                     src={image || "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
-                      style={{width:"50%", height: "100%", filter: "blur(8px)", position: "fixed", top: "40px", left:"0", border:"2px solid black", zIndex:"-10" }}/>
-                      </div>
-                      
-                      </div>
+          <div className={styles.imageContainer}>
+            <Image className={styles.imageParty}
+              src={image || "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
+              style={{ margin: " 0 auto", zIndex: "10", border: "3px solid #f1f1f1" }} />
+          </div>
+
+          <div >
+            <Image className={styles.imageParty}
+              src={image || "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
+              style={{ width: "50%", height: "100%", filter: "blur(8px)", position: "fixed", top: "40px", left: "0", border: "2px solid black", zIndex: "-10" }} />
+          </div>
+
+        </div>
 
 
-      <div className={styles.rightContainer}> <List>
-    <Segment> {title}</Segment>
-            
-       
-            <List.Item>
-              <List.Icon name="users" size="large" color="violet" />
-              <List.Content>{title}</List.Content>
-            </List.Item>
+        <div className={styles.rightContainer}> 
+        <div className={styles.mainData}>
+          <Segment style={{ fontWeight: "bold", width:"100%" }}>  <FavoriteIcon partyId={this.props.id} />{title}</Segment></div>
 
-            <List.Item>
-              <List.Icon name="phone square" size="large" color="violet" />
-              <List.Content>{phoneNumber || "XXX-XXX-XXX"}</List.Content>
-            </List.Item>
-
-            <List.Item>
-              <List.Icon name="check" size="large" color="violet" />
-              <List.Content>
-                {partyType || "nie wybrano typu imprezy"}
-              </List.Content>
-            </List.Item>
-
-            <List.Item>
-              <List.Icon name="money" size="large" color="violet" />
-              <List.Content>{price || "nie podano ceny"}</List.Content>
-            </List.Item>
-
-            <List.Item>
-              <List.Icon name="marker" size="large" color="violet" />
-              <List.Content>{address || "brak adresu"}</List.Content>
-            </List.Item>
-
-            <List.Item>
-              <List.Icon name="mail" size="large" color="violet" />
-              <List.Content>{email || "brak adresu email"}</List.Content>
-            </List.Item>
-            <List.Item>
-              <List.Icon name="linkify" size="large" color="violet" />
-              <List.Content>{0 || "nie podano adresu strony"}</List.Content>
-            </List.Item>
-          </List>
-          <FavoriteIcon partyId={this.props.id}/>
-          <DescriptionContainer className={styles.descriptionContainer} /></div>
-    </div>
+          <div className={styles.mainData}>
+            <Segment style={{height:"100%", marginBottom:"0", width:"60px"}}><FontAwesomeIcon icon={faPhone} /></Segment>
+            <Segment style={{marginTop:"0", width:"100%", textAlign:"left"}}>KONTAKT: {phoneNumber || "XXX-XXX-XXX"}</Segment>
+          </div>
           
-     
-         
-    
+          <div className={styles.mainData}>
+            <Segment style={{height:"100%", marginBottom:"0", width:"60px"}}><FontAwesomeIcon icon={faGlassCheers} /></Segment>
+            <Segment style={{marginTop:"0", width:"100%", textAlign:"left"}}> Rodzaj imprezy: {partyType || "nie wybrano typu imprezy"}</Segment>
+          </div>
+
+          <div className={styles.mainData}>
+            <Segment style={{height:"100%", marginBottom:"0", width:"60px"}}><FontAwesomeIcon icon={faMoneyBillWave} /></Segment>
+            <Segment style={{marginTop:"0", width:"100%", textAlign:"left"}}> Cena: {price || "nie podano ceny"}</Segment>
+          </div>
+
+          <div className={styles.mainData}>
+            <Segment style={{height:"100%", marginBottom:"0", width:"60px"}}><FontAwesomeIcon icon={faMapMarkerAlt} /></Segment>
+            <Segment style={{marginTop:"0", width:"100%", textAlign:"left"}}>Adres: {address || "brak adresu"}</Segment>
+          </div>
+
+          <div className={styles.mainData}>
+            <Segment style={{height:"100%", marginBottom:"0", width:"60px"}}><FontAwesomeIcon icon={faAt} /></Segment>
+            <Segment style={{marginTop:"0", width:"100%", textAlign:"left"}}>E-mail{email || "brak adresu email"}</Segment>
+          </div>
+
+          <div className={styles.mainData}>
+            <Segment style={{height:"100%", marginBottom:"0", width:"60px"}}><FontAwesomeIcon icon={faLaptop} /></Segment>
+            <Segment style={{marginTop:"0", width:"100%", textAlign:"left"}}>Strona: {0 || "nie podano adresu strony"}</Segment>
+          </div>
+
+          <div className={styles.mainData}>
+    <Segment style={{marginTop:"0", width:"100%", height:"200px", textAlign:"left"}}>{description}</Segment>
+          </div>
+       
+
+        </div>
+      </div>
+
+
+
+
     );
 
     return (
       <div className={styles.mainGrid}>
         <GridContainer className={styles.gridContainer} />
-   
+
       </div>
     );
   }
@@ -210,11 +210,11 @@ class PartyDetails extends React.Component {
             id={this.props.match.params.id}
           />
         ) : (
-          <div>Przykro nam nie ma takiego czegoś</div>
-        )}
+            <div>Przykro nam nie ma takiego czegoś</div>
+          )}
         <SideLoader isLoading={this.state.isLoading} />
       </div>
-  
+
     );
   }
 }

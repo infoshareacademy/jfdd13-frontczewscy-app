@@ -16,6 +16,9 @@ width: 50%;
 height: calc(100vh - 40px);
 
 }
+
+
+
 .blurBackground {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/cd/Selena_Gomez_2016.png');
     filter: blur(8px);
@@ -56,3 +59,7 @@ height: calc(100vh - 40px);
 }
 
 
+.mainData {
+    display: flex;
+    width: 70%;
+}
