@@ -110,14 +110,18 @@ const DatePickerField = ({ name, value, onChange, className, labelform, locale }
         timeCaption="czas"
         timeFormat="p"
         dateFormat="Pp"
+        showWeekNumbers
         showTimeSelect
+        fixedHeight
         className={className}
         selected={(value && new Date(value)) || null}
         onChange={val => {
           onChange(name, val);
          
         }}
-      /></label></div>
+      >  <div style={{ color: "green" }}>
+       Nie zapomnij o podaniu godziny!
+  </div></DatePicker></label></div>
   );
 };
 
@@ -235,8 +239,8 @@ class AddForm extends React.Component {
               resetForm();
               this.setState({ btnLoading: false, btnDisabled: false, dimmer: "blurring", open: true });
             }, 2000);
-
-            postData(values);
+console.log(values);
+            // postData(values);
           }}>
           {({
             values,

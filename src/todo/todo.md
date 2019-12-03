@@ -40,5 +40,5 @@
 - [ ] na czym polega aplikacja - naglowek w dashboardzie
 - [x] date picker dodac do dady w dodawaniu wydarzenia
 - [x] ustawic date i godzine obok siebie
-- [ ] wrzucic rodzaj imprezy w addform na gore albo prawie na gore
+- [x] wrzucic rodzaj imprezy w addform na gore albo prawie na gore
 - [ ] nieklikalny na telefonie pasek w wyszukiwarce naprawic 
