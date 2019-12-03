@@ -34,7 +34,7 @@ const accountFormSchema = Yup.object().shape({
     .required("Pole wymagane!"),
   description: Yup.string()
     .min(35, "Za krótki opis")
-    .max(400, "Za długi opis")
+    .max(450, "Za długi opis")
     .required("Pole wymagane!"),
   image: Yup.string().matches(imageRegEx, "Błędny format url"),
   price: Yup.string()
@@ -179,11 +179,14 @@ const Textarea = props => {
       </div>
       <div className="ui focus input">
         <textarea
+         maxlength="451"
           style={{
-            minHeight: 200,
+            minHeight: 100,
             minWidth: "100%",
-            maxWidth: "100%",
-            resize: "none"
+            maxWidth:"100%",
+            resize:"vertical"
+           
+           
           }}
           {...props}
         />
