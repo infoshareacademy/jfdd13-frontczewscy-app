@@ -264,6 +264,18 @@ class AddForm extends React.Component {
                     touched={touched}
                     errors={errors}
                   />
+                   <SelectInput
+                    className={styles.FormFields}
+                    labelform="RODZAJ IMPREZY"
+                    tooltiptext="Wybierz rodzaj imprezy."
+                    name="partyType"
+                    placeholder="Rodzaj imprezy"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.partyType}
+                    touched={touched}
+                    errors={errors}
+                  />
 
                   <Textarea
                     className={styles.FormFields}
@@ -391,18 +403,7 @@ class AddForm extends React.Component {
                     touched={touched}
                     errors={errors}
                   />
-                  <SelectInput
-                    className={styles.FormFields}
-                    labelform="RODZAJ IMPREZY"
-                    tooltiptext="Wybierz rodzaj imprezy."
-                    name="partyType"
-                    placeholder="Rodzaj imprezy"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.partyType}
-                    touched={touched}
-                    errors={errors}
-                  />
+                 
 
                   <Button
                     style={{ marginTop: "10px" }}
