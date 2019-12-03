@@ -14,11 +14,6 @@ code {
   padding: 0;
 }
 
-.ui.visible.scale.down.sidebar~.pusher.Search_pusher__53hNc {
-  width: 80% !important;
-  transform: none !important;
-}
-
 .ui.visible.scale.down.sidebar~.pusher {
   transform: none;
   width: calc(100% - 250px) !important;
