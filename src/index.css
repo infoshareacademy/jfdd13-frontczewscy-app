@@ -130,3 +130,10 @@ code {
   box-shadow: none;
   font: 400 13.3333px Arial;
 }
+
+
+@media (max-width: 600px) {
+  #root > div > div > div > form > div:nth-child(3) > label > div.react-datepicker-wrapper > div > input {
+      width: 300px;
+  }
+}
