@@ -288,7 +288,6 @@ class Register extends React.Component {
         
 
                   <Message
-                    success
                     hidden={!this.state.isMessageShown}
                     header="REJESTRACJA SIĘ POWIODŁA"
                   />
