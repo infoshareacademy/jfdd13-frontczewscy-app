@@ -14,7 +14,7 @@
 - [x] Po zalogowaniu nie można się ponownie zalogować oraz zarejestrować (można się tylko wylogować)
 - [x] Dodać "nie wylogowywuj mnie"
 - [x] Dodać oraz zaimplementować przypomnienie hasła dla użytkownika
-- [ ] Dodać wyraźną informacje o nie powodzeniu wpisania hasła
+- [x] Dodać wyraźną informacje o nie powodzeniu wpisania hasła
   - Pobrać odpowiedź z serwera i wyświetlić ją w odpowiednim momencie użytkownikowi
 - [ ] Autentykacja dodawanych danych (chodzi o zabezpieczenie bazy danych)
   - [Może się przydać](https://create-react-app.dev/docs/adding-custom-environment-variables/#docsNav)
@@ -48,7 +48,7 @@
 - [x] wrzucic rodzaj imprezy w addform na gore albo prawie na gore
 - [ ] nieklikalny na telefonie pasek w wyszukiwarce naprawic
 - [ ] I wiele więcej
-
+ - [] dodac responsywnosc do party details
 // opcjonalnie
 
 - [ ] Jeżeli użytkownik ma swoje posty może je usuwać (trzeba znaleźć odpowiednie miejsce na to)

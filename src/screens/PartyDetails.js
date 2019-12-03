@@ -8,7 +8,7 @@ import {
   Rating,
   Dimmer,
   Loader,
-  Icon
+  Icon, Segment
 } from "semantic-ui-react";
 import styles from "./PartyDetails.module.css";
 import _ from "lodash";
@@ -106,20 +106,21 @@ class Party extends React.Component {
         <div className={styles.imageContainer}>
           <Image className={styles.imageParty}
                    src={image || "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
-                   style={{ margin:" 0 auto", zIndex:"10" }}/>
+                   style={{ margin:" 0 auto", zIndex:"10",  border:"3px solid #f1f1f1" }}/>
             </div>
 
             <div >
               <Image className={styles.imageParty}
                      src={image || "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
-                      style={{width:"50%", height: "100%", filter: "blur(8px)", position: "fixed", top: "40px", left:"0" }}/>
+                      style={{width:"50%", height: "100%", filter: "blur(8px)", position: "fixed", top: "40px", left:"0", border:"2px solid black", zIndex:"-10" }}/>
                       </div>
                       
                       </div>
 
 
       <div className={styles.rightContainer}> <List>
-            <Header size="huge">{title}</Header>
+    <Segment> {title}</Segment>
+            
        
             <List.Item>
               <List.Icon name="users" size="large" color="violet" />
