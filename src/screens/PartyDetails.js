@@ -100,20 +100,27 @@ class Party extends React.Component {
       </Container>
     );
     const GridContainer = () => (
-      <Grid centered>
-        <Grid.Column width={6}>
-          <Image
-            src={
-              image ||
-              "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-            }
-            style={{ margin: "20px 0px" }}
-          />
-        </Grid.Column>
-        <Grid.Column width={10}>
-          <List>
-            <Header size="huge">{title}</Header>
+      <div className={styles.mainContainer}>
+      <div className={styles.leftContainer}>
+        
+        <div className={styles.imageContainer}>
+          <Image className={styles.imageParty}
+                   src={image || "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
+                   style={{ margin:" 0 auto", zIndex:"10" }}/>
+            </div>
 
+            <div >
+              <Image className={styles.imageParty}
+                     src={image || "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
+                      style={{width:"50%", height: "100%", filter: "blur(8px)", position: "fixed", top: "40px", left:"0" }}/>
+                      </div>
+                      
+                      </div>
+
+
+      <div className={styles.rightContainer}> <List>
+            <Header size="huge">{title}</Header>
+       
             <List.Item>
               <List.Icon name="users" size="large" color="violet" />
               <List.Content>{title}</List.Content>
@@ -151,14 +158,18 @@ class Party extends React.Component {
             </List.Item>
           </List>
           <FavoriteIcon partyId={this.props.id}/>
-        </Grid.Column>
-      </Grid>
+          <DescriptionContainer className={styles.descriptionContainer} /></div>
+    </div>
+          
+     
+         
+    
     );
 
     return (
       <div className={styles.mainGrid}>
         <GridContainer className={styles.gridContainer} />
-        <DescriptionContainer className={styles.descriptionContainer} />
+   
       </div>
     );
   }
@@ -202,6 +213,7 @@ class PartyDetails extends React.Component {
         )}
         <SideLoader isLoading={this.state.isLoading} />
       </div>
+  
     );
   }
 }
