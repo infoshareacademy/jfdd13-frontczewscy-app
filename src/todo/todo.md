@@ -1,12 +1,12 @@
 ## TODO
 
 - [x] Sprawdzić czy jest live update ( dwa okna otwarte z jednego dodajemy na drugie powinno wskoczyć)
-- [x] Ekran logowania: 
-    - [Może się przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/ce2d231d66eb8b3138c534080137fae978a1fbc0)
-- [x] Ekran rejestracji: 
-    - [Może się przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/cd1f6c2d04a2f3236003f0642366073b872afb0b)
-    - [To również](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/b6bd196f8e7823acceff9936eda94ec5bbab3200)
-    - [I to też](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/b41ff1d9a7e6f1a8a1eeab1a3866ebb0fdbd7a95)
+- [x] Ekran logowania:
+  - [Może się przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/ce2d231d66eb8b3138c534080137fae978a1fbc0)
+- [x] Ekran rejestracji:
+  - [Może się przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/cd1f6c2d04a2f3236003f0642366073b872afb0b)
+  - [To również](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/b6bd196f8e7823acceff9936eda94ec5bbab3200)
+  - [I to też](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/b41ff1d9a7e6f1a8a1eeab1a3866ebb0fdbd7a95)
 - [x] Po rejestracji dodawany jest nowy użytkownik
 - [x] Dodać zgode na przetwarzanie danych
 - [x] Po rejestracji dane użytkownika idą do bazy danych (dwie osobne rzeczy)
@@ -15,28 +15,42 @@
 - [x] Dodać "nie wylogowywuj mnie"
 - [x] Dodać oraz zaimplementować przypomnienie hasła dla użytkownika
 - [ ] Dodać wyraźną informacje o nie powodzeniu wpisania hasła
-    - Pobrać odpowiedź z serwera i wyświetlić ją w odpowiednim momencie użytkownikowi
+  - Pobrać odpowiedź z serwera i wyświetlić ją w odpowiednim momencie użytkownikowi
 - [ ] Autentykacja dodawanych danych (chodzi o zabezpieczenie bazy danych)
-    - [Może się przydać](https://create-react-app.dev/docs/adding-custom-environment-variables/#docsNav)
+  - [Może się przydać](https://create-react-app.dev/docs/adding-custom-environment-variables/#docsNav)
 - [ ] Dashboard (można rozpisać na mniejsze taski)
 - [x] Poprawić komunikat o zapisaniu imprezy w bazie danych (najlepiej okno modalne)
 - [ ] Responsywność
 - [ ] Zmienić funkcje na firebase
-    - [ ] Zmienić dodawanie imprez na funkcje firebase:
-        - [Może sie przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/da6c0d8429ea824ff54f1c87430979146eaef131)
-    - [ ] Zmienić pobieranie danych o imprezie na funkcje firebase
+  - [ ] Zmienić dodawanie imprez na funkcje firebase:
+    - [Może sie przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/da6c0d8429ea824ff54f1c87430979146eaef131)
+  - [ ] Zmienić pobieranie danych o imprezie na funkcje firebase
 - [ ] W paginacji blokowanie nieaktywnych przycisków
 - [x] Paginacja się nie wyświetla kiedy nie ma wyników
 - [ ] Szczegóły imprezy
-    - [ ] Bardzo duzo pustej przestrzeni w szczegolach imprezy( wrzycic do madala moze?)
-    - [ ] Końcowy wygląd imprezy ( poprawić wyrównanie, tu ogólnie chyba trzeba troche to przerobić)
-        - Przerobić z semantica na zwykłego flexa,
-    - [ ] brakuje ulubionych w sekcji partydetails
-    - [ ] nie wysrodkowany wizualnie kontent
-    - [X] podczas ladowania w party details pojawia sie cos i znika - usunac to albo zmienic jakos
-- [ ] 
+  - [ ] Bardzo duzo pustej przestrzeni w szczegolach imprezy( wrzycic do madala moze?)
+  - [ ] Końcowy wygląd imprezy ( poprawić wyrównanie, tu ogólnie chyba trzeba troche to przerobić)
+    - Przerobić z semantica na zwykłego flexa,
+  - [ ] brakuje ulubionych w sekcji partydetails
+  - [ ] nie wysrodkowany wizualnie kontent
+  - [x] podczas ladowania w party details pojawia sie cos i znika - usunac to albo zmienic jakos
+- [ ]
+- [ ] brakuje ulubionych w sekcji partydetails
+- [ ] nie wysrodkowany wizualnie kontent
+- [ ] podczas ladowania w party details pojawia sie cos i znika - usunac to albo zmienic jakos
+- [ ] skalowanie w wyszukiwarce
+- [ ] malo czytelny tekst w sekcji imprez
+- [ ] brak legendy w lewym wykresie
+- [ ] zapełnić przestrzen w dashboardzie
+- [ ] na czym polega aplikacja - naglowek w dashboardzie
+- [x] date picker dodac do dady w dodawaniu wydarzenia
+- [x] ustawic date i godzine obok siebie
+- [x] wrzucic rodzaj imprezy w addform na gore albo prawie na gore
+- [ ] nieklikalny na telefonie pasek w wyszukiwarce naprawic
 - [ ] I wiele więcej
 
 // opcjonalnie
+
 - [ ] Jeżeli użytkownik ma swoje posty może je usuwać (trzeba znaleźć odpowiednie miejsce na to)
 - [ ] Sortowanie wyszukiwań (opcjonalnie)
+- [ ] Bardzo duzo pustej przestrzeni w szczegolach imprezy( wrzycic do madala moze?)
