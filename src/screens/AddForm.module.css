@@ -14,7 +14,9 @@
     flex-direction: column;
 }
 
-
+.Datelabel {
+  margin-bottom: 0;
+}
 
 .FormFields {
     width: 600px;

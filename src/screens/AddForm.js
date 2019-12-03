@@ -100,7 +100,8 @@ const TextInput = props => {
 const DatePickerField = ({ name, value, onChange, className, labelform, locale }) => {
   const [startDate, setStartDate] = useState(new Date());
   return (
-    <label> {labelform}
+    <div>
+  <label><div className={styles.Datelabel}>{labelform}</div>
       <DatePicker
         selected={startDate}
         onChange={date => setStartDate(date)}
@@ -114,8 +115,9 @@ const DatePickerField = ({ name, value, onChange, className, labelform, locale }
         selected={(value && new Date(value)) || null}
         onChange={val => {
           onChange(name, val);
+         
         }}
-      /></label>
+      /></label></div>
   );
 };
 
@@ -222,8 +224,7 @@ class AddForm extends React.Component {
             town: "",
             phoneNumber: "",
             email: "",
-            website: "",
-            datePicker: ""
+            website: ""
           }}
           validationSchema={accountFormSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -279,13 +280,13 @@ class AddForm extends React.Component {
 
                   <DatePickerField
                     className={styles.DataPickerField}
-                    name="datePicker"
-                    value={values.datePicker}
+                    name="date"
+                    value={values.date}
                     onChange={setFieldValue}
                     locale="pl"
                     showTimeSelect
                     labelform="DATA I CZAS  WYDARZENIA"
-
+                  
                     dateFormat="dd/MM/yyyy" />
 
 
