@@ -233,7 +233,8 @@ class AddForm extends React.Component {
           onSubmit={(values, { setSubmitting, resetForm }) => {
             setSubmitting(true);
             this.setState({ btnLoading: true, btnDisabled: true });
-
+            const hour =
+              values.date.getHours() + ":" + values.date.getMinutes();
             setTimeout(() => {
               resetForm();
               this.setState({
@@ -243,7 +244,7 @@ class AddForm extends React.Component {
                 open: true
               });
             }, 2000);
-            console.log(values);
+            console.log({ ...values, hour });
             // postData(values);
           }}>
           {({
@@ -416,6 +417,15 @@ class AddForm extends React.Component {
                     loading={this.state.btnLoading}
                     disabled={this.state.btnDisabled}
                   />
+                  <button
+                    onClick={() => {
+                      console.log(
+                        values.date.getMinutes(),
+                        values.date.getHours()
+                      );
+                    }}>
+                    get date
+                  </button>
 
                   <ModalBox
                     open={this.state.open}
