@@ -55,3 +55,58 @@ export const posts = [
     categories: ["Puby"]
   }
 ];
+
+export const users = [
+  {
+    id: uuid.v4(),
+    joined: "22.12.2019" 
+  },
+  {
+    id: uuid.v4(),
+    joined: "20.12.2019" 
+  },
+  {
+    id: uuid.v4(),
+    joined: "09.11.2019"  
+  },
+  {
+    id: uuid.v4(),
+    joined: "10.11.2019" 
+  },
+  {
+    id: uuid.v4(),
+    joined: "12.11.2019" 
+  },
+  {
+    id: uuid.v4(),
+    joined: "12.11.2019" 
+  },
+  {
+    id: uuid.v4(),
+    joined: "20.11.2019" 
+  },
+  {
+    id: uuid.v4(),
+    joined: "22.11.2019" 
+
+  },
+  {
+    id: uuid.v4(),
+    joined: "23.11.2019" 
+
+    
+  },
+  {
+    id: uuid.v4(),
+    joined: "23.11.2019" 
+
+    
+  },
+  {
+    id: uuid.v4(),
+    joined: "23.11.2019" 
+
+    
+  }
+  
+];
