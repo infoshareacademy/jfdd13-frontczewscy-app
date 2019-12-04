@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Card, Image, Dimmer, Loader } from "semantic-ui-react";
 import styles from "./Profile.module.css";
+import Item from "../components/Item";
+import _ from "lodash";
 
-import { watchUser } from "../services/UserService";
+import firebase from "../firebase";
+
+import {
+  watchUser,
+  handleFavoritesFirebase,
+  getUserFavorites
+} from "../services/UserService";
 import { watchParties } from "../services/PartiesService";
 
 const Profile = () => {
   const [user, setUser] = useState({});
-  const [parties, setParties] = useState({});
+  const [parties, setParties] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     watchUser().then(user => {
       setUser(user);
       watchParties(parties => {
-        console.log(user.favorites);
         const newParties = parties.filter(party => {
           return user.favorites.includes(party.id);
         });
@@ -30,10 +37,10 @@ const Profile = () => {
       <Dimmer active={isLoading} inverted>
         <Loader>Pobieranie danych...</Loader>
       </Dimmer>
-      <div style={{ width: "100%", maxWidth: "1200px", display: "flex" }}>
-        <div style={{ flex: 2 }}>
+      <div className={styles.userInfo}>
+        <div className={styles.favorites}>
           <img
-            height="150px"
+            height="250px"
             style={{ margin: "20px 0 0 0" }}
             src={
               user.img ||
@@ -41,13 +48,41 @@ const Profile = () => {
             }
             alt="user profile"
           />
-          <h1 onClick={() => console.log(parties)}>{user.name}</h1>
+          <h1>{user.name}</h1>
           <p>{user.bio}</p>
           <p>Data dołączenia {user.joined}</p>
           <p>Adres email {user.email}</p>
         </div>
-        <div style={{ flex: 1, background: "lightblue", minHeight: "100vh" }}>
-          Favorites
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            top: "0"
+          }}>
+          <h2> Ulubione</h2>
+          {parties.map(post => {
+            return (
+              <div
+                key={post.id}
+                className={styles.item}
+                style={{ margin: "10px", width: "290px" }}>
+                <Item
+                  description={post.description}
+                  img={post.image}
+                  title={post.title}
+                  date={post.date}
+                  id={post.id}
+                  price={post.price}
+                  partyType={post.partyType}
+                  hour={post.hour}
+                  favorites={parties}
+                  showFavorites={false}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -56,6 +91,24 @@ const Profile = () => {
 
 export default Profile;
 
+// async function handleFavorites(id) {
+//   // this if statement change the state of favorites it creates more
+//   if (parties.includes(id)) {
+//     const favorites = [...parties];
+//     _.pull(favorites, id);
+
+//     setParties(favorites);
+//   } else {
+//     const favorites = [...parties, id];
+
+//     setParties(favorites);
+//   }
+
+//   await handleFavoritesFirebase(id, firebase.auth().currentUser.uid);
+//   getUserFavorites().then(favorites => {
+//     setParties(favorites);
+//   });
+// }
 {
   /* <Card className={styles.card}>
         <Image

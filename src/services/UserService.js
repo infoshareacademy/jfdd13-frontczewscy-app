@@ -37,7 +37,6 @@ export const stopUsers = () => {
 };
 
 export const handleFavoritesFirebase = async (partyId, userId) => {
-  console.log(userId, partyId);
   const partiesRef = await firebase
     .database()
     .ref(`/users/${userId}/favorites`);
@@ -46,7 +45,7 @@ export const handleFavoritesFirebase = async (partyId, userId) => {
   const parties = dataSnapshot.val();
 
   if (typeof parties === "string") {
-    const newParties = [partyId];
+    const newParties = ["initial value", partyId];
     return partiesRef.set(newParties);
   }
 
@@ -56,7 +55,7 @@ export const handleFavoritesFirebase = async (partyId, userId) => {
     const newParties = parties.filter(party => party !== partyId);
     return partiesRef.set(newParties);
   } else {
-    const newParties = [...parties, partyId];
+    const newParties = ["initial value", ...parties, partyId];
     return partiesRef.set(newParties);
   }
 };

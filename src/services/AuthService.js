@@ -32,7 +32,8 @@ export const register = (email, password, name, bio, joined) => {
               name,
               email,
               bio,
-              joined
+              joined,
+              favorites: ["initial value"]
             });
         });
     });

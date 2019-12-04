@@ -18,8 +18,7 @@ import {
   getUserFavorites
 } from "../services/UserService";
 import firebase from "../firebase";
-import Item from "../components/Item"
-
+import Item from "../components/Item";
 
 class SidebarSearch extends Component {
   state = {
@@ -215,10 +214,12 @@ class SidebarSearch extends Component {
                           hour={post.hour}
                           favorites={favorites}
                           handleFavorites={this.handleFavorites}
+                          showFavorites={true}
                         />
                       </div>
                     ))}
-                  {this.partiesAfterFilters.length <= 0 && !this.state.loading ? (
+                  {this.partiesAfterFilters.length <= 0 &&
+                  !this.state.loading ? (
                     <div className={styles.noSearch}>
                       <p>
                         Przykro nam, nie mamy imprezy dla Twoich wyszukiwań.
@@ -235,22 +236,21 @@ class SidebarSearch extends Component {
                       justifyContent: "center",
                       width: "100%"
                     }}>
-                      {this.partiesAfterFilters.length === 0 ? null : 
+                    {this.partiesAfterFilters.length === 0 ? null : (
                       <Pagination
-                      activePage={activePage}
-                      boundaryRange={boundaryRange}
-                      onPageChange={this.handlePaginationChange}
-                      size="large"
-                      siblingRange={siblingRange}
-                      totalPages={totalPages}
-                      ellipsisItem={showEllipsis ? undefined : null}
-                      firstItem={showFirstAndLastNav ? undefined : null}
-                      lastItem={showFirstAndLastNav ? undefined : null}
-                      prevItem={showPreviousAndNextNav ? undefined : null}
-                      nextItem={showPreviousAndNextNav ? undefined : null}
-                    />
-                      }
-                    
+                        activePage={activePage}
+                        boundaryRange={boundaryRange}
+                        onPageChange={this.handlePaginationChange}
+                        size="large"
+                        siblingRange={siblingRange}
+                        totalPages={totalPages}
+                        ellipsisItem={showEllipsis ? undefined : null}
+                        firstItem={showFirstAndLastNav ? undefined : null}
+                        lastItem={showFirstAndLastNav ? undefined : null}
+                        prevItem={showPreviousAndNextNav ? undefined : null}
+                        nextItem={showPreviousAndNextNav ? undefined : null}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
