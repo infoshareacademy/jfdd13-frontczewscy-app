@@ -114,7 +114,7 @@ class Party extends React.Component {
           <div >
             <Image className={styles.imageParty}
               src={image || "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
-              style={{ width: "50%", height: "100%", filter: "blur(8px)", position: "fixed", top: "40px", left: "0", border: "2px solid black", zIndex: "-10" }} />
+              style={{  height: "100%", filter: "blur(8px)", position: "fixed", top: "40px", left: "0", border: "2px solid black", zIndex: "-10" }} />
           </div>
 
         </div>
@@ -122,7 +122,7 @@ class Party extends React.Component {
 
         <div className={styles.rightContainer}> 
         <div className={styles.mainData}>
-          <Segment style={{ fontWeight: "bold", width:"100%" }}>  <FavoriteIcon partyId={this.props.id} />{title}</Segment></div>
+          <Segment style={{ fontWeight: "bold", width:"100%" }}>  <FavoriteIcon partyId={this.props.id} className={styles.favoriteIcon}/>{title}</Segment></div>
 
           <div className={styles.mainData}>
             <Segment style={{height:"100%", marginBottom:"0", width:"60px"}}><FontAwesomeIcon icon={faPhone} /></Segment>
