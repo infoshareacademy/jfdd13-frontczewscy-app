@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Formik } from "formik";
 import { Input, Button, Segment, Header, Modal } from "semantic-ui-react";
 import { Link } from "react-router-dom";
@@ -13,10 +13,6 @@ import "react-datepicker/dist/react-datepicker-cssmodules.css";
 import DatePicker, { registerLocale } from "react-datepicker";
 import pl from "date-fns/locale/pl"; // the locale you want
 registerLocale("pl", pl);
-
-//example of image url
-// const sampleURL =
-//   "https://farm4.staticflickr.com/3894/15008518202.c265dfa55f.h.png";
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 const urlRegExp = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
@@ -190,13 +186,6 @@ const Textarea = props => {
       </div>
     </label>
   );
-};
-
-const postData = values => {
-  fetch("https://frontczewscy-database.firebaseio.com/parties.json", {
-    method: "POST",
-    body: JSON.stringify(values)
-  });
 };
 
 class AddForm extends React.Component {
