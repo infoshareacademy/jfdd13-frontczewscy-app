@@ -407,16 +407,6 @@ class AddForm extends React.Component {
                     loading={this.state.btnLoading}
                     disabled={this.state.btnDisabled}
                   />
-                  <button
-                    onClick={() => {
-                      console.log(
-                        values.date.getMinutes(),
-                        values.date.getHours()
-                      );
-                    }}>
-                    get date
-                  </button>
-
                   <ModalBox
                     open={this.state.open}
                     dimmer={this.state.dimmer}
