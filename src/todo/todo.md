@@ -45,8 +45,8 @@
 - [x] wrzucic rodzaj imprezy w addform na gore albo prawie na gore
 - [ ] Profil użytkownika
 - [ ] I wiele więcej
-
-// opcjonalnie
+- [] dodac responsywnosc do party details
+  // opcjonalnie
 
 - [ ] Jeżeli użytkownik ma swoje posty może je usuwać (trzeba znaleźć odpowiednie miejsce na to)
 - [ ] Sortowanie wyszukiwań (opcjonalnie)
