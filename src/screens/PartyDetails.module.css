@@ -95,9 +95,10 @@ height: calc(100vh - 40px);
             height: calc(100vh - 40px);
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             text-align: center;
+            
         }
         .imageContainer {
             height: 100%;
@@ -141,7 +142,17 @@ height: calc(100vh - 40px);
         word-wrap: break-word;
     }
  
-
+    .rightContainer {
+        width: 100%;
+        background:white;
+        height: calc(100vh - 40px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+    }
 
  
     
