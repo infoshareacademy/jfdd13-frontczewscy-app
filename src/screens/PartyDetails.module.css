@@ -122,4 +122,12 @@ height: calc(100vh - 40px);
 
         
         }
+
+        .mainData {
+            display: flex;
+            width: 100%;
+            min-height: 50px;
+            word-wrap: break-word;
+        }
+        
 }

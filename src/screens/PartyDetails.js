@@ -130,12 +130,12 @@ class Party extends React.Component {
           </div>
           
           <div className={styles.mainData}>
-            <Segment style={{height:"100%", marginBottom:"0", width:"60px"}}><FontAwesomeIcon icon={faGlassCheers} /></Segment>
+            <Segment style={{height:"100%", marginBottom:"0", width:"60px", minHeight:"auto"}}><FontAwesomeIcon icon={faGlassCheers} /></Segment>
             <Segment style={{marginTop:"0", width:"100%", textAlign:"left"}}> Rodzaj imprezy: {partyType || "nie wybrano typu imprezy"}</Segment>
           </div>
 
           <div className={styles.mainData}>
-            <Segment style={{height:"100%", marginBottom:"0", width:"60px"}}><FontAwesomeIcon icon={faMoneyBillWave} /></Segment>
+            <Segment style={{height:"100%", marginBottom:"0", width:"60px", minHeight:"auto"}}><FontAwesomeIcon icon={faMoneyBillWave} /></Segment>
             <Segment style={{marginTop:"0", width:"100%", textAlign:"left"}}> Cena: {price || "nie podano ceny"}</Segment>
           </div>
 
@@ -146,7 +146,7 @@ class Party extends React.Component {
 
           <div className={styles.mainData}>
             <Segment style={{height:"100%", marginBottom:"0", width:"60px"}}><FontAwesomeIcon icon={faAt} /></Segment>
-            <Segment style={{marginTop:"0", width:"100%", textAlign:"left"}}>E-mail{email || "brak adresu email"}</Segment>
+            <Segment style={{marginTop:"0", width:"100%", textAlign:"left", height:"100%"}}>E-mail: {email || "brak adresu email"}</Segment>
           </div>
 
           <div className={styles.mainData}>
