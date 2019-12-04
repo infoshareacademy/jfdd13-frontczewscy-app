@@ -143,8 +143,8 @@ height: calc(100vh - 40px);
     }
  
     .rightContainer {
-        width: 100%;
-        background:white;
+        width: 50%;
+               background:white;
         height: calc(100vh - 40px);
         display: flex;
         flex-direction: column;
