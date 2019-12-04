@@ -73,7 +73,7 @@ height: calc(100vh - 40px);
 }
 
 
-@media (max-width: 1200px) {
+@media (max-width: 800px) {
 
 
     .mainContainer {
@@ -130,4 +130,19 @@ height: calc(100vh - 40px);
             word-wrap: break-word;
         }
         
+}
+
+
+@media (min-width: 801px) and (max-width: 1200px) {
+    .mainData {
+        display: flex;
+        width: 70%%;
+        min-height: 50px;
+        word-wrap: break-word;
+    }
+ 
+
+
+ 
+    
 }
