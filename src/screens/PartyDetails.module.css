@@ -72,6 +72,11 @@ height: calc(100vh - 40px);
     width: 70%;
 }
 
+.noResult {
+    text-align: center;
+    line-height: calc(100vh - 40px);
+}
+
 
 @media (max-width: 800px) {
 

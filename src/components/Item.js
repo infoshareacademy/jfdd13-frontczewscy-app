@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Icon, Card } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import styles from "../screens/Search.module.css";
+import styles from "./Item.module.css"
 
 const Item = props => {
   const {

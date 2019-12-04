@@ -188,7 +188,8 @@ class PartyDetails extends React.Component {
 
     this.state = {
       parties: null,
-      err: ""
+      err: "",
+      isLoading: true
     };
   }
 
@@ -210,7 +211,7 @@ class PartyDetails extends React.Component {
             id={this.props.match.params.id}
           />
         ) : (
-            <div>Przykro nam nie ma takiego czegoś</div>
+            <div className={styles.noResult}>Przykro nam nie istnieje taka impreza, lub została usunięta :(</div>
           )}
         <SideLoader isLoading={this.state.isLoading} />
       </div>

@@ -119,10 +119,6 @@
     justify-content: center;
 }
 
-.item>.inside {
-    width: 100%;
-}
-
 .noSearch {
     text-align: center;
     font-size: 25px;
