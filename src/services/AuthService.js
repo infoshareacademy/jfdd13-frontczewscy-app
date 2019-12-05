@@ -4,13 +4,7 @@ export const login = (email, password) => {
   return firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(value => {
-      console.log("Logged in!");
-      console.log(value);
-    })
-    .catch(() => {
-      console.log("Something went wrong!");
-    });
+
 };
 
 export const register = (email, password, name, bio, joined) => {
@@ -32,7 +26,8 @@ export const register = (email, password, name, bio, joined) => {
               name,
               email,
               bio,
-              joined
+              joined,
+              favorites: ["initial value"]
             });
         });
     });

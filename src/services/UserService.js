@@ -6,10 +6,27 @@ export const watchUsers = onSuccess => {
   return firebase
     .database()
     .ref("/users")
-    .on("value", dataSnapshot => {
+    .once("value", dataSnapshot => {
       const users = dataSnapshot.val();
       onSuccess(prepareUsers(users));
     });
+};
+
+export const watchUser = async () => {
+  const userId = firebase.auth().currentUser.uid;
+  // return firebase
+  //   .database()
+  //   .ref(`/users/${userId}`)
+  //   .once("val")
+  //   .val();
+
+  const dataSnapshot = await firebase
+    .database()
+    .ref(`/users/${userId}`)
+    .once("value");
+
+  const user = dataSnapshot.val();
+  return user;
 };
 
 export const stopUsers = () => {
@@ -20,7 +37,6 @@ export const stopUsers = () => {
 };
 
 export const handleFavoritesFirebase = async (partyId, userId) => {
-  console.log(userId, partyId);
   const partiesRef = await firebase
     .database()
     .ref(`/users/${userId}/favorites`);
@@ -29,7 +45,7 @@ export const handleFavoritesFirebase = async (partyId, userId) => {
   const parties = dataSnapshot.val();
 
   if (typeof parties === "string") {
-    const newParties = [partyId];
+    const newParties = ["initial value", partyId];
     return partiesRef.set(newParties);
   }
 
@@ -39,7 +55,7 @@ export const handleFavoritesFirebase = async (partyId, userId) => {
     const newParties = parties.filter(party => party !== partyId);
     return partiesRef.set(newParties);
   } else {
-    const newParties = [...parties, partyId];
+    const newParties = ["initial value", ...parties, partyId];
     return partiesRef.set(newParties);
   }
 };

@@ -161,7 +161,7 @@ class Register extends React.Component {
                       />
 
                       <Message
-                        success
+                      
                         hidden={!this.state.isMessageShown}
                         header={this.state.message}
                       />

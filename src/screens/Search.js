@@ -4,12 +4,10 @@ import {
   Icon,
   Segment,
   Sidebar,
-  Card,
   Dimmer,
   Loader,
   Pagination
 } from "semantic-ui-react";
-import { Link } from "react-router-dom";
 import styles from "./Search.module.css";
 import "react-input-range/lib/css/index.css";
 import VerticalSidebar from "../components/VerticalSidebar";
@@ -20,70 +18,7 @@ import {
   getUserFavorites
 } from "../services/UserService";
 import firebase from "../firebase";
-
-const Item = props => {
-  const {
-    description,
-    img,
-    title,
-    date,
-    id,
-    price,
-    favorites,
-    handleFavorites,
-    partyType,
-    hour
-  } = props;
-
-  return (
-    <Card className={styles.inside}>
-      <Link to={`/party/${id}`}>
-        <img
-          src={
-            img ||
-            "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          }
-          style={{
-            height: "300px",
-            objectFit: "cover",
-            objectPosition: "center",
-            width: "100%"
-          }}
-          alt={title}
-        />
-      </Link>
-
-      <Card.Content>
-        <Link className={styles.link} to={`/party/${id}`}>
-          <Card.Header>
-            {title} {price ? ` || ${parseInt(price, 10)} zł` : null}
-          </Card.Header>
-        </Link>
-        <Card.Meta>
-          <span className="date">
-            {date || ""} {hour ? ` at ${hour}` : null}
-          </span>
-        </Card.Meta>
-        <Card.Description style={{ wordWrap: "break-word", height: "60px" }}>
-          {`${description.replace(/^(.{35}[^\s]*).*/, "$1")}...`}
-        </Card.Description>
-        <Card.Content
-          extra
-          style={{ display: "flex", justifyContent: "space-between" }}>
-          <Icon
-            onClick={() => handleFavorites(id)}
-            name={favorites.includes(id) ? "heart" : "heart outline"}
-            size="large"
-            className={styles.favoriteIcon}
-          />
-          <span>
-            {partyType}
-          </span>
-        </Card.Content>
-      </Card.Content>
-    </Card>
-  );
-};
+import Item from "../components/Item";
 
 class SidebarSearch extends Component {
   state = {
@@ -275,14 +210,16 @@ class SidebarSearch extends Component {
                           date={post.date}
                           id={post.id}
                           price={post.price}
-                          favorites={favorites}
-                          handleFavorites={this.handleFavorites}
                           partyType={post.partyType}
                           hour={post.hour}
+                          favorites={favorites}
+                          handleFavorites={this.handleFavorites}
+                          showFavorites={true}
                         />
                       </div>
                     ))}
-                  {this.partiesAfterFilters.length <= 0 && !this.state.loading ? (
+                  {this.partiesAfterFilters.length <= 0 &&
+                  !this.state.loading ? (
                     <div className={styles.noSearch}>
                       <p>
                         Przykro nam, nie mamy imprezy dla Twoich wyszukiwań.
@@ -299,22 +236,21 @@ class SidebarSearch extends Component {
                       justifyContent: "center",
                       width: "100%"
                     }}>
-                      {this.partiesAfterFilters.length === 0 ? null : 
+                    {this.partiesAfterFilters.length === 0 ? null : (
                       <Pagination
-                      activePage={activePage}
-                      boundaryRange={boundaryRange}
-                      onPageChange={this.handlePaginationChange}
-                      size="large"
-                      siblingRange={siblingRange}
-                      totalPages={totalPages}
-                      ellipsisItem={showEllipsis ? undefined : null}
-                      firstItem={showFirstAndLastNav ? undefined : null}
-                      lastItem={showFirstAndLastNav ? undefined : null}
-                      prevItem={showPreviousAndNextNav ? undefined : null}
-                      nextItem={showPreviousAndNextNav ? undefined : null}
-                    />
-                      }
-                    
+                        activePage={activePage}
+                        boundaryRange={boundaryRange}
+                        onPageChange={this.handlePaginationChange}
+                        size="large"
+                        siblingRange={siblingRange}
+                        totalPages={totalPages}
+                        ellipsisItem={showEllipsis ? undefined : null}
+                        firstItem={showFirstAndLastNav ? undefined : null}
+                        lastItem={showFirstAndLastNav ? undefined : null}
+                        prevItem={showPreviousAndNextNav ? undefined : null}
+                        nextItem={showPreviousAndNextNav ? undefined : null}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
