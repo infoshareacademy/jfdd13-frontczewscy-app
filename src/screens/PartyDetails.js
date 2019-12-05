@@ -1,11 +1,7 @@
 import React from "react";
 import {
-  List,
-  Grid,
   Image,
-  Header,
   Container,
-  Rating,
   Dimmer,
   Loader,
   Icon,
@@ -19,7 +15,6 @@ import {
 } from "../services/UserService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCoffee,
   faPhone,
   faGlassCheers,
   faMoneyBillWave,
@@ -51,29 +46,21 @@ class FavoriteIcon extends React.Component {
     // this if statement change the state of favorites it creates more
     const id = this.props.partyId;
 
-    if (this.state.favorites.includes(id)) {
-      const favorites = this.state.favorites.filter(party => party !== id);
+    const favorites = {
+      ...this.state.favorites,
+      [id]: this.state.favorites[id] ? null : true
+    };
 
-      const isFavorites = favorites.includes(id);
-
-      this.setState({
-        isFavorites,
-        favorites
-      });
-    } else {
-      const favorites = [...this.state.favorites, id];
-      const isFavorites = favorites.includes(id);
-
-      this.setState({
-        isFavorites,
-        favorites
-      });
-    }
+    this.setState({
+      favorites,
+      isFavorites: this.state.favorites[id] ? false : true
+    });
 
     await handleFavoritesFirebase(id, firebase.auth().currentUser.uid);
     getUserFavorites().then(favorites => {
+      console.log(favorites);
       this.setState({
-        favorites
+        favorites: favorites || {}
       });
     });
   };

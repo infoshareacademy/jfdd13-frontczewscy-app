@@ -28,14 +28,6 @@ export const loginWithGoogle = () => {
           email: user.email,
           joined: moment(user.metadata.creationTime).format("L")
         });
-
-      debugger;
-      // firebase
-      //   .database()
-      //   .ref(`/users/${user.uid}/favorites/0`)
-      //   .set("initial value");
-
-      // ...
     })
     .catch(function(error) {
       // Handle Errors here.

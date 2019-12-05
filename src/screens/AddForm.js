@@ -189,6 +189,13 @@ const Textarea = props => {
   );
 };
 
+const postData = values => {
+  fetch("https://frontczewscy-database.firebaseio.com/parties.json", {
+    method: "POST",
+    body: JSON.stringify(values)
+  });
+};
+
 class AddForm extends React.Component {
   state = {
     btnLoading: false,
@@ -234,8 +241,7 @@ class AddForm extends React.Component {
                 open: true
               });
             }, 2000);
-            console.log({ ...values, hour });
-            // postData(values);
+            postData(values);
           }}>
           {({
             values,
