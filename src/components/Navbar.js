@@ -23,7 +23,7 @@ import firebase from "../firebase";
         <img className={styles.logo} src = { Logo } alt="Concerte Logo" />
         <span>Concerte</span>
       </NavLink>
-      <button className={styles.navButton} onClick={() => {setIsNavOpen(!isNavOpen)}}>▼</button>
+  <button className={styles.navButton} onClick={() => {setIsNavOpen(!isNavOpen)}}>{ isNavOpen ? "▲" : "▼" }</button>
     </div>
     <ul className={styles.right}   style={ { display: isNavOpen ? 'block' : 'none' } } >
         <li><NavLink activeClassName={"active-link"} to="/wyszukaj"exact><Search />Wyszukiwanie imprez</NavLink></li>
