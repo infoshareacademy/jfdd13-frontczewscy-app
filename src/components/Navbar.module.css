@@ -75,4 +75,7 @@
     .right>li {
         margin-bottom: 10px;
     }
+    .disappear {
+        display: none;
+    }
 }
