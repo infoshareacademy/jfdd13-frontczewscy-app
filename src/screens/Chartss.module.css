@@ -4,6 +4,8 @@
     align-items: center;
     justify-content: space-evenly;
     margin-top: 50px;
+    text-align: center;
+    
 }
  
 @media (max-width: 1000px) {
