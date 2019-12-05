@@ -37,25 +37,23 @@ export const stopUsers = () => {
 };
 
 export const handleFavoritesFirebase = async (partyId, userId) => {
-  const partiesRef = await firebase
-    .database()
-    .ref(`/users/${userId}/favorites`);
+  const partiesRef = await firebase.database().ref(`/favorites/${userId}`);
   const dataSnapshot = await partiesRef.once("value");
 
-  const parties = dataSnapshot.val();
+  const parties = dataSnapshot.val() || {};
 
   if (typeof parties === "string") {
     const newParties = ["initial value", partyId];
     return partiesRef.set(newParties);
   }
 
-  const alreadyExists = parties.includes(partyId);
+  const alreadyExists = parties[partyId];
 
   if (alreadyExists) {
-    const newParties = parties.filter(party => party !== partyId);
+    const newParties = { ...parties, [partyId]: null };
     return partiesRef.set(newParties);
   } else {
-    const newParties = ["initial value", ...parties, partyId];
+    const newParties = { ...parties, [partyId]: true };
     return partiesRef.set(newParties);
   }
 };
@@ -71,12 +69,10 @@ export const getUserFavorites = async () => {
   //     return users;
   //   });
 
-  const partiesRef = await firebase
-    .database()
-    .ref(`/users/${userId}/favorites`);
-  const dataSnapshot = await partiesRef.once("value");
+  const favoritesRef = await firebase.database().ref(`/favorites/${userId}`);
+  const dataSnapshot = await favoritesRef.once("value");
 
-  const parties = dataSnapshot.val();
+  const favorites = dataSnapshot.val();
 
-  return parties;
+  return favorites;
 };

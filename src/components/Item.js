@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Icon, Card } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import styles from "./Item.module.css"
+import styles from "./Item.module.css";
 
 const Item = props => {
   const {
@@ -56,7 +56,7 @@ const Item = props => {
           {showFavorites && (
             <Icon
               onClick={() => handleFavorites(id)}
-              name={favorites.includes(id) ? "heart" : "heart outline"}
+              name={favorites[id] ? "heart" : "heart outline"}
               size="large"
               className={styles.favoriteIcon}
             />

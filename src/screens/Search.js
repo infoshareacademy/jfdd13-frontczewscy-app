@@ -36,7 +36,7 @@ class SidebarSearch extends Component {
     activePage: 1,
     totalPages: 1,
 
-    favorites: [],
+    favorites: {},
     // not changing
     postPerPage: 8,
     animation: "scale down",
@@ -64,22 +64,23 @@ class SidebarSearch extends Component {
 
     // const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     getUserFavorites().then(favorites => {
+      console.log(favorites);
       this.setState({
-        favorites
+        favorites: favorites || {}
       });
     });
   };
 
   get partiesAfterFilters() {
     const { favorites, filter } = this.state;
-    return this.state.parties.filter(post => {
+    return this.state.parties.filter(party => {
       return (
-        post.title.toLowerCase().includes(filter.title.toLowerCase()) &&
+        party.title.toLowerCase().includes(filter.title.toLowerCase()) &&
         (filter.partyType !== "all"
-          ? post.partyType.includes(filter.partyType)
+          ? party.partyType.includes(filter.partyType)
           : true) &&
-        parseFloat(post.price.replace(/,/g, ".")) <= filter.sliderValue &&
-        (filter.isFavorites ? favorites.includes(post.id) : true)
+        parseFloat(party.price.replace(/,/g, ".")) <= filter.sliderValue &&
+        (filter.isFavorites ? favorites[party.id] : true)
       );
     });
   }
@@ -96,25 +97,20 @@ class SidebarSearch extends Component {
 
   handleFavorites = async id => {
     // this if statement change the state of favorites it creates more
-    if (this.state.favorites.includes(id)) {
-      const favorites = [...this.state.favorites];
-      _.pull(favorites, id);
+    const favorites = {
+      ...this.state.favorites,
+      [id]: this.state.favorites[id] ? null : true
+    };
 
-      this.setState({
-        favorites
-      });
-    } else {
-      const favorites = [...this.state.favorites, id];
-
-      this.setState({
-        favorites
-      });
-    }
+    this.setState({
+      favorites
+    });
 
     await handleFavoritesFirebase(id, firebase.auth().currentUser.uid);
     getUserFavorites().then(favorites => {
+      console.log(favorites);
       this.setState({
-        favorites
+        favorites: favorites || {}
       });
     });
   };
