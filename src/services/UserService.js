@@ -55,7 +55,7 @@ export const handleFavoritesFirebase = async (partyId, userId) => {
     const newParties = parties.filter(party => party !== partyId);
     return partiesRef.set(newParties);
   } else {
-    const newParties = ["initial value", ...parties, partyId];
+    const newParties = [...parties, partyId];
     return partiesRef.set(newParties);
   }
 };

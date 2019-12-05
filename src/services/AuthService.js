@@ -21,10 +21,8 @@ export const loginWithGoogle = () => {
       const user = result.user;
       firebase
         .database()
-        .ref(`/users/${user.uid}`)
-        .push({
-          favorites: ["initial value"]
-        });
+        .ref(`/users/${user.uid}/favorites/0`)
+        .set("initial value");
 
       debugger;
       // ...
@@ -61,7 +59,9 @@ export const register = (email, password, name, bio, joined) => {
               email,
               bio,
               joined,
-              favorites: ["initial value"]
+              favorites: {
+                0: "Initial Value"
+              }
             });
         });
     });
