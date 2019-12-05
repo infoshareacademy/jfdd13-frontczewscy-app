@@ -15,7 +15,12 @@ code {
 }
 
 .ui.visible.scale.down.sidebar~.pusher {
-  transform: scale(0.77) !important;
+  transform: none;
+  width: calc(100% - 250px) !important;
+}
+
+.ui.scale.down.right.sidebar~.pusher {
+  width: 100%;
 }
 
 .ui.thin.left.sidebar, .ui.thin.right.sidebar {
@@ -40,7 +45,6 @@ code {
   align-items: center;
 }
 
-
 @media (max-width: 700px) {
   .ui.thin.left.sidebar, .ui.thin.right.sidebar {
     width: 200px;
@@ -50,6 +54,10 @@ code {
   }
   .ui.input>input {
     width: 190px;
+  }
+  .ui.visible.scale.down.sidebar~.pusher {
+    transform: none;
+    width: calc(80%) !important;
   }
 }
 
@@ -62,25 +70,97 @@ code {
   width: 180px;
 }
 
-
-#root > div > div > div > div > div:nth-child(6) > div > a {
+#root>div>div>div>div>div:nth-child(6)>div>a {
   color: blue;
   background: white;
 }
 
 /* Selector for Message Component from Register.js */
+
 /* #root > div > div > div > div{
   width: 700px;
   margin-bottom: 50px;
 } */
 
-#root > div > div > div.Register_rightsideRegister__1hnUh > div {
+#root>div>div>div.Register_rightsideRegister__1hnUh>div {
   height: 100vh;
 }
 
-#root > div > div > div > div.Login_loginLeft__70KBu > form > div.ui.icon.message {
+#root>div>div>div>div.Login_loginLeft__70KBu>form>div.ui.icon.message {
   width: 70%;
   margin-bottom: 30px;
   top: 0;
   text-align: center;
+}
+
+#root>div>div>div.Register_rightsideRegister__1hnUh>div>div.Register_addForm__1vB33>form>div:nth-child(7)>label>div.Register_inputDiv__3FjpM>div {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+
+
+#root > div > div > div > form > div.react-datepicker-wrapper > div{
+  width: 220px;
+}
+#root > div > div > div > form > div.react-datepicker-wrapper {
+
+  width: 220px;
+}
+
+#root > div > div > div > form > div.react-datepicker-popper {
+  width: 220px;
+}
+
+#root > div > div > div > form > div.react-datepicker-popper > div {
+  width:220px;
+}
+
+/* tutaj jest input date picker */
+#root > div > div > div > form > div:nth-child(4) > label > div.react-datepicker-wrapper > div > input {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 40px;
+  font-size: 20px;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  text-align: left;
+  line-height: 1.21428571em;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  /* padding: .67857143em 1em; */
+  background: #fff;
+  border: 1px solid rgba(34,36,38,.15);
+  box-shadow: none;
+  font: 400 13.3333px Arial;
+}
+
+/* tutaj jest select rodzaj imprezy */
+#root > div > div > div > form > div:nth-child(2) > label > select {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 40px;
+  font-size: 20px;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  text-align: left;
+  line-height: 1.21428571em;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  /* padding: .67857143em 1em; */
+  background: #fff;
+  border: 1px solid rgba(34,36,38,.15);
+  box-shadow: none;
+  font: 400 13.3333px Arial;
+
+}
+
+@media (max-width: 600px) {
+/* tutaj jest input date picker */
+
+  #root > div > div > div > form > div:nth-child(4) > label > div.react-datepicker-wrapper > div > input {
+      width: 300px;
+  }
 }

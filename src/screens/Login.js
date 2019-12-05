@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"
-import { Button, Form, Divider, Grid, Segment, Input } from "semantic-ui-react";
+import { Button, Form, Divider, Grid, Segment, Input, Checkbox, Message } from "semantic-ui-react";
 import styles from "./Login.module.css";
 import { login } from "../services/AuthService";
 
 
 const FormInfoHeader = () => {
   return (
-    <div style={{width:"80%"}} className="ui icon message">
+    <div style={{ width: "80%" }} className="ui icon message">
       <div className="content">
         <div className="header">Zaloguj się:</div>
         {/* <p>
@@ -19,9 +19,32 @@ const FormInfoHeader = () => {
   );
 };
 
+
+
 const Login = props => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  
+
+  function handleLogin(email, password) {
+
+    setIsLoading(true);
+    login(email, password)
+    .then(value => {
+      console.log("Logged in!");
+      console.log(value);
+   
+    })
+    .catch(() => {
+      setIsLoading(false);
+      setError("Przykro mi coś się nie udało");
+      console.log("Something went wrong!");
+    });
+  }
+
 
   return (
     <Segment placeholder style={{ height: "100vh", padding: "0" }}>
@@ -50,9 +73,17 @@ const Login = props => {
                 onChange={event => setPassword(event.target.value)}
               /></label>
 
-            <Button style={{ marginTop: "20px" }} type="submit" onClick={() => login(email, password)}>
+            <Button loading={isLoading} style={{ marginTop: "20px" }} type="submit" onClick={() => handleLogin(email, password)}>
               Zaloguj się
             </Button>
+  
+                {error && <Message style={{fontWeight:"bold", width:"95%", textAlign:"center"}}>{error}</Message>}
+            <div className={styles.checkboxInput}>
+              <div className={`ui checkbox ${styles.lol}`} style={{display: "flex"}} >
+              <label htmlFor="checkbox"> <input type="checkbox" name="checkbox" value="" />
+             Nie wylogowuj mnie.</label>
+               <Link to="/zresetuj"><p style={{padding:"10px", textAlign:"center"}}>Zapomniałes hasła? Kliknij tutaj</p> </Link>
+              </div></div>
             <div className={styles.registerButtonSection}>
               <p style={{ textAlign: "center", fontWeight: "bold", paddingRight: "30px", paddingTop: "10px" }}>Nie masz jeszcze konta?</p>
               <Link to="/zarejestruj"><Button content="Zarejestruj się" icon="signup" size="big" /></Link>

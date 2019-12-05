@@ -14,11 +14,17 @@
     flex-direction: column;
 }
 
-.addForm div {
-    width: 600px;
-    justify-content: center;
+.Datelabel {
+ margin-top: 10px;
 }
 
+.FormFields {
+    width: 600px;
+}
+.DataPickerField {
+    width: 600px;
+  
+}
 .partyDropdown {
     width: 100%;
     margin-bottom: 10px;

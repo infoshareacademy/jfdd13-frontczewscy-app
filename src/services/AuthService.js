@@ -4,13 +4,7 @@ export const login = (email, password) => {
   return firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(value => {
-      console.log("Logged in!");
-      console.log(value);
-    })
-    .catch(() => {
-      console.log("Something went wrong!");
-    });
+
 };
 
 export const register = (email, password, name, bio, joined) => {
@@ -27,14 +21,25 @@ export const register = (email, password, name, bio, joined) => {
           console.log("Registered user with email, password and name");
           firebase
             .database()
-            .ref("/users")
-            .push({
-              id: user.uid,
+            .ref(`/users/${user.uid}`)
+            .set({
               name,
               email,
               bio,
-              joined
+              joined,
+              favorites: ["initial value"]
             });
         });
     });
 };
+
+export const passwordReset = email => {
+  return firebase.auth().sendPasswordResetEmail(email);
+};
+
+// .then(function() {
+//   // Password reset email sent.
+// })
+// .catch(function(error) {
+//   // Error occurred. Inspect error.code.
+// });
