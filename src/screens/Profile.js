@@ -1,34 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { Card, Image, Dimmer, Loader } from "semantic-ui-react";
+import { Dimmer, Loader } from "semantic-ui-react";
 import styles from "./Profile.module.css";
 import Item from "../components/Item";
-import _ from "lodash";
 
-import firebase from "../firebase";
-
-import {
-  watchUser,
-  handleFavoritesFirebase,
-  getUserFavorites
-} from "../services/UserService";
+import { watchUser, getUserFavorites } from "../services/UserService";
 import { watchParties } from "../services/PartiesService";
 
 const Profile = () => {
   const [user, setUser] = useState({});
-  const [parties, setParties] = useState([]);
+  const [favorites, setFavorites] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     watchUser().then(user => {
       setUser(user);
+    });
+
+    getUserFavorites().then(favorites => {
       watchParties(parties => {
-        const newParties = parties.filter(party => {
-          return user.favorites.includes(party.id);
+        const newFavorites = parties.filter(party => {
+          if (favorites) return favorites[party.id];
+          else return null;
         });
-        console.log(newParties);
-        setParties(newParties);
+
+        setFavorites(newFavorites);
+
+        setIsLoading(false);
       });
-      setIsLoading(false);
     });
   }, []);
 
@@ -62,7 +60,7 @@ const Profile = () => {
             top: "0"
           }}>
           <h2> Ulubione</h2>
-          {parties.map(post => {
+          {favorites.map(post => {
             return (
               <div
                 key={post.id}
@@ -77,7 +75,7 @@ const Profile = () => {
                   price={post.price}
                   partyType={post.partyType}
                   hour={post.hour}
-                  favorites={parties}
+                  favorites={favorites}
                   showFavorites={false}
                 />
               </div>
@@ -90,58 +88,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-// async function handleFavorites(id) {
-//   // this if statement change the state of favorites it creates more
-//   if (parties.includes(id)) {
-//     const favorites = [...parties];
-//     _.pull(favorites, id);
-
-//     setParties(favorites);
-//   } else {
-//     const favorites = [...parties, id];
-
-//     setParties(favorites);
-//   }
-
-//   await handleFavoritesFirebase(id, firebase.auth().currentUser.uid);
-//   getUserFavorites().then(favorites => {
-//     setParties(favorites);
-//   });
-// }
-{
-  /* <Card className={styles.card}>
-        <Image
-          src="https://react.semantic-ui.com/images/avatar/large/daniel.jpg"
-          wrapped
-          ui={false}
-        />
-        <Card.Content>
-          <Card.Header>Kajetan Kowalski</Card.Header>
-          <Card.Meta>Joined in 2019</Card.Meta>
-          <Card.Description>
-            Nie będę się reklamował. Nie lubię pisać o sobie, trzeba mnie
-            poznać. Jestem miłym i normalnym facetem mającym swoje pasje. W polu
-            „wymarzona partnerka” pustka. Nie ma ideałów... Jak znajdę to będę
-            wiedział... Szukam kobiety, która mnie zrozumie.
-          </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <div>
-            <h2
-              onClick={() => {
-                console.log(user);
-              }}>
-              User info
-            </h2>
-
-            <div>
-              <p>Display name: {user.name}</p>
-              <p>Display bio: {user.bio}</p>
-              <p>Display join date: {user.joined}</p>
-              <p>Display email: {user.email}</p>
-            </div>
-          </div>
-        </Card.Content>
-      </Card> */
-}
