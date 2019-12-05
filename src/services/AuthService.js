@@ -1,4 +1,5 @@
 import firebase from "../firebase";
+import moment from "moment";
 
 export const login = (email, password) => {
   return firebase.auth().signInWithEmailAndPassword(email, password);
@@ -21,10 +22,19 @@ export const loginWithGoogle = () => {
       const user = result.user;
       firebase
         .database()
-        .ref(`/users/${user.uid}/favorites/0`)
-        .set("initial value");
+        .ref(`/users/${user.uid}`)
+        .set({
+          name: user.displayName,
+          email: user.email,
+          joined: moment(user.metadata.creationTime).format("L")
+        });
 
       debugger;
+      // firebase
+      //   .database()
+      //   .ref(`/users/${user.uid}/favorites/0`)
+      //   .set("initial value");
+
       // ...
     })
     .catch(function(error) {
