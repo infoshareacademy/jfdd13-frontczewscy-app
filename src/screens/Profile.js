@@ -19,7 +19,8 @@ const Profile = () => {
     getUserFavorites().then(favorites => {
       watchParties(parties => {
         const newFavorites = parties.filter(party => {
-          return favorites[party.id];
+          if (favorites) return favorites[party.id];
+          else return null;
         });
 
         setFavorites(newFavorites);
