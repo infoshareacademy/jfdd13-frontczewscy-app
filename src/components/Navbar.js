@@ -19,6 +19,7 @@ import firebase from "../firebase";
           <img className={styles.logo} src = { Logo } alt="Concerte Logo" />
           <span>Concerte</span>
         </NavLink>
+        <button className={styles.navButton} onClick={() => {moveNavbar()}}>▼</button>
       </div>
       <ul className={styles.right}>
           <li><NavLink activeClassName={"active-link"} to="/wyszukaj"exact><Search />Wyszukiwanie imprez</NavLink></li>
@@ -30,5 +31,10 @@ import firebase from "../firebase";
       
     </nav>
   );
+
+function moveNavbar() {
+  var butt = document.getElementsByClassName("navButton");
+  butt.classList.add("disappear");
+}
 
 export default Navbar;
