@@ -19,31 +19,30 @@
 - [ ] Autentykacja dodawanych danych (chodzi o zabezpieczenie bazy danych)
   - [Może się przydać](https://create-react-app.dev/docs/adding-custom-environment-variables/#docsNav)
 - [x] Poprawić komunikat o zapisaniu imprezy w bazie danych (najlepiej okno modalne)
-- [ ] Responsywność
+- [x] Responsywność
 - [ ] Zmienić funkcje na firebase
   - [ ] Zmienić dodawanie imprez na funkcje firebase:
     - [Może sie przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/da6c0d8429ea824ff54f1c87430979146eaef131)
   - [ ] Zmienić pobieranie danych o imprezie na funkcje firebase
-- [ ] W paginacji blokowanie nieaktywnych przycisków
 - [x] Paginacja się nie wyświetla kiedy nie ma wyników
 - [ ] Błędy w konsoli
-- [ ] Szczegóły imprezy
-  - [ ] Bardzo duzo pustej przestrzeni w szczegolach imprezy( wrzycic do madala moze?)
-  - [ ] Końcowy wygląd imprezy ( poprawić wyrównanie, tu ogólnie chyba trzeba troche to przerobić)
+- [x] Szczegóły imprezy
+  - [x] Bardzo duzo pustej przestrzeni w szczegolach imprezy( wrzycic do madala moze?)
+  - [x] Końcowy wygląd imprezy ( poprawić wyrównanie, tu ogólnie chyba trzeba troche to przerobić)
     - Przerobić z semantica na zwykłego flexa,
   - [x] brakuje ulubionych w sekcji partydetails
-  - [ ] nie wysrodkowany wizualnie kontent
+  - [x] nie wysrodkowany wizualnie kontent
   - [x] podczas ladowania w party details pojawia sie cos i znika - usunac to albo zmienic jakos
 - [x] skalowanie w wyszukiwarce
-- [ ] dashboard
-  - [ ] malo czytelny tekst w sekcji imprez
-  - [ ] brak legendy w lewym wykresie
+- [x] dashboard
+  - [x] malo czytelny tekst w sekcji imprez
+  - [x] brak legendy w lewym wykresie
   - [ ] zapełnić przestrzen w dashboardzie
   - [ ] na czym polega aplikacja - naglowek w dashboardzie
 - [x] date picker dodac do dady w dodawaniu wydarzenia
 - [x] ustawic date i godzine obok siebie
 - [x] wrzucic rodzaj imprezy w addform na gore albo prawie na gore
-- [ ] Profil użytkownika
+- [x] Profil użytkownika
 - [ ] I wiele więcej
 - [] dodac responsywnosc do party details
   // opcjonalnie
@@ -52,3 +51,4 @@
 - [ ] Sortowanie wyszukiwań (opcjonalnie)
 - [ ] Bardzo duzo pustej przestrzeni w szczegolach imprezy( wrzycic do madala moze?)
 - [ ] nieklikalny na telefonie pasek w wyszukiwarce naprawic
+- [ ] W paginacji blokowanie nieaktywnych przycisków
