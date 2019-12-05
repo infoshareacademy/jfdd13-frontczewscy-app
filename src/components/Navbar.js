@@ -25,7 +25,7 @@ import firebase from "../firebase";
       </NavLink>
   <button className={styles.navButton} onClick={() => {setIsNavOpen(!isNavOpen)}}>{ isNavOpen ? "▲" : "▼" }</button>
     </div>
-    <ul className={styles.right}   style={ { display: isNavOpen ? 'block' : 'none' } } >
+    <ul className={isNavOpen ? styles.navOpen : styles.navClosed} >
         <li><NavLink activeClassName={"active-link"} to="/wyszukaj"exact><Search />Wyszukiwanie imprez</NavLink></li>
         <li><NavLink activeClassName={"active-link"} to="/"exact><Chart />Wykresy</NavLink></li>
         <li><NavLink activeClassName={"active-link"} to="/dodaj-wydarzenie"exact><AddEvent />Dodaj wydarzenie</NavLink></li>
