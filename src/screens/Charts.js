@@ -9,40 +9,12 @@ import {
   Tooltip,
   Legend
 } from "recharts";
-import _, { groupBy, toPairs, fromPairs, orderBy, sortBy } from "lodash";
+import _, { groupBy, toPairs } from "lodash";
 import styles from "./Chartss.module.css";
 import moment from "moment";
 
 import { watchParties } from "../services/PartiesService";
 import { watchUsers } from "../services/UserService";
-
-// const prepareUsersChart = () => {
-//   const sortedArray = _.sortBy(
-//     users,
-//     user => {
-//       return moment(user.joined, "DD.MM.YYYY");
-//     },
-//     ["asc"]
-//   );
-
-//   //console.warn(sortedArray)
-
-//   const result = groupBy(sortedArray, user => user.joined);
-
-//   const pairs = toPairs(result).map(pair => {
-//     const [date, arr] = pair;
-//     return [date, arr.length];
-//   });
-//   const chartData = pairs.slice(-7).map(pair => {
-//     const [date, registeredUsers] = pair;
-//     return {
-//       name: date,
-//       value: registeredUsers
-//     };
-//   });
-//   return chartData;
-// };
-// prepareUsersChart();
 
 const COLORS = ["#A86BC2", "#DDCCFF", "#FFBB28", "#FF8042"];
 
@@ -99,7 +71,6 @@ export default class Example extends PureComponent {
     });
 
     watchUsers(users => {
-      console.log(users);
       const sortedArray = _.sortBy(
         users,
         user => {
@@ -108,23 +79,17 @@ export default class Example extends PureComponent {
         ["asc"]
       );
 
-      console.warn(sortedArray);
-
       const result = groupBy(sortedArray, user => user.joined);
-
-      console.log(result);
 
       const pairs = toPairs(result).map(pair => {
         const [date, arr] = pair;
         return [date, arr.length];
       });
-
-      console.log(pairs);
       const chartData = pairs.slice(-7).map(pair => {
         const [date, registeredUsers] = pair;
         return {
           name: date,
-          value: registeredUsers
+          użytkownicy: registeredUsers
         };
       });
       this.setState({ prepareUsersChart: chartData });
@@ -136,15 +101,15 @@ export default class Example extends PureComponent {
       <div className={styles.chartt}>
         <div>
           <h2>Ilość imprez według kategorii</h2>
-          <PieChart width={400} height={300}>
+          <PieChart width={400} height={500}>
             <Pie
               data={this.state.prepareCategoriesChart}
               cx={200}
-              cy={130}
+              cy={200}
               labelLine={false}
               labelString="adkwg"
               label={renderCustomizedLabel}
-              outerRadius={100}
+              outerRadius={180}
               fill="#8884d8"
               dataKey="value">
               {this.state.prepareCategoriesChart.map((entry, index) => (
@@ -159,9 +124,7 @@ export default class Example extends PureComponent {
         </div>
 
         <div>
-          <h2>
-            Liczba zarejestrowanych użytkowników w ciągu ostatniego tygodnia
-          </h2>
+          <h2>Liczba zarejestrowanych użytkowników w ostatnim czasie</h2>
           <BarChart
             width={750}
             height={300}
@@ -172,7 +135,7 @@ export default class Example extends PureComponent {
             <Tooltip />
             <Legend />
 
-            <Bar dataKey="value" fill="#A86BC2" />
+            <Bar dataKey="użytkownicy" fill="#A86BC2" />
           </BarChart>
         </div>
       </div>
