@@ -6,7 +6,7 @@ export const watchUsers = onSuccess => {
   return firebase
     .database()
     .ref("/users")
-    .once("value", dataSnapshot => {
+    .on("value", dataSnapshot => {
       const users = dataSnapshot.val();
       onSuccess(prepareUsers(users));
     });

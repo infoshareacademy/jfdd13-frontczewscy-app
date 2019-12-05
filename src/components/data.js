@@ -7,7 +7,7 @@ export const posts = [
     img:
       "https://images.pexels.com/photos/3183132/pexels-photo-3183132.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     description: "Lorem ipsum dolor ipsum",
-    categories: ["Imprezy", "Puby", "Wydarzenia"]
+    categories: "XDA"
   },
   {
     id: uuid.v4(),
@@ -16,7 +16,7 @@ export const posts = [
       "https://images.pexels.com/photos/3183132/pexels-photo-3183132.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, suscipit.",
-    categories: ["Imprezy", "Puby"]
+    categories: "Puby"
   },
   {
     id: uuid.v4(),
@@ -25,7 +25,7 @@ export const posts = [
       "https://images.pexels.com/photos/3183132/pexels-photo-3183132.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, suscipit.",
-    categories: ["Puby"]
+    categories: "AD"
   },
   {
     id: uuid.v4(),
@@ -34,7 +34,7 @@ export const posts = [
       "https://images.pexels.com/photos/3183132/pexels-photo-3183132.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, suscipit.",
-    categories: ["IMPREZA TANECZNA"]
+    categories: "AD"
   },
   {
     id: uuid.v4(),
@@ -43,7 +43,7 @@ export const posts = [
       "https://images.pexels.com/photos/3183132/pexels-photo-3183132.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, suscipit.",
-    categories: ["IMPREZA NIETANECZNA"]
+    categories: "AD"
   },
   {
     id: uuid.v4(),
@@ -52,61 +52,53 @@ export const posts = [
       "https://images.pexels.com/photos/3183132/pexels-photo-3183132.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, suscipit.",
-    categories: ["Puby"]
+    categories: "AD"
   }
 ];
 
 export const users = [
   {
-    id: uuid.v4(),
-    joined: "22.12.2019" 
+    email: uuid.v4(),
+    joined: "22.12.2019"
   },
   {
-    id: uuid.v4(),
-    joined: "20.12.2019" 
+    email: uuid.v4(),
+    joined: "20.12.2019"
   },
   {
-    id: uuid.v4(),
-    joined: "09.11.2019"  
+    email: uuid.v4(),
+    joined: "09.11.2019"
   },
   {
-    id: uuid.v4(),
-    joined: "10.11.2019" 
+    email: uuid.v4(),
+    joined: "10.11.2019"
   },
   {
-    id: uuid.v4(),
-    joined: "12.11.2019" 
+    email: uuid.v4(),
+    joined: "12.11.2019"
   },
   {
-    id: uuid.v4(),
-    joined: "12.11.2019" 
+    email: uuid.v4(),
+    joined: "12.11.2019"
   },
   {
-    id: uuid.v4(),
-    joined: "20.11.2019" 
+    email: uuid.v4(),
+    joined: "20.11.2019"
   },
   {
-    id: uuid.v4(),
-    joined: "22.11.2019" 
-
+    email: uuid.v4(),
+    joined: "22.11.2019"
   },
   {
-    id: uuid.v4(),
-    joined: "23.11.2019" 
-
-    
+    email: uuid.v4(),
+    joined: "23.11.2019"
   },
   {
-    id: uuid.v4(),
-    joined: "23.11.2019" 
-
-    
+    email: uuid.v4(),
+    joined: "23.11.2019"
   },
   {
-    id: uuid.v4(),
-    joined: "23.11.2019" 
-
-    
+    email: uuid.v4(),
+    joined: "23.11.2019"
   }
-  
 ];
