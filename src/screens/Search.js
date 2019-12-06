@@ -63,7 +63,6 @@ class SidebarSearch extends Component {
 
     // const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     getUserFavorites().then(favorites => {
-      console.log(favorites);
       this.setState({
         favorites: favorites || {}
       });
@@ -107,7 +106,6 @@ class SidebarSearch extends Component {
 
     await handleFavoritesFirebase(id, firebase.auth().currentUser.uid);
     getUserFavorites().then(favorites => {
-      console.log(favorites);
       this.setState({
         favorites: favorites || {}
       });

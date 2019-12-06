@@ -52,7 +52,6 @@ class FavoriteIcon extends React.Component {
 
     await handleFavoritesFirebase(id, firebase.auth().currentUser.uid);
     getUserFavorites().then(favorites => {
-      console.log(favorites);
       this.setState({
         favorites: favorites || {}
       });
@@ -63,7 +62,6 @@ class FavoriteIcon extends React.Component {
     return (
       <Icon
         onClick={() => this.handleFavorites()}
-        onDoubleClick={() => console.log("xd")}
         name={this.state.isFavorites ? "heart" : "heart outline"}
         size="large"
         className={styles.favoriteIcon}
