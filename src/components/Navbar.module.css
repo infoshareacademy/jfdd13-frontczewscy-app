@@ -62,7 +62,7 @@
     cursor: pointer;
     color: #fff;
 }
-@media (max-width: 800px) {
+@media (max-width: 850px) {
     .navbar {
         flex-direction: column;
         flex-wrap: wrap;
