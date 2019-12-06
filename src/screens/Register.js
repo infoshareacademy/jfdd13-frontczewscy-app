@@ -23,7 +23,7 @@ const FormInfoHeader = () => {
 
 const accountFormSchema = Yup.object().shape({
   password: Yup.string()
-    .min(5, "Min 5 znaków")
+    .min(6, "Min 6 znaków")
     .max(50, "Max 50 znaków!")
     .required("Pole wymagane!"),
   passwordRep: Yup.string()
