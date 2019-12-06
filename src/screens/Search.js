@@ -12,7 +12,6 @@ import styles from "./Search.module.css";
 import "react-input-range/lib/css/index.css";
 import VerticalSidebar from "../components/VerticalSidebar";
 import { watchParties } from "../services/PartiesService";
-import _ from "lodash";
 import {
   handleFavoritesFirebase,
   getUserFavorites
