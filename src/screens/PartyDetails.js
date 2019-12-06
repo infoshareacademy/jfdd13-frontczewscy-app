@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Image,
-  Container,
-  Dimmer,
-  Loader,
-  Icon,
-  Segment
-} from "semantic-ui-react";
+import { Image, Dimmer, Loader, Icon, Segment } from "semantic-ui-react";
 import styles from "./PartyDetails.module.css";
 import {
   handleFavoritesFirebase,
@@ -32,12 +25,14 @@ class FavoriteIcon extends React.Component {
 
   componentDidMount = () => {
     getUserFavorites().then(favorites => {
-      const id = this.props.partyId;
-      const isFavorites = favorites[id];
-      this.setState({
-        favorites,
-        isFavorites
-      });
+      if (favorites) {
+        const id = this.props.partyId;
+        const isFavorites = favorites[id];
+        this.setState({
+          favorites,
+          isFavorites
+        });
+      } else return null;
     });
   };
 
