@@ -233,18 +233,7 @@ class Register extends React.Component {
                     touched={touched}
                     errors={errors}
                   />
-                  <TextInput
-                    labelform="Zdjęcie profilowe"
-                    tooltiptext="Podaj adres url swojego zdjecia profilowefgo."
-                    type="file"
-                    name="image"
-                    placeholder="Zdjęcie profilowe"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.image}
-                    touched={touched}
-                    errors={errors}
-                  />
+                
                
                   
                   <Textarea
