@@ -18,10 +18,7 @@ const FormInfoHeader = () => {
     <div style={{ width: "80%" }} className="ui icon message">
       <div className="content">
         <div className="header">Zaloguj się:</div>
-        {/* <p>
-          Wypełnij wszystkie pola, kliknij zarejestruj aby zakończyć
-          rejestrację. Pola z <i className={styles.star}> * </i> są wymagane.
-        </p> */}
+    
       </div>
     </div>
   );
@@ -49,9 +46,13 @@ const Login = props => {
 
   return (
     <Segment placeholder style={{ height: "100vh", padding: "0" }}>
+   
       <div className={styles.loginBody}>
         <div className={styles.loginLeft}>
+       
           <Form className={styles.loginForm}>
+          <div style={{paddingBottom:"100px", fontSize:"40px", textAlign:"center", fontWeight:"bold"}}>CONCERTE
+          <p style={{fontSize:"20px", marginTop:"20px"}}>Aplikacja do wyszukiwania wydarzeń.</p></div>
             <FormInfoHeader style={{ width: "10%" }} />
 
             <label className={styles.label}>
