@@ -31,7 +31,7 @@ const Login = props => {
     setIsLoading(true);
     login(email, password)
       .then(value => {
-        console.log("Logged in!");
+
         console.log(value);
       })
       .catch(() => {
