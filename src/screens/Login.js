@@ -82,12 +82,12 @@ const Login = props => {
               onClick={() => handleLogin(email, password)}>
               Zaloguj się
             </Button>
-            <Button
-              style={{ marginTop: "20px" }}
+            <button
+              className={`${styles.socialSignin} ${styles.google}`}
               type="submit"
               onClick={() => loginWithGoogle()}>
-              Zaloguj się przez google
-            </Button>
+              Zaloguj się przez Google
+            </button>
 
             {error && (
               <Message
@@ -99,7 +99,7 @@ const Login = props => {
                 {error}
               </Message>
             )}
-           
+
             <div className={styles.registerButtonSection}>
               <p
                 style={{
