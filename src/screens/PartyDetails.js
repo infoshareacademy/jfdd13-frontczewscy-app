@@ -8,7 +8,6 @@ import {
   Segment
 } from "semantic-ui-react";
 import styles from "./PartyDetails.module.css";
-import _ from "lodash";
 import {
   handleFavoritesFirebase,
   getUserFavorites
@@ -81,7 +80,6 @@ class FavoriteIcon extends React.Component {
 class Party extends React.Component {
   render() {
     const {
-      id,
       title,
       address,
       description,
@@ -91,11 +89,6 @@ class Party extends React.Component {
       price,
       email
     } = this.props.parties;
-    const DescriptionContainer = () => (
-      <Container textAlign="justified">
-        <p>{description}</p>
-      </Container>
-    );
     const GridContainer = () => (
       <div className={styles.mainContainer}>
         <div className={styles.leftContainer}>
