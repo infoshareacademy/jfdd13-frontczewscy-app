@@ -119,35 +119,3 @@
 
   }
 }
-
-/*
-.navClose, nav.Open{
-    display: block;
-    padding: 7px;
-    position: absolute;
-    width: 100%;
-    background-color: black;
-    transform: translateY(-70px);
-    z-index: 2;
-}
-@media (max-width: 800px)
-.Navbar_left__lxJwh {
-    width: 100%;
-    background-color: red;
-    z-index: 5;
-    display: flex;
-    justify-content: center;
-}
-
-.navopen{
-@media (max-width: 800px)
-.Navbar_navOpen__prBSL {
-    display: block;
-    padding: 7px;
-    position: absolute;
-    width: 100%;
-    background-color: black;
-    transform: translateY(40px);
-    z-index: 2;
-}
-*/
