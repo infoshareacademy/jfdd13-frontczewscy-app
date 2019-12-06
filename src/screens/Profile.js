@@ -36,7 +36,7 @@ const Profile = () => {
         <Loader>Pobieranie danych...</Loader>
       </Dimmer>
       <div className={styles.userInfo}>
-        <div className={styles.favorites}>
+        <div className={styles.userDetails}>
           <img
             height="250px"
             style={{ margin: "20px 0 0 0" }}
@@ -51,15 +51,8 @@ const Profile = () => {
           <p>Data dołączenia {user.joined}</p>
           <p>Adres email {user.email}</p>
         </div>
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            top: "0"
-          }}>
-          <h2> Ulubione</h2>
+        <h2 className={styles.favoritesHeader}>Ulubione</h2>
+        <div className={styles.userFavorites}>
           {favorites.map(post => {
             return (
               <div
