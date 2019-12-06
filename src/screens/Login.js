@@ -29,16 +29,10 @@ const Login = props => {
 
   function handleLogin(email, password) {
     setIsLoading(true);
-    login(email, password)
-      .then(value => {
-
-        console.log(value);
-      })
-      .catch(() => {
-        setIsLoading(false);
-        setError("Przykro mi coś się nie udało");
-        console.log("Something went wrong!");
-      });
+    login(email, password).catch(() => {
+      setIsLoading(false);
+      setError("Przykro mi coś się nie udało");
+    });
   }
 
   return (
@@ -80,12 +74,12 @@ const Login = props => {
               onClick={() => handleLogin(email, password)}>
               Zaloguj się
             </Button>
-            <Button
-              style={{ marginTop: "20px" }}
+            <button
+              className={`${styles.socialSignin} ${styles.google}`}
               type="submit"
               onClick={() => loginWithGoogle()}>
-              Zaloguj się przez google
-            </Button>
+              Zaloguj się przez Google
+            </button>
 
             {error && (
               <Message
@@ -97,7 +91,7 @@ const Login = props => {
                 {error}
               </Message>
             )}
-           
+
             <div className={styles.registerButtonSection}>
               <p
                 style={{
