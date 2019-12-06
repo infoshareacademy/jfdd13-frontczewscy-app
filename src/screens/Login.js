@@ -32,16 +32,10 @@ const Login = props => {
 
   function handleLogin(email, password) {
     setIsLoading(true);
-    login(email, password)
-      .then(value => {
-        console.log("Logged in!");
-        console.log(value);
-      })
-      .catch(() => {
-        setIsLoading(false);
-        setError("Przykro mi coś się nie udało");
-        console.log("Something went wrong!");
-      });
+    login(email, password).catch(() => {
+      setIsLoading(false);
+      setError("Przykro mi coś się nie udało");
+    });
   }
 
   return (
