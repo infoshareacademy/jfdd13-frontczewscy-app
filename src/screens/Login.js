@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 import {
   Button,
   Form,
-  Divider,
-  Grid,
   Segment,
   Input,
-  Checkbox,
   Message
 } from "semantic-ui-react";
 import styles from "./Login.module.css";
@@ -52,7 +49,7 @@ const Login = props => {
        
           <Form className={styles.loginForm}>
           <div style={{paddingBottom:"100px", fontSize:"40px", textAlign:"center", fontWeight:"bold"}}>CONCERTE
-          <p style={{fontSize:"20px", marginTop:"20px"}}>Aplikacja do wyszukiwania wydarzeń.<a href="http://www.frontczewscy.jfdd13.is-academy.pl/" > Sprawdź nas!</a></p></div>
+          <p style={{fontSize:"20px", marginTop:"20px"}}>Aplikacja do wyszukiwania wydarzeń.<a href="" > Sprawdź nas!</a></p></div>
             <FormInfoHeader style={{ width: "10%" }} />
 
             <label className={styles.label}>
