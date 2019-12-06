@@ -1,102 +1,153 @@
 .navbar {
-    width: 100%;
-    height: 40px;
-    background-color: #7B1FA2;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: nowrap;
+  width: 100%;
+  height: 40px;
+  background-color: #7b1fa2;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 .logo {
-    height: 38px;
-    width: 38px;
-    padding: 2px;
-    margin-left: 5px;
-    cursor: pointer;
+  height: 38px;
+  width: 38px;
+  padding: 2px;
+  margin-left: 5px;
+  cursor: pointer;
 }
 
-.navOpen>li>a {
-    padding: 7px;
-    margin: 0px 10px 0px;
-    cursor: pointer;
-    color: #fff;
+.navOpen > li > a {
+  padding: 7px;
+  margin: 0px 10px 0px;
+  cursor: pointer;
+  color: #fff;
 }
-.navClosed>li>a {
-    padding: 7px;
-    margin: 0px 10px 0px;
-    cursor: pointer;
-    color: #fff;
-}
-
-.left, .navLogo {
-    display: flex;
-    align-items: center;
+.navClosed > li > a {
+  padding: 7px;
+  margin: 0px 10px 0px;
+  cursor: pointer;
+  color: #fff;
 }
 
-.navLogo>span {
-    font-size: 20px;
-    text-transform: uppercase;
-    margin-left: 10px;
-    color: white;
+.left,
+.navLogo {
+  display: flex;
+  align-items: center;
 }
 
-.navOpen >li :hover {
-    color: white;
-    text-shadow: 2px 2px 5px black;
+.navLogo > span {
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-left: 10px;
+  color: white;
 }
-.navClosed >li :hover {
-    color: white;
-    text-shadow: 2px 2px 5px black;
+
+.navOpen > li :hover {
+  color: white;
+  text-shadow: 2px 2px 5px black;
+}
+.navClosed > li :hover {
+  color: white;
+  text-shadow: 2px 2px 5px black;
 }
 
 .navButton {
-    display: none;
+  display: none;
 }
-.navOpen, .navClosed {
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-    padding: 7px;
-    margin: 0px 10px 0px;
-    cursor: pointer;
-    color: #fff;
+.navOpen,
+.navClosed {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding: 7px;
+  cursor: pointer;
+  color: #fff;
 }
 @media (max-width: 800px) {
-    .navbar {
-        flex-direction: column;
-        flex-wrap: wrap;
-        height: auto;
-    }
-    .navButton {
-        display: block;
-        border-radius: 20px;
-        border: 2px solid white;
-        margin: 15px;
-        color: #fff;
-        font-size: 20px;
-        background: rgb(83, 9, 105);
-    }
-    .navButton:focus {
-        outline: none;
-        box-shadow: 2px 2px 2px black;
+  .navbar {
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+  }
 
-    }
-    .navButton:hover {
-        box-shadow: 2px 2px 2px black;
-    }
-    .left {
-        align-self: center;
-        margin: 5px;
-    }
-    .navOpen>li {
-        margin-bottom: 10px;
-    }
-    .navOpen{
-        display: block;
-        padding: 7px;
-    }
-    .navClosed {
-        display: none;
-    }
+  .navButton {
+    display: block;
+    border-radius: 20px;
+    border: 2px solid white;
+    margin: 15px;
+    color: #fff;
+    font-size: 20px;
+    background: rgb(83, 9, 105);
+  }
+  .navButton:focus {
+    outline: none;
+    box-shadow: 2px 2px 2px black;
+  }
+  .navButton:hover {
+    box-shadow: 2px 2px 2px black;
+  }
+  .left {
+    width: 100%;
+    height: 40px;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+  }
+  .navOpen > li, .navClosed > li {
+    margin-bottom: 10px;
+  }
+  .navOpen {
+    display: block;
+    padding: 7px;
+    position: absolute;
+    width: 100%;
+    transform: translateY(25px);
+    z-index: 2;
+    transition: 1s;
+    background-color: #7b1fa2;
+
+  }
+  .navClosed {
+    display: block;
+    padding: 7px;
+    position: absolute;
+    width: 100%;
+    transform: translateY(-200px);
+    z-index: 2;
+    transition: 1s;
+    background-color: #7b1fa2;
+
+  }
 }
+
+/*
+.navClose, nav.Open{
+    display: block;
+    padding: 7px;
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    transform: translateY(-70px);
+    z-index: 2;
+}
+@media (max-width: 800px)
+.Navbar_left__lxJwh {
+    width: 100%;
+    background-color: red;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+}
+
+.navopen{
+@media (max-width: 800px)
+.Navbar_navOpen__prBSL {
+    display: block;
+    padding: 7px;
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    transform: translateY(40px);
+    z-index: 2;
+}
+*/
