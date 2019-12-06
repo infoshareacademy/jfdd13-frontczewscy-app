@@ -37,7 +37,7 @@ const accountFormSchema = Yup.object().shape({
   registerCheckbox: 
     Yup.boolean().oneOf([true], 'Musisz zaakceptować warunki korzystania z naszej strony.'),
   email: Yup.string()
-    .max(100, "Za długi email")
+    .max(100, "Za długi email. Max 100 znaków!")
     .email("Zły format email")
     .required("Pole wymagane!")
 });
