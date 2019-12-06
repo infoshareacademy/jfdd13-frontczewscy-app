@@ -92,6 +92,8 @@
     z-index: 5;
     display: flex;
     justify-content: center;
+    background-color: #7b1fa2;
+
   }
   .navOpen > li, .navClosed > li {
     margin-bottom: 10px;
