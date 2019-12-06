@@ -10,7 +10,7 @@ import {
   Legend
 } from "recharts";
 import _, { groupBy, toPairs } from "lodash";
-import styles from "./Chartss.module.css";
+import styles from "./Charts.module.css";
 import moment from "moment";
 
 import { watchParties } from "../services/PartiesService";
