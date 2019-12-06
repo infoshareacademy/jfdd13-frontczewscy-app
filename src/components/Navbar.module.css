@@ -70,10 +70,20 @@
     }
     .navButton {
         display: block;
-        border-radius: 10px;
+        border-radius: 20px;
+        border: 2px solid white;
         margin: 15px;
         color: #fff;
-        background-color: #7B1FA2;
+        font-size: 20px;
+        background: rgb(83, 9, 105);
+    }
+    .navButton:focus {
+        outline: none;
+        box-shadow: 2px 2px 2px black;
+
+    }
+    .navButton:hover {
+        box-shadow: 2px 2px 2px black;
     }
     .left {
         align-self: center;
