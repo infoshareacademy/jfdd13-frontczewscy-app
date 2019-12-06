@@ -22,7 +22,6 @@ const FormInfoHeader = () => {
   );
 };
 
-const imageRegEx = /^(http)?s?:?((\/)?(\/)?[^"'><;",()]*\.(?:png|jpg|jpeg|gif|png|svg))/;
 
 const accountFormSchema = Yup.object().shape({
   password: Yup.string()
@@ -33,7 +32,6 @@ const accountFormSchema = Yup.object().shape({
     .oneOf([Yup.ref("password"), null], "Hasła muszą być takie same")
     .required("Hasła muszą być takie same"),
   bio: Yup.string().max(400, "Za długi opis"),
-  image: Yup.string().matches(imageRegEx, "Błędny format url"),
   name: Yup.string()
     .min(3, "Min 3 znaki!")
     .max(15, "Max 15 znaków")
@@ -147,7 +145,6 @@ class Register extends React.Component {
             name: "",
             password: "",
             passwordRep: "",
-            image: "",
             bio: "",
             joined: moment().format('L'),
             registerCheckbox: "false"
