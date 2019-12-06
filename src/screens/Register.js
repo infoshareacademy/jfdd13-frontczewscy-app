@@ -27,9 +27,9 @@ const accountFormSchema = Yup.object().shape({
     .max(50, "Max 50 znaków!")
     .required("Pole wymagane!"),
   passwordRep: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Hasła muszą być takie same")
-    .required("Hasła muszą być takie same"),
-  bio: Yup.string().max(400, "Za długi opis"),
+    .oneOf([Yup.ref("password"), null], "Hasła muszą być takie same!")
+    .required("Powtórz hasło!"),
+  bio: Yup.string().max(400, "Za długi opis, max 400 znaków!"),
   name: Yup.string()
     .min(3, "Min 3 znaki!")
     .max(15, "Max 15 znaków")
