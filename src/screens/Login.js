@@ -42,8 +42,8 @@ const Login = props => {
         <div className={styles.loginLeft}>
        
           <Form className={styles.loginForm}>
-          <div style={{paddingBottom:"100px", fontSize:"40px", textAlign:"center", fontWeight:"bold"}}>CONCERTE
-          <p style={{fontSize:"20px", marginTop:"20px"}}>Aplikacja do wyszukiwania wydarzeń.<a href="" > Sprawdź nas!</a></p></div>
+          <div style={{ paddingBottom:"100px", fontSize:"40px", textAlign:"center", fontWeight:"bold" }}>CONCERTE
+          <p style={{ fontSize:"20px", marginTop:"20px" }}>Aplikacja do wyszukiwania wydarzeń.<a href="" > Sprawdź nas!</a></p></div>
             <FormInfoHeader style={{ width: "10%" }} />
 
             <label className={styles.label}>
