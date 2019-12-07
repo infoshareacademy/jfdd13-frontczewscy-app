@@ -211,7 +211,7 @@ class Party extends React.Component {
             </Segment>
             <Segment
               style={{ marginTop: "0", width: "100%", textAlign: "left" }}>
-              Strona: {0 || "nie podano adresu strony"}
+              Strona: { address || "nie podano adresu strony"}
             </Segment>
           </div>
 
