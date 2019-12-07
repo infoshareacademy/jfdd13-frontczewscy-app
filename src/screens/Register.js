@@ -73,7 +73,7 @@ const CheckboxInput = props => {
         </div>
         <div className={styles.inputDiv} style={{ cursor:"pointer" }}>
         <label style={{ cursor:"pointer" }}>
-        <Checkbox  style={{width:"20px", marginRight:"10px"}} {...props} error={errors[name] && touched[name]} />{" "}
+        <Checkbox  style={{ width:"20px", marginRight:"10px" }} {...props} error={errors[name] && touched[name]} />{" "}
   {labelform} {<a href='https://www.youtube.com/watch?v=R38q_C4NApE'>Regulamin</a>}</label></div>
       </label>
       <div className={styles.error}>
@@ -87,7 +87,7 @@ const Textarea = props => {
   const { name, errors, touched, labelform, tooltiptext } = props;
   return (
     <label>
-      <div style={{width:"80%"}} className={styles.tooltip}>
+      <div style={{ width:"80%" }} className={styles.tooltip}>
         {labelform}
       
       </div>
@@ -135,7 +135,7 @@ class Register extends React.Component {
           <div className={styles.fixedPicture}></div>
         </div>
       <div className={styles.rightsideRegister}>
-        <Segment style={{height:"auto"}}>
+        <Segment style={{ height:"auto" }}>
     
         <Formik
           initialValues={{
