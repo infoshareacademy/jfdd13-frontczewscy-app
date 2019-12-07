@@ -52,7 +52,6 @@ export const register = (email, password, name, bio, joined) => {
           displayName: name
         })
         .then(() => {
-          console.log("Registered user with email, password and name");
           firebase
             .database()
             .ref(`/users/${user.uid}`)

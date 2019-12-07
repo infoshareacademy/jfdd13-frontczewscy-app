@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import { Input, Button, Segment, Message, Form, Divider, Checkbox } from "semantic-ui-react";
 import * as moment from 'moment';
 import { register } from "../services/AuthService"
-
 import * as Yup from "yup";
-
 import styles from "./Register.module.css";
 
 const FormInfoHeader = () => {
@@ -22,18 +20,16 @@ const FormInfoHeader = () => {
   );
 };
 
-const imageRegEx = /^(http)?s?:?((\/)?(\/)?[^"'><;",()]*\.(?:png|jpg|jpeg|gif|png|svg))/;
 
 const accountFormSchema = Yup.object().shape({
   password: Yup.string()
-    .min(5, "Min 5 znaków")
+    .min(6, "Min 6 znaków")
     .max(50, "Max 50 znaków!")
     .required("Pole wymagane!"),
   passwordRep: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Hasła muszą być takie same")
-    .required("Hasła muszą być takie same"),
-  bio: Yup.string().max(400, "Za długi opis"),
-  image: Yup.string().matches(imageRegEx, "Błędny format url"),
+    .oneOf([Yup.ref("password"), null], "Hasła muszą być takie same!")
+    .required("Powtórz hasło!"),
+  bio: Yup.string().max(400, "Za długi opis, max 400 znaków!"),
   name: Yup.string()
     .min(3, "Min 3 znaki!")
     .max(15, "Max 15 znaków")
@@ -41,7 +37,7 @@ const accountFormSchema = Yup.object().shape({
   registerCheckbox: 
     Yup.boolean().oneOf([true], 'Musisz zaakceptować warunki korzystania z naszej strony.'),
   email: Yup.string()
-    .max(100, "Za długi email")
+    .max(100, "Za długi email. Max 100 znaków!")
     .email("Zły format email")
     .required("Pole wymagane!")
 });
@@ -147,7 +143,6 @@ class Register extends React.Component {
             name: "",
             password: "",
             passwordRep: "",
-            image: "",
             bio: "",
             joined: moment().format('L'),
             registerCheckbox: "false"
@@ -233,18 +228,7 @@ class Register extends React.Component {
                     touched={touched}
                     errors={errors}
                   />
-                  <TextInput
-                    labelform="Zdjęcie profilowe"
-                    tooltiptext="Podaj adres url swojego zdjecia profilowefgo."
-                    type="file"
-                    name="image"
-                    placeholder="Zdjęcie profilowe"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.image}
-                    touched={touched}
-                    errors={errors}
-                  />
+                
                
                   
                   <Textarea

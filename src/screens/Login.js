@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 import {
   Button,
   Form,
-  Divider,
-  Grid,
   Segment,
   Input,
-  Checkbox,
   Message
 } from "semantic-ui-react";
 import styles from "./Login.module.css";
@@ -18,10 +15,7 @@ const FormInfoHeader = () => {
     <div style={{ width: "80%" }} className="ui icon message">
       <div className="content">
         <div className="header">Zaloguj się:</div>
-        {/* <p>
-          Wypełnij wszystkie pola, kliknij zarejestruj aby zakończyć
-          rejestrację. Pola z <i className={styles.star}> * </i> są wymagane.
-        </p> */}
+    
       </div>
     </div>
   );
@@ -35,23 +29,21 @@ const Login = props => {
 
   function handleLogin(email, password) {
     setIsLoading(true);
-    login(email, password)
-      .then(value => {
-        console.log("Logged in!");
-        console.log(value);
-      })
-      .catch(() => {
-        setIsLoading(false);
-        setError("Przykro mi coś się nie udało");
-        console.log("Something went wrong!");
-      });
+    login(email, password).catch(() => {
+      setIsLoading(false);
+      setError("Przykro mi coś się nie udało");
+    });
   }
 
   return (
     <Segment placeholder style={{ height: "100vh", padding: "0" }}>
+   
       <div className={styles.loginBody}>
         <div className={styles.loginLeft}>
+       
           <Form className={styles.loginForm}>
+          <div style={{paddingBottom:"100px", fontSize:"40px", textAlign:"center", fontWeight:"bold"}}>CONCERTE
+          <p style={{fontSize:"20px", marginTop:"20px"}}>Aplikacja do wyszukiwania wydarzeń.<a href="" > Sprawdź nas!</a></p></div>
             <FormInfoHeader style={{ width: "10%" }} />
 
             <label className={styles.label}>
@@ -82,12 +74,12 @@ const Login = props => {
               onClick={() => handleLogin(email, password)}>
               Zaloguj się
             </Button>
-            <Button
-              style={{ marginTop: "20px" }}
+            <button
+              className={`${styles.socialSignin} ${styles.google}`}
               type="submit"
               onClick={() => loginWithGoogle()}>
-              Zaloguj się przez google
-            </Button>
+              Zaloguj się przez Google
+            </button>
 
             {error && (
               <Message
@@ -99,7 +91,7 @@ const Login = props => {
                 {error}
               </Message>
             )}
-           
+
             <div className={styles.registerButtonSection}>
               <p
                 style={{
