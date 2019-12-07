@@ -9,7 +9,7 @@ import styles from "./Register.module.css";
 
 const FormInfoHeader = () => {
   return (
-    <div style={{width:"80%"}} className="ui icon message">
+    <div style={{ width:"80%" }} className="ui icon message">
       <div className="content">
         <div className="header">Witaj w formularzu rejestracji.</div>
         <p>
@@ -47,12 +47,12 @@ const TextInput = props => {
   return (
     <div>
       <label >
-        <div style={{width:"80%"}} className={styles.tooltip}>
+        <div style={{ width:"80%" }} className={styles.tooltip}>
           {labelform}
           <span className={styles.star}>{labelRequire}</span>
     
         </div>
-        <Input style={{width:"80%"}} {...props} error={errors[name] && touched[name]} />{" "}
+        <Input style={{ width:"80%" }} {...props} error={errors[name] && touched[name]} />{" "}
       </label>
       <div className={styles.error}>
         {errors[name] && touched[name] && errors[name]}
@@ -66,13 +66,13 @@ const CheckboxInput = props => {
   return (
     <div>
       <label >
-        <div style={{width:"80%"}} className={styles.tooltip}>
+        <div style={{ width:"80%" }} className={styles.tooltip}>
         
           <span className={styles.star}>{labelRequire}</span>
     
         </div>
-        <div className={styles.inputDiv} style={{cursor:"pointer"}}>
-        <label style={{cursor:"pointer"}}>
+        <div className={styles.inputDiv} style={{ cursor:"pointer" }}>
+        <label style={{ cursor:"pointer" }}>
         <Checkbox  style={{width:"20px", marginRight:"10px"}} {...props} error={errors[name] && touched[name]} />{" "}
   {labelform} {<a href='https://www.youtube.com/watch?v=R38q_C4NApE'>Regulamin</a>}</label></div>
       </label>
