@@ -257,44 +257,44 @@ class AddForm extends React.Component {
             return (
               <div className={ styles.addForm }>
                 <InfoSegment></InfoSegment>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={ handleSubmit }>
                   <TextInput
-                    className={styles.FormFields}
+                    className={ styles.FormFields }
                     labelform="TYTUŁ *"
                     tooltiptext="Tutaj wpisz swój tytuł"
                     type="text"
                     name="title"
                     placeholder="nazwa imprezy"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.title}
-                    touched={touched}
-                    errors={errors}
+                    onChange={ handleChange }
+                    onBlur={ handleBlur }
+                    value={ values.title }
+                    touched={ touched }
+                    errors={ errors }
                   />
                   <SelectInput
-                    className={styles.FormFields}
+                    className={ styles.FormFields }
                     labelform="RODZAJ IMPREZY"
                     tooltiptext="Wybierz rodzaj imprezy."
                     name="partyType"
                     placeholder="Rodzaj imprezy"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.partyType}
-                    touched={touched}
-                    errors={errors}
+                    onChange={ handleChange }
+                    onBlur={ handleBlur }
+                    value={ values.partyType }
+                    touched={ touched }
+                    errors={ errors }
                   />
 
                   <Textarea
-                    className={styles.FormFields}
+                    className={ styles.FormFields }
                     labelform="OPIS *"
                     name="description"
                     tooltiptext="Tutaj wpisz opis wydarzenia, które chcesz dodać"
                     placeholder="Tutaj wpisz opis wydarzenia, które chcesz dodać"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.description}
-                    touched={touched}
-                    errors={errors}
+                    onChange={ handleChange }
+                    onBlur={ handleBlur }
+                    value={ values.description }
+                    touched={ touched }
+                    errors={ errors }
                   />
 
                   <DatePickerField
