@@ -298,10 +298,10 @@ class AddForm extends React.Component {
                   />
 
                   <DatePickerField
-                    className={styles.DataPickerField}
+                    className={ styles.DataPickerField }
                     name="date"
-                    value={values.date}
-                    onChange={setFieldValue}
+                    value={ values.date }
+                    onChange={ setFieldValue }
                     locale="pl"
                     showTimeSelect
                     labelform="DATA I CZAS  WYDARZENIA"
@@ -309,31 +309,31 @@ class AddForm extends React.Component {
                   />
 
                   <TextInput
-                    className={styles.FormFields}
+                    className={ styles.FormFields }
                     labelform="ZDJĘCIE"
                     tooltiptext="Wklej link URL zdjęcia. Preferowany kształt zdjęcia to kwadrat"
                     type="text"
                     name="image"
                     placeholder="url zdjęcia"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.image}
-                    touched={touched}
-                    errors={errors}
+                    onChange={ handleChange }
+                    onBlur={ handleBlur }
+                    value={ values.image }
+                    touched={ touched }
+                    errors={ errors }
                   />
 
                   <TextInput
-                    className={styles.FormFields}
+                    className={ styles.FormFields }
                     labelform="CENA ZA OSOBĘ *"
                     tooltiptext="Tutaj podaj cenę za bilet. Pamiętaj o tym, że kwota jest w złotówkach."
                     type="text"
                     name="price"
                     placeholder="cena za osobę"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.price}
-                    touched={touched}
-                    errors={errors}
+                    onChange={ handleChange }
+                    onBlur={ handleBlur }
+                    value={ values.price }
+                    touched={ touched }
+                    errors={ errors }
                     label={
                       <span
                         style={{ width: "50px", backgroundColor: "#e8e8e8" }}>
