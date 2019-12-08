@@ -29,16 +29,16 @@ const Login = () => {
   }
 
   return (
-    <Segment placeholder style={{ height: "100vh", padding: "0" }}>
+    <Segment placeholder style={{ padding: "0" }}>
       <div className={styles.loginBody}>
         <div className={styles.loginLeft}>
           <Form className={styles.loginForm}>
             <div
               style={{
-                paddingBottom: "100px",
                 fontSize: "40px",
                 textAlign: "center",
-                fontWeight: "bold"
+                fontWeight: "bold",
+                margin: "20px"
               }}
             >
               CONCERTE
@@ -103,7 +103,7 @@ const Login = () => {
 
             <p>Zapomnaiłeś hasła?</p>
             <Link to="/zresetuj">
-              <Button content="Zresetuj hasło" icon="signup" size="big" />
+              <Button content="Zresetuj hasło" size="big" />
             </Link>
 
             <div className={styles.registerButtonSection}>
