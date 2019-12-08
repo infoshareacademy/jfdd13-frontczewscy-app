@@ -168,8 +168,13 @@ height: 100vh;
     
         
     }
+}
 
- 
+    @media (max-width: 400px) {
+        .addForm div, .addForm {
+            width: 100%;
+            git co      }
+     
     
 }
 
