@@ -16,9 +16,6 @@ export const loginWithGoogle = () => {
     .auth()
     .signInWithPopup(provider)
     .then(function(result) {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      // var token = result.credential.accessToken;
-      // The signed-in user info.
       const user = result.user;
       const database = firebase.database()
       
@@ -47,10 +44,7 @@ export const register = (email, password, name, bio, joined) => {
               name,
               email,
               bio,
-              joined,
-              favorites: {
-                0: "Initial Value"
-              }
+              joined
             });
         });
     });
@@ -59,10 +53,3 @@ export const register = (email, password, name, bio, joined) => {
 export const passwordReset = email => {
   return firebase.auth().sendPasswordResetEmail(email);
 };
-
-// .then(function() {
-//   // Password reset email sent.
-// })
-// .catch(function(error) {
-//   // Error occurred. Inspect error.code.
-// });
