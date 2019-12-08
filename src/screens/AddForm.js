@@ -178,6 +178,7 @@ const Textarea = props => {
             minHeight: 100,
             minWidth: "100%",
             maxWidth: "100%",
+            maxHeight: 300,
             resize: "vertical"
           }}
           {...props}
