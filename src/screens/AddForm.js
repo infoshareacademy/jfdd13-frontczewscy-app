@@ -173,7 +173,7 @@ const Textarea = props => {
       </div>
       <div className="ui focus input">
         <textarea
-          maxlength="451"
+          maxLength="451"
           style={{
             minHeight: 100,
             minWidth: "100%",
@@ -224,18 +224,10 @@ class AddForm extends React.Component {
           onSubmit={(values, { setSubmitting, resetForm }) => {
             setSubmitting(true);
             this.setState({ btnLoading: true, btnDisabled: true });
+
             const hour =
               values.date.getHours() + ":" + values.date.getMinutes();
             const date = moment(values.date).format('L')
-            setTimeout(() => {
-              resetForm();
-              this.setState({
-                btnLoading: false,
-                btnDisabled: false,
-                dimmer: "blurring",
-                open: true
-              });
-            }, 2000);
 
             const newValues = {
               ...values,
@@ -244,6 +236,16 @@ class AddForm extends React.Component {
             }
 
             addParty(newValues)
+
+            setTimeout(() => {
+              resetForm();
+              this.setState({
+                btnLoading: false,
+                btnDisabled: false,
+                dimmer: "blurring",
+                open: true
+              });
+            }, 2000);            
           }}>
           {({
             values,
