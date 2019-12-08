@@ -108,7 +108,7 @@ class ImageUpload extends Component {
                 this.state.url ||
                 "https://react.semantic-ui.com/images/avatar/large/matthew.png"
               }
-              alt="Profile pic"
+              alt="Zdjęcie profilowe"
             />
             {this.state.uploading && <Progress  style={{ width: "50%" }} percent={this.state.progress} indicating />}
             <label htmlFor="file" className={styles.inputFileLabel}>

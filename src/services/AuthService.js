@@ -20,14 +20,12 @@ export const loginWithGoogle = () => {
       // var token = result.credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-      firebase
-        .database()
-        .ref(`/users/${user.uid}`)
-        .set({
-          name: user.displayName,
-          email: user.email,
-          joined: moment(user.metadata.creationTime).format("L")
-        });
+      const database = firebase.database()
+      
+      // it's needed because there is profile picture for user and there is no posibility to use push
+      database.ref(`/users/${user.uid}/name`).set(user.displayName)
+      database.ref(`/users/${user.uid}/email`).set(user.email)
+      database.ref(`/users/${user.uid}/joined`).set(moment(user.metadata.creationTime).format("L"))
     })
 };
 
