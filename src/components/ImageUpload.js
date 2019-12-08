@@ -116,8 +116,8 @@ class ImageUpload extends Component {
               alt="Profile pic"
             />
             {showProgress && <progress value={this.state.progress} max="100" />}
-            <label htmlFor="file" className={""}>
-              Wybierz aby zaktualizować zdjęcie
+            <label htmlFor="file" className={styles.inputFileLabel}>
+              Kliknij aby zaktualizować zdjęcie
             </label>
             <div className={styles.uploadButtons}>
               <input
@@ -131,9 +131,7 @@ class ImageUpload extends Component {
               />
             </div>
             <h1
-              onClick={() => {
-                console.log(this.state.url);
-              }}
+              style={{ margin: 0 }}
             >
               {user.name}
             </h1>
