@@ -71,6 +71,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     height: auto;
+    z-index: 1000;
   }
   .navButton {
     display: block;
