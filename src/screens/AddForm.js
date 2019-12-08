@@ -12,6 +12,7 @@ import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
 import DatePicker, { registerLocale } from "react-datepicker";
 import pl from "date-fns/locale/pl"; // the locale you want
+import { addParty } from "../services/PartiesService";
 registerLocale("pl", pl);
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -172,11 +173,12 @@ const Textarea = props => {
       </div>
       <div className="ui focus input">
         <textarea
-          maxlength="451"
+          maxLength="451"
           style={{
             minHeight: 100,
             minWidth: "100%",
             maxWidth: "100%",
+            maxHeight: 300,
             resize: "vertical"
           }}
           {...props}
@@ -187,13 +189,6 @@ const Textarea = props => {
       </div>
     </label>
   );
-};
-
-const postData = values => {
-  fetch("https://frontczewscy-database.firebaseio.com/parties.json", {
-    method: "POST",
-    body: JSON.stringify(values)
-  });
 };
 
 class AddForm extends React.Component {
@@ -217,7 +212,7 @@ class AddForm extends React.Component {
             description: "",
             image: "",
             date: date,
-            hour: "",
+            hour: date.getHours() + ":" + date.getMinutes(),
             partyType: "KONCERTY",
             price: "0",
             street: "",
@@ -230,8 +225,19 @@ class AddForm extends React.Component {
           onSubmit={(values, { setSubmitting, resetForm }) => {
             setSubmitting(true);
             this.setState({ btnLoading: true, btnDisabled: true });
+
             const hour =
               values.date.getHours() + ":" + values.date.getMinutes();
+            const date = moment(values.date).format('L')
+
+            const newValues = {
+              ...values,
+              hour,
+              date
+            }
+
+            addParty(newValues)
+
             setTimeout(() => {
               resetForm();
               this.setState({
@@ -240,8 +246,7 @@ class AddForm extends React.Component {
                 dimmer: "blurring",
                 open: true
               });
-            }, 2000);
-            postData(values);
+            }, 2000);            
           }}>
           {({
             values,

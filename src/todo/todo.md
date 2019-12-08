@@ -16,14 +16,12 @@
 - [x] Dodać oraz zaimplementować przypomnienie hasła dla użytkownika
 - [x] Dodać wyraźną informacje o nie powodzeniu wpisania hasła
   - Pobrać odpowiedź z serwera i wyświetlić ją w odpowiednim momencie użytkownikowi
-- [ ] Autentykacja dodawanych danych (chodzi o zabezpieczenie bazy danych)
-  - [Może się przydać](https://create-react-app.dev/docs/adding-custom-environment-variables/#docsNav)
 - [x] Poprawić komunikat o zapisaniu imprezy w bazie danych (najlepiej okno modalne)
 - [x] Responsywność
-- [ ] Zmienić funkcje na firebase
-  - [ ] Zmienić dodawanie imprez na funkcje firebase:
+- [x] Zmienić funkcje na firebase
+  - [x] Zmienić dodawanie imprez na funkcje firebase:
     - [Może sie przydać](https://github.com/infoshareacademy/jfdd13-materialy-react/commit/da6c0d8429ea824ff54f1c87430979146eaef131)
-  - [ ] Zmienić pobieranie danych o imprezie na funkcje firebase
+  - [x] Zmienić pobieranie danych o imprezie na funkcje firebase
 - [x] Paginacja się nie wyświetla kiedy nie ma wyników
 - [ ] Błędy w konsoli
 - [x] Szczegóły imprezy
@@ -44,7 +42,7 @@
 - [x] wrzucic rodzaj imprezy w addform na gore albo prawie na gore
 - [x] Profil użytkownika
 - [ ] I wiele więcej
-- [] dodac responsywnosc do party details
+- [x] dodac responsywnosc do party details
   // opcjonalnie
 
 - [ ] Jeżeli użytkownik ma swoje posty może je usuwać (trzeba znaleźć odpowiednie miejsce na to)
@@ -52,3 +50,5 @@
 - [ ] Bardzo duzo pustej przestrzeni w szczegolach imprezy( wrzycic do madala moze?)
 - [ ] nieklikalny na telefonie pasek w wyszukiwarce naprawic
 - [ ] W paginacji blokowanie nieaktywnych przycisków
+- [ ] Autentykacja dodawanych danych (chodzi o zabezpieczenie bazy danych)
+  - [Może się przydać](https://create-react-app.dev/docs/adding-custom-environment-variables/#docsNav)

@@ -16,29 +16,14 @@ export const loginWithGoogle = () => {
     .auth()
     .signInWithPopup(provider)
     .then(function(result) {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      // var token = result.credential.accessToken;
-      // The signed-in user info.
       const user = result.user;
-      firebase
-        .database()
-        .ref(`/users/${user.uid}`)
-        .set({
-          name: user.displayName,
-          email: user.email,
-          joined: moment(user.metadata.creationTime).format("L")
-        });
+      const database = firebase.database()
+      
+      // it's needed because there is profile picture for user and there is no posibility to use push
+      database.ref(`/users/${user.uid}/name`).set(user.displayName)
+      database.ref(`/users/${user.uid}/email`).set(user.email)
+      database.ref(`/users/${user.uid}/joined`).set(moment(user.metadata.creationTime).format("L"))
     })
-    .catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // The email of the user's account used.
-      var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      // ...
-    });
 };
 
 export const register = (email, password, name, bio, joined) => {
@@ -59,10 +44,7 @@ export const register = (email, password, name, bio, joined) => {
               name,
               email,
               bio,
-              joined,
-              favorites: {
-                0: "Initial Value"
-              }
+              joined
             });
         });
     });
@@ -71,10 +53,3 @@ export const register = (email, password, name, bio, joined) => {
 export const passwordReset = email => {
   return firebase.auth().sendPasswordResetEmail(email);
 };
-
-// .then(function() {
-//   // Password reset email sent.
-// })
-// .catch(function(error) {
-//   // Error occurred. Inspect error.code.
-// });

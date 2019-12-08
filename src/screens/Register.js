@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
-import { Input, Button, Segment, Message, Form, Divider, Checkbox } from "semantic-ui-react";
+import { Input, Button, Segment, Message, Checkbox } from "semantic-ui-react";
 import * as moment from 'moment';
 import { register } from "../services/AuthService"
 import * as Yup from "yup";
@@ -9,7 +9,7 @@ import styles from "./Register.module.css";
 
 const FormInfoHeader = () => {
   return (
-    <div style={{width:"80%"}} className="ui icon message">
+    <div style={{ width:"80%" }} className="ui icon message">
       <div className="content">
         <div className="header">Witaj w formularzu rejestracji.</div>
         <p>
@@ -43,16 +43,16 @@ const accountFormSchema = Yup.object().shape({
 });
 
 const TextInput = props => {
-  const { name, errors, touched, labelform, tooltiptext, labelRequire } = props;
+  const { name, errors, touched, labelform, labelRequire } = props;
   return (
     <div>
       <label >
-        <div style={{width:"80%"}} className={styles.tooltip}>
+        <div style={{ width:"80%" }} className={styles.tooltip}>
           {labelform}
           <span className={styles.star}>{labelRequire}</span>
     
         </div>
-        <Input style={{width:"80%"}} {...props} error={errors[name] && touched[name]} />{" "}
+        <Input style={{ width:"80%" }} {...props} error={errors[name] && touched[name]} />{" "}
       </label>
       <div className={styles.error}>
         {errors[name] && touched[name] && errors[name]}
@@ -62,18 +62,18 @@ const TextInput = props => {
 };
 
 const CheckboxInput = props => {
-  const { name, errors, touched, labelform, tooltiptext, labelRequire } = props;
+  const { name, errors, touched, labelform, labelRequire } = props;
   return (
     <div>
       <label >
-        <div style={{width:"80%"}} className={styles.tooltip}>
+        <div style={{ width:"80%" }} className={styles.tooltip}>
         
           <span className={styles.star}>{labelRequire}</span>
     
         </div>
-        <div className={styles.inputDiv} style={{cursor:"pointer"}}>
-        <label style={{cursor:"pointer"}}>
-        <Checkbox  style={{width:"20px", marginRight:"10px"}} {...props} error={errors[name] && touched[name]} />{" "}
+        <div className={styles.inputDiv} style={{ cursor:"pointer" }}>
+        <label style={{ cursor:"pointer" }}>
+        <Checkbox  style={{ width:"20px", marginRight:"10px" }} {...props} error={errors[name] && touched[name]} />{" "}
   {labelform} {<a href='https://www.youtube.com/watch?v=R38q_C4NApE'>Regulamin</a>}</label></div>
       </label>
       <div className={styles.error}>
@@ -84,10 +84,10 @@ const CheckboxInput = props => {
 };
 
 const Textarea = props => {
-  const { name, errors, touched, labelform, tooltiptext } = props;
+  const { name, errors, touched, labelform } = props;
   return (
     <label>
-      <div style={{width:"80%"}} className={styles.tooltip}>
+      <div style={{ width:"80%" }} className={styles.tooltip}>
         {labelform}
       
       </div>
@@ -135,7 +135,7 @@ class Register extends React.Component {
           <div className={styles.fixedPicture}></div>
         </div>
       <div className={styles.rightsideRegister}>
-        <Segment style={{height:"auto"}}>
+        <Segment style={{ height:"auto" }}>
     
         <Formik
           initialValues={{

@@ -23,6 +23,15 @@ export const watchParties = onSuccess => {
 export const stopParties = () => {
   firebase
     .database()
-    .ref("/messages")
+    .ref("/parties")
     .off();
 };
+
+export const addParty = (party) => {
+  firebase.database()
+    .ref("/parties")
+    .push({
+      ...party
+    })
+}
+ 

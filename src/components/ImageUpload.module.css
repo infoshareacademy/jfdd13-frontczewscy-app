@@ -1,0 +1,30 @@
+.inputFileLabel {
+    font-weight: 700;
+    color: black;
+    display: inline-block;
+    border: 1px solid black;
+    padding: 10px;
+    transition: 0.7s;
+}
+
+.inputFileLabel:focus,
+.inputFileLabel:hover {
+    cursor: pointer;
+background: black;
+color: white;
+}
+
+.inputFileHidden {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.userDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
