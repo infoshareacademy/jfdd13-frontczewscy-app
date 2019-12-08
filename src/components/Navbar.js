@@ -18,7 +18,7 @@ import firebase from "../firebase";
 
 
   return (<nav className={styles.navbar}>
-    <div className={styles.left}>
+    <div className={styles.left} style={{ zIndex:"1000"}}>
       <NavLink to="/" exact className={styles.navLogo}>
         <img className={styles.logo} src = {Logo} alt="Concerte Logo" />
         <span>Concerte</span>
