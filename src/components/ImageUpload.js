@@ -1,40 +1,36 @@
 import React, { Component } from "react";
+import { Progress } from 'semantic-ui-react'
 import firebase, { storage } from "../firebase";
 import styles from "./ImageUpload.module.css";
-import { thisTypeAnnotation } from "@babel/types";
 import { watchUser } from "../services/UserService";
 
-class ImageUpload extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+class ImageUpload extends Component {  
+    state = {
       user: {},
       image: null,
       url: "",
       progress: 0,
-      buttons: true
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleUpload = this.handleUpload.bind(this);
-  }
+      buttons: true,
+      uploading: false
+    }
 
   componentDidMount() {
     this.checkIfUserHasProfilePicture();
     watchUser().then(user => {
-        this.setState({ user: user });
-        console.log(user)
+        this.setState({ user })
     });
   }
 
   handleChange = e => {
     if (e.target.files[0]) {
       const image = e.target.files[0];
-      this.setState({ image }, () => {
+      this.setState({ image, uploading: true }, () => {
         this.handleUpload();
         this.setState({ image: null });
       });
     }
-  };
+  }
+  
   handleUpload = () => {
     const { image } = this.state;
     if (image) {
@@ -59,7 +55,6 @@ class ImageUpload extends Component {
             .child(image.name)
             .getDownloadURL()
             .then(url => {
-              console.log(url);
               this.setState({ url });
               this.updateProfilePicture(url);
               this.setState({ buttons: false });
@@ -77,6 +72,9 @@ class ImageUpload extends Component {
       .database()
       .ref(`/users/${id}/profilePicture`)
       .set(url);
+      this.setState({
+        uploading: false
+      })
   };
   checkIfUserHasProfilePicture = async () => {
     // 1. get current user id
@@ -98,10 +96,7 @@ class ImageUpload extends Component {
   };
 
   render() {
-    const showProgress =
-      this.state.progress !== 0 && this.state.progress !== 100;
     const { user } = this.state;
-    console.log(user);
     return (
       <>
         {user && (
@@ -115,7 +110,7 @@ class ImageUpload extends Component {
               }
               alt="Profile pic"
             />
-            {showProgress && <progress value={this.state.progress} max="100" />}
+            {this.state.uploading && <Progress  style={{ width: "50%" }} percent={this.state.progress} indicating />}
             <label htmlFor="file" className={styles.inputFileLabel}>
               Kliknij aby zaktualizować zdjęcie
             </label>
