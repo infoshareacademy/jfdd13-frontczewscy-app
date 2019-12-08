@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Form,
-  Segment,
-  Input,
-  Message
-} from "semantic-ui-react";
+import { Button, Form, Segment, Input, Message } from "semantic-ui-react";
 import styles from "./Login.module.css";
 import { login, loginWithGoogle } from "../services/AuthService";
 
@@ -15,7 +9,6 @@ const FormInfoHeader = () => {
     <div style={{ width: "80%" }} className="ui icon message">
       <div className="content">
         <div className="header">Zaloguj się:</div>
-    
       </div>
     </div>
   );
@@ -37,13 +30,26 @@ const Login = () => {
 
   return (
     <Segment placeholder style={{ height: "100vh", padding: "0" }}>
-   
       <div className={styles.loginBody}>
         <div className={styles.loginLeft}>
-       
           <Form className={styles.loginForm}>
-          <div style={{ paddingBottom:"100px", fontSize:"40px", textAlign:"center", fontWeight:"bold" }}>CONCERTE
-          <p style={{ fontSize:"20px", marginTop:"20px" }}>Aplikacja do wyszukiwania wydarzeń.<a href="http://www.frontczewscy.jfdd13.is-academy.pl/" > Sprawdź nas!</a></p></div>
+            <div
+              style={{
+                paddingBottom: "100px",
+                fontSize: "40px",
+                textAlign: "center",
+                fontWeight: "bold"
+              }}
+            >
+              CONCERTE
+              <p style={{ fontSize: "20px", marginTop: "20px" }}>
+                Aplikacja do wyszukiwania wydarzeń.
+                <a href="http://www.frontczewscy.jfdd13.is-academy.pl/">
+                  {" "}
+                  Sprawdź nas!
+                </a>
+              </p>
+            </div>
             <FormInfoHeader style={{ width: "10%" }} />
 
             <label className={styles.label}>
@@ -71,13 +77,15 @@ const Login = () => {
               loading={isLoading}
               style={{ marginTop: "20px" }}
               type="submit"
-              onClick={() => handleLogin(email, password)}>
+              onClick={() => handleLogin(email, password)}
+            >
               Zaloguj się
             </Button>
             <button
               className={`${styles.socialSignin} ${styles.google}`}
               type="submit"
-              onClick={() => loginWithGoogle()}>
+              onClick={() => loginWithGoogle()}
+            >
               Zaloguj się przez Google
             </button>
 
@@ -87,10 +95,16 @@ const Login = () => {
                   fontWeight: "bold",
                   width: "95%",
                   textAlign: "center"
-                }}>
+                }}
+              >
                 {error}
               </Message>
             )}
+
+            <p>Zapomnaiłeś hasła?</p>
+            <Link to="/zresetuj">
+              <Button content="Zresetuj hasło" icon="signup" size="big" />
+            </Link>
 
             <div className={styles.registerButtonSection}>
               <p
@@ -99,7 +113,8 @@ const Login = () => {
                   fontWeight: "bold",
                   paddingRight: "30px",
                   paddingTop: "10px"
-                }}>
+                }}
+              >
                 Nie masz jeszcze konta?
               </p>
               <Link to="/zarejestruj">

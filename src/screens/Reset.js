@@ -25,7 +25,7 @@ const FormInfoHeader = () => {
 };
 
 const TextInput = props => {
-  const { name, errors, touched, labelform, tooltiptext } = props;
+  const { name, errors, touched, labelform } = props;
   return (
     <div>
       <label>
@@ -46,33 +46,7 @@ const TextInput = props => {
   );
 };
 
-const Textarea = props => {
-  const { name, errors, touched, labelform, tooltiptext } = props;
-  return (
-    <label>
-      <div style={{ width: "80%" }} className={styles.tooltip}>
-        {labelform}
-      </div>
-      <div className="ui focus input">
-        <textarea
-          style={{
-            minHeight: 200,
-
-            resize: "none",
-            width: "80%"
-          }}
-          {...props}
-          error={errors[name] && touched[name]}
-        />
-      </div>
-      <div className={styles.error}>
-        {errors[name] && touched[name] && errors[name]}
-      </div>
-    </label>
-  );
-};
-
-class Register extends React.Component {
+class Reset extends React.Component {
   state = {
     btnLoading: false,
     btnDisabled: false,
@@ -99,12 +73,12 @@ class Register extends React.Component {
               initialValues={{
                 email: ""
               }}
-              onSubmit={(values, { setSubmitting, resetForm }) => {
+              onSubmit={(values, { setSubmitting }) => {
                 setSubmitting(true);
 
                 this.setState({ btnLoading: true, btnDisabled: true });
 
-                const { email, password, name, bio, joined } = values;
+                const { email } = values;
                 passwordReset(email)
                   .then(() => {
                     this.showMessage(
@@ -175,4 +149,4 @@ class Register extends React.Component {
     );
   }
 }
-export default Register;
+export default Reset;
