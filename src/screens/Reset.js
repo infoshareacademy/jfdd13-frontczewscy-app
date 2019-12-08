@@ -6,14 +6,8 @@ import {
   Button,
   Segment,
   Message,
-  Form,
-  Divider,
-  Checkbox
 } from "semantic-ui-react";
-import * as moment from "moment";
-import { register, passwordReset } from "../services/AuthService";
-
-import * as Yup from "yup";
+import { passwordReset } from "../services/AuthService";
 
 import styles from "./Reset.module.css";
 

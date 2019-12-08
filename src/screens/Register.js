@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
-import { Input, Button, Segment, Message, Form, Divider, Checkbox } from "semantic-ui-react";
+import { Input, Button, Segment, Message, Checkbox } from "semantic-ui-react";
 import * as moment from 'moment';
 import { register } from "../services/AuthService"
 import * as Yup from "yup";
@@ -43,7 +43,7 @@ const accountFormSchema = Yup.object().shape({
 });
 
 const TextInput = props => {
-  const { name, errors, touched, labelform, tooltiptext, labelRequire } = props;
+  const { name, errors, touched, labelform, labelRequire } = props;
   return (
     <div>
       <label >
@@ -62,7 +62,7 @@ const TextInput = props => {
 };
 
 const CheckboxInput = props => {
-  const { name, errors, touched, labelform, tooltiptext, labelRequire } = props;
+  const { name, errors, touched, labelform, labelRequire } = props;
   return (
     <div>
       <label >
@@ -84,7 +84,7 @@ const CheckboxInput = props => {
 };
 
 const Textarea = props => {
-  const { name, errors, touched, labelform, tooltiptext } = props;
+  const { name, errors, touched, labelform } = props;
   return (
     <label>
       <div style={{ width:"80%" }} className={styles.tooltip}>
