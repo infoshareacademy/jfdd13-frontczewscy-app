@@ -11,7 +11,7 @@ import {
 import styles from "./Search.module.css";
 import "react-input-range/lib/css/index.css";
 import VerticalSidebar from "../components/VerticalSidebar";
-import { watchParties } from "../services/PartiesService";
+import { watchParties, stopParties } from "../services/PartiesService";
 import {
   handleFavoritesFirebase,
   getUserFavorites
@@ -69,6 +69,10 @@ class SidebarSearch extends Component {
     });
   };
 
+  componentWillUnmount() {
+    stopParties()
+  }
+
   get partiesAfterFilters() {
     const { favorites, filter } = this.state;
     return this.state.parties.filter(party => {
@@ -94,7 +98,6 @@ class SidebarSearch extends Component {
   }
 
   handleFavorites = async id => {
-    // this if statement change the state of favorites it creates more
     const favorites = {
       ...this.state.favorites,
       [id]: this.state.favorites[id] ? null : true

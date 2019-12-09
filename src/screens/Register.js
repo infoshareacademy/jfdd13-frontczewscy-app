@@ -1,17 +1,15 @@
 import React from "react";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
-import { Input, Button, Segment, Message, Form, Divider, Checkbox } from "semantic-ui-react";
+import { Input, Button, Segment, Message, Checkbox } from "semantic-ui-react";
 import * as moment from 'moment';
 import { register } from "../services/AuthService"
-
 import * as Yup from "yup";
-
 import styles from "./Register.module.css";
 
 const FormInfoHeader = () => {
   return (
-    <div style={{width:"80%"}} className="ui icon message">
+    <div style={{ width:"80%" }} className="ui icon message">
       <div className="content">
         <div className="header">Witaj w formularzu rejestracji.</div>
         <p>
@@ -22,18 +20,16 @@ const FormInfoHeader = () => {
   );
 };
 
-const imageRegEx = /^(http)?s?:?((\/)?(\/)?[^"'><;",()]*\.(?:png|jpg|jpeg|gif|png|svg))/;
 
 const accountFormSchema = Yup.object().shape({
   password: Yup.string()
-    .min(5, "Min 5 znaków")
+    .min(6, "Min 6 znaków")
     .max(50, "Max 50 znaków!")
     .required("Pole wymagane!"),
   passwordRep: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Hasła muszą być takie same")
-    .required("Hasła muszą być takie same"),
-  bio: Yup.string().max(400, "Za długi opis"),
-  image: Yup.string().matches(imageRegEx, "Błędny format url"),
+    .oneOf([Yup.ref("password"), null], "Hasła muszą być takie same!")
+    .required("Powtórz hasło!"),
+  bio: Yup.string().max(400, "Za długi opis, max 400 znaków!"),
   name: Yup.string()
     .min(3, "Min 3 znaki!")
     .max(15, "Max 15 znaków")
@@ -41,22 +37,22 @@ const accountFormSchema = Yup.object().shape({
   registerCheckbox: 
     Yup.boolean().oneOf([true], 'Musisz zaakceptować warunki korzystania z naszej strony.'),
   email: Yup.string()
-    .max(100, "Za długi email")
+    .max(100, "Za długi email. Max 100 znaków!")
     .email("Zły format email")
     .required("Pole wymagane!")
 });
 
 const TextInput = props => {
-  const { name, errors, touched, labelform, tooltiptext, labelRequire } = props;
+  const { name, errors, touched, labelform, labelRequire } = props;
   return (
     <div>
       <label >
-        <div style={{width:"80%"}} className={styles.tooltip}>
+        <div style={{ width:"80%" }} className={styles.tooltip}>
           {labelform}
           <span className={styles.star}>{labelRequire}</span>
     
         </div>
-        <Input style={{width:"80%"}} {...props} error={errors[name] && touched[name]} />{" "}
+        <Input style={{ width:"80%" }} {...props} error={errors[name] && touched[name]} />{" "}
       </label>
       <div className={styles.error}>
         {errors[name] && touched[name] && errors[name]}
@@ -66,19 +62,19 @@ const TextInput = props => {
 };
 
 const CheckboxInput = props => {
-  const { name, errors, touched, labelform, tooltiptext, labelRequire } = props;
+  const { name, errors, touched, labelform, labelRequire } = props;
   return (
     <div>
       <label >
-        <div style={{width:"80%"}} className={styles.tooltip}>
+        <div style={{ width:"80%" }} className={styles.tooltip}>
         
           <span className={styles.star}>{labelRequire}</span>
     
         </div>
-        <div className={styles.inputDiv} style={{cursor:"pointer"}}>
-        <label style={{cursor:"pointer"}}>
-        <Checkbox  style={{width:"20px", marginRight:"10px"}} {...props} error={errors[name] && touched[name]} />{" "}
-  {labelform} {<a href='http://www.frontczewscy.jfdd13.is-academy.pl/polityka.html'>Regulamin</a>}</label></div>
+        <div className={styles.inputDiv} style={{ cursor:"pointer" }}>
+        <label style={{ cursor:"pointer" }}>
+        <Checkbox  style={{ width:"20px", marginRight:"10px" }} {...props} error={errors[name] && touched[name]} />{" "}
+  {labelform} {<a href='frontczewscy.jfdd13.is-academy.pl/polityka.html'>Regulamin</a>}</label></div>
       </label>
       <div className={styles.error}>
         {errors[name] && touched[name] && errors[name]}
@@ -88,10 +84,10 @@ const CheckboxInput = props => {
 };
 
 const Textarea = props => {
-  const { name, errors, touched, labelform, tooltiptext } = props;
+  const { name, errors, touched, labelform } = props;
   return (
     <label>
-      <div style={{width:"80%"}} className={styles.tooltip}>
+      <div style={{ width:"80%" }} className={styles.tooltip}>
         {labelform}
       
       </div>
@@ -139,7 +135,7 @@ class Register extends React.Component {
           <div className={styles.fixedPicture}></div>
         </div>
       <div className={styles.rightsideRegister}>
-        <Segment style={{height:"auto"}}>
+        <Segment style={{ height:"auto" }}>
     
         <Formik
           initialValues={{
@@ -147,7 +143,6 @@ class Register extends React.Component {
             name: "",
             password: "",
             passwordRep: "",
-            image: "",
             bio: "",
             joined: moment().format('L'),
             registerCheckbox: "false"

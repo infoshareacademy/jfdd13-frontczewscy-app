@@ -3,19 +3,16 @@ import { Dimmer, Loader } from "semantic-ui-react";
 import styles from "./Profile.module.css";
 import Item from "../components/Item";
 
-import { watchUser, getUserFavorites } from "../services/UserService";
+import ImageUpload from "../components/ImageUpload"
+
+import { getUserFavorites } from "../services/UserService";
 import { watchParties } from "../services/PartiesService";
 
 const Profile = () => {
-  const [user, setUser] = useState({});
   const [favorites, setFavorites] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    watchUser().then(user => {
-      setUser(user);
-    });
-
     getUserFavorites().then(favorites => {
       watchParties(parties => {
         const newFavorites = parties.filter(party => {
@@ -35,23 +32,9 @@ const Profile = () => {
       <Dimmer active={isLoading} inverted>
         <Loader>Pobieranie danych...</Loader>
       </Dimmer>
+      <ImageUpload/>
       <div className={styles.userInfo}>
-        <div className={styles.userDetails}>
-          <img
-            height="250px"
-            style={{ margin: "20px 0 0 0" }}
-            src={
-              user.img ||
-              "https://react.semantic-ui.com/images/avatar/large/matthew.png"
-            }
-            alt="user profile"
-          />
-          <h1>{user.name}</h1>
-          <p>{user.bio}</p>
-          <p>Data dołączenia {user.joined}</p>
-          <p>Adres email {user.email}</p>
-        </div>
-        <h2 className={styles.favoritesHeader}>Ulubione</h2>
+        <h2 className={styles.favoritesHeader} style={{ margin: "10px" }}>Ulubione</h2>
         <div className={styles.userFavorites}>
           {favorites.map(post => {
             return (
