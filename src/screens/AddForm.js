@@ -196,7 +196,8 @@ class AddForm extends React.Component {
     btnLoading: false,
     btnDisabled: false,
     isMessageShown: false,
-    open: false
+    open: false,
+    error: ""
   };
 
   close = () => this.setState({ open: false });
@@ -228,25 +229,29 @@ class AddForm extends React.Component {
 
             const hour =
               values.date.getHours() + ":" + values.date.getMinutes();
-            const date = moment(values.date).format('L')
+            const date = moment(values.date).format("L");
 
             const newValues = {
               ...values,
               hour,
               date
-            }
+            };
 
             addParty(newValues)
-
-            setTimeout(() => {
-              resetForm();
-              this.setState({
-                btnLoading: false,
-                btnDisabled: false,
-                dimmer: "blurring",
-                open: true
+              .then(data => {
+                setTimeout(() => {
+                  resetForm();
+                  this.setState({
+                    btnLoading: false,
+                    btnDisabled: false,
+                    dimmer: "blurring",
+                    open: true
+                  });
+                }, 2000);
+              })
+              .catch(error => {
+                this.setState({ error });
               });
-            }, 2000);            
           }}>
           {({
             values,
@@ -418,6 +423,7 @@ class AddForm extends React.Component {
                     loading={this.state.btnLoading}
                     disabled={this.state.btnDisabled}
                   />
+                  <p>{this.state.error}</p>
                   <ModalBox
                     open={this.state.open}
                     dimmer={this.state.dimmer}
