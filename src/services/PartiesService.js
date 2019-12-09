@@ -27,11 +27,12 @@ export const stopParties = () => {
     .off();
 };
 
-export const addParty = (party) => {
-  firebase.database()
+export const addParty = async party => {
+  const response = await firebase
+    .database()
     .ref("/parties")
     .push({
       ...party
-    })
-}
- 
+    });
+  return response;
+};
