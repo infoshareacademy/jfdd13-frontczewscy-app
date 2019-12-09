@@ -10,7 +10,7 @@ import {
   Legend
 } from "recharts";
 import _, { groupBy, toPairs } from "lodash";
-import styles from "./Chartss.module.css";
+import styles from "./Charts.module.css";
 import moment from "moment";
 
 import { watchParties } from "../services/PartiesService";
@@ -26,7 +26,7 @@ const renderCustomizedLabel = ({
   innerRadius,
   outerRadius,
   percent,
-  index
+  
 }) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);

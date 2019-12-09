@@ -1,14 +1,6 @@
 import React from "react";
-import {
-  Image,
-  Container,
-  Dimmer,
-  Loader,
-  Icon,
-  Segment
-} from "semantic-ui-react";
+import { Image, Dimmer, Loader, Icon, Segment } from "semantic-ui-react";
 import styles from "./PartyDetails.module.css";
-import _ from "lodash";
 import {
   handleFavoritesFirebase,
   getUserFavorites
@@ -33,12 +25,14 @@ class FavoriteIcon extends React.Component {
 
   componentDidMount = () => {
     getUserFavorites().then(favorites => {
-      const id = this.props.partyId;
-      const isFavorites = favorites[id];
-      this.setState({
-        favorites,
-        isFavorites
-      });
+      if (favorites) {
+        const id = this.props.partyId;
+        const isFavorites = favorites[id];
+        this.setState({
+          favorites,
+          isFavorites
+        });
+      } else return null;
     });
   };
 
@@ -58,7 +52,6 @@ class FavoriteIcon extends React.Component {
 
     await handleFavoritesFirebase(id, firebase.auth().currentUser.uid);
     getUserFavorites().then(favorites => {
-      console.log(favorites);
       this.setState({
         favorites: favorites || {}
       });
@@ -69,7 +62,6 @@ class FavoriteIcon extends React.Component {
     return (
       <Icon
         onClick={() => this.handleFavorites()}
-        onDoubleClick={() => console.log("xd")}
         name={this.state.isFavorites ? "heart" : "heart outline"}
         size="large"
         className={styles.favoriteIcon}
@@ -81,7 +73,6 @@ class FavoriteIcon extends React.Component {
 class Party extends React.Component {
   render() {
     const {
-      id,
       title,
       address,
       description,
@@ -91,11 +82,6 @@ class Party extends React.Component {
       price,
       email
     } = this.props.parties;
-    const DescriptionContainer = () => (
-      <Container textAlign="justified">
-        <p>{description}</p>
-      </Container>
-    );
     const GridContainer = () => (
       <div className={styles.mainContainer}>
         <div className={styles.leftContainer}>
@@ -225,7 +211,7 @@ class Party extends React.Component {
             </Segment>
             <Segment
               style={{ marginTop: "0", width: "100%", textAlign: "left" }}>
-              Strona: {0 || "nie podano adresu strony"}
+              Strona: { address || "nie podano adresu strony"}
             </Segment>
           </div>
 

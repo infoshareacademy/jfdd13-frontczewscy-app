@@ -18,14 +18,14 @@ import firebase from "../firebase";
 
 
   return (<nav className={styles.navbar}>
-    <div className={styles.left}>
+    <div className={styles.left} style={{ zIndex:"1000"}}>
       <NavLink to="/" exact className={styles.navLogo}>
-        <img className={styles.logo} src = { Logo } alt="Concerte Logo" />
+        <img className={styles.logo} src = {Logo} alt="Concerte Logo" />
         <span>Concerte</span>
       </NavLink>
   <button className={styles.navButton} onClick={() => {setIsNavOpen(!isNavOpen)}}>{ isNavOpen ? "  ▲  " : "  ▼  " }</button>
     </div>
-    <ul className={isNavOpen ? styles.navOpen : styles.navClosed} >
+    <ul className={isNavOpen ? styles.navOpen : styles.navClosed} style={{transition:'1s'}}>
         <li><NavLink activeClassName={"active-link"} to="/wyszukaj"exact><Search />Wyszukiwanie imprez</NavLink></li>
         <li><NavLink activeClassName={"active-link"} to="/"exact><Chart />Wykresy</NavLink></li>
         <li><NavLink activeClassName={"active-link"} to="/dodaj-wydarzenie"exact><AddEvent />Dodaj wydarzenie</NavLink></li>

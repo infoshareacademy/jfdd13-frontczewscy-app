@@ -11,8 +11,7 @@ import {
 import styles from "./Search.module.css";
 import "react-input-range/lib/css/index.css";
 import VerticalSidebar from "../components/VerticalSidebar";
-import { watchParties } from "../services/PartiesService";
-import _ from "lodash";
+import { watchParties, stopParties } from "../services/PartiesService";
 import {
   handleFavoritesFirebase,
   getUserFavorites
@@ -64,12 +63,15 @@ class SidebarSearch extends Component {
 
     // const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     getUserFavorites().then(favorites => {
-      console.log(favorites);
       this.setState({
         favorites: favorites || {}
       });
     });
   };
+
+  componentWillUnmount() {
+    stopParties()
+  }
 
   get partiesAfterFilters() {
     const { favorites, filter } = this.state;
@@ -96,7 +98,6 @@ class SidebarSearch extends Component {
   }
 
   handleFavorites = async id => {
-    // this if statement change the state of favorites it creates more
     const favorites = {
       ...this.state.favorites,
       [id]: this.state.favorites[id] ? null : true
@@ -108,7 +109,6 @@ class SidebarSearch extends Component {
 
     await handleFavoritesFirebase(id, firebase.auth().currentUser.uid);
     getUserFavorites().then(favorites => {
-      console.log(favorites);
       this.setState({
         favorites: favorites || {}
       });

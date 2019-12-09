@@ -1,12 +1,9 @@
 .container {
-  display: flex;
   overflow-y: scroll;
   height: calc(100vh - 40px);
-  justify-content: center;
 }
 
-.favorites {
-  flex: 2;
+.userDetails {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +12,27 @@
 .userInfo {
   width: 100%;
   max-width: 1200px;
+  margin: 0 auto;
+}
+
+.favoritesHeader {
+  text-align: center;
+}
+
+.userFavorites {
+  flex: 1;
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  top: 0
+}
+
+.dropZone {
+  border: 1px solid black;
+  text-align: center;
+  cursor: pointer;
+  padding: 20px;
 }
 
 @media (max-width: 600px) {
