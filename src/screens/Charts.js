@@ -16,7 +16,7 @@ import moment from "moment";
 import { watchParties } from "../services/PartiesService";
 import { watchUsers } from "../services/UserService";
 
-const COLORS = ["#A86BC2", "#DDCCFF", "#FFBB28", "#FF8042"];
+const COLORS = ["#A86BC2", "#c2a7f9", "#FFBB28", "#FF8042", "#CB3D88", "#DA596A"];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -98,8 +98,15 @@ export default class Example extends PureComponent {
 
   render() {
     return (
+      <div>
+          <div style={{textAlign:"center", padding: "40px", fontFamily: "Arial"}}><h1>Wyszukiwarka imprez Concerte</h1>
+          <div>Zorganizuj z nami swój dzień! Trójmiejskie wydarzenia!</div>
+      </div>
+     
       <div className={styles.chartt}>
+       
         <div>
+       
           <h2>Ilość imprez według kategorii</h2>
           <PieChart width={400} height={500}>
             <Pie
@@ -123,7 +130,7 @@ export default class Example extends PureComponent {
           </PieChart>
         </div>
 
-        <div>
+        <div style={{padding: "30px", }}>
           <h2>Liczba zarejestrowanych użytkowników w ostatnim czasie</h2>
           <BarChart
             width={750}
@@ -134,10 +141,10 @@ export default class Example extends PureComponent {
             <YAxis />
             <Tooltip />
             <Legend />
-
             <Bar dataKey="użytkownicy" fill="#A86BC2" />
           </BarChart>
         </div>
+      </div>
       </div>
     );
   }
