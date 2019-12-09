@@ -74,7 +74,7 @@ const CheckboxInput = props => {
         <div className={styles.inputDiv} style={{ cursor:"pointer" }}>
         <label style={{ cursor:"pointer" }}>
         <Checkbox  style={{ width:"20px", marginRight:"10px" }} {...props} error={errors[name] && touched[name]} />{" "}
-  {labelform} {<a href='frontczewscy.jfdd13.is-academy.pl/polityka.html'>Regulamin</a>}</label></div>
+  {labelform} {<a target="_blank" href='http://www.frontczewscy.jfdd13.is-academy.pl/polityka.html'>Regulamin</a>}</label></div>
       </label>
       <div className={styles.error}>
         {errors[name] && touched[name] && errors[name]}
