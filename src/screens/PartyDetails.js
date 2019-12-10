@@ -12,7 +12,8 @@ import {
   faMoneyBillWave,
   faMapMarkerAlt,
   faAt,
-  faLaptop
+  faLaptop,
+  faClock
 } from "@fortawesome/free-solid-svg-icons";
 import firebase from "../firebase";
 
@@ -73,8 +74,12 @@ class FavoriteIcon extends React.Component {
 class Party extends React.Component {
   render() {
     const {
+      date,
+      hour,
       title,
-      address,
+      street,
+      town,
+      website,
       description,
       image,
       partyType,
@@ -82,6 +87,7 @@ class Party extends React.Component {
       price,
       email
     } = this.props.parties;
+    console.log(this.props.parties);
     const GridContainer = () => (
       <div className={styles.mainContainer}>
         <div className={styles.leftContainer}>
@@ -129,6 +135,17 @@ class Party extends React.Component {
                 className={styles.favoriteIcon}
               />
               {title}
+            </Segment>
+          </div>
+
+          <div className={styles.mainData}>
+            <Segment
+              style={{ height: "100%", marginBottom: "0", width: "60px" }}>
+              <FontAwesomeIcon icon={faClock} />
+            </Segment>
+            <Segment
+              style={{ marginTop: "0", width: "100%", textAlign: "left" }}>
+              {`${date}, ${hour}` || "Nie podano terminu"}
             </Segment>
           </div>
 
@@ -184,7 +201,7 @@ class Party extends React.Component {
             </Segment>
             <Segment
               style={{ marginTop: "0", width: "100%", textAlign: "left" }}>
-              Adres: {address || "brak adresu"}
+              Adres: {`${street}, ${town}` || "brak adresu"}
             </Segment>
           </div>
 
@@ -211,7 +228,7 @@ class Party extends React.Component {
             </Segment>
             <Segment
               style={{ marginTop: "0", width: "100%", textAlign: "left" }}>
-              Strona: { address || "nie podano adresu strony"}
+              Strona: {website || "nie podano adresu strony"}
             </Segment>
           </div>
 
