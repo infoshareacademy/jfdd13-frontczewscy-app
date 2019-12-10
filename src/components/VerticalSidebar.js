@@ -51,7 +51,7 @@ const VerticalSidebar = props => {
         initialValues={{
           title: "",
           partyType: "all",
-          sliderValue: 500,
+          sliderValue: 1500,
           isFavorites: false
         }}
         validate={onSearch}
@@ -97,7 +97,7 @@ const VerticalSidebar = props => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   min="0"
-                  max="500"
+                  max="1500"
                   value={values.sliderValue}
                   step="1"
                 />
